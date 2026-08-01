@@ -48,18 +48,17 @@ interface FeatureCardProps {
   icon: React.ReactNode;
   iconBg: string;
   title: string;
-  desc: string;
+
   delay?: string;
   className?: string;
 }
-const FeatureCard = ({ icon, iconBg, title, desc, delay = "0s", className = "" }: FeatureCardProps) => (
+const FeatureCard = ({ icon, iconBg, title,  delay = "0s", className = "" }: FeatureCardProps) => (
   <div
     className={`feat-card absolute bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_12px_30px_-5px_rgba(124,58,237,0.12)] p-3 flex flex-col items-center text-center gap-1.5 w-[160px] border border-violet-100/70 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.25)] hover:-translate-y-1 transition-all duration-500 ${className}`}
     style={{ animationDelay: delay }}
   >
     <div className={`w-9 h-9 rounded-lg flex items-center justify-center shadow-inner ${iconBg}`}>{icon}</div>
     <p className="text-[16px] font-extrabold text-slate-800 leading-tight">{title}</p>
-    <p className="text-[13px] text-slate-400 ">{desc}</p>
   </div>
 );
 
@@ -441,7 +440,6 @@ export default function Home() {
                   icon={<Heart color="#ef4444" size={24} />}
                   iconBg="bg-red-50"
                   title="Emergency "
-                  desc="Emergency Medical Information"
                   delay="0.1s"
                   className="relative lg:absolute left-0 sm:left-2 top-auto lg:top-[50px]"
                 />
@@ -449,7 +447,6 @@ export default function Home() {
                   icon={<Car color="#2563eb" size={24} />}
                   iconBg="bg-blue-50"
                   title="Vehicle QR Card"
-                  desc="Fast Parking Connection"
                   delay="0.5s"
                   className="relative lg:absolute right-0 sm:right-2 top-auto lg:top-[50px]"
                 />
@@ -457,7 +454,6 @@ export default function Home() {
                   icon={<Building color="#8b5cf6" size={24} />}
                   iconBg="bg-purple-50"
                   title="Business Card"
-                  desc="Instantly Hub Socials"
                   delay="0.7s"
                   className="relative lg:absolute right-0 sm:right-2 bottom-auto lg:bottom-[50px]"
                 />
