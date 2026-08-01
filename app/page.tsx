@@ -6,6 +6,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { CardStack, CardStackItem } from "@/components/ui/card-stack";
 import ScrollReveal from "@/components/ScrollReveal";
+import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
 import {
   AlertTriangle,
   ArrowRight,
@@ -38,6 +39,7 @@ import {
   Star,
   Stethoscope,
   User,
+  Wifi,
   // Image as LucideImage, // Renamed to avoid conflict with next/image
   Zap,
 } from "lucide-react";
@@ -201,7 +203,7 @@ export default function Home() {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
                 }}
               >
-                One QR Platform for
+                Smart QR Platform for
                 <br />
                 <TypeAnimation
                   sequence={[
@@ -533,7 +535,7 @@ export default function Home() {
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               Smart QR Solutions
             </h3>
-            <p className="text-slate-500 mt-3 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-500 mt-3 text-md leading-relaxed">
               One intelligent platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
             </p>
           </ScrollReveal>
@@ -651,29 +653,23 @@ export default function Home() {
       </section>
 
 
+
+
       {/* ════════════════ SECTION 03 — WHY CHOOSE Scan-N-Go ════════════════ */}
-      <section id="features" className=" relative py-20 bg-slate-50 border-t border-slate-100">
-        <div className="absolute left-12 top-[40%] rounded-2xl bg-white p-4 shadow-lg border border-violet-100 rotate-12 animate-float-medium">
-          <Smartphone className="h-7 w-7 text-sky-500" />
-        </div>
-        {/* Top Left Blob */}
-        <div className="absolute -top-24 -left-24 h-42 w-42 rounded-full bg-violet-200/40" />
+      <section id="features" className="relative overflow-hidden border-t border-slate-100 bg-[#fcfbff] py-16 sm:py-20">
 
-        <div className="absolute right-10 bottom-20 rounded-2xl bg-white p-4 shadow-lg border border-violet-100 rotate-[-8deg] animate-float-slow">
-          <Bell className="h-7 w-7 text-orange-500" />
-        </div>
-        {/* Small Cyan Glow */}
-        <div className="absolute top-60 right-20 h-36 w-36 rounded-full bg-cyan-200/30 blur-xl" />
+        {/* fviolet Blob */}
+        <div className="absolute -left-24 top-20 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-violet-500/25 via-fuchsia-400/15 to-transparent blur-[90px] animate-blob-one" />
+        {/* Pink Glow */}
+        <div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
+        {/* Cyan Blob */}
+        <div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
-
-        <div className="absolute right-1/4 top-1/2 rounded-full bg-cyan-50 p-3 animate-float-fast">
-          <Zap className="h-6 w-6 text-cyan-500" />
-        </div>
-        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
+          <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">WHY CHOOSE OUR PLATFORM</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
-              Powerful QR Tools Redefining Digital Safety
+              Vehicle QR Features
             </h3>
             <p className="text-slate-500 mt-4 text-lg leading-relaxed">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan-N-Go simplifies connection workflows.
@@ -681,180 +677,115 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Core Feature Demos Grid */}
-          <ScrollReveal className="grid lg:grid-cols-2 gap-8 mb-16">
+          <ScrollReveal className="grid gap-5 lg:grid-cols-2">
 
             {/* Demo 1: Smart Emergency & Vehicle QR (Simulator) */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-[0_10px_35px_-8px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
-              <div>
-                <span className="text-[13px] uppercase font-black tracking-widest text-violet-700 bg-violet-50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
-                  <Zap size={10} /> Single QR • Dual Notification
-                </span>
-                <h4 className="text-2xl font-black text-slate-800 mt-5">One Platform for Every QR Solution</h4>
-                <p className="text-md text-slate-500 mt-2.5 leading-relaxed">
-                  One intelligent QR works for both everyday communication and emergency situations. After scanning, users simply choose how they want to notify the owner.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mt-6">
-                  <div className="border border-slate-100 rounded-2xl p-4 bg-slate-50 hover:border-violet-200 transition-colors">
-                    <p className="text-md font-black text-slate-800 flex items-center gap-1.5">
-                      <Bell size={18} className="text-violet-500" /> Normal Alert
-                    </p>
-                    <p className="text-sm text-slate-500 mt-1 leading-snug">Send a regular message for parking, theft, or other issues.</p>
+            <div className="min-h-[310px] rounded-2xl border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-violet-50 p-6 shadow-[0_12px_35px_-20px_rgba(91,33,182,0.3)] sm:p-4">
+              <div >
+
+
+                <h4 className=" text-2xl font-black text-slate-800 mb-3">One Platform for Every QR Solution</h4>
+
+                <div className="grid min-h-[270px] items-center gap-4 sm:grid-cols-[1.1fr_.9fr]">
+                  <div className="relative flex min-h-[270px] items-center justify-center overflow-hidden  border-r border-slate-200">
+                    <span className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-slate-200 shadow-md rounded-xl text-violet-600"><Bell size={20} /></span>
+                    <div className="absolute bottom-30 left-14 -rotate-120 flex h-10 w-10 items-center justify-center">
+                      <Wifi size={50} className=" text-violet-600 opacity-40" strokeWidth={1.5} />
+                    </div>
+                    <span className="absolute bottom-5 right-5 grid grid-cols-3 gap-1 opacity-60">{Array.from({ length: 21 }).map((_, index) => <i key={index} className="h-1 w-1 rounded-full bg-violet-400" />)}</span>
+                    <Image src="/images/normal-alert-2.png" alt="Normal alert on a mobile phone" width={650} height={650} className="relative z-10 mx-auto h-[360px] w-auto max-w-full object-contain drop-shadow-xl" />
                   </div>
-                  <div className="border border-red-100 rounded-2xl p-4 bg-red-50/20 hover:border-red-300 transition-colors">
-                    <p className="text-md font-black text-red-700 flex items-center gap-1.5">
-                      <AlertTriangle size={18} className="text-red-500" /> Emergency Alert
-                    </p>
-                    <p className="text-sm text-slate-500 mt-1 leading-snug">Instantly notify the owner about an emergency situation.</p>
+
+                  <div className="grid w-full grid-cols-1 gap-5 py-2 sm:pr-3 ">
+
+                    <div className="border-b border-slate-200 pb-5">
+                      <p className="flex items-center gap-2 text-sm font-black text-slate-800">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-200"><Bell size={15} /></span> Normal Alert
+                      </p>
+                      <p className="ml-10 mt-2 text-xs leading-5 text-slate-500">
+                        For general updates and everyday communication.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="flex items-center gap-2 text-sm font-black text-red-600">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><AlertTriangle size={15} /></span> Emergency Alert
+                      </p>
+                      <p className="ml-10 mt-2 text-xs leading-5 text-slate-500">
+                        Instantly notify the owner about an emergency situation.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Interactive Simulator Box */}
-              <div className="mt-8 border border-slate-100 rounded-2xl p-5 bg-slate-50/80">
-                <p className="text-[14px] font-black text-slate-400 uppercase tracking-widest text-center">Interactive Simulator</p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-4">
-                  <button
-                    onClick={() => setDemoAlert("normal")} // Changed text
-                    className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${demoAlert === "normal" ? "bg-violet-600 text-white shadow-md shadow-violet-500/20" : "bg-white text-slate-700 border border-slate-200 hover:border-violet-300"}`}
-                  >
-                    <Bell size={17} /> Send Normal Notification
-                  </button>
-                  <button
-                    onClick={() => setDemoAlert("emergency")} // Changed text
-                    className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${demoAlert === "emergency" ? "bg-red-600 text-white shadow-md shadow-red-500/20" : "bg-white text-slate-700 border border-slate-200 hover:border-red-300"}`}
-                  >
-                    <AlertTriangle size={17} /> Send Emergency Notification
-                  </button>
-                </div>
 
-                {/* Simulated notifications banner */}
-                <div
-                  className={`mt-5 h-16 relative overflow-hidden rounded-xl flex items-center justify-center px-5 border shadow-inner transition-all duration-500
-                  ${demoAlert === "normal"
-                      ? "bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-100 border-blue-200"
-                      : demoAlert === "emergency"
-                        ? "bg-gradient-to-r from-red-50 via-rose-50 to-orange-100 border-red-200"
-                        : "bg-gradient-to-r from-slate-50 via-white to-slate-100 border-slate-200"
-                    }`}
-                >
-                  {/* Background Glow */}
-                  {demoAlert === "normal" && (
-                    <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-blue-400/20 blur-3xl" />
-                  )}
-
-                  {demoAlert === "emergency" && (
-                    <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-red-400/25 blur-3xl" />
-                  )}
-
-                  {demoAlert === "none" && (
-                    <p className="relative flex items-center gap-2 text-sm text-slate-500">
-                      <ScanLine size={14} className="text-slate-600" />
-                      Click a button to scan and send alerts...
-                    </p>
-                  )}
-
-                  {demoAlert === "normal" && (
-                    <div className="relative flex items-center gap-3.5 w-full">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 shadow-lg text-white">
-                        <Bell size={16} />
-                      </div>
-
-                      <div className="text-left">
-                        <p className="text-md font-bold text-blue-700">
-                          Normal Notification Sent
-                        </p>
-                        <p className="text-sm text-slate-600">
-                          Owner has been notified about the parking issue.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {demoAlert === "emergency" && (
-                    <div className="relative flex items-center gap-3.5 w-full">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shrink-0 shadow-lg text-white animate-pulse">
-                        <AlertTriangle size={16} />
-                      </div>
-
-                      <div className="text-left">
-                        <p className="text-md font-bold text-red-600 flex items-center gap-1.5">
-                          <AlertTriangle size={14} />
-                          URGENT EMERGENCY ALERT
-                        </p>
-                        <p className="text-sm text-slate-700">
-                          Owner and emergency contacts have been alerted instantly.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
             </div>
 
             {/* Demo 2: Dual Sticker Protection */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-[0_10px_35px_-8px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+            <div className="min-h-[310px] rounded-2xl border border-violet-100 bg-white/90 p-6 shadow-[0_12px_35px_-20px_rgba(91,33,182,0.3)] sm:p-6">
               <div>
                 <span className="text-[13px] uppercase font-black tracking-widest text-[#7c3aed] bg-purple-50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
                   <ShieldCheck size={13} /> Backup Sticker Shield
                 </span>
-                <h4 className="text-2xl font-black text-slate-800 mt-5">Dual Sticker Protection</h4>
-                <p className="text-md text-slate-500 mt-2.5 leading-relaxed">
+                <h4 className="mt-3 text-xl font-black text-slate-800 sm:text-2xl">Dual Sticker Protection</h4>
+                <p className="mt-1.5 text-sm leading-5 text-slate-500">
                   Every QR order is supplied with two identical QR stickers linked to the same profile. If one sticker gets damaged or unreadable, the second one continues to work seamlessly.
                 </p>
-                <div className="mt-4 flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-slate-600 font-semibold">
-                  <div className="flex items-center gap-1.5"><CheckCircle2 size={14} className="text-emerald-500" /> Primary Sticker Windshield</div>
-                  <div className="flex items-center gap-1.5"><CheckCircle2 size={14} className="text-emerald-500" /> Backup Sticker Option</div>
+                <div className="mt-3 flex gap-4 text-xs font-semibold text-slate-600">
+                  <div className="flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-500" /> Primary</div>
+                  <div className="flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-500" /> Backup</div>
                 </div>
               </div>
 
               {/* Graphic Mockup of Dual Sticker Shield */}
-              <div className="relative mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-sky-50 to-violet-50 p-6 shadow-xl">
+              <div className="relative mt-4 overflow-hidden rounded-xl border border-violet-100 bg-gradient-to-br from-white via-sky-50 to-violet-50 p-3 sm:p-4">
 
                 {/* Background Glow */}
                 <div className="absolute -top-12 -left-12 h-40 w-40 rounded-full bg-violet-300/20 blur-3xl animate-pulse"></div>
                 <div className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-sky-300/20 blur-3xl animate-pulse"></div>
 
                 {/* Animated Connection */}
-                <div className="absolute top-[84px] left-1/2 -translate-x-1/2 w-40 h-[2px] overflow-hidden">
+                <div className="absolute top-[62px] left-1/2 h-[2px] w-28 -translate-x-1/2 overflow-hidden sm:top-[70px] sm:w-40">
                   <div className="absolute inset-0 bg-slate-300 rounded-full"></div>
 
                   <div className="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-transparent via-violet-500 to-transparent animate-line-flow"></div>
                 </div>
 
-                <div className="relative grid grid-cols-2 gap-6">
+                <div className="relative grid grid-cols-2 gap-3 sm:gap-5">
 
                   {/* Primary */}
-                  <div className="rounded-2xl bg-white/80 backdrop-blur-xl border border-violet-200 p-5 text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                  <div className="rounded-xl border border-violet-200 bg-white/80 p-3 text-center shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-4">
 
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-100 to-violet-50 shadow-lg animate-float">
-                      <QrCode className="w-11 h-11 text-violet-600" />
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-100 to-violet-50 shadow-sm sm:h-14 sm:w-14">
+                      <QrCode className="h-7 w-7 text-violet-600 sm:h-8 sm:w-8" />
                     </div>
 
-                    <p className="mt-4 text-sm font-black uppercase tracking-wider text-violet-700">
+                    <p className="mt-2 text-[10px] font-black uppercase tracking-wider text-violet-700 sm:text-xs">
                       Primary Sticker
                     </p>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-[10px] text-slate-500 sm:text-xs">
                       Front Windshield
                     </p>
 
                   </div>
 
                   {/* Backup */}
-                  <div className="rounded-2xl bg-white/80 backdrop-blur-xl border border-sky-200 p-5 text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                  <div className="rounded-xl border border-sky-200 bg-white/80 p-3 text-center shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-4">
 
                     <div
-                      className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 shadow-lg animate-float"
+                      className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-100 to-sky-50 shadow-sm sm:h-14 sm:w-14"
                       style={{ animationDelay: ".6s" }}
                     >
-                      <QrCode className="w-11 h-11 text-sky-600" />
+                      <QrCode className="h-7 w-7 text-sky-600 sm:h-8 sm:w-8" />
                     </div>
 
-                    <p className="mt-4 text-sm font-black uppercase tracking-wider text-sky-700">
+                    <p className="mt-2 text-[10px] font-black uppercase tracking-wider text-sky-700 sm:text-xs">
                       Backup Sticker
                     </p>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-[10px] text-slate-500 sm:text-xs">
                       Secondary Position
                     </p>
 
@@ -863,13 +794,13 @@ export default function Home() {
                 </div>
 
                 {/* Bottom Info */}
-                <div className="relative mt-6 flex items-center justify-center gap-3 rounded-2xl bg-white/70 backdrop-blur-lg border border-slate-200 py-4 px-5 shadow-md">
+                <div className="relative mt-3 flex items-center justify-center gap-2 rounded-xl border border-violet-100 bg-white/80 px-3 py-2.5">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-sky-500 text-white animate-pulse">
-                    <ShieldCheck size={22} />
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-sky-500 text-white">
+                    <ShieldCheck size={14} />
                   </div>
 
-                  <p className="text-sm font-medium text-slate-700">
+                  <p className="text-[11px] font-semibold text-slate-600 sm:text-xs">
                     If the primary sticker is damaged, the backup QR works instantly.
                   </p>
 
@@ -880,18 +811,22 @@ export default function Home() {
           </ScrollReveal>
 
 
+
         </div>
       </section>
 
-
       {/* ════════════════ SECTION 04 — TRUSTED BY ════════════════ */}
-      <section className=" overflow-hidden border-y border-slate-100 bg-slate-50 pt-12 pb-20 lg:pt-30">
+      <section
+        className="relative overflow-hidden border-y border-slate-100 bg-cover bg-center pt-12 pb-20 shadow-lg lg:pt-10"
+        style={{ backgroundImage: "url('/images/benefit_bg.png')", }}
+      >
+        {/* Inner top shadow */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-indigo/5 to-transparent" />
 
-
-        <div className="w-full max-w-8xl mx-auto px-6 lg:px-12">
+        <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-12">
 
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-800">
+            <h3 className="text-2xl sm:text-4xl font-black pb-10 text-slate-800">
               Trusted By IT Companies & Organizations
             </h3>
           </ScrollReveal>
@@ -937,27 +872,20 @@ export default function Home() {
         {/* Top Left Blob */}
         <div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
-        {/* Bottom Right Blob */}
-        <div className="absolute bottom-24 right-[20%] h-40 w-40 rounded-full bg-cyan-200/25   blur-md" />
+        {/* Aurora Blob - Left */}
+        <div className="absolute left-[10%] top-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
+        {/* Pink Glow */}
+        <div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
+        {/* Cyan Blob */}
+        <div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
-        <div className="absolute left-8 top-16 animate-float-slow rounded-2xl border border-violet-100 bg-white p-4 shadow-xl rotate-[-10deg]">
-          <House className="h-7 w-7 text-violet-600" />
-        </div>
-
-        <div className="absolute right-12 bottom-20 animate-float-medium rounded-2xl border border-violet-100 bg-white p-4 shadow-xl rotate-6">
-          <Hospital className="h-7 w-7 text-red-500" />
-        </div>
-
-        <div className="absolute right-1/2 bottom-[10%] animate-float-fast rounded-full bg-violet-50 p-3">
-          <MapPin className="h-6 w-6 text-violet-500" />
-        </div>
 
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               WHERE YOU CAN USE
             </h3>
-            <p className="text-slate-500 mt-3 text-sm leading-relaxed">
+            <p className="text-slate-500 mt-3 text-md leading-relaxed ">
               From gated communities and corporate offices to schools, industries, and buildings, Scan-N-Go delivers secure, smart, and seamless QR-powered management for every location.
             </p>
           </ScrollReveal>
@@ -987,8 +915,20 @@ export default function Home() {
 
 
 
+
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50 relative">
+
+
+        {/* Top Left Blob */}
+        <div className="absolute left-10 top-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
+
+        {/* Bottom Right Blob */}
+        <div className="absolute bottom-45 left-[25%] h-40 w-40 rounded-full bg-purple-200/25 blur-md animate-blob-2" />
+
+        {/* Center Glow */}
+        <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
+
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">PRODUCT PREVIEW</span>
@@ -1009,23 +949,43 @@ export default function Home() {
                 Connect your physical cards and windshield stickers to safe databases. The application lets owners edit emergency contact numbers instantly without buying new stickers.
               </p>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <motion.div
+                className="grid sm:grid-cols-2 gap-4"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={{
+                  visible: { transition: { staggerChildren: 0.15 } },
+                  hidden: {},
+                }}
+              >
                 {[
-                  { name: "Scan QR on Go", icon: <ScanLine size={14} className="text-violet-600" /> },
-                  { name: "Instant Notifications", icon: <Bell size={14} className="text-violet-600" /> },
-                  { name: "Direct QR Editor", icon: <QrCode size={14} className="text-violet-600" /> },
-                  { name: "Visitor History Log", icon: <Clock size={14} className="text-violet-600" /> },
-                  { name: "Sticker Download PDFs", icon: <Download size={14} className="text-violet-600" /> },
-                  { name: "Update Profile instantly", icon: <User size={14} className="text-violet-600" /> },
+                  { name: "Scan QR on Go", icon: <ScanLine size={14} className="text-violet-600" />, side: "left" },
+                  { name: "Instant Notifications", icon: <Bell size={14} className="text-violet-600" />, side: "right" },
+                  { name: "Direct QR Editor", icon: <QrCode size={14} className="text-violet-600" />, side: "left" },
+                  { name: "Visitor History Log", icon: <Clock size={14} className="text-violet-600" />, side: "right" },
+                  { name: "Sticker Download PDFs", icon: <Download size={14} className="text-violet-600" />, side: "left" },
+                  { name: "Update Profile instantly", icon: <User size={14} className="text-violet-600" />, side: "right" },
                 ].map((appFeat, i) => (
-                  <div key={i} className="flex items-center gap-2.5 bg-slate-50 border border-slate-100 p-4 rounded-xl hover:border-violet-200 hover:shadow-sm transition-all duration-300 group">
+                  <motion.div
+                    key={i}
+                    className="flex items-center gap-2.5 bg-slate-50 border border-slate-100 p-4 rounded-xl hover:border-violet-200 hover:shadow-sm transition-all duration-300 group"
+                    variants={{
+                      hidden: { opacity: 0, x: appFeat.side === 'left' ? -50 : 50 },
+                      visible: {
+                        opacity: 1,
+                        x: 0,
+                        transition: { duration: 0.5, ease: "easeOut" },
+                      },
+                    }}
+                  >
                     <span className="w-7 h-7 rounded-lg bg-violet-100 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform">
                       {appFeat.icon}
                     </span>
                     <span className="text-sm font-bold text-slate-700">{appFeat.name}</span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Download Buttons */}
               <div className="flex flex-wrap gap-4 pt-4">
@@ -1073,7 +1033,19 @@ export default function Home() {
 
       {/* ════════════════ SECTION 07 — TESTIMONIALS ════════════════ */}
 
-      <section className="py-20 bg-white">
+      <section className=" relative py-20 bg-white">
+
+          {/* Top Left Blob */}
+        <div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
+
+        {/* Aurora Blob - Left */}
+        <div className="absolute right-[10%] bottom-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
+       
+        {/* Pink Glow */}
+        <div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
+        {/* Cyan Blob */}
+        <div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
+
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">TESTIMONIALS</span>
@@ -1085,7 +1057,9 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-3 gap-8">
+          <TestimonialCarousel />
+
+          <ScrollReveal className="hidden grid md:grid-cols-3 gap-8">
             {[
               {
                 user: "Vehicle User",
@@ -1217,30 +1191,144 @@ export default function Home() {
       {/* ════════════════ SECTION 09 — CALL TO ACTION ════════════════ */}
 
 
-      <section className="py-20 bg-white">
-        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="bg-gradient-to-br from-slate-100 via-slate-100 to-slate-100 rounded-3xl p-12 sm:p-16 text-white text-center shadow-2xl relative overflow-hidden">
-            {/* Design Blobs */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="py-14 lg:py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-indigo-900  tracking-tight leading-none">
-                LET&apos;S CREATE BETTER, SECURE AND QUICK FUTURE WITH US
-              </h3>
-              <p className="text-violet-900 text-lg mx-auto leading-relaxed">
-                Join thousands of apartmnts, offices, factory managers, and vehicle drivers securing daily access with smart QR technology.
-              </p>
-              <div className="pt-2">
+          <div className="relative overflow-hidden rounded-[34px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)]">
+
+            {/* Background */}
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
+
+            {/* White Curved Shape */}
+            <div className="hidden lg:block absolute right-[-220px] top-[-120px] w-[760px] h-[760px] rounded-full bg-white/95"></div>
+
+            <div className="hidden lg:block absolute inset-0 overflow-hidden">
+              <div
+                className=" wave-1 absolute left-[40%] bottom-[-100px] w-[650px] h-[650px] rounded-full border border-white/10" />
+
+              <div
+                className="wave-2 absolute left-[45%] bottom-[-100px] w-[720px] h-[720px] rounded-full border border-white/10" />
+
+              <div
+                className="wave-3 absolute left-[50%] bottom-[-120px] w-[790px] h-[790px] rounded-full border border-white/10" />
+
+            </div>
+
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center">
+
+              {/* LEFT */}
+
+              <div className="w-full lg:w-[46%] px-8 py-14 lg:px-16">
+
+                <h2 className="hero-heading text-2xl sm:text-3xl md:text-4xl w-2xl text-start text-white leading-tight transition-transform duration-500 hover:scale-105">
+                  <span className="block hero-heading-gradient">
+                    LET’S CREATE BETTER, SECURE AND QUICK FUTURE WITH US
+                  </span>
+                </h2>
+
+                <p className="mt-7 max-w-md text-white/75 text-lg leading-8">
+
+                  Partner with Scan n Go and build a safer,
+                  smarter and contactless future together.
+
+                </p>
+
                 <Link
                   href="/contact"
-                  className="inline-flex items-center text-lg gap-2.5 bg-white hover:bg-violet-50 text-[#7c3aed] font-black px-10 py-2.5 rounded-[15px] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                  className="group inline-flex items-center gap-4 mt-10 rounded-2xl bg-white px-9 py-4 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                 >
-                  Contact Us Now <ArrowRight size={18} strokeWidth={2.5} />
+
+                  Contact Us
+
+                  <svg
+                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5l8 7-8 7z" />
+                  </svg>
+
                 </Link>
+
               </div>
+
+              {/* RIGHT */}
+
+              <div className="relative w-full lg:w-[54%] h-[420px] flex items-center justify-center">
+
+                {/* Shadow */}
+
+                <div className="absolute bottom-12 w-72 h-16 rounded-full bg-indigo-900/25 blur-xl"></div>
+
+                {/* Platform */}
+
+                <div className="absolute bottom-16 w-64 h-16 rounded-full bg-gradient-to-b from-white to-indigo-200 shadow-2xl"></div>
+
+                <div className="absolute bottom-[92px] w-52 h-9 rounded-full bg-white"></div>
+
+                {/* Shield */}
+
+                <div className="absolute right-24 top-14 hidden md:flex items-center justify-center w-40 h-44 rounded-[36px] bg-gradient-to-b from-[#7054ff] to-[#4f2fd3] rotate-12 shadow-[0_30px_50px_rgba(76,50,220,.45)]">
+
+                  <svg
+                    className="w-16 h-16 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+
+                </div>
+
+                {/* QR Card */}
+
+                <div className="relative z-20 rounded-[30px] bg-white p-6 shadow-[0_35px_80px_rgba(30,20,80,.25)]">
+
+                  <div className="relative w-40 h-40">
+
+                    {/* Scanner Corners */}
+
+                    <div className="absolute top-0 left-0 w-8 h-8 border-l-4 border-t-4 border-indigo-500 rounded-tl-xl"></div>
+
+                    <div className="absolute top-0 right-0 w-8 h-8 border-r-4 border-t-4 border-indigo-500 rounded-tr-xl"></div>
+
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-l-4 border-b-4 border-indigo-500 rounded-bl-xl"></div>
+
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-r-4 border-b-4 border-indigo-500 rounded-br-xl"></div>
+
+                    {/* QR IMAGE */}
+
+                    <img
+                      src="/images/scan-QR.png"
+                      alt="QR Code"
+                      className="absolute inset-5 w-[120px] h-[120px] object-contain"
+                    />
+
+                  </div>
+
+                </div>
+
+                {/* Floating Dots */}
+
+                <div className="absolute right-10 top-24 w-3 h-3 rounded-full bg-indigo-300"></div>
+
+                <div className="absolute right-6 bottom-20 w-2 h-2 rounded-full bg-purple-400"></div>
+
+                <div className="absolute right-24 bottom-32 w-4 h-4 rounded-full bg-indigo-200"></div>
+
+              </div>
+
             </div>
-          </ScrollReveal>
+
+          </div>
+
         </div>
       </section>
     </>

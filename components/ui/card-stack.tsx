@@ -31,11 +31,11 @@ type FanPosition = {
 };
 
 const fanPositions: Record<number, FanPosition> = {
-  "-2": { x: "-120%", y: 185, rotate: -25, scale: 0.78, zIndex: 10, opacity: 0.9 },
-  "-1": { x: "-66%", y: 48, rotate: -13, scale: 0.91, zIndex: 10, opacity: 0.96 },
-  "0": { x: "0%", y: 0, rotate: 0, scale: 1, zIndex: 30, opacity: 1 },
-  "1": { x: "66%", y: 48, rotate: 13, scale: 0.91, zIndex: 10, opacity: 0.96 },
-  "2": { x: "120%", y: 185, rotate: 25, scale: 0.78, zIndex: 10, opacity: 0.9 },
+  "-2": { x: "-120%", y: 170, rotate: -25, scale: 0.7, zIndex: 10, opacity: 0.9 },
+  "-1": { x: "-66%", y: 60, rotate: -13, scale: 0.85, zIndex: 20, opacity: 0.96 },
+  "0": { x: "0%", y: 0, rotate: 0, scale: 1.06, zIndex: 30, opacity: 1 },
+  "1": { x: "66%", y: 60, rotate: 13, scale: 0.85, zIndex: 20, opacity: 0.96 },
+  "2": { x: "120%", y: 170, rotate: 25, scale: 0.7, zIndex: 10, opacity: 0.9 },
 };
 
 function getRelativePosition(index: number, activeIndex: number, length: number) {
@@ -96,10 +96,10 @@ export function CardStack({
                 }}
                 exit={{ opacity: 0, scale: 0.7 }}
                 transition={{ type: "spring", stiffness: 190, damping: 22 }}
-                className="absolute left-1/2 top-0 h-[220px] w-[310px] -translate-x-1/2 overflow-hidden rounded-2xl border-2 border-violet-300 shadow-[0_18px_38px_rgba(0,0,0,0.42)] sm:h-[290px] sm:w-[440px] lg:h-[325px] lg:w-[520px]"
+                className="absolute left-1/2 top-0 h-[240px] w-[330px] -translate-x-1/2 overflow-hidden rounded-2xl border-2 border-violet-300 shadow-[0_18px_38px_rgba(0,0,0,0.42)] sm:h-[290px] sm:w-[440px] lg:h-[325px] lg:w-[520px]"
                 style={{ zIndex: fanPosition.zIndex }}
               >
-                <Image src={item.imageSrc} alt={item.title} fill sizes="(max-width: 6 40px) 310px, (max-width: 1024px) 440px, 520px" className="object-cover" priority={isActive} />
+                <Image src={item.imageSrc} alt={item.title} fill sizes="(max-width: 640px) 330px, (max-width: 1024px) 440px, 520px" className="object-cover" priority={isActive} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
                   <h4 className="text-lg font-black text-white sm:text-2xl">{item.title}</h4>
