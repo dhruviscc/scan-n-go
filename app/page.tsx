@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
 import { CardStack, CardStackItem } from "@/components/ui/card-stack";
 import ScrollReveal from "@/components/ScrollReveal";
 import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
@@ -21,11 +21,8 @@ import {
   Clock,
   Clock3,
   Download,
-  Factory,
   Heart,
   HomeIcon,
-  Hospital,
-  House,
   Link as LinkIconLucide,
   MapPin,
   Minus,
@@ -34,10 +31,8 @@ import {
   QrCode,
   ScanLine,
   ShieldCheck,
-  Smartphone,
   Sparkles,
   Star,
-  Stethoscope,
   User,
   Wifi,
   // Image as LucideImage, // Renamed to avoid conflict with next/image
@@ -151,7 +146,7 @@ export default function Home() {
       {/* ════════════════ SECTION 01 — HERO ════════════════ */}
       <section
         id="hero"
-        className="relative overflow-hidden flex items-center justify-center pt-20 pb-12 lg:pb-32"
+        className="relative flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-32"
         style={{ background: "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)" }}
       >
         {/* Colorful dynamic background lights */}
@@ -161,12 +156,12 @@ export default function Home() {
           <div className="absolute top-[35%] left-[45%] w-[300px] h-[300px] rounded-full bg-blue-300/20 blur-[80px]" />
         </div>
 
-        <div className="relative w-full max-w-8xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-25">
+        <div className="relative mx-auto w-full max-w-8xl px-5 sm:px-6 lg:px-12">
+          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-16 lg:pt-25">
 
             {/* HERO LEFT */}
             <motion.div
-              className="hero-left space-y-7 z-10"
+              className="hero-left z-10 w-full min-w-0 space-y-5 sm:space-y-7"
               initial="hidden"
               animate="visible"
               variants={{
@@ -175,14 +170,14 @@ export default function Home() {
               }}
             >
               <motion.div
-                className="inline-flex items-center gap-3 rounded-full border border-violet-200/80 bg-white/90 px-5 py-2.5 shadow-lg backdrop-blur-md"
+                className="inline-flex max-w-full items-center gap-2 rounded-full border border-violet-200/80 bg-white/90 px-3 py-2 shadow-lg backdrop-blur-md sm:gap-3 sm:px-5 sm:py-2.5"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
                 }}>
                 <Sparkles size={16} className="text-violet-600" />
 
-                <span className="text-sm font-semibold text-gray-800">
+                <span className="whitespace-nowrap text-[11px] font-semibold text-gray-800 sm:text-sm">
                   <span className="text-violet-600">Scan</span>
                   <span className="mx-2 text-violet-300">•</span>
                   <span className="text-violet-700">Verify</span>
@@ -197,7 +192,7 @@ export default function Home() {
               </motion.div>
 
               <motion.h1
-                className="max-w-6xl text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-slate-900"
+                className="max-w-none break-words text-[2rem] font-black leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-7xl"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -219,12 +214,12 @@ export default function Home() {
                   wrapper="span"
                   cursor
                   repeat={Infinity}
-                  className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
+                  className="inline break-words bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
                 />
               </motion.h1>
 
               <motion.p
-                className="mt-8 max-w-2xl text-lg lg:text-xl leading-8 text-slate-600"
+                className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:mt-8 sm:text-lg lg:text-xl sm:leading-8"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -237,7 +232,7 @@ export default function Home() {
 
 
               <motion.div
-                className="flex flex-wrap gap-4 pt-2"
+                className="flex flex-wrap gap-3 pt-1 sm:gap-4 sm:pt-2"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -246,7 +241,7 @@ export default function Home() {
                 <Link
                   href="/contact"
                   id="hero-contact-btn"
-                  className="cta-primary inline-flex items-center gap-3 px-7 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white text-lg font-bold shadow-lg shadow-violet-500/30 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                  className="cta-primary inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-3 text-base font-bold text-white shadow-lg shadow-violet-500/30 transition-all duration-300 hover:-translate-y-1 hover:from-violet-700 hover:to-indigo-700 hover:shadow-xl sm:gap-3 sm:rounded-2xl sm:px-7 sm:text-lg"
                 >
                   Contact Us
                   <ArrowRight size={22} strokeWidth={2.5} />
@@ -255,8 +250,8 @@ export default function Home() {
             </motion.div>
 
             {/* HERO RIGHT (Phone Mockup + Floating Feature Cards) */}
-            <div className="relative flex flex-col lg:flex-row justify-center items-center h-auto lg:h-[650px]">
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="relative flex min-w-0 flex-col items-center justify-center overflow-x-clip lg:h-[650px] lg:flex-row">
+              <div className="pointer-events-none absolute inset-0 hidden items-center justify-center sm:flex">
                 <div className="scan-ring scan-rotate w-[300px] h-[300px] rounded-full border-[1.5px] border-dashed border-violet-500/40"></div>
 
                 <div
@@ -272,19 +267,18 @@ export default function Home() {
 
               {/* Phone Container */}
               <motion.div
-                className="hero-phone relative z-10"
-                style={{ width: 280 }}
+                className="hero-phone relative z-10 w-[220px] sm:w-[280px]"
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 1, 0.5, 1] }}
               >
-                <div className="relative rounded-[40px] bg-white  border-[8px] border-slate-900 shadow-2xl" id="phoneMockup" style={{ height: 530 }}>
+                <div className="relative h-[420px] rounded-[32px] border-[7px] border-slate-900 bg-white shadow-2xl sm:h-[530px] sm:rounded-[40px] sm:border-[8px]" id="phoneMockup">
 
                   {/* Notch */}
                   <div className="absolute top-2 left-1/2 -translate-x-1/2 w-18 h-4 bg-slate-900 rounded-full z-20" />
 
                   {/* Status Bar */}
-                  <div className="flex justify-between items-center px-6 pt-3 pb-1.5 text-[10px] font-black text-slate-700">
+                  <div className="flex items-center justify-between px-4 pb-1 pt-2 text-[8px] font-black text-slate-700 sm:px-6 sm:pb-1.5 sm:pt-3 sm:text-[10px]">
                     <span>9:41</span>
                     <div className="flex gap-1.5 items-center">
                       <Zap size={10} />
@@ -292,12 +286,12 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="text-center pt-1.5 pb-1">
-                    <p className="text-[10px] font-black text-violet-600 tracking-widest uppercase">SCAN-N-GO SECURITY</p>
+                  <div className="pb-1 pt-1 text-center sm:pb-1 sm:pt-1.5">
+                    <p className="text-[8px] font-black uppercase tracking-wider text-violet-600 sm:text-[10px] sm:tracking-widest">SCAN-N-GO SECURITY</p>
                   </div>
 
                   {/* Animated scanning QR code */}
-                  <div className="relative mx-auto w-30 h-30 rounded-2xl bg-white p-2 shadow-inner border border-violet-50 mt-2">
+                  <div className="relative mx-auto mt-2 h-24 w-24 rounded-2xl border border-violet-50 bg-white p-2 shadow-inner sm:h-30 sm:w-30">
                     <Image
                       src="/images/scanner.png"
                       alt="Animated QR Scanner"
@@ -315,13 +309,13 @@ export default function Home() {
                     />
                   </div>
 
-                  <div className="text-center mt-3 scale-95">
-                    <p className="text-[16px] font-black text-slate-800 leading-none">John Doe Profile</p>
-                    <p className="text-[10px] px-2.5 py-0.5 rounded-full bg-violet-100 text-violet-700 inline-block font-mono  mt-1">UID: SNG-889812-H</p>
+                  <div className="mt-2 scale-95 text-center sm:mt-3">
+                    <p className="text-sm font-black leading-none text-slate-800 sm:text-[16px]">John Doe Profile</p>
+                    <p className="mt-1 inline-block rounded-full bg-violet-100 px-2 py-0.5 font-mono text-[8px] text-violet-700 sm:px-2.5 sm:text-[10px]">UID: SNG-889812-H</p>
                   </div>
 
                   {/* Category grids */}
-                  <div className="absolute -left-10 mt-5 w-[130%] rounded-2xl bg-white shadow-[0_20px_60px_rgba(15,23,42,.12)] border border-slate-100 overflow-hidden">
+                  <div className="absolute left-1/2 top-[220px] w-[132%] -translate-x-1/2 overflow-hidden rounded-xl border border-slate-100 bg-white shadow-[0_14px_35px_rgba(15,23,42,.12)] sm:-left-10 sm:top-[255px] sm:w-[130%] sm:translate-x-0 sm:rounded-2xl sm:shadow-[0_20px_60px_rgba(15,23,42,.12)]">
                     <div className="grid grid-cols-4">
                       {[
                         {
@@ -343,13 +337,13 @@ export default function Home() {
                       ].map((item, index) => (
                         <div
                           key={item.label}
-                          className={`relative flex flex-col items-center justify-center p-3 transition-all duration-300 hover:bg-slate-50 hover:-translate-y-1 ${index !== 3 ? "border-r border-slate-200" : ""}`}
+                          className={`relative flex flex-col items-center justify-center p-1.5 transition-all duration-300 hover:bg-slate-50 hover:-translate-y-1 sm:p-3 ${index !== 3 ? "border-r border-slate-200" : ""}`}
                         >
-                          <div className="mb-3">
+                          <div className="mb-1 sm:mb-3">
                             {item.icon}
                           </div>
 
-                          <span className="text-[13px] font-semibold text-slate-800">
+                          <span className="text-[8px] font-semibold text-slate-800 sm:text-[13px]">
                             {item.label}
                           </span>
                         </div>
@@ -358,31 +352,33 @@ export default function Home() {
                   </div>
 
                   {/* Emergency notification trigger */}
-                  <div className="absolute -left-10 bottom-20 w-[130%] h-20 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 px-4 py-3 text-white shadow-lg flex items-center justify-between">
-                    <div className="flex items-center gap-3">
+                  <div className="absolute bottom-14 left-1/2 flex h-16 w-[132%] -translate-x-1/2 items-center justify-between rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 px-3 py-2 text-white shadow-lg sm:-left-10 sm:bottom-20 sm:h-20 sm:w-[130%] sm:translate-x-0 sm:rounded-2xl sm:px-4 sm:py-3">
+                    <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                       {/* Icon */}
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                        <Bell size={30} className="text-white" />
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm sm:h-11 sm:w-11 sm:rounded-xl">
+                        <Bell size={22} className="text-white sm:hidden" />
+                        <Bell size={30} className="hidden text-white sm:block" />
                       </div>
 
                       {/* Text */}
                       <div>
-                        <h4 className="text-lg  leading-none">
+                        <h4 className="text-sm leading-none lg:text-lg">
                           Emergency Assist Active
                         </h4>
-                        <p className="mt-1 text-sm text-violet-100">
+                        <p className="mt-1 truncate text-[10px] text-violet-100 lg:text-sm">
                           Alert family contacts in 1-click
                         </p>
                       </div>
                     </div>
 
                     {/* Arrow */}
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
-                      <ChevronRight size={18} className="text-white" />
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/15 sm:h-8 sm:w-8">
+                      <ChevronRight size={16} className="text-white sm:hidden" />
+                      <ChevronRight size={18} className="hidden text-white sm:block" />
                     </div>
                   </div>
 
-                  <div className="absolute bottom-0  left-0 right-0  px-2 py-3">
+                  <div className="absolute bottom-0 left-0 right-0 px-2 py-2 sm:py-3">
                     <div className="grid grid-cols-4">
 
                       {[
@@ -412,7 +408,7 @@ export default function Home() {
                             className="flex flex-col items-center justify-center gap-1"
                           >
                             <Icon
-                              size={20}
+                              size={16}
                               strokeWidth={2.2}
                               className={
                                 item.active
@@ -440,7 +436,7 @@ export default function Home() {
               </motion.div>
 
               {/* 4 Floating Feature Cards around Phone - Now responsive */}
-              <div className="lg:absolute inset-0 flex flex-row flex-wrap lg:flex-nowrap items-center justify-center gap-4 lg:gap-0 mt-16 lg:mt-0">
+              <div className="absolute inset-0 hidden items-center justify-center gap-0 lg:flex">
                 <FeatureCard
                   icon={<Heart color="#ef4444" size={24} />}
                   iconBg="bg-red-50"
@@ -831,53 +827,57 @@ export default function Home() {
             </h3>
           </ScrollReveal>
 
-          <div className="relative overflow-hidden">
-            {/* Gradient Effect */}
-            <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent"></div>
-            <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent"></div>
+          <ScrollReveal>
+            <div className="relative overflow-hidden">
+              {/* Gradient Effect */}
+              {/* Gradient Effect */}
+              <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent"></div>
+              <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent"></div>
 
-            <div className="flex w-max animate-marquee">
-              {[
-                "/images/client_1.png",
-                "/images/client_2.png",
-                "/images/client_1.png",
-                "/images/client_2.png",
-                "/images/client_1.png",
-                "/images/client_2.png",
-                "/images/client_1.png",
-                "/images/client_2.png",
-              ].map((src, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center mx-10"
-                >
-                  <Image
-                    src={src}
-                    alt={`Client ${index}`}
-                    width={130}
-                    height={60}
-                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition"
-                  />
-                </div>
-              ))}
+              <div className="flex w-max animate-marquee">
+                {[
+                  "/images/client_1.png",
+                  "/images/client_2.png",
+                  "/images/client_1.png",
+                  "/images/client_2.png",
+                  "/images/client_1.png",
+                  "/images/client_2.png",
+                  "/images/client_1.png",
+                  "/images/client_2.png",
+                ].map((src, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-center mx-10"
+                  >
+                    <Image
+                      src={src}
+                      alt={`Client ${index}`}
+                      width={130}
+                      height={60}
+                      className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
-      </section>
+
+      </section >
 
       {/* ════════════════ SECTION 05 — WHERE YOU CAN USE ════════════════ */}
 
-      <section className="relative overflow-hidden bg-white py-20">
+      < section className="relative overflow-hidden bg-white py-20" >
 
         {/* Top Left Blob */}
-        <div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
+        < div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
         {/* Aurora Blob - Left */}
-        <div className="absolute left-[10%] top-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
+        < div className="absolute left-[10%] top-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
         {/* Pink Glow */}
-        <div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
+        < div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
         {/* Cyan Blob */}
-        <div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
+        < div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
 
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
@@ -890,44 +890,46 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <div
-            className="relative  overflow-hidden rounded-[10px] px-8 lg:px-10 py-20"
-          >
+          <ScrollReveal>
+            <div
+              className="relative  overflow-hidden rounded-[10px] px-8 lg:px-10 py-20"
+            >
 
 
-            {/* Content */}
-            <div className="relative z-10">
-              {/* CardStack likely has its own animations, but wrapping it ensures it appears on scroll */}
-              <CardStack
-                items={usageItems}
-                initialIndex={0}
-                autoAdvance
-                intervalMs={3000}
-                pauseOnHover
-                showDots
-              />
+              {/* Content */}
+              <div className="relative z-10">
+                {/* CardStack likely has its own animations, but wrapping it ensures it appears on scroll */}
+                <CardStack
+                  items={usageItems}
+                  initialIndex={0}
+                  autoAdvance
+                  intervalMs={3000}
+                  pauseOnHover
+                  showDots
+                />
+
+              </div>
 
             </div>
-
-          </div>
+          </ScrollReveal>
         </div>
-      </section>
+      </section >
 
 
 
 
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
-      <section className="py-20 bg-slate-50 relative">
+      < section className="py-20 bg-slate-50 relative" >
 
 
         {/* Top Left Blob */}
-        <div className="absolute left-10 top-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
+        < div className="absolute left-10 top-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
 
         {/* Bottom Right Blob */}
-        <div className="absolute bottom-45 left-[25%] h-40 w-40 rounded-full bg-purple-200/25 blur-md animate-blob-2" />
+        < div className="absolute bottom-45 left-[25%] h-40 w-40 rounded-full bg-purple-200/25 blur-md animate-blob-2" />
 
         {/* Center Glow */}
-        <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
+        < div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
@@ -1026,103 +1028,62 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+      </section >
 
 
 
 
       {/* ════════════════ SECTION 07 — TESTIMONIALS ════════════════ */}
 
-      <section className=" relative py-20 bg-white">
+      < section className=" relative py-20 bg-white" >
 
-          {/* Top Left Blob */}
-        <div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
+        {/* Top Left Blob */}
+        < div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
         {/* Aurora Blob - Left */}
-        <div className="absolute right-[10%] bottom-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
-       
+        < div className="absolute right-[10%] bottom-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
+
         {/* Pink Glow */}
-        <div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
+        < div className="absolute bottom-[-100px] left-[20%] h-[280px] w-[280px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[10px] animate-blob-three" />
         {/* Cyan Blob */}
-        <div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
+        < div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
-        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="w-full max-w-[1440px] mx-auto">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">TESTIMONIALS</span>
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
-              Loved By Daily Users &amp; Team Admins
-            </h3>
-            <p className="text-slate-500 mt-3 text-md leading-relaxed">
-              Discover how residential occupants, local retail store owners, and vehicle drivers secure daily entries and emergency loops.
-            </p>
+            <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
+              <span className="block mb-2 text-[10px] sm:text-xs md:text-sm uppercase font-extrabold tracking-[0.25em] text-[#7c3aed] font-mono">
+                TESTIMONIALS
+              </span>
+
+              <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                Loved By Daily Users <br className="sm:hidden" />
+                <span className="inline sm:block">&amp; Team Admins</span>
+              </h3>
+
+              <p className="mt-4 text-sm sm:text-base lg:text-lg leading-7 text-slate-500 max-w-2xl mx-auto">
+                Discover how residential occupants, local retail store owners, and vehicle
+                drivers secure daily entries and emergency loops.
+              </p>
+            </div>
           </ScrollReveal>
 
-          <TestimonialCarousel />
-
-          <ScrollReveal className="hidden grid md:grid-cols-3 gap-8">
-            {[
-              {
-                user: "Vehicle User",
-                name: "Rahul Verma",
-                role: "Commuter & Car Owner",
-                text: "The Vehicle QR sticker saved my car from being towed! Someone blocked my parkway and simply scanned the sticker to text alert me. My privacy stayed fully protected.",
-                stars: 5,
-                icon: <Car size={16} className="text-blue-500" />,
-                color: "from-blue-500 to-indigo-600",
-              },
-              {
-                user: "Business Owner",
-                name: "Sarah Jenkins",
-                role: "Admin, Innova Solutions",
-                text: "We installed the Security Attendance QR at our primary gate. Time-clocks proxies decreased by 95%! Excel exports are clear, and support responds in minutes.",
-                stars: 5,
-                icon: <Building2 size={16} className="text-violet-500" />,
-                color: "from-violet-500 to-purple-600",
-              },
-              {
-                user: "Family User",
-                name: "Meera Nair",
-                role: "Daughter of Senior Citizen",
-                text: "My elderly father checks in around town wearing our Emergency  pendant. It gives us immense peace of mind knowing anyone can scan it to instantly ping his coordinates to us.",
-                stars: 5,
-                icon: <Heart size={16} className="text-emerald-500" />,
-                color: "from-emerald-500 to-teal-600",
-              },
-            ].map((review, idx) => (
-              <div key={idx} className="group bg-white border border-slate-100 p-8 rounded-3xl shadow-[0_4px_18px_rgba(0,0,0,0.02)] hover:shadow-xl hover:-translate-y-1 transition-all duration-400 flex flex-col justify-between">
-                <div>
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: review.stars }).map((_, i) => (
-                      <Star key={i} size={16} className="text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-md sm:text-md text-slate-500 leading-relaxed italic">&quot;{review.text}&quot;</p>
-                </div>
-                <div className="border-t border-slate-100 pt-5 mt-6 flex items-center gap-3.5">
-                  {/* Clean icon-based avatar instead of SVG vector */}
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${review.color} p-[2px] shadow-md shrink-0`}>
-                    <div className="bg-white w-full h-full rounded-[14px] flex items-center justify-center">
-                      {review.icon}
-                    </div>
-                  </div>
-                  <div>
-                    <h5 className="text-sm font-black text-slate-900">{review.name}</h5>
-                    <p className="text-[14px] text-slate-400 mt-0.5 font-bold">{review.role} • <span className="font-extrabold text-violet-600 uppercase font-mono text-[12px]">{review.user}</span></p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <ScrollReveal>
+            <TestimonialCarousel autoAdvance={true} intervalMs={4000} />
           </ScrollReveal>
+
         </div>
-      </section>
+      </section >
 
       {/* ════════════════ SECTION 8 — FREQUENTLY ASKED QUESTIONS ════════════════ */}
 
 
-      <section className="py-20 bg-slate-50">
-        {/* Design Blobs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      < section className="py-20 bg-slate-50" >
+        {/* Top Left Blob */}
+        <div className="absolute left-10 bottom-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
+
+
+        {/* Center Glow */}
+        <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
@@ -1167,31 +1128,40 @@ export default function Home() {
                     className="w-full text-left p-5 flex justify-between items-center gap-4 text-slate-800 font-extrabold cursor-pointer"
                   >
                     <span className="text-md sm:text-xl">{faq.q}</span>
-                    <span className="w-6 h-6 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0 transition-transform duration-300" style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0)" }}>
+                    <motion.span
+                      className="w-6 h-6 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0"
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       {isOpen ? <Minus size={14} strokeWidth={3} /> : <Plus size={14} strokeWidth={3} />}
-                    </span>
+                    </motion.span>
                   </button>
-                  <div
-                    className="transition-all duration-300 ease-in-out overflow-hidden"
-                    style={{ maxHeight: isOpen ? 200 : 0 }}
-                  >
-                    <p className="p-5 pt-0 text-lg text-slate-500 leading-relaxed border-t border-slate-100 bg-white">
-                      {faq.a}
-                    </p>
-                  </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <p className="p-5 pt-0 text-lg text-slate-500 leading-relaxed border-t border-slate-100 bg-white">{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
           </ScrollReveal>
         </div>
-      </section>
+      </section >
 
 
 
       {/* ════════════════ SECTION 09 — CALL TO ACTION ════════════════ */}
 
 
-      <section className="py-14 lg:py-20 bg-white overflow-hidden">
+      < section className="py-14 lg:py-20 bg-white overflow-hidden" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="relative overflow-hidden rounded-[34px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)]">
@@ -1330,7 +1300,7 @@ export default function Home() {
           </div>
 
         </div>
-      </section>
+      </section >
     </>
   );
 }

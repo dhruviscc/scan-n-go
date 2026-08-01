@@ -76,10 +76,10 @@ export default function Footer() {
             <Link href="/">
 
               <Image
-                src="/image/logo_with_text.png"
+                src="/images/logo/logo_with_text.png"
                 alt="Scan N Go"
                 width={185}
-                height={48}
+                height={58}
                 className="object-contain"
               />
 
@@ -143,11 +143,11 @@ export default function Footer() {
 
             </div>
 
-          
+
 
           </div>
 
-                {/* ================================================= */}
+          {/* ================================================= */}
           {/* Column 2 - Quick Links */}
           {/* ================================================= */}
 
@@ -171,7 +171,7 @@ export default function Footer() {
                     className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
                   >
 
-                 
+
 
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {item.name}
@@ -193,7 +193,7 @@ export default function Footer() {
 
             <div className="inline-flex items-center gap-3 mb-8">
 
-    
+
 
               <h3 className="text-2xl font-bold text-white">
                 Download App
@@ -213,27 +213,19 @@ export default function Footer() {
 
             <a
               href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
-             >
-
+            >
               <div className="flex items-center gap-4">
 
                 <div className="w-40 h-14 flex items-center justify-center">
                   <Image
-                    src="/image/appstore.png"
+                    src="/images/appstore.png"
                     alt="Download on the App Store"
                     width={160}
                     height={48}
                   />
 
                 </div>
-
-                <div>
-
-                </div>
-
               </div>
-
-             
             </a>
 
             {/* ================= Google Play ================= */}
@@ -246,27 +238,17 @@ export default function Footer() {
 
                 <div className="w-40 h-14 flex items-center justify-center">
                   <Image
-                    src="/image/googleplay.png"
+                    src="/images/googleplay.png"
                     alt="Get it on Google Play"
-                    width={160}
+                    width={180}
                     height={48}
                   />
 
                 </div>
-
-                <div>
-
-                </div>
-
               </div>
-
-         
-
             </a>
-
           </div>
-
-        </div> {/* Closes the grid grid-cols-1 lg:grid-cols-3 gap-16 div */}
+        </div>
 
         {/* ================================================= */}
         {/* Bottom Bar */}
@@ -297,11 +279,11 @@ export default function Footer() {
                 Privacy Policy
               </Link>
 
-            
+
 
             </div>
 
-          {/* Social Icons */}
+            {/* Social Icons */}
 
             <div className="flex items-center gap-3">
 

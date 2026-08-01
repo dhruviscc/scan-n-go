@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const testimonials = [
   { name: "Rahul Verma", role: "Commuter & Car Owner", quote: "The Vehicle QR sticker saved my car from being towed. Someone scanned it and alerted me without seeing my personal number.", stars: 5 },
@@ -14,13 +14,32 @@ const testimonials = [
 
 const wrapIndex = (index: number) => (index + testimonials.length) % testimonials.length;
 
-export function TestimonialCarousel() {
+type TestimonialCarouselProps = {
+  autoAdvance?: boolean;
+  intervalMs?: number;
+  pauseOnHover?: boolean;
+};
+
+export function TestimonialCarousel({
+  autoAdvance = false,
+  intervalMs = 4000,
+  pauseOnHover = true,
+}: TestimonialCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
   const previous = () => setActiveIndex((index) => wrapIndex(index - 1));
   const next = () => setActiveIndex((index) => wrapIndex(index + 1));
 
+  useEffect(() => {
+    if (!autoAdvance || isPaused || testimonials.length < 2) return;
+    const timer = window.setInterval(next, intervalMs);
+    return () => window.clearInterval(timer);
+  }, [autoAdvance, intervalMs, isPaused]);
+
   return (
-    <div className=" rounded-3xl py-8 sm:py-10">
+    <div className=" rounded-3xl py-8 sm:py-10"
+      onMouseEnter={() => pauseOnHover && setIsPaused(true)}
+      onMouseLeave={() => pauseOnHover && setIsPaused(false)}>
       <div className="relative mx-auto h-[410px] max-w-8xl sm:h-[440px]">
         <div className="absolute inset-x-0 top-[48%] h-px bg-violet-200/70" />
         {testimonials.map((testimonial, index) => {

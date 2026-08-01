@@ -56,6 +56,20 @@ body {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 1023px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  #hero,
+  #hero > div,
+  #hero .hero-left {
+    min-width: 0;
+  }
+}
+
 /* ─── Custom Animations ─── */
 @keyframes scroll {
   0% {
@@ -535,4 +549,3 @@ section {
   animation-delay: 4s;
   will-change: transform;
 }
-
