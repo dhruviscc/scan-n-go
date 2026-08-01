@@ -648,9 +648,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
-
       {/* ════════════════ SECTION 03 — WHY CHOOSE Scan-N-Go ════════════════ */}
       <section id="features" className="relative overflow-hidden border-t border-slate-100 bg-[#fcfbff] py-16 sm:py-20">
 
