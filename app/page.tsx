@@ -120,7 +120,6 @@ const usageItems: CardStackItem[] = [
 ];
 
 
-
 export default function Home() {
   const [scanLine, setScanLine] = useState(0);
   const rafRef = useRef<number | null>(null);
@@ -206,9 +205,7 @@ export default function Home() {
                 <br />
                 <TypeAnimation
                   sequence={[
-                    "Emergency Access",
-                    2500,
-                    "Vehicle Security",
+                    "Emergency Vehicle Access",
                     2500,
                     "Digital Identity",
                     2500,
@@ -446,7 +443,7 @@ export default function Home() {
                   icon={<Heart color="#ef4444" size={24} />}
                   iconBg="bg-red-50"
                   title="Emergency "
-                  desc="Critical Medical Panel"
+                  desc="Emergency Medical Information"
                   delay="0.1s"
                   className="relative lg:absolute left-0 sm:left-2 top-auto lg:top-[50px]"
                 />
@@ -474,8 +471,8 @@ export default function Home() {
 
 
       {/* ════════════════ FLOATING FEATURE PILLS (OVERLAY) ════════════════ */}
-      <div className="relative z-10">
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 lg:absolute lg:left-1/2 lg:bottom-0 lg:-translate-x-1/2 lg:translate-y-1/2">
+      <div className="relative z-10 ">
+        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 lg:absolute lg:left-1/2 lg:bottom-0 lg:-translate-x-1/2 lg:translate-y-1/3">
           <motion.div
             className=" "
             initial="hidden"
@@ -495,11 +492,11 @@ export default function Home() {
               {[
                 { icon: <ScanLine size={24} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
                 { icon: <Bell size={24} />, label: "Live Notifications", sub: "Dual-channel owner alerts" },
-                { icon: <ParkingCircle size={24} />, label: "Vehicle Parking", sub: "No-hassle parking connection" },
+                { icon: <ParkingCircle size={24} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify" },
               ].map((f) => (
                 <motion.div
                   key={f.label}
-                  className="feature-pill flex items-center gap-4 bg-white/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl border border-white/60 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
+                  className="feature-pill flex items-center gap-4 bg-white/80 backdrop-blur-lg rounded-3xl p-4 shadow-xl border border-white/60 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
                   variants={{
                     visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
                     hidden: { y: 30, opacity: 0 },
@@ -508,7 +505,7 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg shrink-0">{f.icon}</div>
                   <div>
                     <p className="text-[20px] font-black text-slate-800">{f.label}</p>
-                    <p className="text-[16px] text-slate-500 mt-1 leading-snug">{f.sub}</p>
+                    <p className="text-[15px] text-slate-500 mt-1 leading-snug">{f.sub}</p>
                   </div>
                 </motion.div>
               ))}
@@ -518,67 +515,19 @@ export default function Home() {
       </div>
 
 
-      {/* ════════════════ SECTION 02 — TRUSTED BY ════════════════ */}
-      <section className=" overflow-hidden border-y border-slate-100 bg-slate-50 pt-12 pb-20 lg:pt-30">
+
+      {/* ════════════════ SECTION 02 — SMART ENTRY SOLUTIONS ════════════════ */}
+      <section id="use-cases" className="py-24 bg-white">
 
 
-        <div className="w-full max-w-8xl mx-auto px-6 lg:px-12">
-          <ScrollReveal className="text-center mb-12">
+        {/* Top Left Blob */}
+        <div className="absolute left-10 top-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
 
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-800">
-              Trusted By IT Companies & Organizations
-            </h3>
-          </ScrollReveal>
+        {/* Bottom Right Blob */}
+        <div className="absolute bottom-5 right-[30%] h-40 w-40 rounded-full bg-cyan-200/25 blur-sm animate-blob-2" />
 
-          <div className="relative overflow-hidden">
-            {/* Gradient Effect */}
-            <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent"></div>
-            <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent"></div>
-
-            <div className="flex w-max animate-marquee">
-              {[
-                "/images/client_1.png",
-                "/images/client_2.png",
-                "/images/client_1.png",
-                "/images/client_2.png",
-                "/images/client_1.png",
-                "/images/client_2.png",
-                "/images/client_1.png",
-                "/images/client_2.png",
-              ].map((src, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center mx-10"
-                >
-                  <Image
-                    src={src}
-                    alt={`Client ${index}`}
-                    width={130}
-                    height={60}
-                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════ SECTION 03 — SMART ENTRY SOLUTIONS ════════════════ */}
-      <section id="use-cases" className="py-20 bg-white">
-
-        <div className="absolute left-10 top-[40%] animate-float-slow rounded-2xl border border-violet-100 bg-white p-4 shadow-lg rotate-[-12deg]">
-          <QrCode className="h-7 w-7 text-violet-600" />
-        </div>
-
-        <div className="absolute right-16 bottom-24 animate-float-medium rounded-2xl border border-violet-100 bg-white p-4 shadow-lg rotate-12">
-          <ShieldCheck className="h-7 w-7 text-emerald-500" />
-        </div>
-
-        <div className="absolute right-1/4 top-16 animate-float-fast rounded-2xl border border-violet-100 bg-white p-4 shadow-lg">
-          <Smartphone className="h-7 w-7 text-sky-500" />
-        </div>
-
+        {/* Center Glow */}
+        <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
@@ -702,7 +651,7 @@ export default function Home() {
       </section>
 
 
-      {/* ════════════════ SECTION 04 — WHY CHOOSE Scan-N-Go ════════════════ */}
+      {/* ════════════════ SECTION 03 — WHY CHOOSE Scan-N-Go ════════════════ */}
       <section id="features" className=" relative py-20 bg-slate-50 border-t border-slate-100">
         <div className="absolute left-12 top-[40%] rounded-2xl bg-white p-4 shadow-lg border border-violet-100 rotate-12 animate-float-medium">
           <Smartphone className="h-7 w-7 text-sky-500" />
@@ -931,6 +880,53 @@ export default function Home() {
           </ScrollReveal>
 
 
+        </div>
+      </section>
+
+
+      {/* ════════════════ SECTION 04 — TRUSTED BY ════════════════ */}
+      <section className=" overflow-hidden border-y border-slate-100 bg-slate-50 pt-12 pb-20 lg:pt-30">
+
+
+        <div className="w-full max-w-8xl mx-auto px-6 lg:px-12">
+          <ScrollReveal className="text-center mb-12">
+
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-800">
+              Trusted By IT Companies & Organizations
+            </h3>
+          </ScrollReveal>
+
+          <div className="relative overflow-hidden">
+            {/* Gradient Effect */}
+            <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent"></div>
+            <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent"></div>
+
+            <div className="flex w-max animate-marquee">
+              {[
+                "/images/client_1.png",
+                "/images/client_2.png",
+                "/images/client_1.png",
+                "/images/client_2.png",
+                "/images/client_1.png",
+                "/images/client_2.png",
+                "/images/client_1.png",
+                "/images/client_2.png",
+              ].map((src, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center mx-10"
+                >
+                  <Image
+                    src={src}
+                    alt={`Client ${index}`}
+                    width={130}
+                    height={60}
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

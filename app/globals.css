@@ -282,3 +282,69 @@ section {
 .animate-float-fast {
   animation: floatFast 4s ease-in-out infinite;
 }
+
+@keyframes blobOne {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(25px, -20px) scale(1.08);
+  }
+  50% {
+    transform: translate(10px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(-20px, -15px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes blobTwo {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-20px, 15px) scale(1.05);
+  }
+  50% {
+    transform: translate(15px, -20px) scale(0.92);
+  }
+  75% {
+    transform: translate(-10px, 10px) scale(1.08);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes blobThree {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  25% {
+    transform: translateY(calc(-50% - 15px)) scale(1.08);
+  }
+  50% {
+    transform: translateY(calc(-50% + 20px)) scale(0.94);
+  }
+  75% {
+    transform: translateY(calc(-50% - 10px)) scale(1.05);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.animate-blob-1 {
+  animation: blobOne 18s ease-in-out infinite alternate;
+}
+
+.animate-blob-2 {
+  animation: blobTwo 22s ease-in-out infinite alternate;
+}
+
+.animate-blob-3 {
+  animation: blobThree 20s ease-in-out infinite alternate;
+}
