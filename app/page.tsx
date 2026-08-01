@@ -5,6 +5,7 @@ import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { CardStack, CardStackItem } from "@/components/ui/card-stack";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   AlertTriangle,
   ArrowRight,
@@ -163,8 +164,21 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-25">
 
             {/* HERO LEFT */}
-            <div className="hero-left space-y-7 z-10">
-              <div className="inline-flex items-center gap-3 rounded-full border border-violet-200/80 bg-white/90 px-5 py-2.5 shadow-lg backdrop-blur-md">
+            <motion.div
+              className="hero-left space-y-7 z-10"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.2 } },
+                hidden: {},
+              }}
+            >
+              <motion.div
+                className="inline-flex items-center gap-3 rounded-full border border-violet-200/80 bg-white/90 px-5 py-2.5 shadow-lg backdrop-blur-md"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+                }}>
                 <Sparkles size={16} className="text-violet-600" />
 
                 <span className="text-sm font-semibold text-gray-800">
@@ -179,9 +193,15 @@ export default function Home() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
                 </span>
-              </div>
+              </motion.div>
 
-              <h1 className="max-w-6xl text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-slate-900">
+              <motion.h1
+                className="max-w-6xl text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-slate-900"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+                }}
+              >
                 One QR Platform for
                 <br />
                 <TypeAnimation
@@ -202,16 +222,28 @@ export default function Home() {
                   repeat={Infinity}
                   className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
                 />
-              </h1>
+              </motion.h1>
 
-              <p className="mt-8 max-w-2xl text-lg lg:text-xl leading-8 text-slate-600">
+              <motion.p
+                className="mt-8 max-w-2xl text-lg lg:text-xl leading-8 text-slate-600"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+                }}
+              >
                 Simplify identity, visitor, vehicle, attendance, and emergency management
                 with one secure QR platform. Scan once, verify instantly, and access
                 information whenever it matters.
-              </p>
+              </motion.p>
 
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              <motion.div
+                className="flex flex-wrap gap-4 pt-2"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+                }}
+              >
                 <Link
                   href="/contact"
                   id="hero-contact-btn"
@@ -220,8 +252,8 @@ export default function Home() {
                   Contact Us
                   <ArrowRight size={22} strokeWidth={2.5} />
                 </Link>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* HERO RIGHT (Phone Mockup + Floating Feature Cards) */}
             <div className="relative flex flex-col lg:flex-row justify-center items-center h-auto lg:h-[650px]">
@@ -240,7 +272,13 @@ export default function Home() {
               </div>
 
               {/* Phone Container */}
-              <div className="hero-phone relative z-10" style={{ width: 280 }}>
+              <motion.div
+                className="hero-phone relative z-10"
+                style={{ width: 280 }}
+                initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 1, 0.5, 1] }}
+              >
                 <div className="relative rounded-[40px] bg-white  border-[8px] border-slate-900 shadow-2xl" id="phoneMockup" style={{ height: 530 }}>
 
                   {/* Notch */}
@@ -400,7 +438,7 @@ export default function Home() {
                   </div>
 
                 </div>
-              </div>
+              </motion.div>
 
               {/* 4 Floating Feature Cards around Phone - Now responsive */}
               <div className="lg:absolute inset-0 flex flex-row flex-wrap lg:flex-nowrap items-center justify-center gap-4 lg:gap-0 mt-16 lg:mt-0">
@@ -485,12 +523,12 @@ export default function Home() {
 
 
         <div className="w-full max-w-8xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
+          <ScrollReveal className="text-center mb-12">
 
             <h3 className="text-2xl sm:text-3xl font-black text-slate-800">
               Trusted By IT Companies & Organizations
             </h3>
-          </div>
+          </ScrollReveal>
 
           <div className="relative overflow-hidden">
             {/* Gradient Effect */}
@@ -542,16 +580,25 @@ export default function Home() {
         </div>
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="max-w-xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               Smart QR Solutions
             </h3>
             <p className="text-slate-500 mt-3 text-sm sm:text-base leading-relaxed">
               One intelligent platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } },
+              hidden: {},
+            }}
+          >
             {[
               { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode Siren", "Parking Information"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan.jpg" },
               { title: "Contact QR", desc: "Share your professional or personal contact details instantly with a single QR scan.", features: ["Instant Contact Sharing", "Quick Save", "Secure Sharing"], color: "border-indigo-100/70", iconColor: "text-indigo-600", img: "/images/contact-scan-4.png" },
@@ -560,9 +607,12 @@ export default function Home() {
               { title: "Guest Entry Notification", desc: "Keep residents informed with instant notifications for every visitor arrival and departure.", features: ["Instant Visitor Alerts", "Real-Time Updates", "Greeting Notifications", "Visitor Activity Log"], color: "border-amber-100/70", iconColor: "text-amber-600", img: "/images/guest-notification-1.png" },
               { title: "Meeting QR", desc: "Organise and manage meetings with QR-based check-in, attendance tracking, and scheduled access.", features: ["QR Meeting Check-In", "Time-Based Access", "Attendance Tracking", "Attendance Reports"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/meeting-scan.png" },
             ].map((sol, index) => (
-              <div
-                key={index}
-                className="relative group"
+              <motion.div
+                key={sol.title}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                }}
               >
                 <div className="relative group [perspective:1200px]">
                   <div className="relative h-[340px] w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
@@ -645,9 +695,9 @@ export default function Home() {
 
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -671,7 +721,7 @@ export default function Home() {
           <Zap className="h-6 w-6 text-cyan-500" />
         </div>
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">WHY CHOOSE OUR PLATFORM</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               Powerful QR Tools Redefining Digital Safety
@@ -679,10 +729,10 @@ export default function Home() {
             <p className="text-slate-500 mt-4 text-lg leading-relaxed">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan-N-Go simplifies connection workflows.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Core Feature Demos Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <ScrollReveal className="grid lg:grid-cols-2 gap-8 mb-16">
 
             {/* Demo 1: Smart Emergency & Vehicle QR (Simulator) */}
             <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-[0_10px_35px_-8px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
@@ -878,7 +928,7 @@ export default function Home() {
 
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
 
         </div>
@@ -907,14 +957,14 @@ export default function Home() {
         </div>
 
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
-          <div className="max-w-xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               WHERE YOU CAN USE
             </h3>
             <p className="text-slate-500 mt-3 text-sm leading-relaxed">
               From gated communities and corporate offices to schools, industries, and buildings, Scan-N-Go delivers secure, smart, and seamless QR-powered management for every location.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div
             className="relative  overflow-hidden rounded-[10px] px-8 lg:px-10 py-20"
@@ -923,7 +973,7 @@ export default function Home() {
 
             {/* Content */}
             <div className="relative z-10">
-
+              {/* CardStack likely has its own animations, but wrapping it ensures it appears on scroll */}
               <CardStack
                 items={usageItems}
                 initialIndex={0}
@@ -944,7 +994,7 @@ export default function Home() {
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
       <section className="py-20 bg-slate-50">
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="max-w-xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">PRODUCT PREVIEW</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               Everything in One Simple App
@@ -952,12 +1002,12 @@ export default function Home() {
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Keep check of historical visitors entries, manage emergency tags, edit profiles details, or save your vehicle QR dashboard straight from our dashboard interface.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
 
             {/* Feature lists on Left */}
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               <h4 className="text-3xl font-black text-slate-800">Scan-N-Go App Features Dashboard</h4>
               <p className="text-md text-slate-500 leading-relaxed">
                 Connect your physical cards and windshield stickers to safe databases. The application lets owners edit emergency contact numbers instantly without buying new stickers.
@@ -1018,7 +1068,7 @@ export default function Home() {
                 style={{ animationDelay: "0.5s" }}
               />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -1029,7 +1079,7 @@ export default function Home() {
 
       <section className="py-20 bg-white">
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="max-w-xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">TESTIMONIALS</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               Loved By Daily Users &amp; Team Admins
@@ -1037,9 +1087,9 @@ export default function Home() {
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Discover how residential occupants, local retail store owners, and vehicle drivers secure daily entries and emergency loops.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <ScrollReveal className="grid md:grid-cols-3 gap-8">
             {[
               {
                 user: "Vehicle User",
@@ -1092,7 +1142,7 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -1105,7 +1155,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="max-w-xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">HELP CENTER</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               Frequently Asked Questions
@@ -1113,9 +1163,9 @@ export default function Home() {
             <p className="text-slate-500 mt-3 text-sm leading-relaxed">
               Discover answers to common security compliance check logs and vehicle stickers setup workflows.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="max-w-4xl mx-auto space-y-4">
+          <ScrollReveal className="max-w-4xl mx-auto space-y-4">
             {[
               {
                 q: "What is Scan-N-Go?",
@@ -1162,7 +1212,7 @@ export default function Home() {
                 </div>
               );
             })}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -1173,7 +1223,7 @@ export default function Home() {
 
       <section className="py-20 bg-white">
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="bg-gradient-to-br from-slate-100 via-slate-100 to-slate-100 rounded-3xl p-12 sm:p-16 text-white text-center shadow-2xl relative overflow-hidden">
+          <ScrollReveal className="bg-gradient-to-br from-slate-100 via-slate-100 to-slate-100 rounded-3xl p-12 sm:p-16 text-white text-center shadow-2xl relative overflow-hidden">
             {/* Design Blobs */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
@@ -1194,7 +1244,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>
