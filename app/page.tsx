@@ -202,7 +202,7 @@ export default function Home() {
                 <br />
                 <TypeAnimation
                   sequence={[
-                    "Emergency Vehicle Access",
+                    "Connect Emergency Contacts",
                     2500,
                     "Digital Identity",
                     2500,
@@ -489,8 +489,8 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: <ScanLine size={24} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
-                { icon: <Bell size={24} />, label: "Live Notifications", sub: "Dual-channel owner alerts" },
-                { icon: <ParkingCircle size={24} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify" },
+                { icon: <Bell size={24} />, label: "Live Notifications", sub: "Real-time vehicle notifications" },
+                { icon: <ParkingCircle size={24} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify the vehicle owner" },
               ].map((f) => (
                 <motion.div
                   key={f.label}
