@@ -663,7 +663,7 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">WHY CHOOSE OUR PLATFORM</span>
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 block">WHY CHOOSE OUR PLATFORM</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               Vehicle QR Features
             </h3>
