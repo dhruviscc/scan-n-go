@@ -79,7 +79,7 @@ export const metadata = {
 export default function UseCasesPage() {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
- 
+
       {/* Content */}
       <div className="relative z-10">
         {/* Your page content */}
@@ -94,7 +94,7 @@ export default function UseCasesPage() {
           {/* Center Content */}
           <div className="mx-auto max-w-3xl text-center mt-10">
 
-            <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               One Platform. Industry Solution.
             </h1>
 
@@ -132,7 +132,7 @@ export default function UseCasesPage() {
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 text-violet-600 shadow-sm shadow-violet-100">
                     <Icon size={29} />
                   </div>
-                  <h2 className="mt-6 text-3xl font-black text-slate-900">{title}</h2>
+                  <h2 className="mt-6 text-3xl font-bold  text-slate-900">{title}</h2>
                   <p className="mt-4 text-base leading-8  text-slate-600">{description}</p>
                   <div className="mt-8 flex flex-wrap items-center gap-4">
 

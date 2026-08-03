@@ -85,16 +85,16 @@ export default function Features() {
         {/* Blob 1 */}
         <div className="absolute -bottom-[150%] left-16 w-72 h-72 rounded-full bg-violet-300/20 blur-[70px] animate-blob" />
 
-       
+
         {/* Blob 3 */}
         <div className="absolute -bottom-[50%] left-20 w-80 h-80 rounded-full bg-pink-300/15 blur-[50px] animate-blob animation-delay-4000" />
 
         {/* Blob 4 */}
         <div className="absolute bottom-0 right-20 w-80 h-80 rounded-full bg-cyan-300/15  blur-[90px]  animate-blob animation-delay-6000" />
-       
+
         <div className="absolute -bottom-[110%] right-20 w-80 h-80 rounded-full bg-blue-300/20   blur-[90px] animate-blob animation-delay-6000" />
 
-     
+
         {/* Blob 6 */}
         <div className="absolute top-20 left-1/3 w-56 h-56 rounded-full bg-indigo-300/15 blur-[80px] animate-blob animation-delay-10000" />
       </div>
@@ -110,7 +110,7 @@ export default function Features() {
           <div className="max-w-3xl">
 
 
-            <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Secure, Smart & Scalable
               <br />
               <TypeAnimation

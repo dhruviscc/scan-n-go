@@ -58,7 +58,7 @@ export default function BlogPage() {
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Insights, Guides & Updates from Scan N Go
             </h1>
             <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
@@ -106,7 +106,7 @@ export default function BlogPage() {
               <span className="inline-flex rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
                 {post.category}
               </span>
-              <h2 className="mt-5 text-xl font-black text-slate-900">{post.title}</h2>
+              <h2 className="mt-5 text-xl font-bold  text-slate-900">{post.title}</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">{post.excerpt}</p>
               <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
                 <span>{post.date}</span>
@@ -123,7 +123,7 @@ export default function BlogPage() {
         <div className="rounded-[32px] border border-violet-100 bg-white px-8 py-10 shadow-[0_25px_80px_rgba(99,102,241,0.08)] sm:px-12">
           <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+              <h2 className="text-3xl font-bold  tracking-tight text-slate-900 sm:text-4xl">
                 Ready to Experience Smart QR Solutions?
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">

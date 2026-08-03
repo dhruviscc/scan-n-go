@@ -73,8 +73,8 @@ export default function OurPartners() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-           
-            <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+
+            <h1 className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Building a Smarter Ecosystem with
               <span className="mt-2 block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                 Trusted Partners
@@ -112,7 +112,7 @@ export default function OurPartners() {
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
                 <Icon size={24} />
               </div>
-              <h2 className="mt-6 text-2xl font-black text-slate-900">{title}</h2>
+              <h2 className="mt-6 text-2xl font-bold  text-slate-900">{title}</h2>
               <h3 className="mt-3 text-lg font-semibold text-violet-700">{subtitle}</h3>
               <p className="mt-4 text-base leading-8 text-slate-600">{description}</p>
               <p className="mt-4 text-base leading-8 text-slate-600">{body}</p>
@@ -140,7 +140,7 @@ export default function OurPartners() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">
               Why Choose Us
             </p>
-            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold  tracking-tight text-slate-900 sm:text-4xl">
               Smart Solutions for Secure Access, Visitor Management, and Attendance
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
@@ -180,7 +180,7 @@ export default function OurPartners() {
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">
                 Ready to begin
               </p>
-              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+              <h2 className="mt-4 text-3xl font-bold  tracking-tight text-slate-900 sm:text-4xl">
                 Let us build a smarter access experience together
               </h2>
               <p className="mt-4 text-base leading-8 text-slate-600">

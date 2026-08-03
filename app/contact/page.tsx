@@ -43,14 +43,14 @@ export default function Contact() {
         </div>
         <div className="relative mx-auto max-w-5xl px-5 mt-20 text-center sm:px-6">
 
-          <h1 className="mx-auto mt-6 max-w-3xl text-center text-4xl font-black leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+          <h1 className="mx-auto mt-6 max-w-3xl text-center text-4xl font-bold  leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             We'd Love To
             <span className="mt-2 block">
               <TypeAnimation
                 sequence={[
                   "Hear From You",
                   2500,
-                  
+
                   "Help Your Business",
                   2500,
                 ]}
@@ -71,7 +71,7 @@ export default function Contact() {
         <div className="grid overflow-hidden rounded-[28px] border border-violet-100 bg-white shadow-[0_24px_65px_rgba(76,39,155,0.12)] lg:grid-cols-[1.08fr_.92fr]">
           <form onSubmit={handleSubmit} className="p-6 sm:p-9 lg:p-12">
             <div className="mb-8">
-              <h2 className="mt-2 text-3xl font-black text-slate-900">Tell us how we can help</h2>
+              <h2 className="mt-2 text-3xl font-bold  text-slate-900">Tell us how we can help</h2>
               <p className="mt-2 text-slate-500">Fill in the details below and we&apos;ll get back to you shortly.</p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
@@ -98,7 +98,7 @@ export default function Contact() {
             <div className="absolute -right-24 -top-20 h-72 w-72 rounded-full bg-violet-500/40 blur-3xl" />
             <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-indigo-500/30 blur-3xl" />
             <div className="relative">
-              <h2 className="mt-2 text-3xl font-black">Let&apos;s start a conversation.</h2>
+              <h2 className="mt-2 text-3xl font-bold ">Let&apos;s start a conversation.</h2>
               <p className="mt-3 max-w-md leading-7 text-indigo-100/75">Reach out through any channel that is most convenient for you.</p>
               <div className="mt-9 space-y-4">
                 {contactDetails.map(({ icon: Icon, title, value, href }) => (
@@ -116,7 +116,7 @@ export default function Contact() {
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-10">
-          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-600">Office Location</p><h2 className="mt-2 text-3xl font-black text-slate-900 sm:text-4xl">Find our office</h2></div><a href="https://maps.google.com/?q=Coimbatore,+Tamil+Nadu,+India" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-bold text-violet-700 hover:text-indigo-700">Get directions <ArrowRight size={18} /></a></div>
+          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-600">Office Location</p><h2 className="mt-2 text-3xl font-bold  text-slate-900 sm:text-4xl">Find our office</h2></div><a href="https://maps.google.com/?q=Coimbatore,+Tamil+Nadu,+India" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-bold text-violet-700 hover:text-indigo-700">Get directions <ArrowRight size={18} /></a></div>
           <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white p-2 shadow-sm"><iframe title="Scan n Gooffice location in Coimbatore" src="https://www.google.com/maps?q=Coimbatore%2C%20Tamil%20Nadu%2C%20India&output=embed" className="h-[360px] w-full rounded-[20px] border-0 sm:h-[440px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
         </div>
       </section>

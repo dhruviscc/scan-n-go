@@ -191,7 +191,7 @@ export default function Home() {
               </motion.div>
 
               <motion.h1
-                className="max-w-none break-words text-[2rem] font-black leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+                className="max-w-none break-words text-[2rem] font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -275,7 +275,7 @@ export default function Home() {
                   <div className="absolute top-2 left-1/2 -translate-x-1/2 w-18 h-4 bg-slate-900 rounded-full z-20" />
 
                   {/* Status Bar */}
-                  <div className="flex items-center justify-between px-4 pb-1 pt-2 text-[8px] font-black text-slate-700 sm:px-6 sm:pb-1.5 sm:pt-3 sm:text-[10px]">
+                  <div className="flex items-center justify-between px-4 pb-1 pt-2 text-[8px] font-bold  text-slate-700 sm:px-6 sm:pb-1.5 sm:pt-3 sm:text-[10px]">
                     <span>9:41</span>
                     <div className="flex gap-1.5 items-center">
                       <Zap size={10} />
@@ -534,7 +534,7 @@ export default function Home() {
         <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl  font-semibold text-slate-900 leading-tight">
               Smart QR Solutions
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
@@ -553,7 +553,7 @@ export default function Home() {
             }}
           >
             {[
-              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode Siren", "Parking Information"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan.jpg" },
+              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode Siren"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan.jpg" },
               { title: "Contact QR", desc: "Share your professional or personal contact details instantly with a single QR scan.", features: ["Instant Contact Sharing", "Quick Save", "Secure Sharing"], color: "border-indigo-100/70", iconColor: "text-indigo-600", img: "/images/contact-scan-4.png" },
               { title: "Queue QR", desc: "Digitise queue management with QR-based token generation and real-time notifications.", features: ["Digital Token System", "Live Queue Status", "Turn Notifications", "Reduced Waiting Time"], color: "border-emerald-100/70", iconColor: "text-emerald-600", img: "/images/queue-scan-2.png" },
               { title: "Gate QR", desc: "Secure visitor access with QR-based entry, exit, and attendance management.", features: ["QR Check-In & Check-Out", "Attendance Management", "Access Control", "Entry And Exit History"], color: "border-purple-100/70", iconColor: "text-violet-600", img: "/images/gate-scan-1.png" },
@@ -591,7 +591,7 @@ export default function Home() {
 
                             {/* Content */}
                             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                              <h4 className="text-2xl font-bold">
+                              <h4 className="text-xl font-semibold">
                                 {sol.title}
                               </h4>
                             </div>
@@ -604,7 +604,7 @@ export default function Home() {
                             {sol.title}
                           </h4>
 
-                          <p className="mt-3 text-md leading-6 text-slate-600">
+                          <p className="mt-3 text-sm leading-6 text-slate-600">
                             {sol.desc}
                           </p>
 
@@ -618,11 +618,11 @@ export default function Home() {
                     >
                       <div className="flex h-full flex-col">
 
-                        <h4 className="text-3xl font-bold text-slate-900">
+                        <h4 className="text-2xl font-bold text-slate-900">
                           {sol.title}
                         </h4>
 
-                        <p className="mt-3 text-lg leading-6 text-slate-600">
+                        <p className="mt-3 text-md leading-6 text-slate-600">
                           {sol.desc}
                         </p>
 
@@ -666,10 +666,10 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 leading-tight">
               Vehicle QR Features
             </h3>
-            <p className="text-slate-500 mt-4 text-lg leading-relaxed">
+            <p className="text-slate-500 mt-4 text-md leading-relaxed">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
             </p>
           </ScrollReveal>
@@ -682,7 +682,7 @@ export default function Home() {
               <div >
 
 
-                <h4 className=" text-2xl font-black text-slate-800 mb-3">One Platform for Every QR Solution</h4>
+                <h4 className=" text-xl font-semibold  text-slate-800 mb-3">One Platform for Every QR Solution</h4>
 
                 <div className="grid min-h-[270px] items-center gap-4 sm:grid-cols-[1.1fr_.9fr]">
                   <div className="relative flex min-h-[270px] items-center justify-center overflow-hidden  border-r border-slate-200">
@@ -697,7 +697,7 @@ export default function Home() {
                   <div className="grid w-full grid-cols-1 gap-5 py-2 sm:pr-3 ">
 
                     <div className="border-b border-slate-200 pb-5">
-                      <p className="flex items-center gap-2 text-sm font-black text-slate-800">
+                      <p className="flex items-center gap-2 text-sm font-bold  text-slate-800">
                         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-200"><Bell size={15} /></span> Normal Alert
                       </p>
                       <p className="ml-10 mt-2 text-xs leading-5 text-slate-500">
@@ -706,7 +706,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      <p className="flex items-center gap-2 text-sm font-black text-red-600">
+                      <p className="flex items-center gap-2 text-sm font-bold  text-red-600">
                         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><AlertTriangle size={15} /></span> Emergency Alert
                       </p>
                       <p className="ml-10 mt-2 text-xs leading-5 text-slate-500">
@@ -723,10 +723,10 @@ export default function Home() {
             {/* Demo 2: Dual Sticker Protection */}
             <div className="min-h-[310px] rounded-2xl border border-violet-100 bg-white/90 p-6 shadow-[0_12px_35px_-20px_rgba(91,33,182,0.3)] sm:p-6">
               <div>
-                <span className="text-[13px] uppercase font-black tracking-widest text-[#7c3aed] bg-purple-50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
+                <span className="text-[11px] uppercase   tracking-widest text-[#7c3aed] bg-purple-50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
                   <ShieldCheck size={13} /> Backup Sticker Shield
                 </span>
-                <h4 className="mt-3 text-xl font-black text-slate-800 sm:text-2xl">Dual Sticker Protection</h4>
+                <h4 className="mt-3 text-xl font-semibold  text-slate-800 sm:text-2xl">Dual Sticker Protection</h4>
                 <p className="mt-1.5 text-sm leading-5 text-slate-500">
                   Every QR order is supplied with two identical QR stickers linked to the same profile. If one sticker gets damaged or unreadable, the second one continues to work seamlessly.
                 </p>
@@ -759,7 +759,7 @@ export default function Home() {
                       <QrCode className="h-7 w-7 text-violet-600 sm:h-8 sm:w-8" />
                     </div>
 
-                    <p className="mt-2 text-[10px] font-black uppercase tracking-wider text-violet-700 sm:text-xs">
+                    <p className="mt-2 text-[10px] font-bold  uppercase tracking-wider text-violet-700 sm:text-xs">
                       Primary Sticker
                     </p>
 
@@ -779,7 +779,7 @@ export default function Home() {
                       <QrCode className="h-7 w-7 text-sky-600 sm:h-8 sm:w-8" />
                     </div>
 
-                    <p className="mt-2 text-[10px] font-black uppercase tracking-wider text-sky-700 sm:text-xs">
+                    <p className="mt-2 text-[10px] font-bold  uppercase tracking-wider text-sky-700 sm:text-xs">
                       Backup Sticker
                     </p>
 
@@ -824,7 +824,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-12">
 
-            <h3 className="text-2xl sm:text-4xl font-black pb-10 text-slate-800">
+            <h3 className="text-2xl sm:text-4xl font-bold  pb-10 text-slate-800">
               Trusted By IT Companies & Organizations
             </h3>
           </ScrollReveal>
@@ -894,18 +894,18 @@ export default function Home() {
 
 
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
-          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
+          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
               WHERE YOU CAN USE
             </h3>
-            <p className="text-slate-500 mt-3 text-md leading-relaxed ">
+            <p className="text-slate-500 mt-3 text-md leading-relaxed">
               From gated communities and corporate offices to schools, industries, and buildings, Scan n Godelivers secure, smart, and seamless QR-powered management for every location.
             </p>
           </ScrollReveal>
 
           <ScrollReveal>
             <div
-              className="relative  overflow-hidden rounded-[10px] px-8 lg:px-10 py-20"
+              className="relative  overflow-hidden rounded-[10px] px-8 lg:px-10 pb-15"
             >
 
 
@@ -943,8 +943,8 @@ export default function Home() {
         < div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
+          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mt-2">
               Everything in One Simple App
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
@@ -956,10 +956,7 @@ export default function Home() {
 
             {/* Feature lists on Left */}
             <div className="space-y-6 ">
-              <h4 className="text-3xl font-black text-slate-800">Scan n GoApp Features Dashboard</h4>
-              <p className="text-md text-slate-500 leading-relaxed">
-                Connect your physical cards and windshield stickers to safe databases. The application lets owners edit emergency contact numbers instantly without buying new stickers.
-              </p>
+              <h4 className="text-3xl font-bold  text-slate-800">Scan n Go App Features Dashboard</h4>
 
               <motion.div
                 className="grid sm:grid-cols-2 gap-4"
@@ -972,11 +969,11 @@ export default function Home() {
                 }}
               >
                 {[
-                  { name: "Scan QR on Go", icon: <ScanLine size={14} className="text-violet-600" />, side: "left" },
+                  { name: "Secure QR Code", icon: <QrCode size={14} className="text-violet-600" />, side: "left" },
+                  { name: "Vehicle QR Management", icon: <ScanLine size={14} className="text-violet-600" />, side: "left" },
                   { name: "Instant Notifications", icon: <Bell size={14} className="text-violet-600" />, side: "right" },
-                  { name: "Direct QR Editor", icon: <QrCode size={14} className="text-violet-600" />, side: "left" },
-                  { name: "Visitor History Log", icon: <Clock size={14} className="text-violet-600" />, side: "right" },
-                  { name: "Sticker Download PDFs", icon: <Download size={14} className="text-violet-600" />, side: "left" },
+                  { name: "Appoinment & Meeting QR", icon: <Clock size={14} className="text-violet-600" />, side: "right" },
+                  { name: "Contect QR sharing", icon: <Download size={14} className="text-violet-600" />, side: "left" },
                   { name: "Update Profile instantly", icon: <User size={14} className="text-violet-600" />, side: "right" },
                 ].map((appFeat, i) => (
                   <motion.div
@@ -1058,16 +1055,16 @@ export default function Home() {
         < div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
         <div className="w-full max-w-[1440px] mx-auto">
-          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
+          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
             <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
 
 
-              <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+              <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold   leading-tight text-slate-900">
                 Loved By Daily Users <br className="sm:hidden" />
                 <span className="inline sm:block">&amp; Team Admins</span>
               </h3>
 
-              <p className="mt-4 text-sm sm:text-base lg:text-lg leading-7 text-slate-500 max-w-2xl mx-auto">
+              <p className="mt-4 text-sm sm:text-base lg:text-md leading-7 text-slate-500  mx-auto">
                 Discover how residential occupants, local retail store owners, and vehicle
                 drivers secure daily entries and emergency loops.
               </p>
@@ -1091,11 +1088,11 @@ export default function Home() {
         <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
+          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
               Frequently Asked Questions
             </h3>
-            <p className="text-slate-500 mt-3 text-sm leading-relaxed">
+            <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Discover answers to common security compliance check logs and vehicle stickers setup workflows.
             </p>
           </ScrollReveal>
@@ -1114,7 +1111,6 @@ export default function Home() {
                 q: "Is my personal data secure?",
                 a: "Yes. Scan n Goprotects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
               },
-             
               {
                 q: "Is Vehicle QR a one-time purchase?",
                 a: "Yes. Vehicle QR sticker packages require a single, one-time payment. Once activated, stickers last lifetime with zero mandatory subscription fees.",
@@ -1128,7 +1124,7 @@ export default function Home() {
                     onClick={() => setActiveFaq(isOpen ? null : i)}
                     className="w-full text-left p-5 flex justify-between items-center gap-4 text-slate-800 font-extrabold cursor-pointer"
                   >
-                    <span className="text-md sm:text-xl">{faq.q}</span>
+                    <span className="text-md sm:text-lg font-semibold">{faq.q}</span>
                     <motion.span
                       className="w-6 h-6 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0"
                       animate={{ rotate: isOpen ? 180 : 0 }}
@@ -1146,7 +1142,7 @@ export default function Home() {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <p className="p-5 pt-0 text-lg text-slate-500 leading-relaxed border-t border-slate-100 bg-white">{faq.a}</p>
+                        <p className="p-5 pt-0 text-md text-slate-500 leading-relaxed border-t border-slate-100 bg-white">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
