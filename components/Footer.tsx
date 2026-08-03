@@ -11,7 +11,6 @@ import {
   FaFacebookF,
   FaInstagram,
   FaYoutube,
-  FaLinkedinIn,
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -25,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#070B18] text-white">
+    <footer className="relative overflow-hidden bg-[#070B18] p-3 text-white">
 
       {/* ================= Background ================= */}
 
@@ -63,18 +62,13 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-8xl mx-auto px-4 lg:px-6 py-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
 
-          {/* ================================================= */}
           {/* Column 1 */}
-          {/* ================================================= */}
-
-          <div>
+          <div >
 
             {/* Logo */}
-
             <Link href="/">
-
               <Image
                 src="/images/logo/logo_with_text.png"
                 alt="Scan N Go"
@@ -82,22 +76,100 @@ export default function Footer() {
                 height={58}
                 className="object-contain"
               />
-
             </Link>
 
             {/* Description */}
-
-            <p className="mt-8 text-[16px] leading-8 text-gray-400 max-w-sm">
-
-              We provide smart QR solutions for secure access,
-              contactless experiences and real-time visitor
-              management. Simple to use, powerful to trust.
-
+            <p className="mt-7 max-w-md text-[16px] leading-8 text-gray-400">
+              We provide smart QR solutions for secure access, contactless
+              experiences and real-time visitor management. Simple to use,
+              powerful to trust.
             </p>
 
-            {/* Contact */}
+            {/* Social Icons */}
+           <div className="mt-8">
+  {/* Heading */}
+  <h3 className="mb-5 text-lg font-semibold text-white">
+    Social Links
+  </h3>
 
-            <div className="mt-10 space-y-5">
+  {/* Social Icons */}
+  <div className="flex items-center gap-4">
+    <Link
+      href="https://www.facebook.com/app.scanngo"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1877F2] hover:bg-[#1877F2]"
+    >
+      <FaFacebookF className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+    </Link>
+
+    <Link
+      href="https://www.instagram.com/scan_n_go_/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E4405F] hover:bg-[#E4405F]"
+    >
+      <FaInstagram className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+    </Link>
+
+    <Link
+      href="https://scan-n-go.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF0000] hover:bg-[#FF0000]"
+    >
+      <FaYoutube className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+    </Link>
+  </div>
+</div>
+
+          </div>
+
+          {/* Column 2 - Quick Links */}
+
+          <div className="lg:pl-20">
+
+            <div className="inline-flex items-center gap-3 mb-6">
+
+              <h3 className="text-2xl font-semibold text-white">
+                Quick Links
+              </h3>
+
+            </div>
+
+            <ul className="space-y-5">
+
+              {footerNavItems.map((item) => (
+                <li key={item.name}>
+
+                  <Link
+                    href={item.href}
+                    className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
+                  >
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {item.name}
+                    </span>
+
+                  </Link>
+
+                </li>
+              ))}
+
+            </ul>
+          </div>
+
+          {/* Column 3 - Contact */}
+
+          <div >
+            {/* Contact */}
+            <div className="inline-flex items-center gap-3 mb-3">
+
+              <h3 className="text-2xl font-semibold text-white">
+                Contact
+              </h3>
+
+            </div>
+            <div className="mt-5 space-y-5">
 
               <div className="flex items-center gap-4">
 
@@ -142,54 +214,14 @@ export default function Footer() {
               </div>
 
             </div>
-
-
-
           </div>
 
-          {/* ================================================= */}
-          {/* Column 2 - Quick Links */}
-          {/* ================================================= */}
+          {/* Column 4 - Download App */}
 
-          <div className="lg:pl-10">
-
-            <div className="inline-flex items-center gap-3 mb-6">
-
-              <h3 className="text-2xl font-bold text-white">
-                Quick Links
-              </h3>
-
-            </div>
-
-            <ul className="space-y-5">
-
-              {footerNavItems.map((item) => (
-                <li key={item.name}>
-
-                  <Link
-                    href={item.href}
-                    className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">
-                      {item.name}
-                    </span>
-
-                  </Link>
-
-                </li>
-              ))}
-
-            </ul>
-          </div>
-
-          {/* ================================================= */}
-          {/* Column 3 - Download App */}
-          {/* ================================================= */}
-
-          <div>
+          <div >
 
             <div className="inline-flex items-center gap-3 mb-8">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-semibold text-white">
                 Download App
               </h3>
             </div>
@@ -238,9 +270,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ================================================= */}
         {/* Bottom Bar */}
-        {/* ================================================= */}
 
         <div className="mt-16 pt-6 border-t border-white/10">
 
@@ -271,44 +301,7 @@ export default function Footer() {
 
             </div>
 
-            {/* Social Icons */}
 
-            <div className="flex items-center gap-3">
-
-              <Link
-                href="https://www.facebook.com/app.scanngo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300 hover:-translate-y-1"
-              >
-                <FaFacebookF
-                  className="text-gray-300 group-hover:text-white text-[18px]"
-                />
-              </Link>
-
-              <Link
-                href="https://www.instagram.com/scan_n_go_/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E4405F] hover:border-[#E4405F] transition-all duration-300 hover:-translate-y-1"
-              >
-                <FaInstagram
-                  className="text-gray-300 group-hover:text-white text-[18px]"
-                />
-              </Link>
-
-              <Link
-                href="https://scan-n-go.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#FF0000] hover:border-[#FF0000] transition-all duration-300 hover:-translate-y-1"
-              >
-                <FaYoutube
-                  className="text-gray-300 group-hover:text-white text-[18px]"
-                />
-              </Link>
-
-            </div>
 
           </div>
 
