@@ -44,22 +44,22 @@ import {
    Feature Card (Hero floating layout)
 ────────────────────────────────────────── */
 import Image from "next/image";
+import { AnimatedBackground } from '@/components/ui/animated-background';
 interface FeatureCardProps {
   icon: React.ReactNode;
   iconBg: string;
   title: string;
-  desc: string;
+
   delay?: string;
   className?: string;
 }
-const FeatureCard = ({ icon, iconBg, title, desc, delay = "0s", className = "" }: FeatureCardProps) => (
+const FeatureCard = ({ icon, iconBg, title, delay = "0s", className = "" }: FeatureCardProps) => (
   <div
     className={`feat-card absolute bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_12px_30px_-5px_rgba(124,58,237,0.12)] p-3 flex flex-col items-center text-center gap-1.5 w-[160px] border border-violet-100/70 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.25)] hover:-translate-y-1 transition-all duration-500 ${className}`}
     style={{ animationDelay: delay }}
   >
     <div className={`w-9 h-9 rounded-lg flex items-center justify-center shadow-inner ${iconBg}`}>{icon}</div>
     <p className="text-[16px] font-extrabold text-slate-800 leading-tight">{title}</p>
-    <p className="text-[13px] text-slate-400 ">{desc}</p>
   </div>
 );
 
@@ -149,6 +149,7 @@ export default function Home() {
         className="relative flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-32"
         style={{ background: "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)" }}
       >
+
         {/* Colorful dynamic background lights */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-[-10%] right-[-10%] w-[550px] h-[550px] rounded-full bg-violet-400/25 blur-[120px] animate-pulse-slow" />
@@ -202,7 +203,7 @@ export default function Home() {
                 <br />
                 <TypeAnimation
                   sequence={[
-                    "Emergency Vehicle Access",
+                    "Connect Emergency Contacts",
                     2500,
                     "Digital Identity",
                     2500,
@@ -441,7 +442,6 @@ export default function Home() {
                   icon={<Heart color="#ef4444" size={24} />}
                   iconBg="bg-red-50"
                   title="Emergency "
-                  desc="Emergency Medical Information"
                   delay="0.1s"
                   className="relative lg:absolute left-0 sm:left-2 top-auto lg:top-[50px]"
                 />
@@ -449,7 +449,6 @@ export default function Home() {
                   icon={<Car color="#2563eb" size={24} />}
                   iconBg="bg-blue-50"
                   title="Vehicle QR Card"
-                  desc="Fast Parking Connection"
                   delay="0.5s"
                   className="relative lg:absolute right-0 sm:right-2 top-auto lg:top-[50px]"
                 />
@@ -457,7 +456,6 @@ export default function Home() {
                   icon={<Building color="#8b5cf6" size={24} />}
                   iconBg="bg-purple-50"
                   title="Business Card"
-                  desc="Instantly Hub Socials"
                   delay="0.7s"
                   className="relative lg:absolute right-0 sm:right-2 bottom-auto lg:bottom-[50px]"
                 />
@@ -489,8 +487,8 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: <ScanLine size={24} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
-                { icon: <Bell size={24} />, label: "Live Notifications", sub: "Dual-channel owner alerts" },
-                { icon: <ParkingCircle size={24} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify" },
+                { icon: <Bell size={24} />, label: "Live Notifications", sub: "Real-time vehicle notifications" },
+                { icon: <ParkingCircle size={24} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify the vehicle owner" },
               ].map((f) => (
                 <motion.div
                   key={f.label}
@@ -517,6 +515,18 @@ export default function Home() {
       {/* ════════════════ SECTION 02 — SMART ENTRY SOLUTIONS ════════════════ */}
       <section id="use-cases" className="py-24 bg-white">
 
+        {/* Immersive Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={80}
+            particleColorLight="99, 102, 241" // Indigo-500
+            particleColorDark="168, 85, 247" // Purple-500
+          />
+        </div>
 
         {/* Top Left Blob */}
         <div className="absolute left-10 top-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
@@ -648,9 +658,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
-
       {/* ════════════════ SECTION 03 — WHY CHOOSE Scan-N-Go ════════════════ */}
       <section id="features" className="relative overflow-hidden border-t border-slate-100 bg-[#fcfbff] py-16 sm:py-20">
 
@@ -663,7 +670,7 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">WHY CHOOSE OUR PLATFORM</span>
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 block">WHY CHOOSE OUR PLATFORM</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               Vehicle QR Features
             </h3>
@@ -868,7 +875,18 @@ export default function Home() {
       {/* ════════════════ SECTION 05 — WHERE YOU CAN USE ════════════════ */}
 
       < section className="relative overflow-hidden bg-white py-20" >
+        {/* Immersive Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
 
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={80}
+            particleColorLight="99, 102, 241" // Indigo-500
+            particleColorDark="168, 85, 247" // Purple-500
+          />
+        </div>
         {/* Top Left Blob */}
         < div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
