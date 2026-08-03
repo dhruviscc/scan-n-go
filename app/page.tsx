@@ -59,7 +59,7 @@ const FeatureCard = ({ icon, iconBg, title, delay = "0s", className = "" }: Feat
     style={{ animationDelay: delay }}
   >
     <div className={`w-9 h-9 rounded-lg flex items-center justify-center shadow-inner ${iconBg}`}>{icon}</div>
-    <p className="text-[16px] font-extrabold text-slate-800 leading-tight">{title}</p>
+    <p className="text-[14px] text-slate-800 leading-tight">{title}</p>
   </div>
 );
 
@@ -155,8 +155,8 @@ export default function Home() {
           <div className="absolute top-[35%] left-[45%] w-[300px] h-[300px] rounded-full bg-blue-300/20 blur-[80px]" />
         </div>
 
-        <div className="relative mx-auto w-full max-w-8xl px-5 sm:px-6 lg:px-12">
-          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-16 lg:pt-25">
+        <div className="relative mx-auto w-full max-w-[1490px] px-5 sm:px-6 lg:px-12">
+          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-16 lg:pt-15">
 
             {/* HERO LEFT */}
             <motion.div
@@ -191,7 +191,7 @@ export default function Home() {
               </motion.div>
 
               <motion.h1
-                className="max-w-none break-words text-[2rem] font-black leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-7xl"
+                className="max-w-none break-words text-[2rem] font-black leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -218,15 +218,13 @@ export default function Home() {
               </motion.h1>
 
               <motion.p
-                className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:mt-8 sm:text-lg lg:text-xl sm:leading-8"
+                className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:mt-8 sm:text-lg lg:text-md sm:leading-8"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
                 }}
               >
-                Simplify identity, visitor, vehicle, attendance, and emergency management
-                with one secure QR platform. Scan once, verify instantly, and access
-                information whenever it matters.
+                Everything you need for identity, visitor, vehicle, and attendance management—powered by one secure QR platform. Scan once, verify instantly, and stay connected when it matters most.
               </motion.p>
 
 
@@ -240,7 +238,7 @@ export default function Home() {
                 <Link
                   href="/contact"
                   id="hero-contact-btn"
-                  className="cta-primary inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-3 text-base font-bold text-white shadow-lg shadow-violet-500/30 transition-all duration-300 hover:-translate-y-1 hover:from-violet-700 hover:to-indigo-700 hover:shadow-xl sm:gap-3 sm:rounded-2xl sm:px-7 sm:text-lg"
+                  className="cta-primary inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-3 text-base font-bold text-white shadow-lg shadow-violet-500/30 transition-all duration-300 hover:-translate-y-1 hover:from-violet-700 hover:to-indigo-700 hover:shadow-xl sm:gap-3 sm:rounded-2xl sm:px-7 sm:text-md"
                 >
                   Contact Us
                   <ArrowRight size={22} strokeWidth={2.5} />
@@ -286,7 +284,7 @@ export default function Home() {
                   </div>
 
                   <div className="pb-1 pt-1 text-center sm:pb-1 sm:pt-1.5">
-                    <p className="text-[8px] font-black uppercase tracking-wider text-violet-600 sm:text-[10px] sm:tracking-widest">Scan n GoSECURITY</p>
+                    <p className="text-[8px] uppercase tracking-wider text-violet-600 sm:text-[10px] sm:tracking-widest">Scan n GoSECURITY</p>
                   </div>
 
                   {/* Animated scanning QR code */}
@@ -309,12 +307,12 @@ export default function Home() {
                   </div>
 
                   <div className="mt-2 scale-95 text-center sm:mt-3">
-                    <p className="text-sm font-black leading-none text-slate-800 sm:text-[16px]">John Doe Profile</p>
+                    <p className="text-sm  leading-none text-slate-800 sm:text-[14px]">John Doe Profile</p>
                     <p className="mt-1 inline-block rounded-full bg-violet-100 px-2 py-0.5 font-mono text-[8px] text-violet-700 sm:px-2.5 sm:text-[10px]">UID: SNG-889812-H</p>
                   </div>
 
                   {/* Category grids */}
-                  <div className="absolute left-1/2 top-[220px] w-[132%] -translate-x-1/2 overflow-hidden rounded-xl border border-slate-100 bg-white shadow-[0_14px_35px_rgba(15,23,42,.12)] sm:-left-10 sm:top-[255px] sm:w-[130%] sm:translate-x-0 sm:rounded-2xl sm:shadow-[0_20px_60px_rgba(15,23,42,.12)]">
+                  <div className="absolute left-1/2 top-[220px] w-[110%] -translate-x-1/2 overflow-hidden rounded-xl border border-slate-100 bg-white shadow-[0_14px_35px_rgba(15,23,42,.12)] sm:-left-8 sm:top-[255px] sm:w-[125%] sm:translate-x-0 sm:rounded-2xl sm:shadow-[0_20px_60px_rgba(15,23,42,.12)]">
                     <div className="grid grid-cols-4">
                       {[
                         {
@@ -342,7 +340,7 @@ export default function Home() {
                             {item.icon}
                           </div>
 
-                          <span className="text-[8px] font-semibold text-slate-800 sm:text-[13px]">
+                          <span className="text-[8px]  text-slate-800 sm:text-[13px]">
                             {item.label}
                           </span>
                         </div>
@@ -351,20 +349,20 @@ export default function Home() {
                   </div>
 
                   {/* Emergency notification trigger */}
-                  <div className="absolute bottom-14 left-1/2 flex h-16 w-[132%] -translate-x-1/2 items-center justify-between rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 px-3 py-2 text-white shadow-lg sm:-left-10 sm:bottom-20 sm:h-20 sm:w-[130%] sm:translate-x-0 sm:rounded-2xl sm:px-4 sm:py-3">
+                  <div className="absolute bottom-14 left-1/2 flex h-16 w-[132%] -translate-x-1/2 items-center justify-between rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 px-3 py-2 text-white shadow-lg sm:-left-8 sm:bottom-20 sm:h-20 sm:w-[125%] sm:translate-x-0 sm:rounded-2xl sm:px-4 sm:py-3">
                     <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                       {/* Icon */}
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm sm:h-11 sm:w-11 sm:rounded-xl">
                         <Bell size={22} className="text-white sm:hidden" />
-                        <Bell size={30} className="hidden text-white sm:block" />
+                        <Bell size={24} className="hidden text-white sm:block" />
                       </div>
 
                       {/* Text */}
                       <div>
-                        <h4 className="text-sm leading-none lg:text-lg">
+                        <h4 className="text-sm leading-none lg:text-[15px]">
                           Emergency Assist Active
                         </h4>
-                        <p className="mt-1 truncate text-[10px] text-violet-100 lg:text-sm">
+                        <p className="mt-1 truncate text-[10px] text-violet-100 lg:text-[12px]">
                           Alert family contacts in 1-click
                         </p>
                       </div>
@@ -496,10 +494,10 @@ export default function Home() {
                     hidden: { y: 30, opacity: 0 },
                   }}
                 >
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg shrink-0">{f.icon}</div>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg shrink-0">{f.icon}</div>
                   <div>
-                    <p className="text-[20px] font-black text-slate-800">{f.label}</p>
-                    <p className="text-[15px] text-slate-500 mt-1 leading-snug">{f.sub}</p>
+                    <p className="text-[18px] font-semibold text-slate-800">{f.label}</p>
+                    <p className="text-[14px] text-slate-500 mt-1 leading-snug">{f.sub}</p>
                   </div>
                 </motion.div>
               ))}
@@ -1062,7 +1060,7 @@ export default function Home() {
         <div className="w-full max-w-[1440px] mx-auto">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
-             
+
 
               <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-slate-900">
                 Loved By Daily Users <br className="sm:hidden" />
@@ -1094,7 +1092,7 @@ export default function Home() {
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               Frequently Asked Questions
             </h3>
             <p className="text-slate-500 mt-3 text-sm leading-relaxed">
@@ -1116,10 +1114,7 @@ export default function Home() {
                 q: "Is my personal data secure?",
                 a: "Yes. Scan n Goprotects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
               },
-              {
-                q: "How does Emergency  work?",
-                a: "When responders scan your safety tag, the system displays vital safety directives (blood type, prescriptions) and instantly pings your emergency contact list with live GPS coordinate indicators.",
-              },
+             
               {
                 q: "Is Vehicle QR a one-time purchase?",
                 a: "Yes. Vehicle QR sticker packages require a single, one-time payment. Once activated, stickers last lifetime with zero mandatory subscription fees.",

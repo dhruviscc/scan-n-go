@@ -79,7 +79,26 @@ const featureSections = [
 
 export default function Features() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 text-slate-900 ">
+
+      <div className="pointer-events-none absolute inset-0">
+        {/* Blob 1 */}
+        <div className="absolute -bottom-[150%] left-16 w-72 h-72 rounded-full bg-violet-300/20 blur-[70px] animate-blob" />
+
+       
+        {/* Blob 3 */}
+        <div className="absolute -bottom-[50%] left-20 w-80 h-80 rounded-full bg-pink-300/15 blur-[50px] animate-blob animation-delay-4000" />
+
+        {/* Blob 4 */}
+        <div className="absolute bottom-0 right-20 w-80 h-80 rounded-full bg-cyan-300/15  blur-[90px]  animate-blob animation-delay-6000" />
+       
+        <div className="absolute -bottom-[110%] right-20 w-80 h-80 rounded-full bg-blue-300/20   blur-[90px] animate-blob animation-delay-6000" />
+
+     
+        {/* Blob 6 */}
+        <div className="absolute top-20 left-1/3 w-56 h-56 rounded-full bg-indigo-300/15 blur-[80px] animate-blob animation-delay-10000" />
+      </div>
+
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300/70 blur-3xl" />

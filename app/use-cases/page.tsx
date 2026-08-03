@@ -63,7 +63,7 @@ const useCases = [
   {
     title: "Networking System",
     description:
-      "Connect smarter with Scan-N-Go. Share your digital business card, contact details, and professional profile instantly with a single QR scan.",
+      "Connect smarter with Scan n Go. Share your digital business card, contact details, and professional profile instantly with a single QR scan.",
     icon: Wifi,
     badge: "Networking Video",
     videoSrc: "/video/contect.mp4",
@@ -99,7 +99,7 @@ export default function UseCasesPage() {
             </h1>
 
             <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg max-w-2xl mx-auto">
-              Discover how Scan-N-Go solves access management challenges with smart QR workflows
+              Discover how Scan n Go solves access management challenges with smart QR workflows
               for residential buildings, vehicles, workplaces, events, campuses, and business networking.
             </p>
           </div>
