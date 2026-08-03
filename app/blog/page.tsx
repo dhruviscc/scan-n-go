@@ -19,7 +19,7 @@ const posts = [
     date: "Jul 16, 2026",
   },
   {
-    title: "Secure Vehicle Entry with Scan-N-Go QR",
+    title: "Secure Vehicle Entry with Scan n GoQR",
     category: "Vehicle QR",
     excerpt:
       "Learn how smart vehicle QR scanning reduces manual checks and speeds up gated entry for drivers and staff.",
@@ -36,13 +36,13 @@ const posts = [
     title: "Event access made simple with QR tickets",
     category: "Events",
     excerpt:
-      "See how Scan-N-Go streamlines event entry, reduces queues, and improves attendee tracking through QR verification.",
+      "See how Scan n Gostreamlines event entry, reduces queues, and improves attendee tracking through QR verification.",
     date: "Apr 15, 2026",
   },
 ];
 
 export const metadata = {
-  title: "Scan-N-Go | Blog",
+  title: "Scan n Go| Blog",
   description:
     "Insights, guides, and updates from Scan N Go on QR access, visitor management, security, and digital identity.",
 };
@@ -58,7 +58,6 @@ export default function BlogPage() {
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Blog</p>
             <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Insights, Guides & Updates from Scan N Go
             </h1>

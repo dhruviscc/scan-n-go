@@ -79,6 +79,11 @@ export const metadata = {
 export default function UseCasesPage() {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
+ 
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Your page content */}
+      </div>
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24">
         <div className="pointer-events-none absolute inset-0 opacity-40">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
@@ -88,9 +93,6 @@ export default function UseCasesPage() {
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           {/* Center Content */}
           <div className="mx-auto max-w-3xl text-center mt-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">
-              Use Cases
-            </p>
 
             <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               One Platform. Industry Solution.
@@ -180,7 +182,7 @@ export default function UseCasesPage() {
         </div>
       </section>
 
-     
+
       < section className="py-14 lg:py-20 bg-white overflow-hidden" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

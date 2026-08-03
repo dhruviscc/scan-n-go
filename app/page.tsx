@@ -286,7 +286,7 @@ export default function Home() {
                   </div>
 
                   <div className="pb-1 pt-1 text-center sm:pb-1 sm:pt-1.5">
-                    <p className="text-[8px] font-black uppercase tracking-wider text-violet-600 sm:text-[10px] sm:tracking-widest">SCAN-N-GO SECURITY</p>
+                    <p className="text-[8px] font-black uppercase tracking-wider text-violet-600 sm:text-[10px] sm:tracking-widest">Scan n GoSECURITY</p>
                   </div>
 
                   {/* Animated scanning QR code */}
@@ -656,7 +656,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════ SECTION 03 — WHY CHOOSE Scan-N-Go ════════════════ */}
+      {/* ════════════════ SECTION 03 — WHY CHOOSE Scan n Go════════════════ */}
       <section id="features" className="relative overflow-hidden border-t border-slate-100 bg-[#fcfbff] py-16 sm:py-20">
 
         {/* fviolet Blob */}
@@ -668,12 +668,11 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 block">WHY CHOOSE OUR PLATFORM</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               Vehicle QR Features
             </h3>
             <p className="text-slate-500 mt-4 text-lg leading-relaxed">
-              We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan-N-Go simplifies connection workflows.
+              We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
             </p>
           </ScrollReveal>
 
@@ -902,7 +901,7 @@ export default function Home() {
               WHERE YOU CAN USE
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed ">
-              From gated communities and corporate offices to schools, industries, and buildings, Scan-N-Go delivers secure, smart, and seamless QR-powered management for every location.
+              From gated communities and corporate offices to schools, industries, and buildings, Scan n Godelivers secure, smart, and seamless QR-powered management for every location.
             </p>
           </ScrollReveal>
 
@@ -932,8 +931,6 @@ export default function Home() {
       </section >
 
 
-
-
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
       < section className="py-20 bg-slate-50 relative" >
 
@@ -949,7 +946,6 @@ export default function Home() {
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">PRODUCT PREVIEW</span>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               Everything in One Simple App
             </h3>
@@ -962,7 +958,7 @@ export default function Home() {
 
             {/* Feature lists on Left */}
             <div className="space-y-6 ">
-              <h4 className="text-3xl font-black text-slate-800">Scan-N-Go App Features Dashboard</h4>
+              <h4 className="text-3xl font-black text-slate-800">Scan n GoApp Features Dashboard</h4>
               <p className="text-md text-slate-500 leading-relaxed">
                 Connect your physical cards and windshield stickers to safe databases. The application lets owners edit emergency contact numbers instantly without buying new stickers.
               </p>
@@ -1066,9 +1062,7 @@ export default function Home() {
         <div className="w-full max-w-[1440px] mx-auto">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
             <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
-              <span className="block mb-2 text-[10px] sm:text-xs md:text-sm uppercase font-extrabold tracking-[0.25em] text-[#7c3aed] font-mono">
-                TESTIMONIALS
-              </span>
+             
 
               <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-slate-900">
                 Loved By Daily Users <br className="sm:hidden" />
@@ -1095,15 +1089,12 @@ export default function Home() {
       < section className="py-20 bg-slate-50" >
         {/* Top Left Blob */}
         <div className="absolute left-10 bottom-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
-
-
         {/* Center Glow */}
         <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#7c3aed] mb-1.5 font-mono block">HELP CENTER</span>
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-2">
               Frequently Asked Questions
             </h3>
             <p className="text-slate-500 mt-3 text-sm leading-relaxed">
@@ -1115,7 +1106,7 @@ export default function Home() {
             {[
               {
                 q: "What is Scan-N-Go?",
-                a: "Scan-N-Go is an intelligent, secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
+                a: "Scan n Gois an intelligent, secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
               },
               {
                 q: "How does Vehicle QR work?",
@@ -1123,7 +1114,7 @@ export default function Home() {
               },
               {
                 q: "Is my personal data secure?",
-                a: "Yes. Scan-N-Go protects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
+                a: "Yes. Scan n Goprotects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
               },
               {
                 q: "How does Emergency  work?",

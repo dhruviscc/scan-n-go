@@ -57,9 +57,9 @@ const whyChooseUsPoints = [
 ];
 
 export const metadata = {
-  title: "Scan-N-Go | Our Partners",
+  title: "Scan n Go| Our Partners",
   description:
-    "Discover the ecosystem of partners that strengthen the Scan-N-Go platform through secure access, visitor management, and attendance solutions.",
+    "Discover the ecosystem of partners that strengthen the Scan n Goplatform through secure access, visitor management, and attendance solutions.",
 };
 
 export default function OurPartners() {
@@ -73,9 +73,7 @@ export default function OurPartners() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-violet-700 shadow-sm backdrop-blur">
-              <Sparkles size={15} /> Our Partners
-            </div>
+           
             <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Building a Smarter Ecosystem with
               <span className="mt-2 block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
@@ -83,7 +81,7 @@ export default function OurPartners() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Scan-N-Go strengthens its platform through technology, hardware, and business partnerships that deliver secure access, smarter visitor management, and efficient attendance solutions.
+              Scan n Gostrengthens its platform through technology, hardware, and business partnerships that deliver secure access, smarter visitor management, and efficient attendance solutions.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link

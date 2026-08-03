@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Scan-N-Go | Smart QR Platform for Emergency, Vehicle & Digital Identity",
+  title: "Scan n Go| Smart QR Platform for Emergency, Vehicle & Digital Identity",
   description: "Protect yourself, your family, your vehicle and your business using one secure QR platform. Share important information instantly whenever it matters.",
 };
 
