@@ -44,6 +44,7 @@ import {
    Feature Card (Hero floating layout)
 ────────────────────────────────────────── */
 import Image from "next/image";
+import { AnimatedBackground } from '@/components/ui/animated-background';
 interface FeatureCardProps {
   icon: React.ReactNode;
   iconBg: string;
@@ -52,7 +53,7 @@ interface FeatureCardProps {
   delay?: string;
   className?: string;
 }
-const FeatureCard = ({ icon, iconBg, title,  delay = "0s", className = "" }: FeatureCardProps) => (
+const FeatureCard = ({ icon, iconBg, title, delay = "0s", className = "" }: FeatureCardProps) => (
   <div
     className={`feat-card absolute bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_12px_30px_-5px_rgba(124,58,237,0.12)] p-3 flex flex-col items-center text-center gap-1.5 w-[160px] border border-violet-100/70 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.25)] hover:-translate-y-1 transition-all duration-500 ${className}`}
     style={{ animationDelay: delay }}
@@ -148,6 +149,7 @@ export default function Home() {
         className="relative flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-32"
         style={{ background: "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)" }}
       >
+
         {/* Colorful dynamic background lights */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-[-10%] right-[-10%] w-[550px] h-[550px] rounded-full bg-violet-400/25 blur-[120px] animate-pulse-slow" />
@@ -513,6 +515,18 @@ export default function Home() {
       {/* ════════════════ SECTION 02 — SMART ENTRY SOLUTIONS ════════════════ */}
       <section id="use-cases" className="py-24 bg-white">
 
+        {/* Immersive Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={80}
+            particleColorLight="99, 102, 241" // Indigo-500
+            particleColorDark="168, 85, 247" // Purple-500
+          />
+        </div>
 
         {/* Top Left Blob */}
         <div className="absolute left-10 top-24 h-72 w-72 rounded-full bg-violet-200/30 blur-md animate-blob-1" />
@@ -861,7 +875,18 @@ export default function Home() {
       {/* ════════════════ SECTION 05 — WHERE YOU CAN USE ════════════════ */}
 
       < section className="relative overflow-hidden bg-white py-20" >
+        {/* Immersive Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
 
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={80}
+            particleColorLight="99, 102, 241" // Indigo-500
+            particleColorDark="168, 85, 247" // Purple-500
+          />
+        </div>
         {/* Top Left Blob */}
         < div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
