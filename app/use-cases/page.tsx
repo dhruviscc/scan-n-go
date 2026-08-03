@@ -104,7 +104,23 @@ export default function UseCasesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 relative">
+
+        {/* fviolet Blob */}
+        <div className="absolute -left-[30%] top-20 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-violet-500/25 via-fuchsia-400/15 to-transparent blur-[90px] animate-blob-one" />
+
+        {/* Pink Glow */}
+        <div className="absolute bottom-[140px] left-10 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
+
+        {/* Cyan Blob */}
+        <div className="absolute -right-[30%] top-1/3 h-[460px] w-[460px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
+
+        {/* indigo Blob */}
+        <div className="absolute -left-[30%] bottom-1/4 h-[460px] w-[460px] rounded-full bg-gradient-to-br from-purple-400/20 via-indigo-300/15 to-transparent blur-[80px] animate-blob-two" />
+
+        {/* Pink Glow */}
+        <div className="absolute -right-[60%] bottom-10 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/30 via-violet-300/30 to-transparent  blur-[80px]  animate-blob-three" />
+
         <div className="space-y-16">
           {useCases.map(({ title, description, icon: Icon, badge, videoSrc }, index) => {
             const reverse = index % 2 === 1;
@@ -117,8 +133,8 @@ export default function UseCasesPage() {
                   <h2 className="mt-6 text-3xl font-black text-slate-900">{title}</h2>
                   <p className="mt-4 text-base leading-8  text-slate-600">{description}</p>
                   <div className="mt-8 flex flex-wrap items-center gap-4">
-                   
-                 
+
+
                   </div>
                 </div>
 
@@ -126,7 +142,7 @@ export default function UseCasesPage() {
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.3),_transparent_45%)]" />
                   <div className="relative flex h-full flex-col justify-between gap-6">
                     <div>
-                     
+
                       {videoSrc ? (
                         <video
                           src={videoSrc}
@@ -164,36 +180,142 @@ export default function UseCasesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 lg:px-8">
-        <div className="mt-16 rounded-[28px] border border-violet-100 bg-white px-8 py-10 shadow-[0_25px_80px_rgba(99,102,241,0.08)] sm:px-12">
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Ready to launch</p>
-              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-                Bring Scan-N-Go to your business, building, or event.
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-                From resident entry to conference check-in, Scan-N-Go makes access smarter, faster, and safer with one unified QR platform.
-              </p>
+     
+      < section className="py-14 lg:py-20 bg-white overflow-hidden" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="relative overflow-hidden rounded-[34px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)]">
+
+            {/* Background */}
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
+
+            {/* White Curved Shape */}
+            <div className="hidden lg:block absolute right-[-220px] top-[-120px] w-[760px] h-[760px] rounded-full bg-white/95"></div>
+
+            <div className="hidden lg:block absolute inset-0 overflow-hidden">
+              <div className=" wave-1 absolute left-[40%] bottom-[-100px] w-[650px] h-[650px] rounded-full border border-white/10" />
+
+              <div className="wave-2 absolute left-[45%] bottom-[-100px] w-[720px] h-[720px] rounded-full border border-white/10" />
+
+              <div className="wave-3 absolute left-[50%] bottom-[-120px] w-[790px] h-[790px] rounded-full border border-white/10" />
+
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-end">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-3xl bg-violet-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-800"
-              >
-                Contact Sales
-              </Link>
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center rounded-3xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-              >
-                Explore features
-                <ArrowRight size={16} className="ml-2" />
-              </Link>
+
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center">
+
+              {/* LEFT */}
+
+              <div className="w-full lg:w-[46%] px-8 py-14 lg:px-16">
+
+                <h2 className="hero-heading text-2xl sm:text-3xl md:text-4xl w-2xl text-start text-white leading-tight transition-transform duration-500 hover:scale-105">
+                  <span className="block hero-heading-gradient">
+                    Bring Scan-N-Go to your business, building, or event.
+                  </span>
+                </h2>
+
+                <p className="mt-7 max-w-md text-white/75 text-lg leading-8">
+                  From resident entry to conference check-in, Scan-N-Go makes access smarter, faster, and safer with one unified QR platform.
+
+                </p>
+
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-4 mt-10 rounded-2xl bg-white px-9 py-4 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                >
+
+                  Contact Us
+
+                  <svg
+                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5l8 7-8 7z" />
+                  </svg>
+
+                </Link>
+
+              </div>
+
+              {/* RIGHT */}
+
+              <div className="relative w-full lg:w-[54%] h-[420px] flex items-center justify-center">
+
+                {/* Shadow */}
+
+                <div className="absolute bottom-12 w-72 h-16 rounded-full bg-indigo-900/25 blur-xl"></div>
+
+                {/* Platform */}
+
+                <div className="absolute bottom-16 w-64 h-16 rounded-full bg-gradient-to-b from-white to-indigo-200 shadow-2xl"></div>
+
+                <div className="absolute bottom-[92px] w-52 h-9 rounded-full bg-white"></div>
+
+                {/* Shield */}
+
+                <div className="absolute right-24 top-14 hidden md:flex items-center justify-center w-40 h-44 rounded-[36px] bg-gradient-to-b from-[#7054ff] to-[#4f2fd3] rotate-12 shadow-[0_30px_50px_rgba(76,50,220,.45)]">
+
+                  <svg
+                    className="w-16 h-16 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+
+                </div>
+
+                {/* QR Card */}
+
+                <div className="relative z-20 rounded-[30px] bg-white p-6 shadow-[0_35px_80px_rgba(30,20,80,.25)]">
+
+                  <div className="relative w-40 h-40">
+
+                    {/* Scanner Corners */}
+
+                    <div className="absolute top-0 left-0 w-8 h-8 border-l-4 border-t-4 border-indigo-500 rounded-tl-xl"></div>
+
+                    <div className="absolute top-0 right-0 w-8 h-8 border-r-4 border-t-4 border-indigo-500 rounded-tr-xl"></div>
+
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-l-4 border-b-4 border-indigo-500 rounded-bl-xl"></div>
+
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-r-4 border-b-4 border-indigo-500 rounded-br-xl"></div>
+
+                    {/* QR IMAGE */}
+
+                    <img
+                      src="/images/scan-QR.png"
+                      alt="QR Code"
+                      className="absolute inset-5 w-[120px] h-[120px] object-contain"
+                    />
+
+                  </div>
+
+                </div>
+
+                {/* Floating Dots */}
+
+                <div className="absolute right-10 top-24 w-3 h-3 rounded-full bg-indigo-300"></div>
+
+                <div className="absolute right-6 bottom-20 w-2 h-2 rounded-full bg-purple-400"></div>
+
+                <div className="absolute right-24 bottom-32 w-4 h-4 rounded-full bg-indigo-200"></div>
+
+              </div>
+
             </div>
+
           </div>
+
         </div>
-      </section>
+      </section >
     </div>
   );
 }

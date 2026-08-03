@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <ScrollReveal >
             <div className="text-center max-w-3xl mx-auto">
-             
+
 
               <h1 className="text-4xl md:text-2xl lg:text-4xl font-bold text-gray-900 leading-tight mb-5">
                 Privacy Policy for Scan n Go
@@ -59,40 +59,17 @@ export default function PrivacyPolicyPage() {
                   {" "}
                   {/* Added space-y-4 for paragraph spacing */}
                   <p>
-                    Welcome to Scan n Go: Easy Entry. We are committed to
-                    protecting your privacy. This Privacy Policy explains how we
-                    collect, use, disclose, and safeguard your information when
-                    you use our mobile application Scan n Go. Please read this
-                    Privacy Policy carefully. If you do not agree with the terms
-                    of this Privacy Policy, please do not use the App.
+                    Scan N Go: Easy Entry is a smart QR-based platform designed to simplify visitor management, vehicle identification, digital identity sharing, and secure access control. We are committed to protecting your personal information and maintaining transparency about how your data is collected and used.
+                    Please read this Privacy Policy carefully before using our services.
+
                   </p>
                 </div>
               ),
             },
 
+         
             {
-              title: "2. Information We Collect",
-              body: (
-                <div className="space-y-2">
-                  <ul className="list-disc pl-5">
-                    <li>
-                      <strong>Personal Information:</strong> We may collect
-                      personal information that you provide to us when you
-                      register an account, such as your name, email address,
-                      phone number, and other contact details.
-                    </li>
-                    <li>
-                      <strong>Usage Data:</strong> We collect information about
-                      your use of the App, including your activity on the App,
-                      the pages you visit, and other usage patterns.
-                    </li>
-                  </ul>
-                </div>
-              ),
-            },
-
-            {
-              title: "3. How We Use Your Information",
+              title: "2. How We Use Your Information",
               body: (
                 <div className="space-y-2">
                   <p>
@@ -126,7 +103,7 @@ export default function PrivacyPolicyPage() {
             },
 
             {
-              title: "4. Data Sharing",
+              title: "3. Data Sharing",
               body: (
                 <div className="space-y-2">
                   <p>
@@ -154,7 +131,7 @@ export default function PrivacyPolicyPage() {
             },
 
             {
-              title: "5. Data Security",
+              title: "4. Data Security",
               body: (
                 <div className="space-y-2">
                   <p>
@@ -170,7 +147,7 @@ export default function PrivacyPolicyPage() {
             },
 
             {
-              title: "6. Your Rights",
+              title: "5. Your Rights",
               body: (
                 <div className="space-y-2">
                   <p>
@@ -208,7 +185,7 @@ export default function PrivacyPolicyPage() {
             },
 
             {
-              title: "7. Policy Updates",
+              title: "6. Policy Updates",
               body: (
                 <div className="space-y-2">
                   <p>
@@ -224,7 +201,7 @@ export default function PrivacyPolicyPage() {
             },
 
             {
-              title: "8. Location Services",
+              title: "7. Location Services",
               body: (
                 <div className="space-y-2">
                   {" "}
@@ -249,7 +226,7 @@ export default function PrivacyPolicyPage() {
             },
 
             {
-              title: "9. Contact Us",
+              title: "8. Contact Us",
               body: (
                 <div className="space-y-2">
                   <p>
