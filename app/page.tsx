@@ -122,8 +122,6 @@ export default function Home() {
   const rafRef = useRef<number | null>(null);
   const startRef = useRef<number | null>(null);
 
-  // Section 04 States
-  const [demoAlert, setDemoAlert] = useState<"none" | "normal" | "emergency">("none");
 
 
   // Section 11 States (FAQ Accordion toggles)

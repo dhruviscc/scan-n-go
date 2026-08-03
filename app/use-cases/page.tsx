@@ -18,6 +18,7 @@ const useCases = [
       "No more manual visitor registers or repeated security checks. With Scan-N-Go, simply scan the QR for fast, secure entry while residents receive instant notifications and every visit is recorded digitally.",
     icon: Home,
     badge: "Residential Video",
+    videoSrc: "/video/residental.mp4",
   },
   {
     title: "Vehicle Scanner System",
@@ -25,6 +26,7 @@ const useCases = [
       "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan-N-Go and instantly notify the vehicle owner with either a Normal or Emergency alert.",
     icon: Car,
     badge: "Vehicle Video",
+    videoSrc: "/video/parking.mp4",
   },
   {
     title: "Queue Management",
@@ -32,6 +34,7 @@ const useCases = [
       "No more waiting in long queues or remembering your token number. Just Scan-N-Go to join the digital queue instantly and receive live updates until it's your turn.",
     icon: Clock3,
     badge: "Queue Video",
+    videoSrc: "/video/queue.mp4",
   },
   {
     title: "Office & Staff Entry Management",
@@ -39,6 +42,7 @@ const useCases = [
       "Say goodbye to manual attendance. Scan-N-Go makes office entry and employee check-in/check-out fast, secure, and completely digital with a simple QR scan.",
     icon: Briefcase,
     badge: "Office Video",
+    videoSrc: "/video/office.mp4",
   },
   {
     title: "Meetings & Conference Entry",
@@ -46,6 +50,7 @@ const useCases = [
       "Make every event run smoothly with Scan-N-Go. Verify attendees instantly, speed up check-ins, and maintain accurate digital attendance records.",
     icon: Calendar,
     badge: "Event Video",
+    videoSrc: "/video/event.mp4",
   },
   {
     title: "School & College Entry",
@@ -53,6 +58,7 @@ const useCases = [
       "Replace manual attendance with Scan-N-Go. Enable quick QR-based attendance, secure campus access, and seamless verification for students, staff, and visitors.",
     icon: UserCheck,
     badge: "Campus Video",
+    videoSrc: "/video/school.mp4",
   },
   {
     title: "Networking System",
@@ -60,6 +66,7 @@ const useCases = [
       "Connect smarter with Scan-N-Go. Share your digital business card, contact details, and professional profile instantly with a single QR scan.",
     icon: Wifi,
     badge: "Networking Video",
+    videoSrc: "/video/contect.mp4",
   },
 ];
 
@@ -77,15 +84,21 @@ export default function UseCasesPage() {
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
           <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
+
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Use Cases</p>
-            <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Use Cases Across Every Industry
+          {/* Center Content */}
+          <div className="mx-auto max-w-3xl text-center mt-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">
+              Use Cases
+            </p>
+
+            <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              One Platform. Industry Solution.
             </h1>
-            <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
-              Discover how Scan-N-Go solves access management challenges with smart QR workflows for residential buildings, vehicles,
-              workplaces, events, campuses, and business networking.
+
+            <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg max-w-2xl mx-auto">
+              Discover how Scan-N-Go solves access management challenges with smart QR workflows
+              for residential buildings, vehicles, workplaces, events, campuses, and business networking.
             </p>
           </div>
         </div>
@@ -93,49 +106,50 @@ export default function UseCasesPage() {
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
         <div className="space-y-16">
-          {useCases.map(({ title, description, icon: Icon, badge }, index) => {
+          {useCases.map(({ title, description, icon: Icon, badge, videoSrc }, index) => {
             const reverse = index % 2 === 1;
             return (
               <div key={title} className={`grid gap-8 lg:grid-cols-2 lg:items-center ${reverse ? "lg:grid-flow-col-dense" : ""}`}>
-                <div className={`rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm ${reverse ? "lg:col-start-2" : ""}`}>
+                <div className={`p-5 ${reverse ? "lg:col-start-2" : ""}`}>
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-50 text-violet-600 shadow-sm shadow-violet-100">
                     <Icon size={26} />
                   </div>
                   <h2 className="mt-6 text-3xl font-black text-slate-900">{title}</h2>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{description}</p>
+                  <p className="mt-4 text-base leading-8  text-slate-600">{description}</p>
                   <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <Link
-                      href="#"
-                      className="inline-flex items-center gap-2 rounded-full bg-violet-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-violet-800"
-                    >
-                      Watch demo
-                      <Play size={16} />
-                    </Link>
-                    <span className="rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-                      {badge}
-                    </span>
+                   
+                 
                   </div>
                 </div>
 
-                <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-slate-950 p-8 text-white shadow-sm">
+                <div className="relative h-[450px] overflow-hidden rounded-[32px] border border-slate-200 bg-slate-950 p-5 text-white shadow-sm">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.3),_transparent_45%)]" />
                   <div className="relative flex h-full flex-col justify-between gap-6">
                     <div>
-                      <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-white/80">
-                        <Play size={16} /> Video preview
-                      </div>
-                      <div className="rounded-3xl border border-white/10 bg-slate-900/95 p-8 text-center">
-                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-white">
-                          <Play size={28} />
+                     
+                      {videoSrc ? (
+                        <video
+                          src={videoSrc}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full rounded-3xl border border-white/10 object-cover"
+                        />
+                      ) : (
+                        <div className="rounded-3xl border border-white/10 bg-slate-900/95 p-8 text-center">
+                          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-white">
+                            <Play size={28} />
+                          </div>
+                          <p className="mt-6 text-sm leading-7 text-slate-300">
+                            {badge} section with instant QR access visuals and fast entry flow.
+                          </p>
                         </div>
-                        <p className="mt-6 text-sm leading-7 text-slate-300">
-                          {badge} section with instant QR access visuals and fast entry flow.
-                        </p>
-                      </div>
+                      )}
                     </div>
                     <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">
                       <div>
-                        <p className="font-semibold">Scan-N-Go demo</p>
+                        <p className="font-semibold">{badge}</p>
                         <p className="text-slate-400">Real-time access managed securely.</p>
                       </div>
                       <span className="rounded-full bg-violet-600 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white">
