@@ -170,9 +170,6 @@ export default function Footer() {
                     href={item.href}
                     className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
                   >
-
-
-
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {item.name}
                     </span>
@@ -192,21 +189,12 @@ export default function Footer() {
           <div>
 
             <div className="inline-flex items-center gap-3 mb-8">
-
-
-
               <h3 className="text-2xl font-bold text-white">
                 Download App
               </h3>
-
             </div>
-
             <p className="text-gray-400 leading-8 max-w-sm mb-10">
-
-              Experience Scan N Go on your mobile.
-              Download the app for secure QR access,
-              instant notifications and seamless management.
-
+              Experience Scan N Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
             </p>
 
             {/* ================= App Store ================= */}

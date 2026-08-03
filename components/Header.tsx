@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from "react";
 import { Menu, X } from 'lucide-react';
 
@@ -10,8 +10,6 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Use Cases", href: "/use-cases" },
   { label: "Features", href: "/features" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Vehicle QR", href: "/vehicle-qr" },
   { label: "Our Partners", href: "/our-partners" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
@@ -21,6 +19,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname(); // Get the current path
+  const router = useRouter();
+
+  const prefetchRoute = (href: string) => {
+    router.prefetch(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -64,6 +67,8 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     prefetch={true}
+                    onMouseEnter={() => prefetchRoute(item.href)}
+                    onFocus={() => prefetchRoute(item.href)}
                     className={`relative text-gray-700 font-medium text-md no-underline transition-colors duration-200 ${pathname === item.href
                         ? 'text-indigo-600 font-semibold after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600 after:rounded-full'
                         : 'hover:text-indigo-600'
@@ -104,6 +109,8 @@ export default function Navbar() {
                 href={item.href}
                 prefetch={true}
                 onClick={() => setMobileMenuOpen(false)}
+                onMouseEnter={() => prefetchRoute(item.href)}
+                onFocus={() => prefetchRoute(item.href)}
                 className={`block px-6 py-3 text-sm font-medium transition-colors ${pathname === item.href
                     ? 'text-indigo-600 bg-indigo-50'
                     : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600'

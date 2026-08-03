@@ -882,7 +882,7 @@ export default function Home() {
           {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
           <AnimatedBackground
             interactive={true}
-            density={80}
+            density={40}
             particleColorLight="99, 102, 241" // Indigo-500
             particleColorDark="168, 85, 247" // Purple-500
           />
@@ -1059,10 +1059,9 @@ export default function Home() {
         < div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
         {/* Aurora Blob - Left */}
-        < div className="absolute right-[10%] bottom-40 h-30 w-30 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-lg  animate-blob-left" />
+        < div className="absolute left-[10%] bottom-10 h-50 w-50 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-2xl  animate-blob-left" />
 
-        {/* Pink Glow */}
-        < div className="absolute bottom-[-100px] left-[20%] h-[280px] w-[280px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[10px] animate-blob-three" />
+
         {/* Cyan Blob */}
         < div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
@@ -1191,14 +1190,11 @@ export default function Home() {
             <div className="hidden lg:block absolute right-[-220px] top-[-120px] w-[760px] h-[760px] rounded-full bg-white/95"></div>
 
             <div className="hidden lg:block absolute inset-0 overflow-hidden">
-              <div
-                className=" wave-1 absolute left-[40%] bottom-[-100px] w-[650px] h-[650px] rounded-full border border-white/10" />
+              <div className=" wave-1 absolute left-[40%] bottom-[-100px] w-[650px] h-[650px] rounded-full border border-white/10" />
 
-              <div
-                className="wave-2 absolute left-[45%] bottom-[-100px] w-[720px] h-[720px] rounded-full border border-white/10" />
+              <div className="wave-2 absolute left-[45%] bottom-[-100px] w-[720px] h-[720px] rounded-full border border-white/10" />
 
-              <div
-                className="wave-3 absolute left-[50%] bottom-[-120px] w-[790px] h-[790px] rounded-full border border-white/10" />
+              <div className="wave-3 absolute left-[50%] bottom-[-120px] w-[790px] h-[790px] rounded-full border border-white/10" />
 
             </div>
 
