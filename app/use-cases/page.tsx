@@ -50,7 +50,7 @@ const useCases = [
       "Make every event run smoothly with Scan-N-Go. Verify attendees instantly, speed up check-ins, and maintain accurate digital attendance records.",
     icon: Calendar,
     badge: "Event Video",
-    videoSrc: "/video/event.mp4",
+    videoSrc: "/video/meeting.mp4",
   },
   {
     title: "School & College Entry",
@@ -111,8 +111,8 @@ export default function UseCasesPage() {
             return (
               <div key={title} className={`grid gap-8 lg:grid-cols-2 lg:items-center ${reverse ? "lg:grid-flow-col-dense" : ""}`}>
                 <div className={`p-5 ${reverse ? "lg:col-start-2" : ""}`}>
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-50 text-violet-600 shadow-sm shadow-violet-100">
-                    <Icon size={26} />
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 text-violet-600 shadow-sm shadow-violet-100">
+                    <Icon size={29} />
                   </div>
                   <h2 className="mt-6 text-3xl font-black text-slate-900">{title}</h2>
                   <p className="mt-4 text-base leading-8  text-slate-600">{description}</p>
