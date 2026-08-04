@@ -549,3 +549,25 @@ section {
   animation-delay: 4s;
   will-change: transform;
 }
+
+.sparkle-indicator {
+  animation: sparkleFloat 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+}
+
+@keyframes sparkleFloat {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-3px) scale(1.2) rotate(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.7;
+  }
+}

@@ -77,9 +77,23 @@ export default function Navbar() {
                       {pathname === item.href ? `${item.label}` : item.label}
                     </span>
 
-                    {pathname === item.href && (
-                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-violet-600 shadow-[0_0_12px_rgba(124,58,237,0.6)]"></span>
-                    )}
+                 {pathname === item.href && (
+  <span
+    className="
+      absolute
+      -bottom-3
+      left-1/2
+      -translate-x-1/2
+      text-[15px]
+      text-violet-600
+      font-bold
+      sparkle-indicator
+      select-none
+    "
+  >
+    ✦
+  </span>
+)}
                   </Link>
                 </li>
               ))}
