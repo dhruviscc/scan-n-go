@@ -54,7 +54,7 @@ const featureSections = [
     description:
       "Give every vehicle its own smart QR so entry, identification, and notifications are faster and more reliable.",
     icon: Car,
-    imageSrc: "/images/vehicle-1.png",
+    imageSrc: "/images/vehicle-2.png",
 
     points: [
       "Unique QR for Every Vehicle: Every registered vehicle is assigned a unique QR code for instant recognition and secure verification.",
@@ -66,7 +66,7 @@ const featureSections = [
     description:
       "Offer a seamless check-in experience that removes unnecessary steps while keeping every interaction secure.",
     icon: Zap,
-    imageSrc: "/images/quick.png",
+    imageSrc: "/images/quick-1.png",
 
     points: [
       "Users can enable quick entry to bypass additional steps for even faster check-ins.",
