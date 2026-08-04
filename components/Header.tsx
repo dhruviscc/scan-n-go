@@ -70,11 +70,11 @@ export default function Navbar() {
                   >
                     <span
                       className={`${pathname === item.href
-                          ? "text-violet-600 font-semibold"
-                          : "text-slate-700 hover:text-violet-600"
+                        ? "text-violet-600 font-semibold"
+                        : "text-slate-700 hover:text-violet-600"
                         }`}
                     >
-                      {pathname === item.href ? `[ ${item.label} ]` : item.label}
+                      {pathname === item.href ? `${item.label}` : item.label}
                     </span>
 
                     {pathname === item.href && (
