@@ -52,25 +52,25 @@ const featureSections = [
   {
     title: "Vehicle QR Code",
     description:
-      "Give every vehicle its own smart QR so notification is faster and more reliable.",
+      "Assign every vehicle a smart QR for secure identification, quick access.",
     icon: Car,
     imageSrc: "/images/vehicle-2.png",
 
     points: [
-      "Unique QR for Every Vehicle: Every registered vehicle is assigned a unique QR code for instant recognition and secure verification.",
-      "Manage Multiple Vehicles: Register multiple vehicles with owner name, and vehicle number in one place.",
+      "Dual QR Access: Each vehicle includes two QR codes—one for daily use and one as a backup. If anyone has scans the QR code they can choose Emergency option for send instant alert  for emergency and Second is  Normal notification for Complain invalid parking and other complain.",
+      "Manage Multiple Vehicle QR Codes: Own more than one vehicle? Easily gets multiple QR codes, with a Unique QR.",
     ],
   },
   {
     title: "Quick Entry",
     description:
-      "Offer a seamless check-in experience that removes unnecessary steps while keeping every interaction secure.",
+      "Enable Quick Entry for faster, secure QR-based check-ins with fewer steps.",
     icon: Zap,
     imageSrc: "/images/quick-1.png",
 
     points: [
-      "Users can enable quick entry to bypass additional steps for even faster check-ins.",
-      "This ensures a seamless entry experience without compromising security.",
+      "Quick Entry Mode: Turn on Quick Entry to let visitors scan the QR and enter instantly without manually entering their details.",
+      "Flexible Entry Control: When Quick Entry is turned off, visitors must enter their name and mobile number before check-in, giving organizations greater control over visitor information.",
     ],
   },
 ];

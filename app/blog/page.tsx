@@ -116,17 +116,16 @@ export default function BlogPage() {
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="object-cover transform-gpu transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:rotate-2"
                 />
-
                 <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-violet-700 backdrop-blur">
                   {post.category}
                 </span>
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-4">
                 <h2 className="text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-violet-700 line-clamp-2">
                   {post.title}
                 </h2>
