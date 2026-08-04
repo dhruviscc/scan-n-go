@@ -1,5 +1,11 @@
-﻿import Link from "next/link";
+﻿"use client";
+import Link from "next/link";
+import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 import { Search, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/lib/blog-data";
 
 const categories = [
   "All Posts",
@@ -10,113 +16,147 @@ const categories = [
   "Events",
 ];
 
-const posts = [
-  {
-    title: "How QR Access is changing visitor management",
-    category: "Visitor Management",
-    excerpt:
-      "Explore how QR-based entry systems create safer, faster, and more transparent visitor workflows for communities and offices.",
-    date: "Jul 16, 2026",
-  },
-  {
-    title: "Secure Vehicle Entry with Scan n GoQR",
-    category: "Vehicle QR",
-    excerpt:
-      "Learn how smart vehicle QR scanning reduces manual checks and speeds up gated entry for drivers and staff.",
-    date: "Jun 9, 2026",
-  },
-  {
-    title: "Best practices for secure digital identity",
-    category: "Security",
-    excerpt:
-      "Discover the top security tips for protecting digital identities in QR-driven access systems and contactless environments.",
-    date: "May 22, 2026",
-  },
-  {
-    title: "Event access made simple with QR tickets",
-    category: "Events",
-    excerpt:
-      "See how Scan n Gostreamlines event entry, reduces queues, and improves attendee tracking through QR verification.",
-    date: "Apr 15, 2026",
-  },
-];
-
-export const metadata = {
-  title: "Scan n Go| Blog",
-  description:
-    "Insights, guides, and updates from Scan N Go on QR access, visitor management, security, and digital identity.",
-};
-
 export default function BlogPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Posts");
+
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesCategory =
+      selectedCategory === "All Posts" || post.category === selectedCategory;
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-0 opacity-60">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
-          <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
+          <div className="absolute bottom-10 right-0 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Insights, Guides & Updates from Scan N Go
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              Visitor Management & QR{" "}
+              <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                Technology Blog
+              </span>
             </h1>
-            <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
-              Discover expert articles, industry trends, security tips, QR technology updates, visitor management best practices, and digital identity solutions to help individuals and businesses stay ahead.
+
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+              Discover expert articles, industry trends, security tips, QR technology
+              updates, visitor management best practices, and digital identity
+              solutions to help individuals and businesses stay ahead.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm">
-          <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
-            <div>
-              <div className="relative max-w-xl">
-                <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="search"
-                  placeholder="Search articles..."
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 py-4 pl-12 pr-5 text-sm text-slate-900 outline-none transition focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
-                />
-              </div>
+      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+
+            {/* Search */}
+            <div className="relative w-full lg:max-w-xl">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+
+              <input
+                type="search"
+                placeholder="Search blogs, guides, or topics..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
+              />
             </div>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  className="rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-violet-300 hover:bg-violet-50"
-                >
-                  {category}
-                </button>
-              ))}
+
+            {/* Category Select */}
+            <div className="w-full lg:w-64">
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm font-medium text-slate-700 outline-none transition-all focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
+              >
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category === "All" ? "All Blogs" : category}
+                  </option>
+                ))}
+              </select>
             </div>
+
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {posts.map((post) => (
-            <article
+        <motion.div
+          className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+            hidden: {},
+          }}
+        >
+          {filteredPosts.map((post) => (
+            <motion.article
               key={post.title}
-              className="overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+              }}
             >
-              <span className="inline-flex rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
-                {post.category}
-              </span>
-              <h2 className="mt-5 text-xl font-bold  text-slate-900">{post.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{post.excerpt}</p>
-              <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
-                <span>{post.date}</span>
-                <Link href="#" className="font-semibold text-violet-700 hover:text-violet-900">
-                  Read more
-                </Link>
+              {/* Blog Image */}
+              <div className="relative h-60 overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                />
+
+                <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-violet-700 backdrop-blur">
+                  {post.category}
+                </span>
               </div>
-            </article>
+
+              {/* Content */}
+              <div className="p-6">
+                <h2 className="text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-violet-700 line-clamp-2">
+                  {post.title}
+                </h2>
+
+                <p className="mt-3 line-clamp-3 text-sm leading-7 text-slate-600">
+                  {post.excerpt}
+                </p>
+
+                <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
+                  <div>
+                    <p className="text-sm font-medium text-slate-700">
+                      {post.date}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      5 min read
+                    </p>
+                  </div>
+
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-2 font-semibold text-violet-700 transition hover:gap-3"
+                  >
+                    Read More
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 lg:px-8">

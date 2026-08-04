@@ -954,7 +954,7 @@ export default function Home() {
               Everything in One Simple App
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
-              Keep check of historical visitors entries, manage emergency tags, edit profiles details, or save your vehicle QR dashboard straight from our dashboard interface.
+              Keep check of historical visitors entries, manage emergency alerts, edit profiles details, or save your vehicle QR dashboard straight from our dashboard interface.
             </p>
           </ScrollReveal>
 
@@ -1115,7 +1115,7 @@ export default function Home() {
               },
               {
                 q: "Is my personal data secure?",
-                a: "Yes. Scan n Go protects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
+                a: "Yes. Scan n Go protects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, phone number) during dashboard setups.",
               },
               {
                 q: "Is Vehicle QR a one-time purchase?",

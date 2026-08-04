@@ -25,7 +25,7 @@ const useCases = [
   {
     title: "Vehicle Scanner System",
     description:
-      "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan n Go and instantly notify the vehicle owner with either a Normal or Emergency alert.",
+      "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan n Go and instantly notify the vehicle owner with either a Normal or Emergency alert as you select an option.",
     icon: Car,
     badge: "Vehicle Video",
     videoSrc: "/video/parking-1.mp4",
@@ -41,7 +41,7 @@ const useCases = [
   {
     title: "Office & Staff Entry Management",
     description:
-      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out fast, secure, and completely digital with a simple QR scan.",
+      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out. It is fast, secure, and completely digital with a simple QR scan.",
     icon: Briefcase,
     badge: "Office Video",
     videoSrc: "/video/office.mp4",

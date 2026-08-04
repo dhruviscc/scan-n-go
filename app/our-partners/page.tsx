@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -10,31 +11,14 @@ import {
   ShieldCheck,
   Sparkles,
   Users,
+  Video,
 } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const partnerSections = [
   {
-    title: "Society Entry Manager",
-    subtitle: "Smarter Visitor Management for Modern Residential Communities",
-    description:
-      "Society Entry Manager is a secure visitor and society management platform designed for residential societies, apartments, gated communities, villas, and housing complexes. It enables society administrators to monitor visitor activities, manage service providers, and maintain complete visibility over community access from a single dashboard.",
-    body:
-      "By integrating with Scan n Go , residents and visitors can use QR-based digital entry for faster, safer, and contactless access. Every visitor movement is securely recorded, helping management improve security, streamline operations, and maintain accurate entry records.",
-    features: [
-      "QR-Based Visitor Entry",
-      "Complete Entry Logs",
-      "Society Dashboard",
-      "Report Generation",
-      "Service Provider Directory",
-      "Secure QR Integration",
-    ],
-    icon: Building2,
-    imageSrc: "/images/sem.png",
-  },
-  {
     title: "Attendance Monitor System",
-    subtitle: "Smart Attendance Management for Modern Organisations",
     description:
       "Attendance Monitor System (AMS) is an intelligent attendance management platform designed for businesses, healthcare organisations, and enterprises. It automates attendance tracking, monitors employee activities, and provides real-time insights across one or multiple branches from a centralized dashboard.",
     body:
@@ -52,6 +36,25 @@ const partnerSections = [
   },
 ];
 
+const societyEntryManager = {
+  title: "Society Entry Manager",
+
+  description:
+    "Society Entry Manager is a secure visitor and society management platform designed for residential societies, apartments, gated communities, villas, and housing complexes. It enables society administrators to monitor visitor activities, manage service providers, and maintain complete visibility over community access from a single dashboard.",
+  body:
+    "By integrating with Scan n Go , residents and visitors can use QR-based digital entry for faster, safer, and contactless access. Every visitor movement is securely recorded, helping management improve security, streamline operations, and maintain accurate entry records.",
+  features: [
+    "QR-Based Visitor Entry",
+    "Complete Entry Logs",
+    "Society Dashboard",
+    "Report Generation",
+    "Service Provider Directory",
+    "Secure QR Integration",
+  ],
+  icon: Building2,
+  imageSrc: "/images/sem.png",
+};
+
 const whyChooseUsPoints = [
   "Complete QR Ecosystem",
   "Advanced Security",
@@ -65,7 +68,19 @@ const whyChooseUsPoints = [
 
 export default function OurPartners() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 text-slate-900 relative">
+      {/* Immersive Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+        {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+        <AnimatedBackground
+          interactive={true}
+          density={80}
+          particleColorLight="99, 102, 241" // Indigo-500
+          particleColorDark="168, 85, 247" // Purple-500
+        />
+      </div>
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300/70 blur-3xl" />
@@ -119,28 +134,78 @@ export default function OurPartners() {
       </section>
 
       <section className="mx-auto max-w-[1470px] px-5 py-16 sm:px-6 lg:px-8">
+        <motion.article
+          key={societyEntryManager.title}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid items-center gap-5 relative overflow-hidden rounded-[32px] mb-20 border border-violet-100 bg-gradient-to-r from-[#7E57C2] via-[#B388EB] to-[#E1BEE7] p-8 shadow-[0_20px_60px_rgba(126,87,194,0.18)] lg:grid-cols-[1fr_420px]"
+        >
+          {/* Background elements (if any) */}
+
+          <div className="relative">
+
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
+              <societyEntryManager.icon size={24} />
+            </div>
+            <h2 className="mt-6 text-2xl font-bold  text-white">{societyEntryManager.title}</h2>
+            <p className="mt-4 text-base leading-8 max-w-3xl text-white">{societyEntryManager.description}</p>
+            <p className="mt-4 text-base leading-8 max-w-3xl text-white">{societyEntryManager.body}</p>
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-white">
+                Key Features
+              </h4>
+              <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+                {societyEntryManager.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-white">
+                    <CheckCircle2 size={18} className="mt-1 shrink-0 text-white" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          {societyEntryManager.imageSrc && (
+            <div className="group overflow-hidden">
+              <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[520px]">
+                <Image
+                  src={societyEntryManager.imageSrc}
+                  alt={societyEntryManager.title}
+                  fill
+                  className="object-contain image-zoom"
+                  sizes="(max-width: 1024px) 100vw, 620px"
+                />
+              </div>
+            </div>
+          )}
+        </motion.article>
         <div className="grid gap-8 lg:grid-cols-1">
-          {partnerSections.map(({ title, subtitle, description, body, features, icon: Icon, imageSrc }) => (
-            <article
+          {partnerSections.map(({ title, description, body, features, icon: Icon, imageSrc }) => (
+            <motion.article
               key={title}
-              className="grid items-center gap-5 pb-10 lg:grid-cols-[1fr_420px]"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="grid items-center gap-5 relative rounded-[32px]  border border-violet-100 bg-no-repeat  bg-gradient-to-r from-[#162A6B] via-[#3E5EA8] to-[#8FA7E8] to-indigo-100 p-8 shadow-lg shadow-violet-100/40 lg:grid-cols-[1fr_420px]"
             >
               <div>
+                {/* Background elements (if any) */}
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
                   <Icon size={24} />
                 </div>
-                <h2 className="mt-6 text-2xl font-bold  text-slate-900">{title}</h2>
-                <h3 className="mt-3 text-md font-semibold text-violet-700">{subtitle}</h3>
-                <p className="mt-4 text-base leading-8 max-w-3xl text-slate-600">{description}</p>
-                <p className="mt-4 text-base leading-8 max-w-3xl text-slate-600">{body}</p>
+                <h2 className="mt-6 text-2xl font-bold  text-white">{title}</h2>
+                <p className="mt-4 text-base leading-8 max-w-3xl text-white">{description}</p>
+                <p className="mt-4 text-base leading-8 max-w-3xl text-white">{body}</p>
                 <div className="mt-6">
-                  <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
+                  <h4 className="text-md font-semibold uppercase tracking-[0.24em] text-white">
                     Key Features
                   </h4>
                   <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                     {features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-slate-600">
-                        <CheckCircle2 size={18} className="mt-1 shrink-0 text-violet-600" />
+                      <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-white">
+                        <CheckCircle2 size={18} className="mt-1 shrink-0 text-white" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -148,86 +213,80 @@ export default function OurPartners() {
                 </div>
               </div>
               {imageSrc && (
-                <div className="overflow-hidden">
-                  <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[720px]">
+                <div className="group overflow-hidden">
+                  <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[520px]">
                     <Image
                       src={imageSrc}
                       alt={title}
                       fill
-                      className="object-contain"
+                      className="object-contain image-zoom"
                       sizes="(max-width: 1024px) 100vw, 620px"
                     />
                   </div>
                 </div>
               )}
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-violet-100 bg-white px-8 py-10 shadow-[0_25px_80px_rgba(99,102,241,0.08)] sm:px-12">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">
-              Why Choose Us
-            </p>
-            <h2 className="mt-4 text-3xl font-bold  tracking-tight text-slate-900 sm:text-4xl">
-              Smart Solutions for Secure Access, Visitor Management, and Attendance
+      {/* why choose */}
+      <section className="mx-auto  max-w-[1500px] px-5 py-20 sm:px-6 lg:px-8">
+
+
+        <div className="grid items-center gap-16 lg:grid-cols-[520px_1fr]">
+
+
+          {/* Left Image */}
+          <div className="flex justify-center">
+            <Image
+              src="/images/why-choose-1.png" // Replace with your image
+              alt="Why Choose Scan n Go"
+              width={520}
+              height={520}
+              className="h-auto w-full max-w-[520px] object-contain"
+            />
+          </div>
+
+          {/* Right Content */}
+          <div>
+
+
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900">
+              Smart Solutions for Secure Access, Visitor Management & Attendance
             </h2>
-            <p className="mt-4 text-base leading-8 text-slate-600">
-              At Scan n Go , we deliver a complete QR-powered ecosystem that simplifies access management, visitor tracking, and attendance monitoring for organisations of every size. Integrated with Society Entry Manager (SEM) and the Attendance Monitor System (AMS), our platform combines intelligent automation, real-time monitoring, and advanced security to create a seamless digital experience.
+
+            <p className="mt-6 text-md leading-8 text-slate-600">
+              Scan n Go delivers a complete QR-powered ecosystem that simplifies
+              visitor management, secure access, and attendance monitoring.
+              Integrated with <span className="font-semibold">Society Entry Manager (SEM)</span> and
+              <span className="font-semibold"> Attendance Monitor System (AMS)</span>, our
+              platform combines intelligent automation, real-time monitoring, and
+              enterprise-grade security.
             </p>
-          </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {whyChooseUsPoints.map((point) => (
-              <div
-                key={point}
-                className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4"
-              >
-                <ShieldCheck size={18} className="mt-0.5 shrink-0 text-violet-600" />
-                <span className="text-sm font-semibold text-slate-700">{point}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-2xl border border-violet-100 bg-violet-50/70 p-6">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex items-center gap-3 text-slate-700">
-                <Users size={20} className="text-violet-700" />
-                <p className="text-base font-medium">
-                  Whether you are managing residential communities, corporate offices, healthcare facilities, or multi-branch organisations, our solutions help improve operational efficiency while ensuring every entry and attendance record is secure, accurate, and easy to manage.
-                </p>
-              </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {whyChooseUsPoints.map((point) => (
+                <div
+                  key={point}
+                  className="flex items-center gap-3 rounded-md px-5 py-3 transition hover:border-violet-300 hover:bg-violet-100"
+                >
+                  <ShieldCheck
+                    size={20}
+                    className="shrink-0 text-violet-600"
+                  />
+                  <span className="font-medium  text-md text-slate-700">
+                    {point}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
+
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-violet-100 bg-white px-8 py-10 shadow-[0_25px_80px_rgba(99,102,241,0.08)] sm:px-12">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">
-                Ready to begin
-              </p>
-              <h2 className="mt-4 text-3xl font-bold  tracking-tight text-slate-900 sm:text-4xl">
-                Let us build a smarter access experience together
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600">
-                Bring secure QR access, intelligent visitor management, and streamlined attendance to your community or organisation.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-violet-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-800"
-            >
-              Contact Us
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

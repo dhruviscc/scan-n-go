@@ -46,13 +46,13 @@ const featureSections = [
 
     points: [
       "Unique Digital QR: Every user receives a personalized QR code to share their identity securely.",
-      "Share What You Choose: Share details such as your name, phone number, and preferred information with confidence.",
+      "Share What You Choose: Share details such as your name, phone number, and preferred information.",
     ],
   },
   {
     title: "Vehicle QR Code",
     description:
-      "Give every vehicle its own smart QR so entry, identification, and notifications are faster and more reliable.",
+      "Give every vehicle its own smart QR so notification is faster and more reliable.",
     icon: Car,
     imageSrc: "/images/vehicle-2.png",
 
