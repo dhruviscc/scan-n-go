@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from "react";
 import { Menu, X } from 'lucide-react';
 
@@ -10,8 +10,6 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Use Cases", href: "/use-cases" },
   { label: "Features", href: "/features" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Vehicle QR", href: "/vehicle-qr" },
   { label: "Our Partners", href: "/our-partners" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
@@ -21,6 +19,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname(); // Get the current path
+  const router = useRouter();
+
+  const prefetchRoute = (href: string) => {
+    router.prefetch(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -46,7 +49,7 @@ export default function Navbar() {
           <div className="shrink-0 flex items-center">
             <Link href="/">
               <Image
-                src="/images/logo/logo_with_text.png" // Corrected image path
+                src="/images/logo/logo_with_text.png"
                 alt="Scan n Go Logo"
                 width={140}
                 height={40}
@@ -58,18 +61,25 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block grow">
-            <ul className="flex justify-end items-center space-x-8 pr-2">
+            <ul className="flex justify-end items-center space-x-5 pr-2">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    prefetch={true}
-                    className={`relative text-gray-700 font-medium text-md no-underline transition-colors duration-200 ${pathname === item.href
-                        ? 'text-indigo-600 font-semibold after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600 after:rounded-full'
-                        : 'hover:text-indigo-600'
-                      }`}
+                    className="relative px-3 py-2 text-[17px] font-medium transition-all duration-300"
                   >
-                    {item.label}
+                    <span
+                      className={`${pathname === item.href
+                        ? "text-violet-600 font-semibold"
+                        : "text-slate-700 hover:text-violet-600"
+                        }`}
+                    >
+                      {pathname === item.href ? `${item.label}` : item.label}
+                    </span>
+
+                    {pathname === item.href && (
+                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-violet-600 shadow-[0_0_12px_rgba(124,58,237,0.6)]"></span>
+                    )}
                   </Link>
                 </li>
               ))}
@@ -104,9 +114,11 @@ export default function Navbar() {
                 href={item.href}
                 prefetch={true}
                 onClick={() => setMobileMenuOpen(false)}
+                onMouseEnter={() => prefetchRoute(item.href)}
+                onFocus={() => prefetchRoute(item.href)}
                 className={`block px-6 py-3 text-sm font-medium transition-colors ${pathname === item.href
-                    ? 'text-indigo-600 bg-indigo-50'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600'
+                  ? 'text-indigo-600 bg-indigo-50'
+                  : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600'
                   }`}
               >
                 {item.label}
