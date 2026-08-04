@@ -482,9 +482,9 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: <ScanLine size={24} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
-                { icon: <Bell size={24} />, label: "Live Notifications", sub: "Real-time vehicle notifications" },
-                { icon: <ParkingCircle size={24} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify the vehicle owner" },
+                { icon: <ScanLine size={22} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
+                { icon: <Bell size={22} />, label: "Live Notifications", sub: "Real-time vehicle notifications" },
+                { icon: <ParkingCircle size={22} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify the vehicle owner" },
               ].map((f) => (
                 <motion.div
                   key={f.label}
@@ -534,8 +534,11 @@ export default function Home() {
         <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl  font-semibold text-slate-900 leading-tight">
-              Smart QR Solutions
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+              Smart QR{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
+                Solutions
+              </span>
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               One intelligent platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
@@ -636,7 +639,7 @@ export default function Home() {
                                 size={18}
                                 className="text-emerald-500"
                               />
-                              <span className="text-[15px] font-medium text-slate-700">
+                              <span className="text-[14px] font-medium text-slate-700">
                                 {feature}
                               </span>
                             </div>
@@ -667,7 +670,10 @@ export default function Home() {
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 leading-tight">
-              Vehicle QR Features
+              Vehicle QR {" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-indigo-600 bg-clip-text text-transparent">
+                Features
+              </span>
             </h3>
             <p className="text-slate-500 mt-4 text-md leading-relaxed">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
@@ -899,18 +905,18 @@ export default function Home() {
               WHERE YOU CAN USE
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
-              From gated communities and corporate offices to schools, industries, and buildings, Scan n Godelivers secure, smart, and seamless QR-powered management for every location.
+              From gated communities and corporate offices to schools, industries, and buildings, Scan n Go delivers secure, smart, and seamless QR-powered management for every location.
             </p>
           </ScrollReveal>
 
           <ScrollReveal>
             <div
-              className="relative  overflow-hidden rounded-[10px] px-8 lg:px-10 pb-15"
+              className="relative overflow-hidden rounded-[10px] px-8 lg:px-10 pb-15"
             >
 
 
               {/* Content */}
-              <div className="relative z-10">
+              <div className="relative z-10 mt-8">
                 {/* CardStack likely has its own animations, but wrapping it ensures it appears on scroll */}
                 <CardStack
                   items={usageItems}
@@ -1101,7 +1107,7 @@ export default function Home() {
             {[
               {
                 q: "What is Scan-N-Go?",
-                a: "Scan n Gois an intelligent, secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
+                a: "Scan n Go is an intelligent, secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
               },
               {
                 q: "How does Vehicle QR work?",
@@ -1109,7 +1115,7 @@ export default function Home() {
               },
               {
                 q: "Is my personal data secure?",
-                a: "Yes. Scan n Goprotects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
+                a: "Yes. Scan n Go protects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, medical logs, blood group details) during dashboard setups.",
               },
               {
                 q: "Is Vehicle QR a one-time purchase?",
@@ -1142,7 +1148,7 @@ export default function Home() {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <p className="p-5 pt-0 text-md text-slate-500 leading-relaxed border-t border-slate-100 bg-white">{faq.a}</p>
+                        <p className="p-4 pt-2  text-[14px] text-slate-500 leading-relaxed border-t border-slate-100 bg-white">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -1191,7 +1197,7 @@ export default function Home() {
                   </span>
                 </h2>
 
-                <p className="mt-7 max-w-md text-white/75 text-lg leading-8">
+                <p className="mt-7 max-w-md text-white/75 text-md leading-8">
 
                   Partner with Scan n Go and build a safer,
                   smarter and contactless future together.
@@ -1200,11 +1206,9 @@ export default function Home() {
 
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-4 mt-10 rounded-2xl bg-white px-9 py-4 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                  className="group inline-flex items-center text-md gap-4 mt-10 rounded-xl bg-white px-8 py-3 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                 >
-
                   Contact Us
-
                   <svg
                     className="w-5 h-5 transition-transform group-hover:translate-x-1"
                     viewBox="0 0 24 24"

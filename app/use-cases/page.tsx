@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Briefcase,
@@ -15,7 +16,7 @@ const useCases = [
   {
     title: "Residential / Apartment Entry",
     description:
-      "No more manual visitor registers or repeated security checks. With Scan-N-Go, simply scan the QR for fast, secure entry while residents receive instant notifications and every visit is recorded digitally.",
+      "No more manual visitor registers or repeated security checks. With Scan n Go, simply scan the QR for fast, secure entry while residents receive instant notifications and every visit is recorded digitally.",
     icon: Home,
     badge: "Residential Video",
     videoSrc: "/video/residental.mp4",
@@ -23,15 +24,15 @@ const useCases = [
   {
     title: "Vehicle Scanner System",
     description:
-      "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan-N-Go and instantly notify the vehicle owner with either a Normal or Emergency alert.",
+      "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan n Go and instantly notify the vehicle owner with either a Normal or Emergency alert.",
     icon: Car,
     badge: "Vehicle Video",
-    videoSrc: "/video/parking.mp4",
+    videoSrc: "/video/parking-1.mp4",
   },
   {
     title: "Queue Management",
     description:
-      "No more waiting in long queues or remembering your token number. Just Scan-N-Go to join the digital queue instantly and receive live updates until it's your turn.",
+      "No more waiting in long queues or remembering your token number. Just Scan n Go to join the digital queue instantly and receive live updates until it's your turn.",
     icon: Clock3,
     badge: "Queue Video",
     videoSrc: "/video/queue.mp4",
@@ -39,7 +40,7 @@ const useCases = [
   {
     title: "Office & Staff Entry Management",
     description:
-      "Say goodbye to manual attendance. Scan-N-Go makes office entry and employee check-in/check-out fast, secure, and completely digital with a simple QR scan.",
+      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out fast, secure, and completely digital with a simple QR scan.",
     icon: Briefcase,
     badge: "Office Video",
     videoSrc: "/video/office.mp4",
@@ -47,7 +48,7 @@ const useCases = [
   {
     title: "Meetings & Conference Entry",
     description:
-      "Make every event run smoothly with Scan-N-Go. Verify attendees instantly, speed up check-ins, and maintain accurate digital attendance records.",
+      "Make every event run smoothly with Scan n Go. Verify attendees instantly, speed up check-ins, and maintain accurate digital attendance records.",
     icon: Calendar,
     badge: "Event Video",
     videoSrc: "/video/meeting.mp4",
@@ -55,7 +56,7 @@ const useCases = [
   {
     title: "School & College Entry",
     description:
-      "Replace manual attendance with Scan-N-Go. Enable quick QR-based attendance, secure campus access, and seamless verification for students, staff, and visitors.",
+      "Replace manual attendance with Scan n Go. Enable quick QR-based attendance, secure campus access, and seamless verification for students, staff, and visitors.",
     icon: UserCheck,
     badge: "Campus Video",
     videoSrc: "/video/school.mp4",
@@ -70,11 +71,6 @@ const useCases = [
   },
 ];
 
-export const metadata = {
-  title: "Scan-N-Go | Use Cases Across Every Industry",
-  description:
-    "Explore Scan-N-Go use cases for residential entry, vehicle scanning, queue management, office access, events, education, and networking.",
-};
 
 export default function UseCasesPage() {
   return (
@@ -98,7 +94,7 @@ export default function UseCasesPage() {
               One Platform. Industry Solution.
             </h1>
 
-            <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg max-w-2xl mx-auto">
+            <p className="mt-6  leading-8 text-slate-600 sm:text-md max-w-xl mx-auto">
               Discover how Scan n Go solves access management challenges with smart QR workflows
               for residential buildings, vehicles, workplaces, events, campuses, and business networking.
             </p>
@@ -127,8 +123,20 @@ export default function UseCasesPage() {
           {useCases.map(({ title, description, icon: Icon, badge, videoSrc }, index) => {
             const reverse = index % 2 === 1;
             return (
-              <div key={title} className={`grid gap-8 lg:grid-cols-2 lg:items-center ${reverse ? "lg:grid-flow-col-dense" : ""}`}>
-                <div className={`p-5 ${reverse ? "lg:col-start-2" : ""}`}>
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className={`grid gap-8 lg:grid-cols-2 lg:items-center ${reverse ? "lg:grid-flow-col-dense" : ""}`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, x: reverse ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  className={`p-5 ${reverse ? "lg:col-start-2" : ""}`}>
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 text-violet-600 shadow-sm shadow-violet-100">
                     <Icon size={29} />
                   </div>
@@ -138,9 +146,14 @@ export default function UseCasesPage() {
 
 
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="relative h-[450px] overflow-hidden rounded-[32px] border border-slate-200 bg-slate-950 p-5 text-white shadow-sm">
+                <motion.div
+                  initial={{ opacity: 0, x: reverse ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  className="relative h-[450px] overflow-hidden rounded-[32px] border border-slate-200 bg-slate-950 p-5 text-white shadow-sm">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.3),_transparent_45%)]" />
                   <div className="relative flex h-full flex-col justify-between gap-6">
                     <div>
@@ -175,8 +188,8 @@ export default function UseCasesPage() {
                       </span>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             );
           })}
         </div>
@@ -212,31 +225,16 @@ export default function UseCasesPage() {
 
                 <h2 className="hero-heading text-2xl sm:text-3xl md:text-4xl w-2xl text-start text-white leading-tight transition-transform duration-500 hover:scale-105">
                   <span className="block hero-heading-gradient">
-                    Bring Scan-N-Go to your business, building, or event.
+                    Bring Scan n Go to your business, building, or event.
                   </span>
                 </h2>
 
-                <p className="mt-7 max-w-md text-white/75 text-lg leading-8">
-                  From resident entry to conference check-in, Scan-N-Go makes access smarter, faster, and safer with one unified QR platform.
+                <p className="mt-7 max-w-md text-white/75 text-md leading-8">
+                  From resident entry to conference check-in, Scan n Go makes access smarter, faster, and safer with one unified QR platform.
 
                 </p>
 
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-4 mt-10 rounded-2xl bg-white px-9 py-4 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-                >
 
-                  Contact Us
-
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M8 5l8 7-8 7z" />
-                  </svg>
-
-                </Link>
 
               </div>
 

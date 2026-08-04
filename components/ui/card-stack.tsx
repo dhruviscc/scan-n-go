@@ -31,11 +31,11 @@ type FanPosition = {
 };
 
 const fanPositions: Record<number, FanPosition> = {
-  "-2": { x: "-120%", y: 170, rotate: -25, scale: 0.7, zIndex: 10, opacity: 0.9 },
+  "-2": { x: "-110%", y: 170, rotate: -25, scale: 0.7, zIndex: 10, opacity: 0.9 },
   "-1": { x: "-66%", y: 60, rotate: -13, scale: 0.85, zIndex: 20, opacity: 0.96 },
   "0": { x: "0%", y: 0, rotate: 0, scale: 1.06, zIndex: 30, opacity: 1 },
   "1": { x: "66%", y: 60, rotate: 13, scale: 0.85, zIndex: 20, opacity: 0.96 },
-  "2": { x: "120%", y: 170, rotate: 25, scale: 0.7, zIndex: 10, opacity: 0.9 },
+  "2": { x: "110%", y: 170, rotate: 25, scale: 0.7, zIndex: 10, opacity: 0.9 },
 };
 
 function getRelativePosition(index: number, activeIndex: number, length: number) {
@@ -102,7 +102,7 @@ export function CardStack({
                 <Image src={item.imageSrc} alt={item.title} fill sizes="(max-width: 640px) 330px, (max-width: 1024px) 440px, 520px" className="object-cover" priority={isActive} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
-                  <h4 className="text-lg font-bold  text-white sm:text-2xl">{item.title}</h4>
+                  <h4 className="text-lg font-bold  text-white sm:text-xl">{item.title}</h4>
                 </div>
               </motion.article>
             );

@@ -79,49 +79,49 @@ export default function Footer() {
             </Link>
 
             {/* Description */}
-            <p className="mt-7 max-w-md text-[16px] leading-8 text-gray-400">
+            <p className="mt-7 max-w-md text-[15px] leading-8 text-gray-400">
               We provide smart QR solutions for secure access, contactless
               experiences and real-time visitor management. Simple to use,
               powerful to trust.
             </p>
 
             {/* Social Icons */}
-           <div className="mt-8">
-  {/* Heading */}
-  <h3 className="mb-5 text-lg font-semibold text-white">
-    Social Links
-  </h3>
+            <div className="mt-8">
+              {/* Heading */}
+              <h3 className="mb-5 text-lg font-semibold text-white">
+                Social Links
+              </h3>
 
-  {/* Social Icons */}
-  <div className="flex items-center gap-4">
-    <Link
-      href="https://www.facebook.com/app.scanngo"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1877F2] hover:bg-[#1877F2]"
-    >
-      <FaFacebookF className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
-    </Link>
+              {/* Social Icons */}
+              <div className="flex items-center gap-4">
+                <Link
+                  href="https://www.facebook.com/app.scanngo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1877F2] hover:bg-[#1877F2]"
+                >
+                  <FaFacebookF className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+                </Link>
 
-    <Link
-      href="https://www.instagram.com/scan_n_go_/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E4405F] hover:bg-[#E4405F]"
-    >
-      <FaInstagram className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
-    </Link>
+                <Link
+                  href="https://www.instagram.com/scan_n_go_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E4405F] hover:bg-[#E4405F]"
+                >
+                  <FaInstagram className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+                </Link>
 
-    <Link
-      href="https://scan-n-go.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF0000] hover:bg-[#FF0000]"
-    >
-      <FaYoutube className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
-    </Link>
-  </div>
-</div>
+                <Link
+                  href="https://scan-n-go.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF0000] hover:bg-[#FF0000]"
+                >
+                  <FaYoutube className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+                </Link>
+              </div>
+            </div>
 
           </div>
 
@@ -131,7 +131,7 @@ export default function Footer() {
 
             <div className="inline-flex items-center gap-3 mb-6">
 
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-xl text-white">
                 Quick Links
               </h3>
 
@@ -146,7 +146,7 @@ export default function Footer() {
                     href={item.href}
                     className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
                   >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="group-hover:translate-x-1 text-[15px] transition-transform duration-300">
                       {item.name}
                     </span>
 
@@ -164,7 +164,7 @@ export default function Footer() {
             {/* Contact */}
             <div className="inline-flex items-center gap-3 mb-3">
 
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-xl text-white">
                 Contact
               </h3>
 
@@ -179,7 +179,7 @@ export default function Footer() {
 
                 </div>
 
-                <span className="text-gray-300">
+                <span className="text-gray-300 text-[15px]">
                   +91 93633 34349
                 </span>
 
@@ -193,7 +193,7 @@ export default function Footer() {
 
                 </div>
 
-                <span className="text-gray-300">
+                <span className="text-gray-300  text-[15px]">
                   info@scan-n-go.com
                 </span>
 
@@ -207,7 +207,7 @@ export default function Footer() {
 
                 </div>
 
-                <span className="text-gray-300">
+                <span className="text-gray-300  text-[15px]">
                   Coimbatore, Tamil Nadu, India
                 </span>
 
@@ -221,52 +221,48 @@ export default function Footer() {
           <div >
 
             <div className="inline-flex items-center gap-3 mb-8">
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-xl text-white">
                 Download App
               </h3>
             </div>
-            <p className="text-gray-400 leading-8 max-w-sm mb-10">
+            <p className="text-gray-400 leading-8 max-w-sm text-[15px] mb-10">
               Experience Scan N Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
             </p>
 
             {/* ================= App Store ================= */}
+            <div className="flex items-center justify-center sm:justify-start gap-4">
+              {/* App Store */}
+              <a
+                href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-105"
+              >
+                <Image
+                  src="/images/appstore.png"
+                  alt="Download on the App Store"
+                  width={180}
+                  height={54}
+                  className="h-13 w-auto object-contain"
+                />
+              </a>
 
-            <a
-              href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
-            >
-              <div className="flex items-center gap-4">
-
-                <div className="w-40 h-14 flex items-center justify-center">
-                  <Image
-                    src="/images/appstore.png"
-                    alt="Download on the App Store"
-                    width={160}
-                    height={48}
-                  />
-
-                </div>
-              </div>
-            </a>
-
-            {/* ================= Google Play ================= */}
-
-            <a
-              href="https://play.google.com/store/apps/details?id=com.scc.global"
-            >
-
-              <div className="flex items-center gap-4">
-
-                <div className="w-40 h-14 flex items-center justify-center">
-                  <Image
-                    src="/images/googleplay.png"
-                    alt="Get it on Google Play"
-                    width={180}
-                    height={48}
-                  />
-
-                </div>
-              </div>
-            </a>
+              {/* Google Play */}
+              <a
+                href="https://play.google.com/store/apps/details?id=com.scc.global"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-105"
+              >
+                <Image
+                  src="/images/googleplay.png"
+                  alt="Get it on Google Play"
+                  width={180}
+                  height={54}
+                  className="h-13 w-auto object-contain"
+                />
+              </a>
+            </div>
           </div>
         </div>
 

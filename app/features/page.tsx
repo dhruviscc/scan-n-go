@@ -19,10 +19,10 @@ const featureSections = [
     description:
       "Create a secure digital identity with guided onboarding that keeps every profile organized and protected.",
     icon: ShieldCheck,
-    imageSrc: "/images/profile-1.jpg",
+    imageSrc: "/images/profile-2.png",
     points: [
-      "Secure Sign-In: Log in to your Scan n Goaccount to access smart QR features and manage your profile safely.",
-      "Complete Your Profile: Add personal details, verify identity, and register vehicle information for a richer QR experience.",
+      "Secure Account Access: Log in to access all Scan N Go features and manage your profile securely.",
+      "Complete Your Profile: Verify your identity with live face detection, then add your name, email, mobile number",
     ],
   },
   {
@@ -33,8 +33,8 @@ const featureSections = [
     imageSrc: "/images/history-1.png",
 
     points: [
-      "Automatic Activity Log: Each QR scan is recorded with date, time, and context instantly.",
-      "Easy Tracking: Review your scan history anytime to monitor activity and stay informed.",
+      "Complete Activity Log:  Every QR scan automatically records the user's photo, name, mobile number, date, time, and entry/exit status for accurate tracking.",
+      "Smart History Management: Review past scan records, monitor visitor activity, and maintain a complete audit trail with real-time history logs.",
     ],
   },
   {
@@ -57,8 +57,8 @@ const featureSections = [
     imageSrc: "/images/vehicle-1.png",
 
     points: [
-      "Unique QR for Every Vehicle: Generate a dedicated QR code for each vehicle for instant recognition.",
-      "Manage Multiple Vehicles: Register multiple vehicles with their number, owner name, and essential details in one place.",
+      "Unique QR for Every Vehicle: Every registered vehicle is assigned a unique QR code for instant recognition and secure verification.",
+      "Manage Multiple Vehicles: Register multiple vehicles with owner name, and vehicle number in one place.",
     ],
   },
   {
@@ -69,8 +69,8 @@ const featureSections = [
     imageSrc: "/images/quick.png",
 
     points: [
-      "Fast Access: Enable quick entry to bypass extra steps and improve arrival speed.",
-      "Secure Experience: Enjoy streamlined access without compromising trust or safety.",
+      "Users can enable quick entry to bypass additional steps for even faster check-ins.",
+      "This ensures a seamless entry experience without compromising security.",
     ],
   },
 ];
