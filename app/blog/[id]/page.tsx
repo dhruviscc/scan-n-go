@@ -111,7 +111,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             <div className="rounded-[28px] border border-slate-200 bg-gradient-to-br from-violet-700 to-indigo-700 p-7 text-white shadow-sm">
               <h3 className="text-xl font-semibold">Ready to modernize access?</h3>
               <p className="mt-3 text-sm leading-7 text-violet-100">
-                Bring QR-powered convenience and stronger control to your spaces with Scan N Go.
+                Bring QR-powered convenience and stronger control to your spaces with Scan n Go.
               </p>
               <Link
                 href="/contact"

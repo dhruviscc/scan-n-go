@@ -226,9 +226,8 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-gray-400 leading-8 max-w-sm text-[15px] mb-10">
-              Experience Scan N Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
+              Experience Scan n Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
             </p>
-
             {/* ================= App Store ================= */}
             <div className="flex items-center justify-center sm:justify-start gap-4">
               {/* App Store */}

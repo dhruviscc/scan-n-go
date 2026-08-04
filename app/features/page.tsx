@@ -21,7 +21,7 @@ const featureSections = [
     icon: ShieldCheck,
     imageSrc: "/images/profile-2.png",
     points: [
-      "Secure Account Access: Log in to access all Scan N Go features and manage your profile securely.",
+      "Secure Account Access: Log in to access all Scan n Go features and manage your profile securely.",
       "Complete Your Profile: Verify your identity with live face detection, then add your name, email, mobile number",
     ],
   },

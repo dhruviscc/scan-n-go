@@ -483,7 +483,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: <ScanLine size={22} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
-                { icon: <Bell size={22} />, label: "Live Notifications", sub: "Real-time vehicle notifications" },
+                { icon: <Bell size={22} />, label: "Live Notifications", sub: "All Your Notifications, Instantly" },
                 { icon: <ParkingCircle size={22} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify the vehicle owner" },
               ].map((f) => (
                 <motion.div
@@ -1106,7 +1106,7 @@ export default function Home() {
           <ScrollReveal className="max-w-4xl mx-auto space-y-4">
             {[
               {
-                q: "What is Scan-N-Go?",
+                q: "What is Scan n Go?",
                 a: "Scan n Go is a secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
               },
               {
