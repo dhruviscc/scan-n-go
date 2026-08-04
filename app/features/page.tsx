@@ -107,7 +107,7 @@ export default function Features() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mt-10">
 
 
             <h1 className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">

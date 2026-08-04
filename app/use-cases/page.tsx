@@ -11,6 +11,7 @@ import {
   UserCheck,
   Wifi,
 } from "lucide-react";
+import { TypeAnimation } from "react-type-animation";
 
 const useCases = [
   {
@@ -80,20 +81,36 @@ export default function UseCasesPage() {
       <div className="relative z-10">
         {/* Your page content */}
       </div>
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-0 opacity-40">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
           <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
           {/* Center Content */}
-          <div className="mx-auto max-w-3xl text-center mt-10">
+          <div className="max-w-3xl mt-10">
 
-            <h1 className="mt-4 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              One Platform. Industry Solution.
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              One Intelligent Platform for{" "}
+              <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                <TypeAnimation
+                  sequence={[
+                    "Every Industry",
+                    2000,
+                    "Corporate Offices",
+                    2000,
+                    "Residential Societies",
+                    2000,
+                   
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                  cursor={true}
+                />
+              </span>
             </h1>
-
             <p className="mt-6  leading-8 text-slate-600 sm:text-md max-w-xl mx-auto">
               Discover how Scan n Go solves access management challenges with smart QR workflows
               for residential buildings, vehicles, workplaces, events, campuses, and business networking.

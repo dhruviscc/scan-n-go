@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 const testimonials = [
   { name: "Rahul Verma", role: "Commuter & Car Owner", quote: "The Vehicle QR sticker saved my car from being towed. Someone scanned it and alerted me without seeing my personal number.", stars: 5 },
   { name: "Sarah Jenkins", role: "Admin, Innova Solutions", quote: "Our QR attendance solution makes daily entry simple, secure, and reliable. The reporting dashboard is a huge help for our team.", stars: 5 },
-  { name: "Meera Nair", role: "Family User", quote: "The emergency tag gives our family peace of mind. A quick scan can notify us immediately whenever help is needed.", stars: 5 },
-  { name: "Victor Shah", role: "Operations Manager", quote: "Scan n Gomade vehicle and visitor alerts much easier for our community. It is a practical solution we use every day.", stars: 4 },
+  { name: "Meera Nair", role: "Family User", quote: "The emergency notification system gives our family peace of mind. A quick scan can notify us immediately whenever help is needed.", stars: 5 },
+  { name: "Victor Shah", role: "Operations Manager", quote: "Scan n Go made vehicle and visitor alerts much easier for our community. It is a practical solution we use every day.", stars: 4 },
   { name: "Naomi Patel", role: "Innovation Lead", quote: "The platform is simple for users and powerful for admins. The instant notification flow has been especially valuable.", stars: 5 },
 ];
 

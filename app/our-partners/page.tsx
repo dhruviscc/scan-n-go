@@ -1,4 +1,7 @@
-﻿import Link from "next/link";
+﻿'use client';
+
+import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   BarChart3,
@@ -8,6 +11,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { TypeAnimation } from "react-type-animation";
 
 const partnerSections = [
   {
@@ -16,7 +20,7 @@ const partnerSections = [
     description:
       "Society Entry Manager is a secure visitor and society management platform designed for residential societies, apartments, gated communities, villas, and housing complexes. It enables society administrators to monitor visitor activities, manage service providers, and maintain complete visibility over community access from a single dashboard.",
     body:
-      "By integrating with Scan-N-Go, residents and visitors can use QR-based digital entry for faster, safer, and contactless access. Every visitor movement is securely recorded, helping management improve security, streamline operations, and maintain accurate entry records.",
+      "By integrating with Scan n Go , residents and visitors can use QR-based digital entry for faster, safer, and contactless access. Every visitor movement is securely recorded, helping management improve security, streamline operations, and maintain accurate entry records.",
     features: [
       "QR-Based Visitor Entry",
       "Complete Entry Logs",
@@ -26,6 +30,7 @@ const partnerSections = [
       "Secure QR Integration",
     ],
     icon: Building2,
+    imageSrc: "/images/sem.png",
   },
   {
     title: "Attendance Monitor System",
@@ -33,7 +38,7 @@ const partnerSections = [
     description:
       "Attendance Monitor System (AMS) is an intelligent attendance management platform designed for businesses, healthcare organisations, and enterprises. It automates attendance tracking, monitors employee activities, and provides real-time insights across one or multiple branches from a centralized dashboard.",
     body:
-      "Integrated with Scan-N-Go, AMS combines QR-based check-in with live scan verification to ensure every attendance record is authentic, secure, and accurately recorded.",
+      "Integrated with Scan n Go , AMS combines QR-based check-in with live scan verification to ensure every attendance record is authentic, secure, and accurately recorded.",
     features: [
       "QR-Based Attendance",
       "Real-Time Attendance Tracking",
@@ -43,6 +48,7 @@ const partnerSections = [
       "Company & Branch Dashboard",
     ],
     icon: BarChart3,
+    imageSrc: "/images/ams-1.png",
   },
 ];
 
@@ -56,11 +62,6 @@ const whyChooseUsPoints = [
   "User-Friendly Experience",
 ];
 
-export const metadata = {
-  title: "Scan n Go| Our Partners",
-  description:
-    "Discover the ecosystem of partners that strengthen the Scan n Goplatform through secure access, visitor management, and attendance solutions.",
-};
 
 export default function OurPartners() {
   return (
@@ -71,19 +72,33 @@ export default function OurPartners() {
           <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-indigo-300/60 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-5 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
+          <div className="max-w-3xl mt-10">
             <h1 className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Building a Smarter Ecosystem with
+              Growing Together with
               <span className="mt-2 block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                Trusted Partners
+                <TypeAnimation
+                  sequence={[
+                    "Trusted Partners",
+                    2000,
+                    "Technology Partners",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={45}
+                  repeat={Infinity}
+                  cursor={true}
+                />
               </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Scan n Gostrengthens its platform through technology, hardware, and business partnerships that deliver secure access, smarter visitor management, and efficient attendance solutions.
+
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+              Scan n Go strengthens its platform through technology, hardware, and
+              business partnerships that deliver secure access, smarter visitor
+              management, and efficient attendance solutions.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-2xl bg-violet-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-800"
@@ -91,6 +106,7 @@ export default function OurPartners() {
                 Contact Us
                 <ArrowRight size={18} />
               </Link>
+
               <Link
                 href="/features"
                 className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
@@ -102,33 +118,48 @@ export default function OurPartners() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-2">
-          {partnerSections.map(({ title, subtitle, description, body, features, icon: Icon }) => (
+      <section className="mx-auto max-w-[1470px] px-5 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-1">
+          {partnerSections.map(({ title, subtitle, description, body, features, icon: Icon, imageSrc }) => (
             <article
               key={title}
-              className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="grid items-center gap-5 pb-10 lg:grid-cols-[1fr_420px]"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
-                <Icon size={24} />
+              <div>
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
+                  <Icon size={24} />
+                </div>
+                <h2 className="mt-6 text-2xl font-bold  text-slate-900">{title}</h2>
+                <h3 className="mt-3 text-md font-semibold text-violet-700">{subtitle}</h3>
+                <p className="mt-4 text-base leading-8 max-w-3xl text-slate-600">{description}</p>
+                <p className="mt-4 text-base leading-8 max-w-3xl text-slate-600">{body}</p>
+                <div className="mt-6">
+                  <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
+                    Key Features
+                  </h4>
+                  <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+                    {features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-slate-600">
+                        <CheckCircle2 size={18} className="mt-1 shrink-0 text-violet-600" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <h2 className="mt-6 text-2xl font-bold  text-slate-900">{title}</h2>
-              <h3 className="mt-3 text-lg font-semibold text-violet-700">{subtitle}</h3>
-              <p className="mt-4 text-base leading-8 text-slate-600">{description}</p>
-              <p className="mt-4 text-base leading-8 text-slate-600">{body}</p>
-              <div className="mt-6">
-                <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
-                  Key Features
-                </h4>
-                <ul className="mt-4 space-y-3">
-                  {features.map((feature) => (
-                    <li key={feature} className="flex gap-3 text-sm leading-7 text-slate-600">
-                      <CheckCircle2 size={18} className="mt-1 shrink-0 text-violet-600" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {imageSrc && (
+                <div className="overflow-hidden">
+                  <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[720px]">
+                    <Image
+                      src={imageSrc}
+                      alt={title}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 1024px) 100vw, 620px"
+                    />
+                  </div>
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -144,7 +175,7 @@ export default function OurPartners() {
               Smart Solutions for Secure Access, Visitor Management, and Attendance
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              At Scan-N-Go, we deliver a complete QR-powered ecosystem that simplifies access management, visitor tracking, and attendance monitoring for organisations of every size. Integrated with Society Entry Manager (SEM) and the Attendance Monitor System (AMS), our platform combines intelligent automation, real-time monitoring, and advanced security to create a seamless digital experience.
+              At Scan n Go , we deliver a complete QR-powered ecosystem that simplifies access management, visitor tracking, and attendance monitoring for organisations of every size. Integrated with Society Entry Manager (SEM) and the Attendance Monitor System (AMS), our platform combines intelligent automation, real-time monitoring, and advanced security to create a seamless digital experience.
             </p>
           </div>
 

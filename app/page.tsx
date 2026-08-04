@@ -1107,7 +1107,7 @@ export default function Home() {
             {[
               {
                 q: "What is Scan-N-Go?",
-                a: "Scan n Go is an intelligent, secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
+                a: "Scan n Go is a secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
               },
               {
                 q: "How does Vehicle QR work?",
