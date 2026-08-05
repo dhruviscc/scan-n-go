@@ -76,7 +76,7 @@ export default function OurPartners() {
         {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
         <AnimatedBackground
           interactive={true}
-          density={80}
+          density={90}
           particleColorLight="99, 102, 241"
           particleColorDark="168, 85, 247"
         />

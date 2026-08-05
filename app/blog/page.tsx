@@ -55,6 +55,23 @@ export default function BlogPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-0">
+          {/* Blob 1 */}
+          <div className="absolute -bottom-[150%] left-16 w-72 h-72 rounded-full bg-violet-300/20 blur-[70px] animate-blob" />
+
+
+          {/* Blob 3 */}
+          <div className="absolute -bottom-[50%] left-20 w-80 h-80 rounded-full bg-pink-300/15 blur-[50px] animate-blob animation-delay-4000" />
+
+          {/* Blob 4 */}
+          <div className="absolute top-70 -right-70 w-80 h-80 rounded-full bg-cyan-300/15  blur-[50px]    animate-blob animation-delay-6000" />
+
+          <div className="absolute -bottom-[570%] -left-50 w-80 h-80 rounded-full bg-blue-300/20  blur-[70px]   animate-blob animation-delay-6000" />
+
+
+          {/* Blob 6 */}
+          <div className="absolute top-20 left-1/3 w-56 h-56 rounded-full bg-indigo-300/15 blur-[80px] animate-blob animation-delay-10000" />
+        </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 
@@ -158,7 +175,7 @@ export default function BlogPage() {
         </motion.div>
       </section>
 
-  
+
     </div>
   );
 }

@@ -1110,7 +1110,7 @@ export default function Home() {
               Frequently Asked {" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Questions
-            
+
               </span>
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">

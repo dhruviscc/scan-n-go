@@ -208,7 +208,7 @@ export default function Footer() {
                 </div>
 
                 <span className="text-gray-300  text-[15px]">
-                  Coimbatore, Tamil Nadu, India
+                  Vikas Shoppers, Sarthana Jakat Naka, Surat
                 </span>
 
               </div>
