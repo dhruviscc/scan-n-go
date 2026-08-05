@@ -124,7 +124,7 @@ export default function Home() {
 
 
 
-  // Section 11 States (FAQ Accordion toggles)
+  // Section  (FAQ Accordion toggles)
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   useEffect(() => {
@@ -671,7 +671,7 @@ export default function Home() {
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 leading-tight">
               Vehicle QR {" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Features
               </span>
             </h3>
@@ -830,8 +830,11 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-12">
 
-            <h3 className="text-2xl sm:text-4xl font-bold  pb-10 text-slate-800">
-              Trusted By IT Companies & Organizations
+            <h3 className="text-2xl sm:text-4xl font-bold pb-10 text-slate-800">
+              Trusted By  IT{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
+                Companies & Organizations
+              </span>
             </h3>
           </ScrollReveal>
 
@@ -902,7 +905,10 @@ export default function Home() {
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
-              WHERE YOU CAN USE
+              WHERE {" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
+                YOU CAN USE
+              </span>
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               From gated communities and corporate offices to schools, industries, and buildings, Scan n Go delivers secure, smart, and seamless QR-powered management for every location.
@@ -951,7 +957,10 @@ export default function Home() {
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mt-2">
-              Everything in One Simple App
+              All-in-One   {" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
+                Smart QR Platform.
+              </span>
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Keep check of historical visitors entries, manage emergency alerts, edit profiles details, or save your vehicle QR dashboard straight from our dashboard interface.
@@ -1066,8 +1075,9 @@ export default function Home() {
 
 
               <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold   leading-tight text-slate-900">
-                Loved By Daily Users <br className="sm:hidden" />
-                <span className="inline sm:block">&amp; Team Admins</span>
+                Loved By Daily  <br className="sm:hidden" />
+                <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
+                  Users  &amp; Team Admins</span>
               </h3>
 
               <p className="mt-4 text-sm sm:text-base lg:text-md leading-7 text-slate-500  mx-auto">
@@ -1096,7 +1106,12 @@ export default function Home() {
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
-              Frequently Asked Questions
+
+              Frequently Asked {" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
+                Questions
+            
+              </span>
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Discover answers to common security compliance check logs and vehicle stickers setup workflows.

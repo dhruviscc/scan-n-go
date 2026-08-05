@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   Briefcase,
   Calendar,
   Car,
@@ -102,7 +101,7 @@ export default function UseCasesPage() {
                     2000,
                     "Residential Societies",
                     2000,
-                   
+
                   ]}
                   wrapper="span"
                   speed={50}

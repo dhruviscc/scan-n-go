@@ -15,15 +15,16 @@ const navLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-export default function Navbar() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname(); // Get the current path
+  const pathname = usePathname();
   const router = useRouter();
 
   const prefetchRoute = (href: string) => {
     router.prefetch(href);
   };
+
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -53,7 +54,6 @@ export default function Navbar() {
                 alt="Scan n Go Logo"
                 width={140}
                 height={40}
-                priority
                 className="cursor-pointer"
               />
             </Link>
@@ -66,10 +66,11 @@ export default function Navbar() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
+                    prefetch={true}
                     className="relative px-3 py-2 text-[17px] font-medium transition-all duration-300"
                   >
                     <span
-                      className={`${pathname === item.href
+                      className= {`${pathname === item.href
                         ? "text-violet-600 font-semibold"
                         : "text-slate-700 hover:text-violet-600"
                         }`}
