@@ -199,9 +199,7 @@ export default function UseCasesPage() {
                         <p className="font-semibold">{badge}</p>
                         <p className="text-slate-400">Real-time access managed securely.</p>
                       </div>
-                      <span className="rounded-full bg-violet-600 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white">
-                        Live preview
-                      </span>
+                     
                     </div>
                   </div>
                 </motion.div>
