@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "secure-vehicle-entry",
-    title: "Secure Vehicle Entry with Scan n GoQR",
+    title: "Secure Vehicle Entry with Scan n Go QR",
     category: "Vehicle QR",
     excerpt:
       "Learn how smart vehicle QR scanning reduces manual checks and speeds up gated entry for drivers and staff.",

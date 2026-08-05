@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { motion, Variants } from "framer-motion";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const featureSections = [
   {
@@ -332,7 +333,19 @@ export default function Features() {
 
       {/* ════════════════ BENEFITS OF SCAN N GO ════════════════ */}
       <section className="py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        {/* Immersive Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={80}
+            particleColorLight="99, 102, 241" // Indigo-500
+            particleColorDark="168, 85, 247" // Purple-500
+          />
+        </div>
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 
           <motion.div
             className="relative overflow-hidden rounded-[28px] shadow-xl border border-slate-200 p-8 sm:p-10 lg:p-14"
@@ -341,7 +354,7 @@ export default function Features() {
               backgroundSize: "100% auto",
               backgroundPosition: "top center",
               backgroundRepeat: "no-repeat",
-              backgroundColor: "#f8f6ff",
+              backgroundColor: "#e7e2f7ff",
             }}
             initial="hidden"
             whileInView="visible"
@@ -351,10 +364,10 @@ export default function Features() {
 
             {/* Section heading */}
             <motion.div className="text-center mb-12" >
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-                <span className="border-b-[3px] border-indigo-500 pb-1">Benefits</span> of Scan n Go
+              <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900">
+                <span className="border-b-[2px] border-indigo-500 pb-1">Benefits</span> of Scan n Go
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-md">
                 Scan N Go enhances security and convenience by providing seamless entry
                 management through QR code scanning and live face verification, ensuring
                 only authorized access.
@@ -367,11 +380,11 @@ export default function Features() {
                 <motion.div
                   key={benefit.label}
                   className="group flex flex-col items-center gap-3 rounded-2xl bg-white p-6 shadow-sm border border-slate-100 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-violet-200 cursor-default"
-              
-                  whileHover={{ scale: 1.03 }}
+
+                  variants={itemVariants}
                 >
                   <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${benefit.bgColor} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <benefit.icon size={26} className={`${benefit.iconColor}`} />
+                    <benefit.icon size={28} className={`${benefit.iconColor}`} strokeWidth={1.5} />
                   </div>
                   <span className="text-[15px] font-semibold text-slate-800">{benefit.label}</span>
                 </motion.div>
@@ -384,7 +397,7 @@ export default function Features() {
                 <motion.div
                   key={benefit.label}
                   className="group flex flex-col items-center gap-3 rounded-2xl bg-white p-6 shadow-sm border border-slate-100 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-violet-200 cursor-default"
-                  whileHover={{ scale: 1.03 }}
+                  variants={itemVariants}
                 >
                   <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${benefit.bgColor} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
                     <benefit.icon size={26} className={`${benefit.iconColor}`} />
@@ -399,7 +412,7 @@ export default function Features() {
         </div>
       </section>
 
-    
+
     </div>
   );
 }

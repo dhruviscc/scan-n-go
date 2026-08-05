@@ -77,8 +77,8 @@ export default function OurPartners() {
         <AnimatedBackground
           interactive={true}
           density={80}
-          particleColorLight="99, 102, 241" // Indigo-500
-          particleColorDark="168, 85, 247" // Purple-500
+          particleColorLight="99, 102, 241"
+          particleColorDark="168, 85, 247"
         />
       </div>
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
@@ -251,12 +251,28 @@ export default function OurPartners() {
           {/* Right Content */}
           <div>
 
-
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900">
-              Smart Solutions for Secure Access, Visitor Management & Attendance
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              Smart Access for{" "}
+              <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                <TypeAnimation
+                  sequence={[
+                    "Visitors",
+                    2000,
+                    "Attendance",
+                    2000,
+                    "Secure Entry",
+                    2000,
+                    "Organizations",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </span>
             </h2>
 
-            <p className="mt-6 text-md leading-8 text-slate-600">
+            <p className="mt-6 text-[15px] max-w-3xl leading-8 text-slate-600">
               Scan n Go delivers a complete QR-powered ecosystem that simplifies
               visitor management, secure access, and attendance monitoring.
               Integrated with <span className="font-semibold">Society Entry Manager (SEM)</span> and
@@ -275,7 +291,7 @@ export default function OurPartners() {
                     size={20}
                     className="shrink-0 text-violet-600"
                   />
-                  <span className="font-medium  text-md text-slate-700">
+                  <span className="font-medium  text-[14px] text-slate-700">
                     {point}
                   </span>
                 </div>
