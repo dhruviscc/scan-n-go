@@ -556,12 +556,12 @@ export default function Home() {
             }}
           >
             {[
-              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode Siren"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan.jpg" },
-              { title: "Contact QR", desc: "Share your professional or personal contact details instantly with a single QR scan.", features: ["Instant Contact Sharing", "Quick Save", "Secure Sharing"], color: "border-indigo-100/70", iconColor: "text-indigo-600", img: "/images/contact-scan-4.png" },
-              { title: "Queue QR", desc: "Digitise queue management with QR-based token generation and real-time notifications.", features: ["Digital Token System", "Live Queue Status", "Turn Notifications", "Reduced Waiting Time"], color: "border-emerald-100/70", iconColor: "text-emerald-600", img: "/images/queue-scan-2.png" },
-              { title: "Gate QR", desc: "Secure visitor access with QR-based entry, exit, and attendance management.", features: ["QR Check-In & Check-Out", "Attendance Management", "Access Control", "Entry And Exit History"], color: "border-purple-100/70", iconColor: "text-violet-600", img: "/images/gate-scan-1.png" },
-              { title: "Guest Entry Notification", desc: "Keep residents informed with instant notifications for every visitor arrival and departure.", features: ["Instant Visitor Alerts", "Real-Time Updates", "Greeting Notifications", "Visitor Activity Log"], color: "border-amber-100/70", iconColor: "text-amber-600", img: "/images/guest-notification-1.png" },
-              { title: "Meeting QR", desc: "Organise and manage meetings with QR-based check-in, attendance tracking, and scheduled access.", features: ["QR Meeting Check-In", "Time-Based Access", "Attendance Tracking", "Attendance Reports"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/meeting-scan.png" },
+              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode Siren"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan-1.png" },
+              { title: "Contact QR", desc: "Share your professional or personal contact details instantly with a single QR scan.", features: ["Instant Contact Sharing", "Quick Save", "Secure Sharing"], color: "border-indigo-100/70", iconColor: "text-indigo-600", img: "/images/contect-Qr.png" },
+              { title: "Queue QR", desc: "Digitise queue management with QR-based token generation and real-time notifications.", features: ["Digital Token System", "Live Queue Status", "Turn Notifications", "Reduced Waiting Time"], color: "border-emerald-100/70", iconColor: "text-emerald-600", img: "/images/queue-1.png" },
+              { title: "Gate QR", desc: "Secure visitor access with QR-based entry, exit, and attendance management.", features: ["QR Check-In & Check-Out", "Attendance Management", "Access Control", "Entry And Exit History"], color: "border-purple-100/70", iconColor: "text-violet-600", img: "/images/gate-scan.png" },
+              { title: "Guest Entry Notification", desc: "Keep residents informed with instant notifications for every visitor arrival and departure.", features: ["Instant Visitor Alerts", "Real-Time Updates", "Greeting Notifications", "Visitor Activity Log"], color: "border-amber-100/70", iconColor: "text-amber-600", img: "/images/guest-entry.png" },
+              { title: "Meeting QR", desc: "Organise and manage meetings with QR-based check-in, attendance tracking, and scheduled access.", features: ["QR Meeting Check-In", "Time-Based Access", "Attendance Tracking", "Attendance Reports"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/meeting-1.png" },
             ].map((sol, index) => (
               <motion.div
                 key={sol.title}
@@ -1107,15 +1107,15 @@ export default function Home() {
             {[
               {
                 q: "What is Scan n Go?",
-                a: "Scan n Go is a secure QR platform for digital identity profiles, visitors entry logs, vehicle alerts routing, clinic queues coordination, and emergency contact pages. Safe, passwordless QR checks require no third-party application downloads.",
+                a: "Scan n Go is a smart QR platform that offers multiple QR solutions for everyday use. It includes Vehicle QR for vehicle management and emergency alerts, Contact QR for instant contact sharing, Queue QR for digital waiting management, Gate QR for secure entry and exit, and Visitor QR for seamless visitor check-in's—all through a single, easy-to-use platform.",
               },
               {
                 q: "How does Vehicle QR work?",
-                a: "Each vehicle is assigned a secure dual-sticker tag that matches windshield shields. Passersby scan codes to flag issues (parking blockages, headlights left on). Our systems forward messages without displaying your phone number details.",
+                a: "Vehicle QR provides Normal and Emergency options when scanned. The Emergency option instantly alerts the owner's selected emergency contacts—even if their phone is on silent—while the Normal option sends notifications for parking issues, blocked vehicles, open windows, or other important vehicle-related updates directly to the owner.",
               },
               {
                 q: "Is my personal data secure?",
-                a: "Yes. Scan n Go protects user data with industry-leading encryption and verified cloud databases. You control exactly what parameters are public (e.g. name, phone number) during dashboard setups.",
+                a: "Yes, your personal information is secure and you have control over what details are shared when your QR code is scanned.",
               },
               {
                 q: "Is Vehicle QR a one-time purchase?",
