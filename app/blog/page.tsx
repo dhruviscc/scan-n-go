@@ -158,35 +158,7 @@ export default function BlogPage() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-violet-100 bg-white px-8 py-10 shadow-[0_25px_80px_rgba(99,102,241,0.08)] sm:px-12">
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-            <div>
-              <h2 className="text-3xl font-bold  tracking-tight text-slate-900 sm:text-4xl">
-                Ready to Experience Smart QR Solutions?
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-                Start using Scan N Go today and simplify visitor management, digital identity, and secure QR access.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-end">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-3xl bg-violet-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-800"
-              >
-                Get Started
-                <ArrowRight size={16} className="ml-2" />
-              </Link>
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center rounded-3xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-              >
-                ExploreScan n Go 
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+  
     </div>
   );
 }
