@@ -24,7 +24,17 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#070B18] p-3 text-white">
+    <footer className="relative overflow-hidden bg-[#070B18] rounded-t-[100px] p-6 text-white">
+
+      {/* White Glow */}
+      <div className="absolute bottom-[-80px] left-1/2 -translate-x-1/2 w-[900px] h-[250px] rounded-full bg-white/30 blur-[140px] opacity-70 pointer-events-none" />
+
+      {/* Background Text */}
+      <div className="absolute inset-0 flex items-end justify-center pointer-events-none select-none">
+        <h2 className="text-[90px] md:text-[180px] lg:text-[230px] font-black tracking-tight leading-none text-white/[0.05]">
+          Scan n Go
+        </h2>
+      </div>
 
       {/* ================= Background ================= */}
 
