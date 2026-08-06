@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Explore how QR-based entry systems create safer, faster, and more transparent visitor workflows for communities and offices.",
     date: "Jul 16, 2026",
-    image: "/images/Visitor-Manage.jpg",
+    image: "/images/Visitor-Manage-1.png",
     readTime: "5 min read",
     author: "Scan N Go Team",
     heroLabel: "Visitor experiences, reimagined",

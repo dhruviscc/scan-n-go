@@ -15,12 +15,12 @@ import { TypeAnimation } from "react-type-animation";
 
 const useCases = [
   {
-    title: "Residential / Apartment Entry",
+    title: "Office & Staff Entry Management",
     description:
-      "No more manual visitor registers or repeated security checks. With Scan n Go, simply scan the QR for fast, secure entry while residents receive instant notifications and every visit is recorded digitally.",
-    icon: Home,
-    badge: "Residential Video",
-    videoSrc: "/video/residental.mp4",
+      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out. It is fast, secure, and completely digital with a simple QR scan.",
+    icon: Briefcase,
+    badge: "Office Video",
+    videoSrc: "/video/office.mp4",
   },
   {
     title: "Vehicle Scanner System",
@@ -31,6 +31,15 @@ const useCases = [
     videoSrc: "/video/parking-1.mp4",
   },
   {
+    title: "Residential / Apartment Entry",
+    description:
+      "No more manual visitor registers or repeated security checks. With Scan n Go, simply scan the QR for fast, secure entry while residents receive instant notifications and every visit is recorded digitally.",
+    icon: Home,
+    badge: "Residential Video",
+    videoSrc: "/video/residental.mp4",
+  },
+  
+  {
     title: "Queue Management",
     description:
       "No more waiting in long queues or remembering your token number. Just Scan n Go to join the digital queue instantly and receive live updates until it's your turn.",
@@ -38,14 +47,7 @@ const useCases = [
     badge: "Queue Video",
     videoSrc: "/video/queue.mp4",
   },
-  {
-    title: "Office & Staff Entry Management",
-    description:
-      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out. It is fast, secure, and completely digital with a simple QR scan.",
-    icon: Briefcase,
-    badge: "Office Video",
-    videoSrc: "/video/office.mp4",
-  },
+  
   {
     title: "Meetings & Conference Entry",
     description:
@@ -77,11 +79,7 @@ export default function UseCasesPage() {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
 
-      {/* Content */}
-      <div className="relative z-10">
-
-        {/* Your page content */}
-      </div>
+     
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
@@ -90,8 +88,8 @@ export default function UseCasesPage() {
           <AnimatedBackground
             interactive={true}
             density={40}
-            particleColorLight="99, 102, 241" // Indigo-500
-            particleColorDark="168, 85, 247" // Purple-500
+            particleColorLight="99, 102, 241" 
+            particleColorDark="168, 85, 247" 
           />
         </div>
         <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -170,8 +168,8 @@ export default function UseCasesPage() {
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 text-violet-600 shadow-sm shadow-violet-100">
                     <Icon size={29} />
                   </div>
-                  <h2 className="mt-6 text-3xl font-bold  text-slate-900">{title}</h2>
-                  <p className="mt-4 text-base leading-8  text-slate-600">{description}</p>
+                  <h2 className="mt-6 text-4xl font-semibold  text-slate-900">{title}</h2>
+                  <p className="mt-4 text-md leading-8  text-slate-600">{description}</p>
                   <div className="mt-8 flex flex-wrap items-center gap-4">
 
 
