@@ -129,9 +129,45 @@ export default function Contact() {
       </section>
 
       <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-10">
-          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-600">Office Location</p><h2 className="mt-2 text-3xl font-bold  text-slate-900 sm:text-4xl">Find our office</h2></div><a href="https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-bold text-violet-700 hover:text-indigo-700">Get directions <ArrowRight size={18} /></a></div>
-          <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white p-2 shadow-sm"><iframe title="Scan n Go office location in Surat" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1395795971835!2d72.90008077600217!3d21.22631298096263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0458bb9aebeb1%3A0xf108b91bde351df3!2sVikas%20Shoppers%2C%20149-150%2C%20Vraj%20Chowk%20Rd%2C%20nr.%20Bhagavan%20Nagar%20Road%2C%20Sarthana%20Jakat%20Naka%2C%20Zeal%20Park%2C%20Nana%20Varachha%2C%20Surat%2C%20Gujarat%20395013!5e0!3m2!1sen!2sin!4v1785922228546!5m2!1sen!2sin" className="h-[360px] w-full rounded-[20px] border-0 sm:h-[440px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
+        <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
+
+          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-600">
+                Office Location
+              </p>
+
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+                Find Our Office
+              </h2>
+            </div>
+
+            <a
+              href="https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 font-bold text-violet-700 transition hover:text-indigo-700"
+            >
+              Get Directions
+              <ArrowRight size={18} />
+            </a>
+          </div>
+
+          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white p-3 shadow-xl">
+            <iframe
+              title="Scan n Go office location in Surat"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1395795971835!2d72.90008077600217!3d21.22631298096263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0458bb9aebeb1%3A0xf108b91bde351df3!2sVikas%20Shoppers%2C%20149-150%2C%20Vraj%20Chowk%20Rd%2C%20nr.%20Bhagavan%20Nagar%20Road%2C%20Sarthana%20Jakat%20Naka%2C%20Zeal%20Park%2C%20Nana%20Varachha%2C%20Surat%2C%20Gujarat%20395013!5e0!3m2!1sen!2sin!4v1785922228546!5m2!1sen!2sin"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full rounded-[24px] border-0
+                   h-[350px]
+                   sm:h-[450px]
+                   md:h-[550px]
+                   lg:h-[650px]
+                   xl:h-[620px]"
+            />
+          </div>
+
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 "use client";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 import { motion } from "framer-motion";
 import {
   Briefcase,
@@ -78,15 +79,28 @@ export default function UseCasesPage() {
 
       {/* Content */}
       <div className="relative z-10">
+
         {/* Your page content */}
       </div>
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={40}
+            particleColorLight="99, 102, 241" // Indigo-500
+            particleColorDark="168, 85, 247" // Purple-500
+          />
+        </div>
         <div className="pointer-events-none absolute inset-0 opacity-40">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
           <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
 
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
+
           {/* Center Content */}
           <div className="max-w-3xl mt-10">
 
@@ -199,7 +213,7 @@ export default function UseCasesPage() {
                         <p className="font-semibold">{badge}</p>
                         <p className="text-slate-400">Real-time access managed securely.</p>
                       </div>
-                     
+
                     </div>
                   </div>
                 </motion.div>

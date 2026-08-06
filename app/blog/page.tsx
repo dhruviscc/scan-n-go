@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import { Search, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const categories = [
   "All Posts",
@@ -31,6 +32,17 @@ export default function BlogPage() {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+            {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+            <AnimatedBackground
+              interactive={true}
+              density={80}
+              particleColorLight="99, 102, 241" // Indigo-500
+              particleColorDark="168, 85, 247" // Purple-500
+            />
+          </div>
         <div className="pointer-events-none absolute inset-0 opacity-60">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
           <div className="absolute bottom-10 right-0 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />

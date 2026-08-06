@@ -40,10 +40,10 @@ export default function Header() {
             flex justify-between items-center
             transition-all duration-300
             ${scrolled
-              ? "bg-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
-              : "bg-white/75 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              ? "bg-white/70 shadow-[0_8px_30px_rgb(0,0,0,0.25)]"
+              : "bg-white/75 shadow-[0_8px_30px_rgb(0,0,0,0.25)]"
             }
-            backdrop-blur-md px-4 sm:px-8 py-3.5 rounded-full border border-white/20
+            backdrop-blur-md px-4 sm:px-8 py-3.5 rounded-2xl border border-white/20
           `}
         >
           {/* Logo */}
