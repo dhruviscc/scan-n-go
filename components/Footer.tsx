@@ -12,8 +12,11 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+
   const footerNavItems = [
     { name: 'Home', href: '/' },
     { name: 'Use-cases', href: '/use-cases' },
@@ -23,8 +26,22 @@ export default function Footer() {
     { name: 'Contact Us', href: '/contact' },
   ];
 
+  if (pathname === '/login' || pathname.startsWith('/admin')) {
+    return null;
+  }
+
   return (
-    <footer className="relative overflow-hidden bg-[#070B18] p-3 text-white">
+    <footer className="relative overflow-hidden bg-[#070B18] rounded-t-[100px] p-6 text-white">
+
+      {/* White Glow */}
+      <div className="absolute bottom-[-80px] left-1/2 -translate-x-1/2 w-[900px] h-[250px] rounded-full bg-white/30 blur-[140px] opacity-70 pointer-events-none" />
+
+      {/* Background Text */}
+      <div className="absolute inset-0 flex items-end justify-center pointer-events-none select-none">
+        <h2 className="text-[90px] md:text-[180px] lg:text-[230px] font-black tracking-tight leading-none text-white/[0.05]">
+          Scan n Go
+        </h2>
+      </div>
 
       {/* ================= Background ================= */}
 
@@ -180,7 +197,8 @@ export default function Footer() {
                 </div>
 
                 <span className="text-gray-300 text-[15px]">
-                  +91 93633 34349
+                  +91 79906 00155
+
                 </span>
 
               </div>
@@ -199,18 +217,15 @@ export default function Footer() {
 
               </div>
 
-              <div className="flex items-center gap-4">
-
-                <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-
-                  <MapPin size={18} className="text-indigo-400" />
-
+              <div className="flex gap-4">
+                <div className="mt-1.5 flex-shrink-0 w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center">
+                  <MapPin className="w-[18px] h-[18px] text-indigo-400" />
                 </div>
 
-                <span className="text-gray-300  text-[15px]">
-                  Coimbatore, Tamil Nadu, India
+                <span className="text-[15px] leading-7 text-gray-300">
+                  349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle,
+                  Near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006
                 </span>
-
               </div>
 
             </div>
@@ -226,9 +241,8 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-gray-400 leading-8 max-w-sm text-[15px] mb-10">
-              Experience Scan N Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
+              Experience Scan n Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
             </p>
-
             {/* ================= App Store ================= */}
             <div className="flex items-center justify-center sm:justify-start gap-4">
               {/* App Store */}

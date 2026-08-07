@@ -1,0 +1,199 @@
+'use client';
+
+import { supabase } from '@/lib/client';
+import { useState, useEffect } from 'react';
+import {
+    Package,
+    BookOpen,
+    Clock,
+    ArrowRight,
+    Inbox,
+    Loader2,
+
+    ChevronRight
+} from 'lucide-react';
+import Link from 'next/link';
+
+
+export default function DashboardPage() {
+
+    const [recentEnquiries, setRecentEnquiries] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [usersCount, setUsersCount] = useState(0);
+    const [blogsCount, setBlogsCount] = useState(0);
+    const [enquiriesCount, setEnquiriesCount] = useState(0);
+
+    useEffect(() => {
+        async function fetchDashboardData() {
+            setLoading(true);
+            try {
+                const [enquiriesRes, blogsRes, usersRes] = await Promise.all([
+                    fetch('/admin/api/contact'),
+                    fetch('/admin/api/blog'),
+                    supabase.from('profiles').select('*', { count: 'exact', head: true })
+                ]);
+
+                if (enquiriesRes.ok) {
+                    const enquiries = await enquiriesRes.json();
+                    setEnquiriesCount(Array.isArray(enquiries) ? enquiries.length : 0);
+                    setRecentEnquiries(Array.isArray(enquiries) ? enquiries.slice(0, 5) : []);
+                }
+                if (blogsRes.ok) {
+                    const blogs = await blogsRes.json();
+                    setBlogsCount(Array.isArray(blogs) ? blogs.length : 0);
+                }
+                setUsersCount(usersRes.count || 0);
+            } catch (error) {
+                console.error("Dashboard data fetch error:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchDashboardData();
+    }, []);
+
+    const statCards = [
+        { label: 'Total Users', value: usersCount, icon: Package, color: 'text-blue-600', bg: 'bg-blue-50', link: '/admin/dashboard/users' },
+        { label: 'Total Blogs', value: blogsCount, icon: BookOpen, color: 'text-purple-600', bg: 'bg-purple-50', link: '/admin/dashboard/blog' },
+        { label: 'Total Contacts', value: enquiriesCount, icon: Inbox, color: 'text-amber-600', bg: 'bg-amber-50', link: '/admin/dashboard/contact' },
+    ];
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[60vh]">
+                <Loader2 className="w-10 h-10 animate-spin text-violet-700 " />
+            </div>
+        );
+    }
+
+    return (
+        <div className="space-y-4 sm:space-y-8 bg-slate-50 ">
+
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {statCards.map((card, idx) => (
+                    <Link key={idx} href={card.link} className="group ">
+                        <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/50 hover:border-sky-200 group-hover:-translate-y-1">
+                            <div className="flex justify-between items-start mb-4">
+                                <div className={`${card.bg} p-3 rounded-2xl transition-colors group-hover:scale-110 duration-500`}>
+                                    <card.icon size={24} className={card.color} />
+                                </div>
+                                <ArrowRight size={16} className="text-slate-300 group-hover:text-sky-500 transition-colors" />
+                            </div>
+                            <h3 className="text-3xl font-black text-slate-800 mb-1">{card.value}</h3>
+                            <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">{card.label}</p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+
+            {/* Bottom Section: Recent Enquiries & Quick Actions */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Recent Enquiries */}
+                <div className="lg:col-span-2 space-y-4">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                        <div className="w-2 h-8 bg-[#7039e7] rounded-full" />
+                            <h2 className="text-xl font-black text-slate-900 tracking-tight">Recent Enquiries</h2>
+                        </div>
+                        <Link href="/admin/dashboard/contact" className="text-sm font-bold text-violet-700  hover:underline flex items-center gap-1 group">
+                            View All <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+                        </Link>
+                    </div>
+
+                    <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div className="">
+                            <table className="w-full text-left block md:table">
+                                <thead className="hidden md:table-header-group bg-slate-50/50 border-b border-slate-100">
+                                    <tr>
+                                        <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Customer</th>
+                                        <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Interest</th>
+                                        <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Date</th>
+                                        <th className="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="block md:table-row-group divide-y divide-slate-50">
+                                    {recentEnquiries.length === 0 ? (
+                                        <tr>
+                                            <td colSpan={4} className="px-6 py-12 text-center text-slate-400 font-medium italic block w-full">
+                                                No recent enquiries found
+                                            </td>
+                                        </tr>
+                                    ) : (
+                                        recentEnquiries.map((enquiry) => (
+                                            <tr key={enquiry.id} className="block md:table-row hover:bg-slate-50/30 transition-colors p-4 md:p-0">
+                                                <td className="block md:table-cell px-0 md:px-6 py-2 md:py-4">
+                                                    <div className="flex justify-between items-center md:flex-col md:items-start">
+                                                        <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-widest">Customer</span>
+                                                        <div className="flex flex-col text-right md:text-left">
+                                                            <span className="font-bold text-slate-800 text-sm">{enquiry.full_name}</span>
+                                                            <span className="text-[10px] text-slate-500">{enquiry.mobile_number}</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="block md:table-cell px-0 md:px-6 py-2 md:py-4">
+                                                    <div className="flex justify-between items-center md:block">
+                                                        <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-widest">Interest</span>
+                                                        <span className="px-2 py-0.5 rounded-full bg-purple-50 text-violet-700  text-[10px] font-bold uppercase tracking-wider border border-sky-100/50">
+                                                            {enquiry.service_interest}
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td className="block md:table-cell px-0 md:px-6 py-2 md:py-4">
+                                                    <div className="flex justify-between items-center md:block">
+                                                        <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-widest">Date</span>
+                                                        <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                                                            <Clock size={12} className="text-slate-300" />
+                                                            {new Date(enquiry.created_at).toLocaleDateString()}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="block md:table-cell px-0 md:px-6 py-2 md:py-4">
+                                                    <div className="flex justify-between items-center md:justify-center">
+                                                        <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-widest">Status</span>
+                                                        <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-sm border ${enquiry.status === 'new' ? 'bg-indigo-50 text-indigo-600 border-indigo-100' :
+                                                            enquiry.status === 'contacted' ? 'bg-amber-50 text-amber-600 border-amber-100' :
+                                                                'bg-emerald-50 text-emerald-600 border-emerald-100'
+                                                            }`}>
+                                                            {enquiry.status}
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Quick Actions & Info */}
+                <div className="space-y-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-2 h-8 bg-[#7039e7] rounded-full" />
+                        <h2 className="text-xl font-black text-slate-900 tracking-tight">Quick Actions</h2>
+                    </div>
+
+                    <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 space-y-3">
+
+
+                        <Link href="/admin/dashboard/blog" className="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 group-hover:scale-110 transition-transform">
+                                    <BookOpen size={18} />
+                                </div>
+                                <span className="text-sm font-bold text-slate-700">Write Blog Post</span>
+                            </div>
+                            <ChevronRight size={16} className="text-slate-300 group-hover:text-sky-500 transition-colors" />
+                        </Link>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    );
+}

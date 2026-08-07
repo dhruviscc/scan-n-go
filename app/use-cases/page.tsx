@@ -1,7 +1,7 @@
 "use client";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   Briefcase,
   Calendar,
   Car,
@@ -11,8 +11,25 @@ import {
   UserCheck,
   Wifi,
 } from "lucide-react";
+import { TypeAnimation } from "react-type-animation";
 
 const useCases = [
+  {
+    title: "Office & Staff Entry Management",
+    description:
+      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out. It is fast, secure, and completely digital with a simple QR scan.",
+    icon: Briefcase,
+    badge: "Office Video",
+    videoSrc: "/video/office.mp4",
+  },
+  {
+    title: "Vehicle Scanner System",
+    description:
+      "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan n Go and instantly notify the vehicle owner with either a Normal or Emergency alert as you select an option.",
+    icon: Car,
+    badge: "Vehicle Video",
+    videoSrc: "/video/parking-1.mp4",
+  },
   {
     title: "Residential / Apartment Entry",
     description:
@@ -21,14 +38,7 @@ const useCases = [
     badge: "Residential Video",
     videoSrc: "/video/residental.mp4",
   },
-  {
-    title: "Vehicle Scanner System",
-    description:
-      "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan n Go and instantly notify the vehicle owner with either a Normal or Emergency alert.",
-    icon: Car,
-    badge: "Vehicle Video",
-    videoSrc: "/video/parking-1.mp4",
-  },
+  
   {
     title: "Queue Management",
     description:
@@ -37,14 +47,7 @@ const useCases = [
     badge: "Queue Video",
     videoSrc: "/video/queue.mp4",
   },
-  {
-    title: "Office & Staff Entry Management",
-    description:
-      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out fast, secure, and completely digital with a simple QR scan.",
-    icon: Briefcase,
-    badge: "Office Video",
-    videoSrc: "/video/office.mp4",
-  },
+  
   {
     title: "Meetings & Conference Entry",
     description:
@@ -76,24 +79,49 @@ export default function UseCasesPage() {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Your page content */}
-      </div>
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24">
+     
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+
+          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+          <AnimatedBackground
+            interactive={true}
+            density={40}
+            particleColorLight="99, 102, 241" 
+            particleColorDark="168, 85, 247" 
+          />
+        </div>
         <div className="pointer-events-none absolute inset-0 opacity-40">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
           <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
+
           {/* Center Content */}
-          <div className="mx-auto max-w-3xl text-center mt-10">
+          <div className="max-w-3xl mt-10">
 
-            <h1 className="mt-4 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              One Platform. Industry Solution.
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              One Intelligent Platform for{" "}
+              <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                <TypeAnimation
+                  sequence={[
+                    "Every Industry",
+                    2000,
+                    "Corporate Offices",
+                    2000,
+                    "Residential Societies",
+                    2000,
+
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                  cursor={true}
+                />
+              </span>
             </h1>
-
             <p className="mt-6  leading-8 text-slate-600 sm:text-md max-w-xl mx-auto">
               Discover how Scan n Go solves access management challenges with smart QR workflows
               for residential buildings, vehicles, workplaces, events, campuses, and business networking.
@@ -140,8 +168,8 @@ export default function UseCasesPage() {
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 text-violet-600 shadow-sm shadow-violet-100">
                     <Icon size={29} />
                   </div>
-                  <h2 className="mt-6 text-3xl font-bold  text-slate-900">{title}</h2>
-                  <p className="mt-4 text-base leading-8  text-slate-600">{description}</p>
+                  <h2 className="mt-6 text-4xl font-semibold  text-slate-900">{title}</h2>
+                  <p className="mt-4 text-md leading-8  text-slate-600">{description}</p>
                   <div className="mt-8 flex flex-wrap items-center gap-4">
 
 
@@ -183,9 +211,7 @@ export default function UseCasesPage() {
                         <p className="font-semibold">{badge}</p>
                         <p className="text-slate-400">Real-time access managed securely.</p>
                       </div>
-                      <span className="rounded-full bg-violet-600 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white">
-                        Live preview
-                      </span>
+
                     </div>
                   </div>
                 </motion.div>

@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Use Cases", href: "/use-cases" },
   { label: "Features", href: "/features" },
   { label: "Our Partners", href: "/our-partners" },
@@ -15,21 +16,26 @@ const navLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-export default function Navbar() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname(); // Get the current path
+  const pathname = usePathname();
   const router = useRouter();
 
   const prefetchRoute = (href: string) => {
     router.prefetch(href);
   };
 
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (pathname === '/login' || pathname.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <>
@@ -39,10 +45,10 @@ export default function Navbar() {
             flex justify-between items-center
             transition-all duration-300
             ${scrolled
-              ? "bg-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
-              : "bg-white/75 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              ? "bg-white/70 shadow-[0_8px_30px_rgb(0,0,0,0.25)]"
+              : "bg-white/75 shadow-[0_8px_30px_rgb(0,0,0,0.25)]"
             }
-            backdrop-blur-md px-4 sm:px-8 py-3.5 rounded-full border border-white/20
+            backdrop-blur-md px-4 sm:px-8 py-3.5 rounded-2xl border border-white/20
           `}
         >
           {/* Logo */}
@@ -53,7 +59,6 @@ export default function Navbar() {
                 alt="Scan n Go Logo"
                 width={140}
                 height={40}
-                priority
                 className="cursor-pointer"
               />
             </Link>
@@ -66,10 +71,11 @@ export default function Navbar() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
+                    prefetch={true}
                     className="relative px-3 py-2 text-[17px] font-medium transition-all duration-300"
                   >
                     <span
-                      className={`${pathname === item.href
+                      className= {`${pathname === item.href
                         ? "text-violet-600 font-semibold"
                         : "text-slate-700 hover:text-violet-600"
                         }`}
@@ -78,7 +84,11 @@ export default function Navbar() {
                     </span>
 
                     {pathname === item.href && (
-                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-violet-600 shadow-[0_0_12px_rgba(124,58,237,0.6)]"></span>
+                      <span
+                        className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-[15px]  text-violet-600  font-bold sparkle-indicator select-none"
+                      >
+                        ✦
+                      </span>
                     )}
                   </Link>
                 </li>

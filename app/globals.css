@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @font-face {
   font-family: "Circular Std";
@@ -25,8 +26,33 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #1f2937;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  
+  --muted: 221.2 63.6% 97%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  
+  --accent: 222.2 47.6% 11.2%;
+  --accent-foreground: 210 40% 96%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 96%;
+  
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  
+  --radius: 0.5rem;
+  
+  /* Original colors */
+  --bg-light: #ffffff;
+  --text-dark: #1f2937;
 }
 
 @theme inline {
@@ -44,7 +70,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fafafc;
+    --background: #ffffff;
     --foreground: #1f2937;
   }
 }
@@ -548,4 +574,151 @@ section {
   animation: blobThree 22s ease-in-out infinite alternate;
   animation-delay: 4s;
   will-change: transform;
+}
+
+.sparkle-indicator {
+  animation: sparkleFloat 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+}
+
+@keyframes sparkleFloat {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-3px) scale(1.2) rotate(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes borderLight {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(420%);
+  }
+}
+
+.animate-border-light {
+  animation: borderLight 4s linear infinite;
+}
+
+/* Tiptap / blog rich-text content rendered on public pages */
+.blog-content :where(p) {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.blog-content :where(h1, h2, h3, h4, h5, h6) {
+  color: #0f172a;
+  font-weight: 700;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.3;
+}
+
+.blog-content :where(h1) {
+  font-size: 2em;
+}
+
+.blog-content :where(h2) {
+  font-size: 1.5em;
+}
+
+.blog-content :where(h3) {
+  font-size: 1.25em;
+}
+
+.blog-content :where(ul, ol) {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+
+.blog-content :where(ul) {
+  list-style-type: disc;
+}
+
+.blog-content :where(ol) {
+  list-style-type: decimal;
+}
+
+.blog-content :where(li) {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.blog-content :where(li > p) {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.blog-content :where(strong, b) {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.blog-content :where(a) {
+  color: #7c3aed;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.blog-content :where(a:hover) {
+  color: #6d28d9;
+}
+
+.blog-content :where(img) {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 0.75rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-content :where(blockquote) {
+  border-left: 4px solid #c4b5fd;
+  padding-left: 1em;
+  font-style: italic;
+  color: #475569;
+}
+
+.blog-content :where(u) {
+  text-decoration: underline;
+}
+
+.blog-content :where(hr) {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  border-color: #e2e8f0;
+}
+
+/* Tiptap admin editor */
+.ProseMirror :where(ul) {
+  list-style-type: disc;
+  padding-left: 1.625em;
+}
+
+.ProseMirror :where(ol) {
+  list-style-type: decimal;
+  padding-left: 1.625em;
+}
+
+.ProseMirror :where(li) {
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+
+.ProseMirror :where(li > p) {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
 }
