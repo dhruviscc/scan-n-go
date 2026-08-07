@@ -489,7 +489,7 @@ export default function UsersPage() {
 
                         </button>
 
-                    <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-500 bg-violet-500/10 border border-violet-500/20 rounded-lg shadow-sm">
+                        <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-500 bg-violet-500/10 border border-violet-500/20 rounded-lg shadow-sm">
                             {currentPage} / {Math.max(1, totalPages)}
                         </div>
 
@@ -534,8 +534,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider"> Name *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
-                                            type="text"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10" type="text"
                                             placeholder="Name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
@@ -545,7 +544,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Email *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                             type="email"
                                             placeholder="Email"
                                             value={email}
@@ -558,7 +557,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Password *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                             type="password"
                                             placeholder="Password"
                                             value={password}
@@ -569,7 +568,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Mobile *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                             type="text"
                                             placeholder="Mobile"
                                             value={mobile}
@@ -581,8 +580,8 @@ export default function UsersPage() {
                                 </div>
                                 <div className="flex flex-col gap-[5px]">
                                     <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Role *</label>
-                                    <select className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10" value={role} onChange={(e) => setRole(e.target.value)} required>
-                                        <option value="admin">Admin</option>
+                                    <select
+                                        className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10">                                        <option value="admin">Admin</option>
                                         <option value="staff">Staff</option>
                                     </select>
                                 </div>
@@ -591,8 +590,7 @@ export default function UsersPage() {
                                     <button type="button" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b] " onClick={() => setIsAddModalOpen(false)}>
                                         Cancel
                                     </button>
-                                    <button type="submit" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm                         bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300
- text-white border-none " disabled={loading}>
+                                    <button type="submit" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm  bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none " disabled={loading}>
                                         {loading ? "Adding..." : "Add User"}
                                     </button>
                                 </div>
@@ -617,7 +615,7 @@ export default function UsersPage() {
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                            className="bg-white p-6 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-xl"
+                            className="bg-white p-6 rounded-2xl w-full max-w-xl max-h-[100vh] overflow-y-auto shadow-xl"
                         >
                             <div className="flex justify-between items-center mb-6">
                                 <h3 className="text-xl font-bold text-slate-800">Edit User</h3>
@@ -631,7 +629,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Name *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                             type="text"
                                             value={editName}
                                             onChange={(e) => setEditName(e.target.value)}
@@ -642,7 +640,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Email *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                             type="email"
                                             placeholder="Email"
                                             value={editEmail}
@@ -657,7 +655,7 @@ export default function UsersPage() {
                                     <div className="flex flex-col gap-[5px]">
                                         <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Mobile *</label>
                                         <input
-                                            className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                             type="text"
                                             value={editMobile}
                                             onChange={(e) => setEditMobile(e.target.value)}
@@ -679,7 +677,7 @@ export default function UsersPage() {
                                 <button className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b] " onClick={() => setIsEditModalOpen(false)}>
                                     Cancel
                                 </button>
-                                <button className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-br from-sky-600 via-sky-600 to-slate-600 text-white border-none " onClick={handleUpdateUser}>
+                                <button className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm  bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none " onClick={handleUpdateUser}>
                                     Save Changes
                                 </button>
                             </div>
@@ -756,7 +754,7 @@ export default function UsersPage() {
                                 <button className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]" onClick={() => setIsResetModalOpen(false)} disabled={isResetting}>
                                     Cancel
                                 </button>
-                                <button className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-br from-sky-600 via-sky-600 to-slate-600 text-white border-none" onClick={async () => {
+                                <button className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm  bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none " onClick={async () => {
                                     if (!resetPassword.trim() || !resetConfirmPassword.trim()) {
                                         toast.error("Please enter and confirm the new password.");
                                         return;

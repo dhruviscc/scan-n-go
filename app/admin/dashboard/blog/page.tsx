@@ -676,8 +676,7 @@ export default function AdminBlogsPage() {
                                         type="text"
                                         value={formData.title}
                                         onChange={handleTitleChange}
-                                        className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-600/10 focus:border-sky-600 outline-none transition-all"
-                                        placeholder="Blog title..."
+                                        className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10" placeholder="Blog title..."
                                     />
                                 </div>
 
@@ -689,7 +688,7 @@ export default function AdminBlogsPage() {
                                         value={formData.summary}
                                         onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
                                         rows={9}
-                                        className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-600/10 focus:border-sky-600 outline-none transition-all "
+                                        className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"
                                         placeholder="Short summary for list pages..."
                                     />
                                 </div>
@@ -749,8 +748,7 @@ export default function AdminBlogsPage() {
                                             placeholder="Add category..."
                                             value={formData.category}
                                             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                                            className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-600/10 focus:border-sky-600 outline-none transition-all"
-                                        />
+className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"                                        />
                                     </div>
                                 </div>
 
