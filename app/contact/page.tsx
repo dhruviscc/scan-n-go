@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { AnimatedBackground } from "@/components/ui/animated-background";
+import { FaWhatsapp } from "react-icons/fa";
 
 const contactDetails = [
   { icon: Phone, title: "Phone", value: "+91 79906 00155", href: "tel:+917990600155" },

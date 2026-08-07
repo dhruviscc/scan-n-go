@@ -283,7 +283,7 @@ export default function Home() {
                     className="object-contain object-center p-1"
                   />
 
-                 
+
                 </div>
               </motion.div>
               {/* 4 Floating Feature Cards around Phone - Now responsive */}
@@ -636,7 +636,7 @@ export default function Home() {
                       className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-100 to-sky-50 shadow-sm sm:h-14 sm:w-14"
                       style={{ animationDelay: ".6s" }}
                     >
-                      <QrCode className="h-7 w-7 text-sky-600 sm:h-8 sm:w-8" />
+                      <QrCode className="h-7 w-7 text-violet-700  sm:h-8 sm:w-8" />
                     </div>
 
                     <p className="mt-2 text-[10px] font-bold  uppercase tracking-wider text-sky-700 sm:text-xs">

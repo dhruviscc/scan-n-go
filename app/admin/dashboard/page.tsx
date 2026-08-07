@@ -14,15 +14,9 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-interface DashboardStats {
-    usersCount: number;
-    blogsCount: number;
-    enquiriesCount: number;
-    reviewsCount: number;
-}
 
 export default function DashboardPage() {
-    const [stats, setStats] = useState<DashboardStats | null>(null);
+
     const [recentEnquiries, setRecentEnquiries] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [usersCount, setUsersCount] = useState(0);
@@ -67,7 +61,7 @@ export default function DashboardPage() {
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-[60vh]">
-                <Loader2 className="w-10 h-10 animate-spin text-sky-600" />
+                <Loader2 className="w-10 h-10 animate-spin text-violet-700 " />
             </div>
         );
     }
@@ -100,10 +94,10 @@ export default function DashboardPage() {
                 <div className="lg:col-span-2 space-y-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className="w-2 h-8 bg-sky-500 rounded-full" />
+                        <div className="w-2 h-8 bg-[#7039e7] rounded-full" />
                             <h2 className="text-xl font-black text-slate-900 tracking-tight">Recent Enquiries</h2>
                         </div>
-                        <Link href="/admin/dashboard/contact" className="text-sm font-bold text-sky-600 hover:underline flex items-center gap-1 group">
+                        <Link href="/admin/dashboard/contact" className="text-sm font-bold text-violet-700  hover:underline flex items-center gap-1 group">
                             View All <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
                         </Link>
                     </div>
@@ -141,7 +135,7 @@ export default function DashboardPage() {
                                                 <td className="block md:table-cell px-0 md:px-6 py-2 md:py-4">
                                                     <div className="flex justify-between items-center md:block">
                                                         <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-widest">Interest</span>
-                                                        <span className="px-2 py-0.5 rounded-full bg-sky-50 text-sky-600 text-[10px] font-bold uppercase tracking-wider border border-sky-100/50">
+                                                        <span className="px-2 py-0.5 rounded-full bg-purple-50 text-violet-700  text-[10px] font-bold uppercase tracking-wider border border-sky-100/50">
                                                             {enquiry.service_interest}
                                                         </span>
                                                     </div>
@@ -158,7 +152,7 @@ export default function DashboardPage() {
                                                 <td className="block md:table-cell px-0 md:px-6 py-2 md:py-4">
                                                     <div className="flex justify-between items-center md:justify-center">
                                                         <span className="md:hidden text-[10px] font-black text-slate-400 uppercase tracking-widest">Status</span>
-                                                        <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-sm border ${enquiry.status === 'new' ? 'bg-blue-50 text-blue-600 border-blue-100' :
+                                                        <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-sm border ${enquiry.status === 'new' ? 'bg-indigo-50 text-indigo-600 border-indigo-100' :
                                                             enquiry.status === 'contacted' ? 'bg-amber-50 text-amber-600 border-amber-100' :
                                                                 'bg-emerald-50 text-emerald-600 border-emerald-100'
                                                             }`}>
@@ -178,7 +172,7 @@ export default function DashboardPage() {
                 {/* Quick Actions & Info */}
                 <div className="space-y-6">
                     <div className="flex items-center gap-3">
-                        <div className="w-2 h-8 bg-purple-500 rounded-full" />
+                        <div className="w-2 h-8 bg-[#7039e7] rounded-full" />
                         <h2 className="text-xl font-black text-slate-900 tracking-tight">Quick Actions</h2>
                     </div>
 

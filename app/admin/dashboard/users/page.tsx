@@ -248,7 +248,7 @@ export default function UsersPage() {
                 <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
                     <button
                         onClick={() => setIsAddModalOpen(true)}
-                        className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-br from-sky-600 via-sky-600 to-slate-600 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
+                        className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
                     >
                         <Plus size={18} /> <span>Add User</span>
                     </button>
@@ -264,13 +264,13 @@ export default function UsersPage() {
 
                         <thead className="bg-[#f8fafc] border-b border-[#e2e8f0]">
                             <tr>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">#</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">Name</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">Email</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">Mobile</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">Role</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">Status</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase">Action</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">#</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">Name</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">Email</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">Mobile</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">Role</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">Status</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase">Action</th>
                             </tr>
                         </thead>
 
@@ -278,19 +278,19 @@ export default function UsersPage() {
 
                             {loading ? (
                                 <tr>
-                                    <td colSpan={7} className="text-center p-12 text-sky-600">
+                                    <td colSpan={7} className="text-center p-12 text-violet-700 ">
                                         Loading users...
                                     </td>
                                 </tr>
                             ) : users.length === 0 ? (
                                 <tr>
-                                    <td colSpan={7} className="text-center p-12 text-sky-600">
+                                    <td colSpan={7} className="text-center p-12 text-violet-700 ">
                                         No users found. Start by adding one above.
                                     </td>
                                 </tr>
                             ) : (
                                 paginatedUsers.map((user, index) => (
-                                    <tr 
+                                    <tr
                                         key={user.id}
                                         className="hover:bg-[#f1f5f9] transition-colors"
                                     >
@@ -352,7 +352,7 @@ export default function UsersPage() {
 
                                                 <button
                                                     onClick={() => openEditModal(user)}
-                                                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-600"
+                                                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-sky-50 hover:bg-sky-100 text-violet-700 "
                                                 >
                                                     <Edit size={16} />
                                                 </button>
@@ -380,9 +380,9 @@ export default function UsersPage() {
                 <div className="md:hidden space-y-4">
 
                     {loading ? (
-                        <p className="text-center text-sky-600 py-10">Loading users...</p>
+                        <p className="text-center text-violet-700  py-10">Loading users...</p>
                     ) : users.length === 0 ? (
-                        <p className="text-center text-sky-600 py-10">
+                        <p className="text-center text-violet-700  py-10">
                             No users found. Start by adding one above.
                         </p>
                     ) : (
@@ -489,7 +489,7 @@ export default function UsersPage() {
 
                         </button>
 
-                        <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-sky-600 bg-sky-50 border border-sky-100 rounded-lg shadow-sm">
+                        <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-700  bg-sky-50 border border-sky-100 rounded-lg shadow-sm">
                             {currentPage} / {Math.max(1, totalPages)}
                         </div>
 
@@ -520,7 +520,7 @@ export default function UsersPage() {
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                            className="bg-white p-6 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-xl"
+                            className="bg-white p-6 rounded-2xl w-full max-w-xl max-h-[100vh] overflow-y-auto shadow-xl"
                         >
                             <div className="flex justify-between items-center mb-6">
                                 <h3 className="text-xl font-bold text-slate-800">Add User</h3>
@@ -532,7 +532,7 @@ export default function UsersPage() {
                             <form className="flex flex-col gap-3.5" style={{ flexDirection: "column" }} onSubmit={handleAddUser}>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider"> Name *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider"> Name *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="text"
@@ -543,7 +543,7 @@ export default function UsersPage() {
                                         />
                                     </div>
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Email *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Email *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="email"
@@ -556,7 +556,7 @@ export default function UsersPage() {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Password *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Password *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="password"
@@ -567,7 +567,7 @@ export default function UsersPage() {
                                         />
                                     </div>
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Mobile *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Mobile *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="text"
@@ -580,7 +580,7 @@ export default function UsersPage() {
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-[5px]">
-                                    <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Role *</label>
+                                    <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Role *</label>
                                     <select className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10" value={role} onChange={(e) => setRole(e.target.value)} required>
                                         <option value="admin">Admin</option>
                                         <option value="staff">Staff</option>
@@ -591,7 +591,8 @@ export default function UsersPage() {
                                     <button type="button" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b] " onClick={() => setIsAddModalOpen(false)}>
                                         Cancel
                                     </button>
-                                    <button type="submit" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm  bg-gradient-to-br from-sky-600 via-sky-600 to-slate-600 text-white border-none " disabled={loading}>
+                                    <button type="submit" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm                         bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300
+ text-white border-none " disabled={loading}>
                                         {loading ? "Adding..." : "Add User"}
                                     </button>
                                 </div>
@@ -628,7 +629,7 @@ export default function UsersPage() {
                             <div className="flex flex-col gap-3.5" style={{ flexDirection: "column" }}>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Name *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Name *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="text"
@@ -639,7 +640,7 @@ export default function UsersPage() {
                                         />
                                     </div>
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Email *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Email *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="email"
@@ -654,7 +655,7 @@ export default function UsersPage() {
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Mobile *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Mobile *</label>
                                         <input
                                             className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
                                             type="text"
@@ -665,7 +666,7 @@ export default function UsersPage() {
                                         />
                                     </div>
                                     <div className="flex flex-col gap-[5px]">
-                                        <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Role *</label>
+                                        <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Role *</label>
                                         <select className="w-full px-3.5 py-[11px] rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10" value={editRole} onChange={(e) => setEditRole(e.target.value)}>
                                             <option value="admin">Admin</option>
                                             <option value="staff">Staff</option>
@@ -713,7 +714,7 @@ export default function UsersPage() {
 
                             <div className="flex flex-col gap-3.5" style={{ flexDirection: "column" }}>
                                 <div className="flex flex-col gap-[5px]">
-                                    <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">New Password *</label>
+                                    <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">New Password *</label>
                                     <div className="relative">
                                         <input
                                             className="w-full px-3.5 py-[11px] pr-10 rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
@@ -725,14 +726,14 @@ export default function UsersPage() {
                                         <button
                                             type="button"
                                             onClick={() => setShowResetPassword(!showResetPassword)}
-                                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-sky-600 focus:outline-none"
+                                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-violet-700  focus:outline-none"
                                         >
                                             {showResetPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                                         </button>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-[5px]">
-                                    <label className="text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Confirm Password *</label>
+                                    <label className="text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Confirm Password *</label>
                                     <div className="relative">
                                         <input
                                             className="w-full px-3.5 py-[11px] pr-10 rounded-[10px] border border-[#e2e8f0] bg-white text-sm transition-all focus:outline-none focus:border-[#083574] focus:ring-2 focus:ring-[#083574]/10"
@@ -744,7 +745,7 @@ export default function UsersPage() {
                                         <button
                                             type="button"
                                             onClick={() => setShowResetConfirmPassword(!showResetConfirmPassword)}
-                                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-sky-600 focus:outline-none"
+                                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-violet-700  focus:outline-none"
                                         >
                                             {showResetConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                                         </button>

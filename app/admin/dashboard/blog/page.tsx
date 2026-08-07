@@ -129,7 +129,7 @@ export default function AdminBlogsPage() {
         if (blog) {
             setEditingBlog(blog);
             setFormData({
-                title: blog.title, 
+                title: blog.title,
                 slug: blog.slug || '',
                 category: blog.category || 'Water Quality',
                 summary: blog.summary || '',
@@ -391,9 +391,14 @@ export default function AdminBlogsPage() {
 
                     <button
                         onClick={() => openModal(null)}
-                        className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-br from-sky-600 via-sky-600 to-slate-600 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
+                        className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl
+                       bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300
+                       text-white font-bold text-sm
+                       shadow-lg shadow-violet-300/30
+                       transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
                     >
-                        <Plus size={18} /> <span>Add Blog</span>
+                        <Plus size={18} />
+                        <span>Add Blog</span>
                     </button>
                 </div>
             </div>
@@ -487,12 +492,12 @@ export default function AdminBlogsPage() {
                     <table className="w-full border-collapse">
                         <thead className="bg-[#f8fafc] border-b border-[#e2e8f0]">
                             <tr>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase tracking-wider">#</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Blog Title</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Category</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Status</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Date</th>
-                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600 uppercase tracking-wider">Actions</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase tracking-wider">#</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Blog Title</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Category</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Status</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Date</th>
+                                <th className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700  uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
 
@@ -562,7 +567,7 @@ export default function AdminBlogsPage() {
                                             <div className="flex gap-2">
                                                 <button
                                                     onClick={() => openModal(blog)}
-                                                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#eff6ff] text-sky-600 hover:bg-[#dbeafe]"
+                                                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#eff6ff] text-violet-700  hover:bg-[#dbeafe]"
                                                 >
                                                     <Edit size={18} />
                                                 </button>
@@ -666,7 +671,7 @@ export default function AdminBlogsPage() {
 
 
                                 <div className="flex flex-col gap-1.5">
-                                    <label className="text-xs font-bold text-sky-600 uppercase tracking-wider">Title *</label>
+                                    <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Title *</label>
                                     <input
                                         type="text"
                                         value={formData.title}
@@ -679,7 +684,7 @@ export default function AdminBlogsPage() {
 
 
                                 <div className="flex flex-col gap-1.5">
-                                    <label className="text-xs font-bold text-sky-600 uppercase tracking-wider">Excerpt</label>
+                                    <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Excerpt</label>
                                     <textarea
                                         value={formData.summary}
                                         onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
@@ -692,11 +697,11 @@ export default function AdminBlogsPage() {
 
                                 <div className="grid gap-4 md:grid-cols-2">
                                     <div className="flex flex-col gap-1.5">
-                                        <label className="text-xs font-bold text-sky-600 uppercase tracking-wider">
+                                        <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">
                                             Featured Image *
                                         </label>
 
-                                        <label className="relative w-85 h-50 border-2 border-dashed border-sky-300 rounded-xl overflow-hidden cursor-pointer hover:border-sky-500 transition-all">
+                                        <label className="relative w-85 h-50 border-2 border-dashed border-violet-300 rounded-xl overflow-hidden cursor-pointer  transition-all">
 
                                             {formData.image ? (
                                                 <>
@@ -714,13 +719,13 @@ export default function AdminBlogsPage() {
                                                     </div>
                                                 </>
                                             ) : (
-                                                <div className="w-full h-full flex flex-col items-center justify-center bg-sky-50">
+                                                <div className="w-full h-full flex flex-col items-center justify-center bg-violet-50">
                                                     {isUploading ? (
-                                                        <Loader2 size={24} className="animate-spin text-sky-600" />
+                                                        <Loader2 size={24} className="animate-spin text-violet-700 " />
                                                     ) : (
                                                         <>
-                                                            <Upload size={24} className="text-sky-600 mb-2" />
-                                                            <span className="text-xs font-bold text-sky-600 text-center px-2">
+                                                            <Upload size={24} className="text-violet-700  mb-2" />
+                                                            <span className="text-xs font-bold text-violet-700  text-center px-2">
                                                                 Upload Image
                                                             </span>
                                                         </>
@@ -738,7 +743,7 @@ export default function AdminBlogsPage() {
                                         </label>
                                     </div>
                                     <div className="flex flex-col gap-1.5">
-                                        <label className="text-xs font-bold text-sky-600 uppercase tracking-wider">Category</label>
+                                        <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Category</label>
                                         <input
                                             type="text"
                                             placeholder="Add category..."
@@ -750,7 +755,7 @@ export default function AdminBlogsPage() {
                                 </div>
 
                                 <div className="flex flex-col gap-1.5">
-                                    <label className="text-xs font-bold text-sky-600 uppercase tracking-wider">Content</label>
+                                    <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Content</label>
                                     <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
                                         {/* Modern Editor Toolbar */}
                                         <div className="bg-slate-50 border-b border-slate-200 p-2 flex flex-wrap gap-1 sticky top-0 z-10 backdrop-blur-sm">
@@ -818,7 +823,7 @@ export default function AdminBlogsPage() {
                                 <div className="flex gap-4 mt-8 pt-4 ">
                                     <button onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]">Cancel</button>
                                     <button onClick={handleSave} disabled={isSaving}
-                                        className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-br from-sky-600 via-sky-600 to-slate-600 text-white border-none disabled:opacity-60"
+                                        className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none disabled:opacity-60"
                                     >
                                         {isSaving ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
                                         {editingBlog ? "Update Blog" : "Save Blog"}

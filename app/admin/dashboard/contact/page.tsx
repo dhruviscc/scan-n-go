@@ -223,7 +223,7 @@ export default function EnquiryPage() {
             <div className="md:hidden space-y-4">
                 {loading ? (
                     <div className="flex flex-col items-center py-10">
-                        <Loader2 className="w-8 h-8 animate-spin text-sky-600" />
+                        <Loader2 className="w-8 h-8 animate-spin text-violet-700 " />
                         <p className="text-sm text-slate-500 mt-2">Loading enquiries...</p>
                     </div>
                 ) : filteredEnquiries.length === 0 ? (
@@ -319,19 +319,19 @@ export default function EnquiryPage() {
                 <table className="w-full border-collapse">
                     <thead className="bg-[#f8fafc] border-b border-[#e2e8f0]">
                         <tr>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 #</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Type</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Customer</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Interest</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Date</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Status</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-sky-600  uppercase tracking-wider whitespace-nowrap ">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap ">
                                 Actions</th>
                         </tr>
                     </thead>
@@ -339,7 +339,7 @@ export default function EnquiryPage() {
                         {loading ? (
                             <tr>
                                 <td colSpan={7} className="px-6 py-12 text-center">
-                                    <Loader2 className="w-8 h-8 animate-spin mx-auto text-sky-600" />
+                                    <Loader2 className="w-8 h-8 animate-spin mx-auto text-violet-700 " />
                                     <p className="mt-2 text-sm text-slate-500">Loading enquiries...</p>
                                 </td>
                             </tr>
@@ -515,12 +515,12 @@ export default function EnquiryPage() {
                                     onClick={() => setIsDetailsModalOpen(false)}
                                     className="absolute right-5 top-7 rounded-xl  p-2 hover:bg-black/10"
                                 >
-                                    <X size={20} className='text-sky-600' />
+                                    <X size={20} className='text-violet-700 ' />
                                 </button>
 
                                 <div className="flex items-center gap-4">
                                     <div className="h-14 w-14 rounded-2xl bg-sky-100  flex items-center justify-center">
-                                        <User size={25} className='text-sky-600' />
+                                        <User size={25} className='text-violet-700 ' />
                                     </div>
 
                                     <div>
@@ -540,7 +540,7 @@ export default function EnquiryPage() {
 
                                 {/* Customer Details */}
                                 <div>
-                                    <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-sky-600">
+                                    <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-violet-700 ">
                                         Customer Information
                                     </h3>
 
@@ -548,12 +548,12 @@ export default function EnquiryPage() {
 
                                         <div className="rounded-2xl border border-slate-200 p-5">
                                             <div className="flex items-center gap-3">
-                                                <Phone className="text-sky-600" size={18} />
+                                                <Phone className="text-violet-700 " size={18} />
                                                 <div>
                                                     <p className="text-xs text-slate-500">Mobile Number</p>
                                                     <a
                                                         href={`tel:${selectedEnquiry.mobile_number}`}
-                                                        className="font-bold text-slate-800 hover:text-sky-600"
+                                                        className="font-bold text-slate-800 hover:text-violet-700 "
                                                     >
                                                         {selectedEnquiry.mobile_number}
                                                     </a>
@@ -563,7 +563,7 @@ export default function EnquiryPage() {
 
                                         <div className="rounded-2xl border border-slate-200 p-5">
                                             <div className="flex items-center gap-3">
-                                                <Mail className="text-sky-600" size={18} />
+                                                <Mail className="text-violet-700 " size={18} />
                                                 <div>
                                                     <p className="text-xs text-slate-500">Email Address</p>
                                                     <p className="font-bold text-slate-800">
@@ -575,7 +575,7 @@ export default function EnquiryPage() {
 
                                         <div className="rounded-2xl border border-slate-200 p-5 md:col-span-2">
                                             <div className="flex items-center gap-3">
-                                                <Briefcase className="text-sky-600" size={18} />
+                                                <Briefcase className="text-violet-700 " size={18} />
                                                 <div>
                                                     <p className="text-xs text-slate-500">Service Interest</p>
                                                     <p className="font-bold text-slate-800">
