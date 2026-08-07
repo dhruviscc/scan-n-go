@@ -1,11 +1,9 @@
 'use client';
 
-import { ReactNode, useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { ReactNode, useState } from 'react';
 import Sidebar from '@/components/admin/Sidebar';
-import { Menu, Droplet, LogOut, Loader2 } from 'lucide-react';
+import { Menu, Droplet, LogOut } from 'lucide-react';
 import { logoutAction } from '@/app/login/actions';
-import { supabase } from '@/lib/client';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -16,31 +14,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const [logoutLoading, setLogoutLoading] = useState(false);
-  const [authLoading, setAuthLoading] = useState(true);
-  const router = useRouter();
-
-  useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        router.replace('/login');
-      } else {
-        setAuthLoading(false);
-      }
-    };
-
-    checkSession();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) {
-        router.replace('/login');
-      }
-    });
-
-    return () => {
-      subscription?.unsubscribe();
-    };
-  }, [router]);
 
   const handleLogout = async () => {
     setLogoutLoading(true);
@@ -50,14 +23,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       // redirect() throws internally – navigation is happening
     }
   };
-
-  if (authLoading) {
-    return (
-      <div className="flex min-h-screen bg-slate-50 items-center justify-center">
-        <Loader2 className="w-10 h-10 animate-spin text-violet-700" />
-      </div>
-    );
-  }
 
   return (
     <div className="flex min-h-screen bg-slate-50">

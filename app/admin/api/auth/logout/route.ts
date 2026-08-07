@@ -8,7 +8,7 @@ export async function POST() {
 
   clearAuthCookies(response);
 
-  response.cookies.delete("sdenterprise_session_expires");
+  response.cookies.delete("scanngo_session_expires");
 
-  return response;
+  return response; 
 }
