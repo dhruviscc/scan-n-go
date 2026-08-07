@@ -510,7 +510,7 @@ export default function EnquiryPage() {
                             className="bg-white rounded-[16px] w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg"
                         >
                             {/* Header */}
-                            <div className="relative bg-gradient-to-r from-sky-90 via-cyan-100 to-blue-100 p-6 text-white">
+                            <div className="relative bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300 p-6 text-white">
                                 <button
                                     onClick={() => setIsDetailsModalOpen(false)}
                                     className="absolute right-5 top-7 rounded-xl  p-2 hover:bg-black/10"
@@ -519,8 +519,8 @@ export default function EnquiryPage() {
                                 </button>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="h-14 w-14 rounded-2xl bg-sky-100  flex items-center justify-center">
-                                        <User size={25} className='text-violet-700 ' />
+                                    <div className="h-14 w-14 rounded-2xl bg-violet-200  flex items-center justify-center">
+                                        <User size={25} className='text-violet-800 ' />
                                     </div>
 
                                     <div>
@@ -594,7 +594,7 @@ export default function EnquiryPage() {
                                         Customer Message
                                     </h3>
 
-                                    <div className="rounded-3xl border border-sky-100 bg-sky-50 p-6">
+                                    <div className="rounded-3xl border border-violet-100 bg-violet-50 p-6">
                                         <p className="leading-relaxed text-slate-700">
                                             {selectedEnquiry.message ||
                                                 "No message provided by customer."}
