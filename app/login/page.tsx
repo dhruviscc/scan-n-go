@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2, Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { loginAction } from "./actions";
 import Image from "next/image";
 import Link from "next/link";
+import { supabase } from "@/lib/client";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,33 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        const { data: user, error } = await supabase.auth.getUser();
+        if (user?.user) {
+          // Fetch profile to get the role
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('id', user.user.id)
+            .single();
+
+          const userRole = profile?.role?.toLowerCase() || 'user';
+
+          if (userRole === 'admin' || userRole === 'staff') {
+            router.replace('/admin/dashboard');
+          } else {
+            router.replace('/admin/dashboard');
+          }
+        }
+      }
+    };
+
+    checkSession();
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,11 +93,13 @@ export default function LoginPage() {
             <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Email Field */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 ml-1">
-                  Email Address
-                </label>
+                <div className="flex items-center justify-between ml-1">
+                  <label className="text-sm font-semibold text-slate-700">
+                    Email Address
+                  </label>
+                </div>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-[#3da9d4] transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 transition-all duration-300 group-focus-within:text-violet-500 group-focus-within:scale-110">
                     <Mail className="h-5 w-5" />
                   </div>
                   <input
@@ -77,8 +107,7 @@ export default function LoginPage() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3da9d4]/20 focus:border-[#3da9d4] focus:bg-white transition-all sm:text-sm"
-                    placeholder="admin@sdenterprise.com"
+                    className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-violet-200 rounded-xl text-slate-900 placeholder-slate-400 transition-all duration-300 sm:text-sm focus:outline-none focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 hover:border-violet-300" placeholder="admin@sdenterprise.com"
                   />
                 </div>
               </div>
@@ -91,7 +120,7 @@ export default function LoginPage() {
                   </label>
                 </div>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-[#3da9d4] transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 transition-all duration-300 group-focus-within:text-violet-500 group-focus-within:scale-110">
                     <Lock className="h-5 w-5" />
                   </div>
                   <input
@@ -99,7 +128,7 @@ export default function LoginPage() {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full pl-12 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3da9d4]/20 focus:border-[#3da9d4] focus:bg-white transition-all sm:text-sm"
+                    className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-violet-200 rounded-xl text-slate-900 placeholder-slate-400 transition-all duration-300 sm:text-sm focus:outline-none focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 hover:border-violet-300"
                     placeholder="••••••••"
                   />
                   <button
@@ -122,10 +151,10 @@ export default function LoginPage() {
                 </div>
               )}
 
-             <button
-  type="submit"
-  disabled={loading}
-  className="
+              <button
+                type="submit"
+                disabled={loading}
+                className="
     flex w-full justify-center items-center
     rounded-2xl
     bg-gradient-to-r
@@ -147,13 +176,13 @@ export default function LoginPage() {
     disabled:opacity-70
     disabled:cursor-not-allowed
   "
->
-  {loading ? (
-    <Loader2 className="w-6 h-6 animate-spin" />
-  ) : (
-    "Sign In"
-  )}
-</button>
+              >
+                {loading ? (
+                  <Loader2 className="w-6 h-6 animate-spin" />
+                ) : (
+                  "Sign In"
+                )}
+              </button>
             </form>
           </div>
         </div>
