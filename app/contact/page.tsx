@@ -18,20 +18,49 @@ import { TypeAnimation } from "react-type-animation";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const contactDetails = [
-  { icon: Phone, title: "Phone", value: "+91 93633 34349", href: "tel:+919363334349" },
+  { icon: Phone, title: "Phone", value: "+91 79906 00155", href: "tel:+917990600155" },
   { icon: Mail, title: "Email", value: "info@scan-n-go.com", href: "mailto:info@scan-n-go.com" },
-  { icon: MapPin, title: "Office Address", value: "Vikas Shoppers, Sarthana Jakat Naka, Surat", href: "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu" },
+  { icon: MapPin, title: "Office Address", value: "349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006", href: "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu" },
 ];
 
 
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
-    event.currentTarget.reset();
+    setSubmitting(true);
+    setSent(false);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      mobile: formData.get("mobile"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error('Something went wrong. Please try again.');
+
+      setSent(true);
+      event.currentTarget.reset();
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -81,32 +110,85 @@ export default function Contact() {
       </section>
 
       <section className="relative mx-auto mt-20 max-w-7xl px-4 pb-20 sm:px-6 lg:px-10">
-
         <div className="grid overflow-hidden rounded-[28px] border border-violet-100 bg-white shadow-[0_24px_65px_rgba(76,39,155,0.12)] lg:grid-cols-[1.08fr_.92fr]">
-          <form onSubmit={handleSubmit} className="p-6 sm:p-9 lg:p-10">
-            <div className="mb-8">
-              <h2 className="mt-2 text-3xl font-bold  text-slate-900">Tell us how we can help</h2>
-              <p className="mt-2 text-slate-500">Fill in the details below and we&apos;ll get back to you shortly.</p>
+          {sent ? (
+            <div className="p-6 sm:p-9 lg:p-10 flex items-center justify-center min-h-[600px]">
+              <div className="text-center max-w-lg">
+
+                {/* Success Icon */}
+                <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border-[5px] border-emerald-500">
+                  <ShieldCheck size={60} className="text-emerald-500" strokeWidth={2} />
+                </div>
+
+                {/* Heading */}
+                <h2 className="mt-8 text-4xl font-bold text-emerald-500">
+                  Form Submitted Successfully!
+                </h2>
+
+                {/* Description */}
+                <p className="mt-6 text-xl leading-9 text-slate-500">
+                  Thank you! Your form has been submitted successfully.
+                  <br />
+                  We will reply to you soon.
+                </p>
+
+                {/* Button */}
+                <button
+                  onClick={() => {
+                    setSent(false);
+                    setError(null);
+                  }}
+                  className="mt-10 rounded-xl bg-violet-600 px-8 py-3 font-semibold text-white transition hover:bg-violet-700"
+                >
+                  Go Back
+                </button>
+
+              </div>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Name" name="name" placeholder="Your full name" required />
-              <Field label="Email" name="email" type="email" placeholder="you@example.com" required />
-              <Field label="Mobile" name="mobile" type="tel" placeholder="+91 00000 00000" required />
-              <label className="block text-sm font-bold text-slate-700">Subject
-                <select name="subject" required defaultValue="" className="mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-600 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100">
-                  <option value="" disabled>Select a subject</option>
-                  <option>Product demo</option><option>Sales enquiry</option><option>Technical support</option><option>Other</option>
-                </select>
-              </label>
-            </div>
-            <label className="mt-5 block text-sm font-bold text-slate-700">Message
-              <textarea name="message" required rows={5} placeholder="Tell us a little more about what you need..." className="mt-2 w-full resize-none rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-4 focus:ring-violet-100" />
-            </label>
-            <button type="submit" className="cta-primary mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold text-white shadow-lg shadow-violet-500/25 hover:-translate-y-0.5 sm:w-auto">
-              <Send size={18} /> Send Message
-            </button>
-            {sent && <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-emerald-600"><ShieldCheck size={18} /> Thank you! Your message has been received.</p>}
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="p-6 sm:p-9 lg:p-10">
+
+              <div className="mb-8">
+                <h2 className="mt-2 text-3xl font-bold  text-slate-900">Tell us how we can help</h2>
+                <p className="mt-2 text-slate-500">Fill in the details below and we&apos;ll get back to you shortly.</p>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Name" name="name" placeholder="Your full name" required />
+                <Field label="Email" name="email" type="email" placeholder="you@example.com" required />
+                <Field label="Mobile" name="mobile" type="tel" placeholder="+91 00000 00000" required />
+                <label className="block text-sm font-bold text-slate-700">Subject
+                  <select name="subject" required defaultValue="" className="mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-600 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100">
+                    <option value="" disabled>Select a subject</option>
+                    <option>Product demo</option>
+                    <option>Technical support</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <div>
+                <label className="mt-5 block text-sm font-bold text-slate-700">Message
+                  <textarea name="message" required rows={5} placeholder="Tell us a little more about what you need..." className="mt-2 w-full resize-none rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-4 focus:ring-violet-100" />
+                </label>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="cta-primary mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold text-white shadow-lg shadow-violet-500/25 hover:-translate-y-0.5 sm:w-auto disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  <Send size={18} />
+                  {submitting ? "Sending..." : "Send Message"}
+                </button>
+
+                {error && (
+                  <div className="mt-5 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-600">
+                    <p className="text-sm font-medium">{error}</p>
+                  </div>
+                )}
+              </div>
+            </form>
+          )}
 
           <aside className="relative overflow-hidden bg-[#17104a] p-6 text-white sm:p-9 lg:p-12">
             <div className="absolute -right-24 -top-20 h-72 w-72 rounded-full bg-violet-500/40 blur-3xl" />

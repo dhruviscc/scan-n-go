@@ -1,14 +1,13 @@
 'use client';
 
+import { supabase } from '@/lib/client';
 import { useState, useEffect } from 'react';
 import {
     Package,
-    Cog,
     BookOpen,
-    MessageSquare,
-    Star,
     Clock,
     ArrowRight,
+    Inbox,
     Loader2,
 
     ChevronRight
@@ -16,7 +15,7 @@ import {
 import Link from 'next/link';
 
 interface DashboardStats {
-    productsCount: number;
+    usersCount: number;
     blogsCount: number;
     enquiriesCount: number;
     reviewsCount: number;
@@ -26,23 +25,30 @@ export default function DashboardPage() {
     const [stats, setStats] = useState<DashboardStats | null>(null);
     const [recentEnquiries, setRecentEnquiries] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [usersCount, setUsersCount] = useState(0);
+    const [blogsCount, setBlogsCount] = useState(0);
+    const [enquiriesCount, setEnquiriesCount] = useState(0);
 
     useEffect(() => {
         async function fetchDashboardData() {
+            setLoading(true);
             try {
-                const [statsRes, enquiriesRes] = await Promise.all([
-                    fetch('/admin/api/dashboard/stats'),
-                    fetch('/admin/api/contact')
+                const [enquiriesRes, blogsRes, usersRes] = await Promise.all([
+                    fetch('/admin/api/contact'),
+                    fetch('/admin/api/blog'),
+                    supabase.from('profiles').select('*', { count: 'exact', head: true })
                 ]);
 
-                if (statsRes.ok) {
-                    const statsData = await statsRes.json();
-                    setStats(statsData);
-                }
                 if (enquiriesRes.ok) {
                     const enquiries = await enquiriesRes.json();
+                    setEnquiriesCount(Array.isArray(enquiries) ? enquiries.length : 0);
                     setRecentEnquiries(Array.isArray(enquiries) ? enquiries.slice(0, 5) : []);
                 }
+                if (blogsRes.ok) {
+                    const blogs = await blogsRes.json();
+                    setBlogsCount(Array.isArray(blogs) ? blogs.length : 0);
+                }
+                setUsersCount(usersRes.count || 0);
             } catch (error) {
                 console.error("Dashboard data fetch error:", error);
             } finally {
@@ -53,12 +59,10 @@ export default function DashboardPage() {
     }, []);
 
     const statCards = [
-        { label: 'Total Products', value: stats?.productsCount || 0, icon: Package, color: 'text-blue-600', bg: 'bg-blue-50', link: '/admin/dashboard/product' },
-        { label: 'Total Blogs', value: stats?.blogsCount || 0, icon: BookOpen, color: 'text-purple-600', bg: 'bg-purple-50', link: '/admin/dashboard/blog' },
-        { label: 'Total Contact', value: stats?.enquiriesCount || 0, icon: MessageSquare, color: 'text-amber-600', bg: 'bg-amber-50', link: '/admin/dashboard/contact' },
-        { label: 'Total Reviews', value: stats?.reviewsCount || 0, icon: Star, color: 'text-rose-600', bg: 'bg-rose-50', link: '/admin/dashboard/review' },
+        { label: 'Total Users', value: usersCount, icon: Package, color: 'text-blue-600', bg: 'bg-blue-50', link: '/admin/dashboard/users' },
+        { label: 'Total Blogs', value: blogsCount, icon: BookOpen, color: 'text-purple-600', bg: 'bg-purple-50', link: '/admin/dashboard/blog' },
+        { label: 'Total Contacts', value: enquiriesCount, icon: Inbox, color: 'text-amber-600', bg: 'bg-amber-50', link: '/admin/dashboard/contact' },
     ];
-    console.log(stats?.blogsCount)
 
     if (loading) {
         return (
@@ -179,15 +183,7 @@ export default function DashboardPage() {
                     </div>
 
                     <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 space-y-3">
-                        <Link href="/admin/dashboard/product" className="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
-                                    <Package size={18} />
-                                </div>
-                                <span className="text-sm font-bold text-slate-700">Add New Product</span>
-                            </div>
-                            <ChevronRight size={16} className="text-slate-300 group-hover:text-sky-500 transition-colors" />
-                        </Link>
+
 
                         <Link href="/admin/dashboard/blog" className="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group">
                             <div className="flex items-center gap-3">
@@ -199,15 +195,7 @@ export default function DashboardPage() {
                             <ChevronRight size={16} className="text-slate-300 group-hover:text-sky-500 transition-colors" />
                         </Link>
 
-                        <Link href="/admin/dashboard/review" className="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600 group-hover:scale-110 transition-transform">
-                                    <Star size={18} />
-                                </div>
-                                <span className="text-sm font-bold text-slate-700">Manage Reviews</span>
-                            </div>
-                            <ChevronRight size={16} className="text-slate-300 group-hover:text-sky-500 transition-colors" />
-                        </Link>
+
                     </div>
 
                 </div>

@@ -9,7 +9,7 @@ export interface BlogPost {
   summary: string;
   content: string;
   image: string;
-  category: string; // Added category field
+  category: string;
   status?: BlogStatus;
   author_id?: string;
   published_at?: string | null;
@@ -22,7 +22,7 @@ const normalizePost = (post: BlogPost) => ({
   slug: post.slug,
   summary: post.summary || "",
   content: post.content || "",
-  category: post.category, // Added category to normalization
+  category: post.category,
   image: post.image,
   status: post.status || "draft",
   author_id: post.author_id,
@@ -31,14 +31,10 @@ const normalizePost = (post: BlogPost) => ({
 });
 
 export const blogService = {
-
   async getAll(onlyActive = false) {
-    let query = supabase
-      .from('blogs')
-      .select("*");
+    let query = supabase.from("blogs").select("*");
 
     if (onlyActive) {
-
       query = query.eq("status", "published").order("published_at", { ascending: false });
     } else {
       query = query.order("created_at", { ascending: false });
@@ -60,9 +56,20 @@ export const blogService = {
     return data as BlogPost;
   },
 
+  async getBySlug(slug: string) {
+    const { data, error } = await supabase
+      .from("blogs")
+      .select("*")
+      .eq("slug", slug)
+      .maybeSingle();
+
+    if (error) throw error;
+    return data as BlogPost | null;
+  },
+
   async create(blog: BlogPost) {
     const { data, error } = await supabase
-      .from('blogs')
+      .from("blogs")
       .insert([normalizePost(blog)])
       .select()
       .single();

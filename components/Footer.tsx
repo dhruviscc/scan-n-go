@@ -16,7 +16,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   const pathname = usePathname();
-  
+
   const footerNavItems = [
     { name: 'Home', href: '/' },
     { name: 'Use-cases', href: '/use-cases' },
@@ -197,7 +197,8 @@ export default function Footer() {
                 </div>
 
                 <span className="text-gray-300 text-[15px]">
-                  +91 93633 34349
+                  +91 79906 00155
+
                 </span>
 
               </div>
@@ -216,18 +217,15 @@ export default function Footer() {
 
               </div>
 
-              <div className="flex items-center gap-4">
-
-                <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-
-                  <MapPin size={18} className="text-indigo-400" />
-
+              <div className="flex gap-4">
+                <div className="mt-1.5 flex-shrink-0 w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center">
+                  <MapPin className="w-[18px] h-[18px] text-indigo-400" />
                 </div>
 
-                <span className="text-gray-300  text-[15px]">
-                  Vikas Shoppers, Sarthana Jakat Naka, Surat
+                <span className="text-[15px] leading-7 text-gray-300">
+                  349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle,
+                  Near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006
                 </span>
-
               </div>
 
             </div>

@@ -57,7 +57,7 @@ export async function PUT(request: Request) {
             return NextResponse.json({ error: "ID required" }, { status: 400 });
         }
 
-        
+
         const { id: bodyId, type: bodyType, ...dataToUpdate } = body;
         return NextResponse.json(await blogService.update(id, dataToUpdate));
     } catch (error) {
