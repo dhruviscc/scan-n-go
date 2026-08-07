@@ -20,7 +20,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const contactDetails = [
   { icon: Phone, title: "Phone", value: "+91 79906 00155", href: "tel:+917990600155" },
-  { icon: Mail, title: "Email", value: "info@scan-n-go.com", href: "mailto:info@scan-n-go.com" },
+  { icon: Mail, title: "Email", value: "info@Scan n Go .com", href: "mailto:info@Scan n Go .com" },
   { icon: MapPin, title: "Office Address", value: "349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006", href: "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu" },
 ];
 

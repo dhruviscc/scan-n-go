@@ -137,7 +137,7 @@ export default function Footer() {
                 </Link>
 
                 <Link
-                  href="https://scan-n-go.com/"
+                  href="https://Scan n Go .com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF0000] hover:bg-[#FF0000]"
@@ -219,7 +219,7 @@ export default function Footer() {
                 </div>
 
                 <span className="text-gray-300  text-[15px]">
-                  info@scan-n-go.com
+                  info@Scan n Go .com
                 </span>
 
               </div>
@@ -254,7 +254,7 @@ export default function Footer() {
             <div className="flex items-center justify-center sm:justify-start gap-4">
               {/* App Store */}
               <a
-                href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
+                href="https://apps.apple.com/us/app/Scan n Go -easy-entry/id6502510648"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:scale-105"

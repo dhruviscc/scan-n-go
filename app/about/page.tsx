@@ -150,10 +150,10 @@ export default function AboutPage() {
 
             <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
 
- <div className="pointer-events-none absolute inset-0 opacity-40">
-          <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
-          <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
-        </div>
+                <div className="pointer-events-none absolute inset-0 opacity-40">
+                    <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
+                    <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
+                </div>
                 <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
 
                     {/* Center Content */}
@@ -253,7 +253,7 @@ export default function AboutPage() {
 
                                             <p className="mt-5 text-[15px] leading-7 text-slate-600">
                                                 Everyday access management is often slow, manual, and
-                                                inefficient. We created Scan-N-Go to replace traditional
+                                                inefficient. We created Scan n Go  to replace traditional
                                                 processes with secure QR-powered technology that makes
                                                 check-ins, visitor management, and digital interactions
                                                 simple, fast, and reliable.
@@ -328,7 +328,7 @@ export default function AboutPage() {
 
                                             <Image
                                                 src="/images/about.png"
-                                                alt="Scan-N-Go"
+                                                alt="Scan n Go "
                                                 width={520}
                                                 height={890}
                                                 priority

@@ -897,7 +897,7 @@ export default function Home() {
 
                 {/* App Store */}
                 <a
-                  href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
+                  href="https://apps.apple.com/us/app/Scan n Go -easy-entry/id6502510648"
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
