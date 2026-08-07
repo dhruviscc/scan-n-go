@@ -13,6 +13,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -31,7 +32,13 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden bg-[#070B18] rounded-t-[100px] p-6 text-white">
+    <motion.footer
+      className="relative overflow-hidden bg-[#070B18] rounded-t-[100px] p-6 text-white"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
 
       {/* White Glow */}
       <div className="absolute bottom-[-80px] left-1/2 -translate-x-1/2 w-[900px] h-[250px] rounded-full bg-white/30 blur-[140px] opacity-70 pointer-events-none" />
@@ -319,6 +326,6 @@ export default function Footer() {
 
       </div>
 
-    </footer>
+    </motion.footer>
   );
 }
