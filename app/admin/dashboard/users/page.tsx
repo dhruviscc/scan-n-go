@@ -489,7 +489,7 @@ export default function UsersPage() {
 
                         </button>
 
-                        <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-700  bg-sky-50 border border-sky-100 rounded-lg shadow-sm">
+                    <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-500 bg-violet-500/10 border border-violet-500/20 rounded-lg shadow-sm">
                             {currentPage} / {Math.max(1, totalPages)}
                         </div>
 

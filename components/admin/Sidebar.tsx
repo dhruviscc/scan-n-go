@@ -135,7 +135,7 @@ export default function Sidebar({
               <div key={item.id} className="group relative">
                 <Link
                   href={item.href}
-                  className={`relative flex items-center gap-3 rounded-xl border-b-3 px-4 py-4 transition-all duration-200 ${isActive
+                  className={`relative flex items-center gap-3 rounded-xl border-t-3 px-4 py-4 transition-all duration-200 ${isActive
                     ? "border-violet-500 bg-violet-500/10 text-violet-700"
                     : "border-transparent text-slate-600 hover:border-violet-500 hover:bg-violet-500/10 hover:text-violet-700"
                     }`}
