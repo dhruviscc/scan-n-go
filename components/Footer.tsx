@@ -12,8 +12,11 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+  
   const footerNavItems = [
     { name: 'Home', href: '/' },
     { name: 'Use-cases', href: '/use-cases' },
@@ -22,6 +25,10 @@ export default function Footer() {
     { name: 'Blog', href: '/blog' },
     { name: 'Contact Us', href: '/contact' },
   ];
+
+  if (pathname === '/login' || pathname.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <footer className="relative overflow-hidden bg-[#070B18] rounded-t-[100px] p-6 text-white">

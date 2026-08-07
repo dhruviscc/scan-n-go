@@ -33,6 +33,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (pathname === '/login' || pathname.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <>
       <div className="fixed top-4 left-1/2 -translate-x-1/2 w-full max-w-8xl z-50 px-4 sm:px-6">

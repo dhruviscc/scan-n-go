@@ -264,174 +264,28 @@ export default function Home() {
 
               {/* Phone Container */}
               <motion.div
-                className="hero-phone relative z-10 w-[220px] sm:w-[280px]"
+                className="relative z-10 w-[230px] sm:w-[290px] lg:w-[320px]"
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.4,
+                  ease: [0.25, 1, 0.5, 1],
+                }}
               >
-                <div className="relative h-[420px] rounded-[32px] border-[7px] border-slate-900 bg-white shadow-2xl sm:h-[530px] sm:rounded-[40px] sm:border-[8px]" id="phoneMockup">
+                <div className="relative h-[470px] sm:h-[550px] ">
 
-                  {/* Notch */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-18 h-4 bg-slate-900 rounded-full z-20" />
+                  <Image
+                    src="/images/hero.png"
+                    alt="Scan n Go App"
+                    fill
+                    priority
+                    className="object-contain object-center p-1"
+                  />
 
-                  {/* Status Bar */}
-                  <div className="flex items-center justify-between px-4 pb-1 pt-2 text-[8px] font-bold  text-slate-700 sm:px-6 sm:pb-1.5 sm:pt-3 sm:text-[10px]">
-                    <span>9:41</span>
-                    <div className="flex gap-1.5 items-center">
-                      <Zap size={10} />
-                      <span>5G</span>
-                    </div>
-                  </div>
-
-                  <div className="pb-1 pt-1 text-center sm:pb-1 sm:pt-1.5">
-                    <p className="text-[8px] uppercase tracking-wider text-violet-600 sm:text-[10px] sm:tracking-widest">Scan n GoSECURITY</p>
-                  </div>
-
-                  {/* Animated scanning QR code */}
-                  <div className="relative mx-auto mt-2 h-24 w-24 rounded-2xl border border-violet-50 bg-white p-2 shadow-inner sm:h-30 sm:w-30">
-                    <Image
-                      src="/images/scanner.png"
-                      alt="Animated QR Scanner"
-                      width={130}
-                      height={120}
-                      className="w-full h-full"
-                    />
-                    <div
-                      className="absolute left-0 right-0 h-[3px] transition-none pointer-events-none"
-                      style={{
-                        top: `${scanLine}%`,
-                        background: "linear-gradient(90deg,transparent,#7c3aed,transparent)",
-                        boxShadow: "0 0 8px #7c3aed",
-                      }}
-                    />
-                  </div>
-
-                  <div className="mt-2 scale-95 text-center sm:mt-3">
-                    <p className="text-sm  leading-none text-slate-800 sm:text-[14px]">John Doe Profile</p>
-                    <p className="mt-1 inline-block rounded-full bg-violet-100 px-2 py-0.5 font-mono text-[8px] text-violet-700 sm:px-2.5 sm:text-[10px]">UID: SNG-889812-H</p>
-                  </div>
-
-                  {/* Category grids */}
-                  <div className="absolute left-1/2 top-[220px] w-[110%] -translate-x-1/2 overflow-hidden rounded-xl border border-slate-100 bg-white shadow-[0_14px_35px_rgba(15,23,42,.12)] sm:-left-8 sm:top-[255px] sm:w-[125%] sm:translate-x-0 sm:rounded-2xl sm:shadow-[0_20px_60px_rgba(15,23,42,.12)]">
-                    <div className="grid grid-cols-4">
-                      {[
-                        {
-                          icon: <Heart className="text-red-500" size={24} fill="currentColor" />,
-                          label: "Emergency",
-                        },
-                        {
-                          icon: <Car className="text-blue-500" size={24} />,
-                          label: "Vehicle",
-                        },
-                        {
-                          icon: <User className="text-emerald-500" size={24} fill="currentColor" />,
-                          label: "Identity",
-                        },
-                        {
-                          icon: <Briefcase className="text-violet-500" size={24} />,
-                          label: "Business",
-                        },
-                      ].map((item, index) => (
-                        <div
-                          key={item.label}
-                          className={`relative flex flex-col items-center justify-center p-1.5 transition-all duration-300 hover:bg-slate-50 hover:-translate-y-1 sm:p-3 ${index !== 3 ? "border-r border-slate-200" : ""}`}
-                        >
-                          <div className="mb-1 sm:mb-3">
-                            {item.icon}
-                          </div>
-
-                          <span className="text-[8px]  text-slate-800 sm:text-[13px]">
-                            {item.label}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Emergency notification trigger */}
-                  <div className="absolute bottom-14 left-1/2 flex h-16 w-[132%] -translate-x-1/2 items-center justify-between rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 px-3 py-2 text-white shadow-lg sm:-left-8 sm:bottom-20 sm:h-20 sm:w-[125%] sm:translate-x-0 sm:rounded-2xl sm:px-4 sm:py-3">
-                    <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                      {/* Icon */}
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm sm:h-11 sm:w-11 sm:rounded-xl">
-                        <Bell size={22} className="text-white sm:hidden" />
-                        <Bell size={24} className="hidden text-white sm:block" />
-                      </div>
-
-                      {/* Text */}
-                      <div>
-                        <h4 className="text-sm leading-none lg:text-[15px]">
-                          Emergency Assist Active
-                        </h4>
-                        <p className="mt-1 truncate text-[10px] text-violet-100 lg:text-[12px]">
-                          Alert family contacts in 1-click
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Arrow */}
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/15 sm:h-8 sm:w-8">
-                      <ChevronRight size={16} className="text-white sm:hidden" />
-                      <ChevronRight size={18} className="hidden text-white sm:block" />
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 px-2 py-2 sm:py-3">
-                    <div className="grid grid-cols-4">
-
-                      {[
-                        {
-                          icon: HomeIcon,
-                          label: "Home",
-                          active: true,
-                        },
-                        {
-                          icon: ScanLine,
-                          label: "Scan",
-                        },
-                        {
-                          icon: Clock3,
-                          label: "Activity",
-                        },
-                        {
-                          icon: User,
-                          label: "Profile",
-                        },
-                      ].map((item) => {
-                        const Icon = item.icon;
-
-                        return (
-                          <button
-                            key={item.label}
-                            className="flex flex-col items-center justify-center gap-1"
-                          >
-                            <Icon
-                              size={16}
-                              strokeWidth={2.2}
-                              className={
-                                item.active
-                                  ? "text-violet-600"
-                                  : "text-slate-400"
-                              }
-                            />
-
-                            <span
-                              className={`text-[11px] font-medium ${item.active
-                                ? "text-violet-600"
-                                : "text-slate-400"
-                                }`}
-                            >
-                              {item.label}
-                            </span>
-                          </button>
-                        );
-                      })}
-
-                    </div>
-                  </div>
-
+                 
                 </div>
               </motion.div>
-
               {/* 4 Floating Feature Cards around Phone - Now responsive */}
               <div className="absolute inset-0 hidden items-center justify-center gap-0 lg:flex">
                 <FeatureCard
@@ -1104,7 +958,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal>
-          <TestimonialsEditorial />
+            <TestimonialsEditorial />
           </ScrollReveal>
 
         </div>
@@ -1124,7 +978,7 @@ export default function Home() {
         </div>
 
 
-    
+
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
