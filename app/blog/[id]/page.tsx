@@ -98,7 +98,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid gap-10 lg:grid-cols-1">
           <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 md:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-700">
               Full article
@@ -110,23 +110,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             />
           </div>
 
-          <aside className="space-y-6">
-
-
-            <div className="rounded-[28px] border border-slate-200 bg-gradient-to-br from-violet-700 to-indigo-700 p-7 text-white shadow-sm">
-              <h3 className="text-xl font-semibold">Ready to modernize access?</h3>
-              <p className="mt-3 text-sm leading-7 text-violet-100">
-                Bring QR-powered convenience and stronger control to your spaces with Scan n Go.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-violet-700 transition hover:bg-violet-50"
-              >
-                Get started
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </aside>
+       
         </div>
       </section>
 
