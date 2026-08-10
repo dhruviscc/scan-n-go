@@ -136,7 +136,7 @@ export default function BlogPage() {
           <div className="absolute top-20 left-1/3 w-56 h-56 rounded-full bg-indigo-300/15 blur-[80px] animate-blob animation-delay-10000" />
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="relative w-full lg:max-w-xl">
               <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
 
@@ -149,7 +149,7 @@ export default function BlogPage() {
               />
             </div>
 
-            <div className="w-full lg:w-64">
+            <div className="w-full sm:w-auto sm:min-w-[200px] lg:w-64">
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
@@ -177,7 +177,7 @@ export default function BlogPage() {
           </div>
         ) : (
           <motion.div
-            className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3"
+            className="grid gap-6 md:gap-8 sm:grid-cols-2 xl:grid-cols-3"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}

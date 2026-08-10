@@ -176,47 +176,56 @@ const scaleIn: Variants = {
 
 export default function Features() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 ">
+    <div className="min-h-screen overflow-hidden bg-slate-50 text-slate-900">
 
-      <div className="pointer-events-none absolute inset-0">
+      {/* ===================== BACKGROUND BLOBS ===================== */}
+
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Blob 1 */}
-        <div className="absolute -bottom-[150%] left-16 w-72 h-72 rounded-full bg-violet-300/20 blur-[70px] animate-blob" />
-
+        <div className="absolute -bottom-[80%] -left-20 h-56 w-56 rounded-full bg-violet-300/20 blur-[70px] animate-blob sm:-bottom-[100%] sm:left-16 sm:h-72 sm:w-72" />
 
         {/* Blob 3 */}
-        <div className="absolute -bottom-[50%] left-20 w-80 h-80 rounded-full bg-pink-300/15 blur-[50px] animate-blob animation-delay-4000" />
+        <div className="absolute -bottom-[30%] -left-16 h-64 w-64 rounded-full bg-pink-300/15 blur-[50px] animate-blob animation-delay-4000 sm:-bottom-[50%] sm:left-20 sm:h-80 sm:w-80" />
 
         {/* Blob 4 */}
-        <div className="absolute bottom-0 right-20 w-80 h-80 rounded-full bg-cyan-300/15  blur-[90px]  animate-blob animation-delay-6000" />
+        <div className="absolute bottom-0 -right-16 h-64 w-64 rounded-full bg-cyan-300/15 blur-[90px] animate-blob animation-delay-6000 sm:right-20 sm:h-80 sm:w-80" />
 
-        <div className="absolute -bottom-[110%] right-20 w-80 h-80 rounded-full bg-blue-300/20   blur-[90px] animate-blob animation-delay-6000" />
-
+        {/* Blob 5 */}
+        <div className="absolute -bottom-[70%] -right-16 h-64 w-64 rounded-full bg-blue-300/20 blur-[90px] animate-blob animation-delay-6000 sm:-bottom-[110%] sm:right-20 sm:h-80 sm:w-80" />
 
         {/* Blob 6 */}
-        <div className="absolute top-20 left-1/3 w-56 h-56 rounded-full bg-indigo-300/15 blur-[80px] animate-blob animation-delay-10000" />
+        <div className="absolute left-1/2 top-20 h-48 w-48 -translate-x-1/2 rounded-full bg-indigo-300/15 blur-[80px] animate-blob sm:left-1/3 sm:h-56 sm:w-56 sm:translate-x-0" />
       </div>
 
-      {/* ════════════════ HERO SECTION ════════════════ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300/70 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-indigo-300/60 blur-3xl" />
+
+      {/* ===================== HERO SECTION ===================== */}
+
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] px-0 pb-12 pt-20 sm:py-20 md:pb-16">
+
+        {/* Hero Glow */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute left-1/2 top-0 h-48 w-48 -translate-x-1/2 rounded-full bg-violet-300/60 blur-3xl sm:h-64 sm:w-64 md:h-72 md:w-72" />
+
+          <div className="absolute -bottom-10 -right-16 h-56 w-56 rounded-full bg-indigo-300/40 blur-3xl sm:h-72 sm:w-72" />
         </div>
 
         <motion.div
-          className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8"
+          className="relative mx-auto flex w-full max-w-7xl flex-col items-center px-4 text-center sm:px-6 lg:px-8"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <div className="max-w-3xl mt-10">
 
+          <div className="mt-2 w-full max-w-3xl sm:mt-8">
+
+            {/* Heading */}
             <motion.h1
-              className="mt-6 text-4xl font-bold  tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+              className="mt-4 text-3xl font-bold leading-[1.15] tracking-tight text-slate-900 sm:mt-6 sm:text-4xl md:text-5xl lg:text-6xl"
               variants={fadeInUp}
             >
               Secure, Smart & Scalable
               <br />
+
               <TypeAnimation
                 sequence={[
                   "QR Solutions",
@@ -230,8 +239,9 @@ export default function Features() {
             </motion.h1>
 
 
+            {/* Description */}
             <motion.p
-              className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"
+              className="mx-auto mt-5 max-w-xl px-2 text-sm leading-7 text-slate-600 sm:mt-6 sm:px-0 sm:text-base sm:leading-8 md:text-lg"
               variants={fadeInUp}
             >
               Scan n Go brings together secure onboarding, instant scan tracking,
@@ -239,122 +249,196 @@ export default function Features() {
               intelligent experience.
             </motion.p>
 
-            <motion.div className="mt-8 flex flex-wrap justify-center gap-4" variants={fadeInUp}>
+
+            {/* Buttons */}
+            <motion.div
+              className="mt-7 flex w-full flex-row items-center justify-center gap-3 px-2 sm:mt-8 sm:gap-4 sm:px-0"
+              variants={fadeInUp}
+            >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-2xl bg-violet-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-800"
+                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-2xl bg-violet-700 px-4 py-3 text-xs font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-800 active:scale-[0.98] sm:flex-none sm:px-6 sm:text-sm"
               >
                 Contact Us
-                <ArrowRight size={18} />
+                <ArrowRight size={17} />
               </Link>
 
               <Link
                 href="/use-cases"
-                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-100 active:scale-[0.98] sm:flex-none sm:px-6 sm:text-sm"
               >
                 Explore Use Cases
               </Link>
             </motion.div>
-          </div>
 
+          </div>
         </motion.div>
       </section>
 
-      {/* ════════════════ FEATURE DETAIL CARDS ════════════════ */}
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+
+      {/* ===================== FEATURE DETAIL CARDS ===================== */}
+      <section className="relative mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 md:py-16 lg:px-8">
+
         <motion.div
-          className="grid gap-6 lg:grid-cols-1"
+          className="grid grid-cols-1 gap-5 sm:gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
         >
-          {featureSections.map(({ title, description, icon: Icon, points, imageSrc }, idx) => (
-            <motion.article
-              key={title}
-              className="grid items-center gap-10 rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl lg:grid-cols-[1fr_380px]"
-              variants={itemVariants}
-            >
-              {/* Left Content */}
-              <div>
-                <motion.div
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700"
-                  variants={scaleIn}
-                >
-                  <Icon size={27} />
-                </motion.div>
 
-                <h2 className="mt-6 text-2xl font-semibold text-slate-900">
-                  {title}
-                </h2>
+          {featureSections.map(
+            ({ title, description, icon: Icon, points, imageSrc }, idx) => (
+              <motion.article
+                key={title}
+                className="
+              grid
+              w-full
+              grid-cols-1
+              items-center
+              gap-7
+              overflow-hidden
+              rounded-[24px]
+              border
+              border-slate-200
+              bg-white
+              p-4
+              shadow-sm
+              transition
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-xl
 
-                <p className="mt-3 max-w-2xl text-md leading-8 text-slate-600">
-                  {description}
-                </p>
+              sm:gap-8
+              sm:rounded-[28px]
+              sm:p-6
 
-                <ul className="mt-6 space-y-3">
-                  {points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-3 text-[15px] leading-7 text-slate-600"
-                    >
-                      <CheckCircle2
-                        size={18}
-                        className="mt-1 shrink-0 text-violet-600"
-                      />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              md:p-8
 
-              {/* Right Image */}
-              {imageSrc && (
-                <motion.div
-                  className="overflow-hidden rounded-[24px] bg-slate-100"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative h-72 w-full lg:h-80">
-                    <Image
-                      src={imageSrc}
-                      alt={title}
-                      fill
-                      className="object-cover transition-transform duration-500 hover:scale-105"
-                      sizes="(max-width: 1024px) 100vw, 380px"
+              lg:grid-cols-[minmax(0,1fr)_380px]
+              lg:gap-10
+            "
+                variants={itemVariants}
+              >
+
+                {/* ================= LEFT CONTENT ================= */}
+                <div className="min-w-0">
+
+                  {/* Icon */}
+                  <motion.div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50 text-violet-700 sm:h-14 sm:w-14"
+                    variants={scaleIn}
+                  >
+                    <Icon
+                      size={24}
+                      className="sm:hidden"
                     />
-                  </div>
-                </motion.div>
-              )}
-            </motion.article>
-          ))}
+
+                    <Icon
+                      size={27}
+                      className="hidden sm:block"
+                    />
+                  </motion.div>
+
+
+                  {/* Title */}
+                  <h2 className="mt-5 break-words text-xl font-semibold leading-tight text-slate-900 sm:mt-6 sm:text-2xl md:text-3xl">
+                    {title}
+                  </h2>
+
+
+                  {/* Description */}
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+                    {description}
+                  </p>
+
+
+                  {/* Points */}
+                  <ul className="mt-5 space-y-3 sm:mt-6">
+
+                    {points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-2.5 text-sm leading-6 text-slate-600 sm:gap-3 sm:text-[15px] sm:leading-7"
+                      >
+
+                        <CheckCircle2
+                          size={17}
+                          className="mt-1 shrink-0 text-violet-600 sm:h-[18px] sm:w-[18px]"
+                        />
+
+                        <span className="min-w-0 break-words">
+                          {point}
+                        </span>
+
+                      </li>
+                    ))}
+
+                  </ul>
+
+                </div>
+
+
+                {/* ================= RIGHT IMAGE ================= */}
+                {imageSrc && (
+                  <motion.div
+                    className="w-full overflow-hidden rounded-[20px] bg-slate-100 sm:rounded-[24px]"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
+
+                    <div className="relative h-[220px] w-full sm:h-[280px] md:h-[320px] lg:h-80">
+
+                      <Image
+                        src={imageSrc}
+                        alt={title}
+                        fill
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        sizes="
+                      (max-width: 640px) 100vw,
+                      (max-width: 1024px) 100vw,
+                      380px
+                    "
+                      />
+
+                    </div>
+
+                  </motion.div>
+                )}
+
+              </motion.article>
+            )
+          )}
+
         </motion.div>
       </section>
 
-      {/* ════════════════ BENEFITS OF SCAN N GO ════════════════ */}
-      <section className="py-16 sm:py-20">
-        {/* Immersive Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
 
-          {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+      {/* ════════════════ BENEFITS OF SCAN N GO ════════════════ */}
+      <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
+        {/* Immersive Background */}
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <div className="absolute inset-0 opacity-10" />
+
           <AnimatedBackground
             interactive={true}
             density={80}
-            particleColorLight="99, 102, 241" // Indigo-500
-            particleColorDark="168, 85, 247" // Purple-500
+            particleColorLight="99, 102, 241"
+            particleColorDark="168, 85, 247"
           />
         </div>
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+
+        {/* Main Container */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <motion.div
-            className="relative overflow-hidden rounded-[28px] shadow-xl border border-slate-200 p-8 sm:p-10 lg:p-14"
+            className="relative overflow-hidden rounded-2xl sm:rounded-[28px] border border-white/70 p-5 sm:p-8 lg:p-12 xl:p-14 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur-xl"
             style={{
               backgroundImage: "url('/images/benefit_bg.png')",
-              backgroundSize: "100% auto",
+              backgroundSize: "cover",
               backgroundPosition: "top center",
               backgroundRepeat: "no-repeat",
-              backgroundColor: "#e7e2f7ff",
+              backgroundColor: "#e7e2f7",
             }}
             initial="hidden"
             whileInView="visible"
@@ -362,53 +446,106 @@ export default function Features() {
             variants={containerVariants}
           >
 
-            {/* Section heading */}
-            <motion.div className="text-center mb-12" >
-              <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900">
-                <span className="border-b-[2px] border-indigo-500 pb-1">Benefits</span> of Scan n Go
-              </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-md">
-                Scan N Go enhances security and convenience by providing seamless entry
-                management through QR code scanning and live face verification, ensuring
-                only authorized access.
-              </p>
-            </motion.div>
+            {/* Glass Overlay */}
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/55 via-white/25 to-violet-100/30"
+            />
 
-            {/* Top row — 3 items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
-              {benefits.slice(0, 3).map((benefit, index) => (
-                <motion.div
-                  key={benefit.label}
-                  className="group flex flex-col items-center gap-3 rounded-2xl bg-white p-6 shadow-sm border border-slate-100 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-violet-200 cursor-default"
+            {/* Top Glow */}
+            <div
+              className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full bg-violet-400/20 blur-3xl"
+            />
 
-                  variants={itemVariants}
+            {/* Bottom Glow */}
+            <div
+              className="pointer-events-none absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-indigo-400/15 blur-3xl"
+            />
+
+            {/* Content */}
+            <div className="relative z-10">
+
+              {/* Section Heading */}
+              <motion.div
+                className="mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-12"
+              >
+                <h2
+                  className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl"
                 >
-                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${benefit.bgColor} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <benefit.icon size={28} className={`${benefit.iconColor}`} strokeWidth={1.5} />
-                  </div>
-                  <span className="text-[15px] font-semibold text-slate-800">{benefit.label}</span>
-                </motion.div>
-              ))}
-            </div>
+                  <span className="border-b-2 border-indigo-500 pb-1">
+                    Benefits
+                  </span>{" "}
+                  of Scan n Go
+                </h2>
 
-            {/* Bottom row — 4 items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {benefits.slice(3).map((benefit, index) => (
-                <motion.div
-                  key={benefit.label}
-                  className="group flex flex-col items-center gap-3 rounded-2xl bg-white p-6 shadow-sm border border-slate-100 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-violet-200 cursor-default"
-                  variants={itemVariants}
+                <p
+                  className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg"
                 >
-                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${benefit.bgColor} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <benefit.icon size={26} className={`${benefit.iconColor}`} />
-                  </div>
-                  <span className="text-[15px] font-semibold text-slate-800">{benefit.label}</span>
-                </motion.div>
-              ))}
-            </div>
+                  Scan N Go enhances security and convenience by providing
+                  seamless entry management through QR code scanning and live
+                  face verification, ensuring only authorized access.
+                </p>
+              </motion.div>
 
+              {/* Benefits Grid */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+                {benefits.slice(0, 3).map((benefit) => (
+                  <motion.div
+                    key={benefit.label}
+                    className="group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)]"
+                    variants={itemVariants}
+                  >
+                    {/* Icon */}
+                    <div
+                      className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                    >
+                      <benefit.icon
+                        size={22}
+                        className={benefit.iconColor}
+                        strokeWidth={1.7}
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <span
+                      className="max-w-full text-xs font-semibold leading-4 text-slate-800 sm:text-[15px] sm:leading-5"
+                    >
+                      {benefit.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Bottom Benefits */}
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+                {benefits.slice(3).map((benefit) => (
+                  <motion.div
+                    key={benefit.label}
+                    className="group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)]"
+                    variants={itemVariants}
+                  >
+                    {/* Icon */}
+                    <div
+                      className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                    >
+                      <benefit.icon
+                        size={22}
+                        className={benefit.iconColor}
+                        strokeWidth={1.7}
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <span
+                      className="max-w-full text-xs font-semibold leading-4 text-slate-800 sm:text-[15px] sm:leading-5"
+                    >
+                      {benefit.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+            </div>
           </motion.div>
-
         </div>
       </section>
 

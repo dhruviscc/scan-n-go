@@ -81,6 +81,7 @@ export default function OurPartners() {
           particleColorDark="168, 85, 247"
         />
       </div>
+
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300/70 blur-3xl" />
@@ -113,22 +114,26 @@ export default function OurPartners() {
               management, and efficient attendance solutions.
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            {/* Buttons */}
+            <motion.div
+              className="mt-7 flex w-full flex-row items-center justify-center gap-3 px-2 sm:mt-8 sm:gap-4 sm:px-0"
+
+            >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-2xl bg-violet-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-800"
+                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-2xl bg-violet-700 px-4 py-3 text-xs font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-800 active:scale-[0.98] sm:flex-none sm:px-6 sm:text-sm"
               >
                 Contact Us
-                <ArrowRight size={18} />
+                <ArrowRight size={17} />
               </Link>
 
               <Link
                 href="/features"
-                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-100 active:scale-[0.98] sm:flex-none sm:px-6 sm:text-sm"
               >
                 Explore Features
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -140,25 +145,25 @@ export default function OurPartners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="grid items-center gap-5 relative overflow-hidden rounded-[32px] mb-20 border border-violet-100 bg-gradient-to-r from-[#7E57C2] via-[#B388EB] to-[#E1BEE7] p-8 shadow-[0_20px_60px_rgba(126,87,194,0.18)] lg:grid-cols-[1fr_420px]"
+          className="grid items-center gap-5 relative overflow-hidden rounded-[32px] mb-12 sm:mb-20 border border-violet-100 bg-gradient-to-r from-[#7E57C2] via-[#B388EB] to-[#E1BEE7] p-6 sm:p-8 shadow-[0_20px_60px_rgba(126,87,194,0.18)] lg:grid-cols-[1fr_420px]"
         >
           {/* Background elements (if any) */}
 
           <div className="relative">
 
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
+            <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
               <societyEntryManager.icon size={24} />
             </div>
-            <h2 className="mt-6 text-2xl font-bold  text-white">{societyEntryManager.title}</h2>
-            <p className="mt-4 text-base leading-8 max-w-3xl text-white">{societyEntryManager.description}</p>
-            <p className="mt-4 text-base leading-8 max-w-3xl text-white">{societyEntryManager.body}</p>
+            <h2 className="mt-5 sm:mt-6 text-2xl font-bold text-white">{societyEntryManager.title}</h2>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-7 sm:leading-8 max-w-3xl text-white/90">{societyEntryManager.description}</p>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-7 sm:leading-8 max-w-3xl text-white/90">{societyEntryManager.body}</p>
             <div className="mt-6">
               <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-white">
                 Key Features
               </h4>
               <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                 {societyEntryManager.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-white">
+                  <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-white/95">
                     <CheckCircle2 size={18} className="mt-1 shrink-0 text-white" />
                     <span>{feature}</span>
                   </li>
@@ -168,7 +173,7 @@ export default function OurPartners() {
           </div>
           {societyEntryManager.imageSrc && (
             <div className="group overflow-hidden">
-              <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[520px]">
+              <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[520px]">
                 <Image
                   src={societyEntryManager.imageSrc}
                   alt={societyEntryManager.title}
@@ -188,23 +193,23 @@ export default function OurPartners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="grid items-center gap-5 relative rounded-[32px]  border border-violet-100 bg-no-repeat  bg-gradient-to-r from-[#162A6B] via-[#3E5EA8] to-[#8FA7E8] to-indigo-100 p-8 shadow-lg shadow-violet-100/40 lg:grid-cols-[1fr_420px]"
+              className="grid items-center gap-5 relative rounded-[32px] border border-violet-100 bg-no-repeat bg-gradient-to-r from-[#162A6B] via-[#3E5EA8] to-[#8FA7E8] p-6 sm:p-8 shadow-lg shadow-violet-100/40 lg:grid-cols-[1fr_420px]"
             >
               <div>
                 {/* Background elements (if any) */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
+                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">
                   <Icon size={24} />
                 </div>
-                <h2 className="mt-6 text-2xl font-bold  text-white">{title}</h2>
-                <p className="mt-4 text-base leading-8 max-w-3xl text-white">{description}</p>
-                <p className="mt-4 text-base leading-8 max-w-3xl text-white">{body}</p>
+                <h2 className="mt-5 sm:mt-6 text-2xl font-bold text-white">{title}</h2>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-7 sm:leading-8 max-w-3xl text-white/90">{description}</p>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-7 sm:leading-8 max-w-3xl text-white/90">{body}</p>
                 <div className="mt-6">
                   <h4 className="text-md font-semibold uppercase tracking-[0.24em] text-white">
                     Key Features
                   </h4>
                   <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                     {features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-white">
+                      <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-white/95">
                         <CheckCircle2 size={18} className="mt-1 shrink-0 text-white" />
                         <span>{feature}</span>
                       </li>
@@ -214,7 +219,7 @@ export default function OurPartners() {
               </div>
               {imageSrc && (
                 <div className="group overflow-hidden">
-                  <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[520px]">
+                  <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[520px]">
                     <Image
                       src={imageSrc}
                       alt={title}
@@ -231,7 +236,7 @@ export default function OurPartners() {
       </section>
 
       {/* why choose */}
-      <section className="mx-auto  max-w-[1500px] px-5 py-20 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[1500px] px-5 py-16 sm:py-20 sm:px-6 lg:px-8">
 
 
         <div className="grid items-center gap-16 lg:grid-cols-[520px_1fr]">
@@ -251,7 +256,7 @@ export default function OurPartners() {
           {/* Right Content */}
           <div>
 
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 lg:text-5xl">
               Smart Access for{" "}
               <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                 <TypeAnimation
@@ -272,7 +277,7 @@ export default function OurPartners() {
               </span>
             </h2>
 
-            <p className="mt-6 text-[15px] max-w-3xl leading-8 text-slate-600">
+            <p className="mt-6 text-sm sm:text-[15px] max-w-3xl leading-7 sm:leading-8 text-slate-600">
               Scan n Go delivers a complete QR-powered ecosystem that simplifies
               visitor management, secure access, and attendance monitoring.
               Integrated with <span className="font-semibold">Society Entry Manager (SEM)</span> and

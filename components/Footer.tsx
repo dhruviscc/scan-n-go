@@ -33,7 +33,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="relative overflow-hidden bg-[#070B18] rounded-t-[100px] p-6 text-white"
+      className="relative overflow-hidden bg-[#070B18] rounded-t-[60px] md:rounded-t-[100px] p-6 text-white"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -86,10 +86,10 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-8xl mx-auto px-4 lg:px-6 py-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* Column 1 */}
-          <div >
+          <div className="md:col-span-2 lg:col-span-1">
 
             {/* Logo */}
             <Link href="/">
@@ -151,7 +151,7 @@ export default function Footer() {
 
           {/* Column 2 - Quick Links */}
 
-          <div className="lg:pl-20">
+          <div className="lg:pl-12">
 
             <div className="inline-flex items-center gap-3 mb-6">
 
@@ -250,7 +250,7 @@ export default function Footer() {
             <p className="text-gray-400 leading-8 max-w-sm text-[15px] mb-10">
               Experience Scan n Go on your mobile. Download the app for secure QR access, instant notifications and seamless management.
             </p>
-            {/* ================= App Store ================= */}
+            {/* App Store Buttons */}
             <div className="flex items-center justify-center sm:justify-start gap-4">
               {/* App Store */}
               <a
@@ -291,7 +291,7 @@ export default function Footer() {
 
         <div className="mt-16 pt-6 border-t border-white/10">
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
 
             {/* Copyright */}
 
@@ -305,7 +305,7 @@ export default function Footer() {
 
             {/* Footer Links */}
 
-            <div className="flex flex-wrap items-center justify-center gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
 
               <Link
                 href="/privacy-policy"
@@ -314,12 +314,7 @@ export default function Footer() {
                 Privacy Policy
               </Link>
 
-
-
             </div>
-
-
-
           </div>
 
         </div>
