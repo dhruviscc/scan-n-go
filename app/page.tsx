@@ -35,7 +35,7 @@ import {
   User,
   Wifi,
   // Image as LucideImage, // Renamed to avoid conflict with next/image
-  Zap,
+  Zap, Image as LucideImage,
 } from "lucide-react";
 
 
@@ -796,58 +796,99 @@ export default function Home() {
 
 
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
-      < section className="py-20 bg-slate-50 relative"
-        style={{ background: "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)" }}
-
+      <section
+        className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
+        style={{
+          background:
+            "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)",
+        }}
       >
-        {/* Colorful dynamic background lights */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[550px] h-[550px] rounded-full bg-violet-400/25 blur-[120px] animate-pulse-slow" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-purple-300/35 blur-[100px] animate-pulse-slow" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-[35%] left-[45%] w-[300px] h-[300px] rounded-full bg-blue-300/20 blur-[80px]" />
+        {/* Dynamic Background Lights */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-[120px] -top-[80px] h-[320px] w-[320px] rounded-full bg-violet-400/20 blur-[90px] sm:-right-[10%] sm:-top-[10%] sm:h-[550px] sm:w-[550px]" />
+
+          <div className="absolute -bottom-[80px] -left-[100px] h-[280px] w-[280px] rounded-full bg-purple-300/25 blur-[80px] sm:-bottom-[10%] sm:-left-[5%] sm:h-[400px] sm:w-[400px]" />
+
+          <div className="absolute left-[35%] top-[40%] h-[220px] w-[220px] rounded-full bg-blue-300/15 blur-[70px] sm:left-[45%] sm:h-[300px] sm:w-[300px]" />
         </div>
 
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-12">
 
-        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mt-2">
-              All-in-One   {" "}
+          {/* Heading */}
+          <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-14 lg:mb-16">
+            <h3 className="mt-2 text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              All-in-One{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Smart QR Platform.
               </span>
             </h3>
-            <p className="text-slate-500 mt-3 text-md leading-relaxed">
-              Keep check of historical visitors entries, manage emergency alerts, edit profiles details, or save your vehicle QR dashboard straight from our dashboard interface.
+
+            <p className="mt-4 text-sm leading-6 text-slate-500 sm:text-base sm:leading-relaxed">
+              Keep check of historical visitors entries, manage emergency alerts,
+              edit profiles details, or save your vehicle QR dashboard straight from
+              our dashboard interface.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Main Content */}
+          <ScrollReveal className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
 
-            {/* Feature lists on Left */}
-            <div className="space-y-6 ">
-              <h4 className="text-3xl font-bold  text-slate-800">Scan n Go App Features Dashboard</h4>
+            {/* LEFT CONTENT */}
+            <div className="space-y-6 text-center lg:text-left">
+              <h4 className="text-2xl font-bold leading-tight text-slate-800 sm:text-3xl">
+                Scan n Go App Features Dashboard
+              </h4>
 
+              {/* Feature Cards */}
               <motion.div
-                className="grid sm:grid-cols-2 gap-4"
+                className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={{
-                  visible: { transition: { staggerChildren: 0.15 } },
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.15,
+                    },
+                  },
                   hidden: {},
                 }}
               >
                 {[
-                  { name: "Secure QR Code", icon: <QrCode size={18} className="text-violet-600" />, side: "left" },
-                  { name: "Vehicle QR Management", icon: <ScanLine size={18} className="text-violet-600" />, side: "left" },
-                  { name: "Instant Notifications", icon: <Bell size={18} className="text-violet-600" />, side: "right" },
-                  { name: "Appoinment & Meeting QR", icon: <Clock size={18} className="text-violet-600" />, side: "right" },
-                  { name: "Contect QR sharing", icon: <Download size={18} className="text-violet-600" />, side: "left" },
-                  { name: "Update Profile instantly", icon: <User size={18} className="text-violet-600" />, side: "right" },
+                  {
+                    name: "Secure QR Code",
+                    icon: <QrCode size={18} className="text-violet-600" />,
+                    side: "left",
+                  },
+                  {
+                    name: "Vehicle QR Management",
+                    icon: <ScanLine size={18} className="text-violet-600" />,
+                    side: "left",
+                  },
+                  {
+                    name: "Instant Notifications",
+                    icon: <Bell size={18} className="text-violet-600" />,
+                    side: "right",
+                  },
+                  {
+                    name: "Appointment & Meeting QR",
+                    icon: <Clock size={18} className="text-violet-600" />,
+                    side: "right",
+                  },
+                  {
+                    name: "Contact QR Sharing",
+                    icon: <Download size={18} className="text-violet-600" />,
+                    side: "left",
+                  },
+                  {
+                    name: "Update Profile Instantly",
+                    icon: <User size={18} className="text-violet-600" />,
+                    side: "right",
+                  },
                 ].map((appFeat, i) => (
                   <motion.div
                     key={i}
-                    className="flex items-center gap-3 rounded-2xl px-4 py-4 backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_rgba(31,38,135,0.15)] hover:bg-white/100 hover:border-violet-300/40 hover:shadow-[0_12px_40px_rgba(139,92,246,0.25)] transition-all duration-300 group overflow-hidden relative"
+                    className=" group relative flex items-center gap-3  overflow-hidden rounded-2xl border border-white/30 bg-white/20 px-4 py-3.5 shadow-[0_8px_32px_rgba(31,38,135,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-violet-300/40 hover:bg-white/70 hover:shadow-[0_12px_40px_rgba(139,92,246,0.20)] sm:px-4 sm:py-4"
                     variants={{
                       hidden: {
                         opacity: 0,
@@ -864,17 +905,17 @@ export default function Home() {
                     }}
                   >
                     {/* Glass Shine */}
-                    <div
-                      className=" absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-transparent opacity-60 pointer-events-none"
-                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-60" />
 
+                    {/* Icon */}
                     <span
-                      className=" relative w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/10 flex items-center justify-center shrink-0 text-violet-600 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 "
+                      className=" relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/30  backdrop-blur-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
                     >
                       {appFeat.icon}
                     </span>
 
-                    <span className="relative text-[15px] text-slate-700">
+                    {/* Text */}
+                    <span className="relative text-left text-sm font-medium text-slate-700 sm:text-[15px]">
                       {appFeat.name}
                     </span>
                   </motion.div>
@@ -882,66 +923,72 @@ export default function Home() {
               </motion.div>
 
               {/* Download Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center gap-3 pt-2 sm:gap-4 lg:justify-start">
                 {/* Google Play */}
                 <a
                   href="https://play.google.com/store/apps/details?id=com.scc.global"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
                     src="/images/googleplay.png"
                     alt="Get it on Google Play"
-                    className="h-14 w-auto"
+                    className="h-12 w-auto object-contain sm:h-14"
                   />
                 </a>
 
                 {/* App Store */}
                 <a
-                  href="https://apps.apple.com/us/app/Scan n Go -easy-entry/id6502510648"
+                  href="https://apps.apple.com/us/app/Scan%20n%20Go%20-easy-entry/id6502510648"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
                     src="/images/appstore.png"
                     alt="Download on the App Store"
-                    className="h-14 w-auto"
+                    className="h-12 w-auto object-contain sm:h-14"
                   />
                 </a>
               </div>
             </div>
 
-            {/* Android + iOS mockups next to each other */}
-            <div className="relative flex justify-end items-center h-[660px] max-w-[200%]  w-full">
+            {/* RIGHT — MOBILE APP IMAGE */}
+            <div
+              className=" relative flex w-full items-center justify-center overflow-visible pt-2 sm:pt-4 lg:min-h-[620px] lg:justify-end lg:pt-0"
+            >
               <img
                 src="/images/get-app.png"
-                alt="Mobile Preview"
-                className="h-full w-auto object-contain drop-shadow-2xl animate-float"
+                alt="Scan n Go Mobile App Preview"
+                className=" relative z-10 h-auto w-[85%] max-w-[360px] object-contain drop-shadow-[0_25px_45px_rgba(67,56,202,0.25)]  animate-float sm:w-[70%] sm:max-w-[430px] lg:h-[620px] lg:w-auto lg:max-w-none  "
                 style={{ animationDelay: "0.5s" }}
               />
             </div>
+
           </ScrollReveal>
         </div>
-      </section >
-
+      </section>
 
 
 
       {/* ════════════════ SECTION 07 — TESTIMONIALS ════════════════ */}
 
-      < section className=" relative py-20 bg-white" >
+      <section className="relative py-20 bg-white">
 
         {/* Top Left Blob */}
-        < div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
+        <div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
 
         {/* Aurora Blob - Left */}
-        < div className="absolute left-[10%] bottom-10 h-50 w-50 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-2xl  animate-blob-left" />
+        <div className="absolute left-[10%] bottom-10 h-50 w-50 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-2xl  animate-blob-left" />
 
 
         {/* Cyan Blob */}
         < div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
 
         <div className="w-full max-w-[1440px] mx-auto">
-          <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
-            <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
+          <ScrollReveal className="max-w-2xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto px-4 text-center sm:px-6">
 
 
               <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold   leading-tight text-slate-900">
@@ -962,7 +1009,7 @@ export default function Home() {
           </ScrollReveal>
 
         </div>
-      </section >
+      </section>
 
       {/* ════════════════ SECTION 8 — FREQUENTLY ASKED QUESTIONS ════════════════ */}
 
