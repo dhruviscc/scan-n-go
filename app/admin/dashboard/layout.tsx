@@ -1,9 +1,11 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 import Sidebar from '@/components/admin/Sidebar';
-import { Menu, Droplet, LogOut } from 'lucide-react';
+import { Menu, Droplet, LogOut, Loader2 } from 'lucide-react';
 import { logoutAction } from '@/app/login/actions';
+import { supabase } from '@/lib/client';
+import { useRouter } from 'next/navigation';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -14,6 +16,32 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const [logoutLoading, setLogoutLoading] = useState(false);
+  const [sessionLoading, setSessionLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        router.replace('/login');
+      } else {
+        setSessionLoading(false);
+      }
+    };
+
+    checkSession();
+  }, [router]);
+
+  if (sessionLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-slate-50">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="w-8 h-8 animate-spin text-violet-700" />
+          <p className="text-slate-500">Authenticating...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleLogout = async () => {
     setLogoutLoading(true);

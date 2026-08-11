@@ -54,7 +54,7 @@ export default function Sidebar({
         const meta = data.user.user_metadata;
         setUserProfile({
           name: meta?.name || meta?.full_name || data.user.email?.split("@")[0] || "Admin",
-          role: meta?.role || "Administrator",
+          role: meta?.role || "Admin",
         });
       }
     });
@@ -65,7 +65,10 @@ export default function Sidebar({
     { id: "blog", label: "Blog", Icon: BookOpen, href: "/admin/dashboard/blog" },
     { id: "contact", label: "Contact", Icon: Inbox, href: "/admin/dashboard/contact" },
     { id: "users", label: "Users", Icon: Users, href: "/admin/dashboard/users" },
-  ];
+  ].filter(item => {
+    if (item.id === 'users' && userProfile?.role?.toLowerCase() === 'staff') return false;
+    return true;
+  });
 
   return (
     <>
@@ -202,7 +205,7 @@ export default function Sidebar({
                   {userProfile?.name || "Loading..."}
                 </h4>
                 <p className="truncate text-xs font-medium text-slate-500">
-                  {userProfile?.role || "Administrator"}
+                  {userProfile?.role || "Admin"}
                 </p>
               </div>
             )}

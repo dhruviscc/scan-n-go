@@ -23,7 +23,7 @@ export async function loginAction(formData: FormData) {
   if (userRole === 'admin' || userRole === 'staff') {
     redirect('/admin/dashboard');
   } else {
-    redirect('/user/dashboard');
+    redirect('/admin/dashboard');
   }
 }
 

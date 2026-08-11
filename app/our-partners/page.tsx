@@ -40,7 +40,7 @@ const societyEntryManager = {
   title: "Society Entry Manager",
 
   description:
-    "Society Entry Manager is a secure visitor and society management platform designed for residential societies, apartments, gated communities, villas, and housing complexes. It enables society administrators to monitor visitor activities, manage service providers, and maintain complete visibility over community access from a single dashboard.",
+    "Society Entry Manager is a secure visitor and society management platform designed for residential societies, apartments, gated communities, villas, and housing complexes. It enables society admin to monitor visitor activities, manage service providers, and maintain complete visibility over community access from a single dashboard.",
   body:
     "By integrating with Scan n Go , residents and visitors can use QR-based digital entry for faster, safer, and contactless access. Every visitor movement is securely recorded, helping management improve security, streamline operations, and maintain accurate entry records.",
   features: [
