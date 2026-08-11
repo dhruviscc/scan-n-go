@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
                   {" "}
                   {/* Added space-y-4 for paragraph spacing */}
                   <p>
-                    Scan N Go: Easy Entry is a smart QR-based platform designed to simplify visitor management, vehicle identification, digital identity sharing, and secure access control. We are committed to protecting your personal information and maintaining transparency about how your data is collected and used.
+                    Scan n Go: Easy Entry is a smart QR-based platform designed to simplify visitor management, vehicle identification, digital identity sharing, and secure access control. We are committed to protecting your personal information and maintaining transparency about how your data is collected and used.
                     Please read this Privacy Policy carefully before using our services.
 
                   </p>
@@ -234,10 +234,10 @@ export default function PrivacyPolicyPage() {
                     contact us at:
                   </p>
                   <p>
-                    <strong>Email:</strong> Vipul@sccinfotech.com
+                    <strong>Email:</strong> info@sccinfotech.com 
                   </p>
                   <p>
-                    <strong>Address:</strong> surat,395006
+                    <strong>Address:</strong> 349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006
                   </p>
                 </div>
               ),
