@@ -100,7 +100,7 @@ export default function UseCasesPage() {
           <div className="mt-4 w-full max-w-3xl sm:mt-8 md:mt-10">
 
             <h1 className="mt-4 text-3xl font-bold leading-[1.15] tracking-tight text-slate-900 sm:mt-6 sm:text-4xl md:text-5xl lg:text-6xl">
-              One Intelligent Platform for{" "}
+              One Digital Platform for{" "}
               <span className="block sm:inline bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                 <TypeAnimation
                   sequence={[

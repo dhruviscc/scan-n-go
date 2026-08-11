@@ -158,7 +158,7 @@ export default function AboutPage() {
                             </span>
                         </h1>
                         <p className="mt-6 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 max-w-3xl mx-auto">
-                            Scan n Go is an intelligent QR platform that simplifies visitor
+                            Scan n Go is an Digital QR platform that simplifies visitor
                             management, secure access, digital networking, queue management,
                             vehicle identification, and workplace operations through one
                             seamless experience.
@@ -333,7 +333,7 @@ export default function AboutPage() {
                                                 className="mt-4 sm:mt-5 text-sm sm:text-[15px] leading-6 sm:leading-7 text-slate-600"
                                             >
                                                 To simplify secure access and digital interactions through
-                                                intelligent QR technology, enabling faster, safer, and
+                                                Digital QR technology, enabling faster, safer, and
                                                 smarter experiences for individuals, businesses, and
                                                 communities.
                                             </p>
@@ -658,13 +658,12 @@ export default function AboutPage() {
                                     <span className="border-b-2 border-indigo-500 pb-1">
                                         Benefits
                                     </span>{" "}
-                                    of Scan n Go
-                                </h2>
+                                    of Scan n Go                                </h2>
 
                                 <p
                                     className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg"
                                 >
-                                    Scan N Go enhances security and convenience by providing
+                                    Scan n Go enhances security and convenience by providing
                                     seamless entry management through QR code scanning and live
                                     face verification, ensuring only authorized access.
                                 </p>

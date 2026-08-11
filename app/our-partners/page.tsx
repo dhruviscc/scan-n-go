@@ -20,7 +20,7 @@ const partnerSections = [
   {
     title: "Attendance Monitor System",
     description:
-      "Attendance Monitor System (AMS) is an intelligent attendance management platform designed for businesses, healthcare organisations, and enterprises. It automates attendance tracking, monitors employee activities, and provides real-time insights across one or multiple branches from a centralized dashboard.",
+      "Attendance Monitor System (AMS) is an Digital attendance management platform designed for businesses, healthcare organisations, and enterprises. It automates attendance tracking, monitors employee activities, and provides real-time insights across one or multiple branches from a centralized dashboard.",
     body:
       "Integrated with Scan n Go , AMS combines QR-based check-in with live scan verification to ensure every attendance record is authentic, secure, and accurately recorded.",
     features: [
@@ -282,7 +282,7 @@ export default function OurPartners() {
               visitor management, secure access, and attendance monitoring.
               Integrated with <span className="font-semibold">Society Entry Manager (SEM)</span> and
               <span className="font-semibold"> Attendance Monitor System (AMS)</span>, our
-              platform combines intelligent automation, real-time monitoring, and
+              platform combines Digital automation, real-time monitoring, and
               enterprise-grade security.
             </p>
 

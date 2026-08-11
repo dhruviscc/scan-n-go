@@ -395,7 +395,7 @@ export default function Home() {
               </span>
             </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
-              One intelligent platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
+              One  Digital platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
             </p>
           </ScrollReveal>
 
@@ -512,164 +512,468 @@ export default function Home() {
       </section>
 
       {/* ════════════════ SECTION 03 — WHY CHOOSE Scan n Go════════════════ */}
-      <section id="features" className="relative overflow-hidden border-t border-slate-100 bg-[#fcfbff] py-16 sm:py-20">
+      {/* ═════════════════════ SECTION 03 — WHY CHOOSE SCAN N GO ═════════════════════ */}
+      <section
+        id="features"
+        className="relative overflow-hidden border-t border-slate-200 bg-gradient-to-br from-slate-50 via-purple-50/40 to-indigo-50/60 py-16 sm:py-20 text-slate-900"
+      >
+        {/* ───────────────── Background Glow ───────────────── */}
+        <div className="pointer-events-none absolute -left-40 top-10 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-[130px]" />
 
-        {/* fviolet Blob */}
-        <div className="absolute -left-24 top-20 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-violet-500/25 via-fuchsia-400/15 to-transparent blur-[90px] animate-blob-one" />
-        {/* Pink Glow */}
-        <div className="absolute bottom-[-140px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-gradient-to-br from-pink-400/18 via-violet-300/12 to-transparent blur-[100px] animate-blob-three" />
-        {/* Cyan Blob */}
-        <div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
+
+        <div className="pointer-events-none absolute left-1/3 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-violet-600/10 blur-[130px]" />
+
+
+        <div className="pointer-events-none absolute -right-40 bottom-0 h-[520px] w-[520px] rounded-full bg-blue-600/15 blur-[130px]" />
+
+
+        {/* Subtle Grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 leading-tight">
-              Vehicle QR {" "}
+
+
+          {/* ═════════════════════ SECTION HEADER ═════════════════════ */}
+          <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
+
+
+
+
+
+
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+              Vehicle QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
-                Features
-              </span>
+                Features              </span>
             </h3>
-            <p className="text-slate-500 mt-4 text-md leading-relaxed">
+
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
             </p>
-          </ScrollReveal>
-
-          {/* Core Feature Demos Grid */}
-          <ScrollReveal className="grid gap-5 lg:grid-cols-2">
-
-            {/* Demo 1: Smart Emergency & Vehicle QR (Simulator) */}
-            <div className="min-h-[310px] rounded-2xl border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-violet-50 p-6 shadow-[0_12px_35px_-20px_rgba(91,33,182,0.3)] sm:p-4">
-              <div >
+          </div>
 
 
-                <h4 className=" text-xl font-semibold  text-slate-800 mb-3">One Platform for Every QR Solution</h4>
 
-                <div className="grid min-h-[270px] items-center gap-4 sm:grid-cols-[1.1fr_.9fr]">
-                  <div className="relative flex min-h-[270px] items-center justify-center overflow-hidden  border-r border-slate-200">
-                    <span className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-slate-200 shadow-md rounded-xl text-violet-600"><Bell size={20} /></span>
-                    <div className="absolute bottom-30 left-14 -rotate-120 flex h-10 w-10 items-center justify-center">
-                      <Wifi size={50} className=" text-violet-600 opacity-40" strokeWidth={1.5} />
-                    </div>
-                    <span className="absolute bottom-5 right-5 grid grid-cols-3 gap-1 opacity-60">{Array.from({ length: 21 }).map((_, index) => <i key={index} className="h-1 w-1 rounded-full bg-violet-400" />)}</span>
-                    <Image src="/images/normal-alert-2.png" alt="Normal alert on a mobile phone" width={650} height={650} className="relative z-10 mx-auto h-[360px] w-auto max-w-full object-contain drop-shadow-xl" />
-                  </div>
 
-                  <div className="grid w-full grid-cols-1 gap-5 py-2 sm:pr-3 ">
+          {/* ═════════════════════ MAIN FEATURE AREA ═════════════════════ */}
+          <div className="grid items-stretch gap-6 lg:grid-cols-[1.25fr_0.75fr]">
 
-                    <div className="border-b border-slate-200 pb-5">
-                      <p className="flex items-center gap-2 text-sm font-bold  text-slate-800">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-200"><Bell size={15} /></span> Normal Alert
-                      </p>
-                      <p className="ml-10 mt-2 text-xs leading-5 text-slate-500">
-                        For general updates and everyday communication.
-                      </p>
-                    </div>
 
-                    <div>
-                      <p className="flex items-center gap-2 text-sm font-bold  text-red-600">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><AlertTriangle size={15} /></span> Emergency Alert
-                      </p>
-                      <p className="ml-10 mt-2 text-xs leading-5 text-slate-500">
-                        Instantly notify the owner about an emergency situation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+
+
+            {/* ═══════════════════════════════════════════════════════
+          LEFT — SMART ALERT EXPERIENCE
+      ═══════════════════════════════════════════════════════ */}
+            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-gradient-to-br from-indigo-50 via-indigo-100/60 to-slate-100 p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-10">
+
+
+              {/* Decorative glow */}
+              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
+
+
+              <div className="pointer-events-none absolute bottom-0 left-1/3 h-52 w-52 rounded-full bg-indigo-200/50 blur-[80px]" />
+
+
+              {/* Decorative dots */}
+              <div className="pointer-events-none absolute right-8 top-8 grid grid-cols-4 gap-2 opacity-40">
+                {Array.from({ length: 16 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className="h-1 w-1 rounded-full bg-indigo-400 transition-colors duration-300 group-hover:bg-indigo-500"
+                  />
+                ))}
               </div>
 
 
-            </div>
 
-            {/* Demo 2: Dual Sticker Protection */}
-            <div className="min-h-[310px] rounded-2xl border border-violet-100 bg-white/90 p-6 shadow-[0_12px_35px_-20px_rgba(91,33,182,0.3)] sm:p-6">
-              <div>
-                <span className="text-[11px] uppercase   tracking-widest text-[#7c3aed] bg-purple-50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
-                  <ShieldCheck size={13} /> Backup Sticker Shield
-                </span>
-                <h4 className="mt-3 text-xl font-semibold  text-slate-800 sm:text-2xl">Dual Sticker Protection</h4>
-                <p className="mt-1.5 text-sm leading-5 text-slate-500">
-                  Every QR order is supplied with two identical QR stickers linked to the same profile. If one sticker gets damaged or unreadable, the second one continues to work seamlessly.
+
+              {/* Top Content */}
+              <div className="relative z-10 mx-auto max-w-xl text-center flex flex-col items-center">
+
+
+                <h4 className="max-w-xl text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                  One Platform for{" "}
+                  <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-blue-600 bg-clip-text text-transparent">
+                    Every QR Solution
+                  </span>
+                </h4>
+
+
+                <p className="mt-4 max-w-lg text-sm leading-6 text-slate-600">
+                  From everyday communication to critical emergencies, Scan n Go                  makes it simple to send the right alert at the right time.
                 </p>
-                <div className="mt-3 flex gap-4 text-xs font-semibold text-slate-600">
-                  <div className="flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-500" /> Primary</div>
-                  <div className="flex items-center gap-1.5"><CheckCircle2 size={13} className="text-emerald-500" /> Backup</div>
-                </div>
               </div>
 
-              {/* Graphic Mockup of Dual Sticker Shield */}
-              <div className="relative mt-4 overflow-hidden rounded-xl border border-violet-100 bg-gradient-to-br from-white via-sky-50 to-violet-50 p-3 sm:p-4">
 
-                {/* Background Glow */}
-                <div className="absolute -top-12 -left-12 h-40 w-40 rounded-full bg-violet-300/20 blur-3xl animate-pulse"></div>
-                <div className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-sky-300/20 blur-3xl animate-pulse"></div>
 
-                {/* Animated Connection */}
-                <div className="absolute top-[62px] left-1/2 h-[2px] w-28 -translate-x-1/2 overflow-hidden sm:top-[70px] sm:w-40">
-                  <div className="absolute inset-0 bg-slate-300 rounded-full"></div>
 
-                  <div className="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-transparent via-violet-500 to-transparent animate-line-flow"></div>
+              {/* Phone + Features */}
+              <div className="relative z-10 mt-8 grid items-center gap-8 sm:mt-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-4">
+
+
+
+
+                {/* ───────────────── PHONE ───────────────── */}
+                <div className="relative flex min-h-[360px] items-center justify-center">
+
+
+                  {/* Phone glow */}
+                  <div className="absolute h-64 w-64 rounded-full bg-indigo-200/50 blur-[80px]" />
+
+
+                  {/* Decorative WiFi */}
+                  <div className="absolute left-2 top-20 rotate-[-15deg] opacity-60 transition-transform duration-500 group-hover:rotate-0 sm:left-6">
+                    <Wifi
+                      size={42}
+                      strokeWidth={1.4}
+                      className="text-indigo-400"
+                    />
+                  </div>
+
+
+
+
+
+
+                  {/* Phone */}
+                  <Image
+                    src="/images/normal-alert-2.png"
+                    alt="Scan n Go normal and emergency alerts"
+                    width={650}
+                    height={650}
+                    className="relative z-10 h-[350px] w-auto max-w-full object-contain drop-shadow-[0_25px_45px_rgba(99,102,241,0.15)] transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+
+
+                  {/* Floating emergency notification */}
+                  <div className="absolute bottom-8 left-0 z-20 hidden w-[170px] rounded-2xl border border-red-200 bg-white/95 p-3 shadow-lg shadow-red-500/5 backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-1 sm:block lg:left-[-15px]">
+
+
+                    <div className="flex items-center gap-2">
+
+
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100">
+                        <AlertTriangle
+                          size={14}
+                          className="text-red-600"
+                        />
+                      </div>
+
+
+                      <div>
+                        <p className="text-[9px] font-semibold text-red-600">
+                          Emergency Alert
+                        </p>
+
+
+                        <p className="mt-0.5 text-[8px] leading-4 text-slate-500">
+                          Contacts notified instantly
+                        </p>
+                      </div>
+
+
+                    </div>
+                  </div>
                 </div>
 
-                <div className="relative grid grid-cols-2 gap-3 sm:gap-5">
 
-                  {/* Primary */}
-                  <div className="rounded-xl border border-violet-200 bg-white/80 p-3 text-center shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-4">
 
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-100 to-violet-50 shadow-sm sm:h-14 sm:w-14">
-                      <QrCode className="h-7 w-7 text-violet-600 sm:h-8 sm:w-8" />
+
+                {/* ───────────────── ALERT FEATURES ───────────────── */}
+                <div className="space-y-3">
+
+
+
+
+                  {/* Normal Alert */}
+                  <div className="group/item relative overflow-hidden rounded-2xl border border-indigo-200/80 bg-white/70 p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+
+
+                    <div className="flex items-start gap-4">
+
+
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 ring-1 ring-indigo-200 transition-transform duration-300 group-hover/item:scale-105">
+                        <Bell
+                          size={18}
+                          className="text-indigo-600"
+                        />
+                      </div>
+
+
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h5 className="text-sm font-semibold text-indigo-600">
+                            Normal Alert
+                          </h5>
+
+
+                          <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-[8px] font-medium uppercase tracking-wider text-indigo-700">
+                            Everyday
+                          </span>
+                        </div>
+
+
+                        <p className="mt-1.5 text-xs leading-5 text-slate-600">
+                          For general updates and everyday communication.
+                        </p>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+
+
+
+                  {/* Emergency Alert */}
+                  <div className="group/item relative overflow-hidden rounded-2xl border border-red-200/80 bg-white/70 p-4 shadow-md shadow-red-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-300 hover:bg-white hover:shadow-lg hover:shadow-red-500/10">
+
+
+                    <div className="flex items-start gap-4">
+
+
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-100 ring-1 ring-red-200 transition-transform duration-300 group-hover/item:scale-105">
+                        <AlertTriangle
+                          size={18}
+                          className="text-red-600"
+                        />
+                      </div>
+
+
+                      <div className="flex-1">
+
+
+                        <div className="flex items-center gap-2">
+                          <h5 className="text-sm font-semibold text-red-600">
+                            Emergency Alert
+                          </h5>
+
+
+                          <span className="rounded-full bg-red-100 px-2 py-0.5 text-[8px] font-medium uppercase tracking-wider text-red-700">
+                            Critical
+                          </span>
+                        </div>
+
+
+                        <p className="mt-1.5 text-xs leading-5 text-slate-600">
+                          Instantly notify the owner and emergency contacts in case of an emergency.
+                        </p>
+
+
+
+
+
+
+                      </div>
+
+
+                    </div>
+                  </div>
+
+
+
+
+                  {/* Bottom mini stats — REDESIGNED WITH ICONS */}
+                  <div className="grid grid-cols-2 gap-3 pt-1">
+
+
+                    <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-white/60 p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
+                        <Zap size={15} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-600/70">
+                          Response
+                        </p>
+                        <p className="text-xs font-semibold text-slate-900">
+                          Instant
+                        </p>
+                      </div>
                     </div>
 
-                    <p className="mt-2 text-[10px] font-bold  uppercase tracking-wider text-violet-700 sm:text-xs">
-                      Primary Sticker
-                    </p>
 
-                    <p className="mt-1 text-[10px] text-slate-500 sm:text-xs">
-                      Front Windshield
-                    </p>
-
-                  </div>
-
-                  {/* Backup */}
-                  <div className="rounded-xl border border-sky-200 bg-white/80 p-3 text-center shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-4">
-
-                    <div
-                      className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-100 to-sky-50 shadow-sm sm:h-14 sm:w-14"
-                      style={{ animationDelay: ".6s" }}
-                    >
-                      <QrCode className="h-7 w-7 text-violet-700  sm:h-8 sm:w-8" />
+                    <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-white/60 p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
+                        <Clock size={15} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-600/70">
+                          Protection
+                        </p>
+                        <p className="text-xs font-semibold text-slate-900">
+                          24 / 7
+                        </p>
+                      </div>
                     </div>
 
-                    <p className="mt-2 text-[10px] font-bold  uppercase tracking-wider text-sky-700 sm:text-xs">
-                      Backup Sticker
-                    </p>
-
-                    <p className="mt-1 text-[10px] text-slate-500 sm:text-xs">
-                      Secondary Position
-                    </p>
 
                   </div>
 
+
                 </div>
 
-                {/* Bottom Info */}
-                <div className="relative mt-3 flex items-center justify-center gap-2 rounded-xl border border-violet-100 bg-white/80 px-3 py-2.5">
 
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-sky-500 text-white">
-                    <ShieldCheck size={14} />
+              </div>
+
+
+            </div>
+
+
+
+
+            {/* ═══════════════════════════════════════════════════════
+          RIGHT — DUAL STICKER PROTECTION
+      ═══════════════════════════════════════════════════════ */}
+            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-gradient-to-br from-indigo-50/80 via-slate-100 to-indigo-100/50 p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-9">
+
+
+              {/* Glow */}
+              <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
+              <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-blue-200/50 blur-[90px]" />
+
+              {/* Header */}
+              <div className="relative z-10">
+                <h4 className="mt-5 text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl">
+                  Smart QR for{" "}
+                  <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+                    Backup
+                  </span>
+                </h4>
+                <p className="mt-4 text-xs leading-6 text-slate-600 sm:text-sm">
+                  Every Vehicle QR order comes with two identical QR stickers linked to the same vehicle. If one sticker gets damaged or becomes unreadable, the second sticker continues to work seamlessly, ensuring uninterrupted access to the vehicle’s information.
+                </p>
+              </div>
+
+              {/* ═════════════════ QR CONNECTION DIAGRAM ═════════════════ */}
+              <div className="relative z-10 mt-8">
+                {/* Connection Label */}
+                <div className="mb-5 flex items-center justify-center gap-2">
+
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent to-indigo-300" />
+
+                  <span className="text-[9px] font-medium uppercase tracking-[0.18em] text-indigo-600/70">
+                    One Vehicle · Multiple Stickers
+                  </span>
+
+                  <span className="h-px flex-1 bg-gradient-to-l from-transparent to-indigo-300" />
+                </div>
+
+
+                {/* Sticker Diagram */}
+                <div className="relative grid grid-cols-2 gap-3">
+
+
+                  {/* PRIMARY */}
+                  <div className="relative rounded-2xl border border-indigo-200 bg-white/80 p-4 text-center shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+
+                    {/* QR */}
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-indigo-200 bg-indigo-50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+
+                      <QrCode
+                        size={31}
+                        strokeWidth={1.5}
+                        className="text-indigo-600"
+                      />
+
+                    </div>
+
+                    <div className="mt-4">
+
+                      <div className="inline-flex items-center gap-1.5">
+                        <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-indigo-700">
+                          Primary
+                        </p>
+                      </div>
+
+
+                      <p className="mt-2 text-[10px] font-medium text-slate-900">
+                        Vehicle QR
+                      </p>
+
+                      <p className="mt-1 text-[9px] leading-4 text-slate-500">
+                        Primary Placement sticker
+                      </p>
+
+                    </div>
+
                   </div>
 
-                  <p className="text-[11px] font-semibold text-slate-600 sm:text-xs">
-                    If the primary sticker is damaged, the backup QR works instantly.
-                  </p>
+                  {/* BACKUP */}
+                  <div className="relative rounded-2xl border border-blue-200 bg-white/80 p-4 text-center shadow-md shadow-blue-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:bg-white hover:shadow-lg hover:shadow-blue-500/10">
+                    {/* QR */}
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-200 bg-blue-50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                      <QrCode
+                        size={31}
+                        strokeWidth={1.5}
+                        className="text-blue-600"
+                      />
+                    </div>
+                    <div className="mt-4">
 
+
+                      <div className="inline-flex items-center gap-1.5">
+                        <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-blue-700">
+                          Backup
+                        </p>
+                      </div>
+
+
+                      <p className="mt-2 text-[10px] font-medium text-slate-900">
+                        Backup QR
+
+
+                      </p>
+
+                      <p className="mt-1 text-[9px] leading-4 text-slate-500">
+                        Backup vehicle QR sticker if Damaged
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Connecting Link */}
+                  <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+                    <div className="absolute h-20 w-20 rounded-full bg-indigo-200/50 blur-xl" />
+                    <div className="relative flex h-9 w-9 items-center justify-center rounded-full border border-indigo-200 bg-white shadow-md">
+                      <span className="absolute left-[-25px] h-px w-6 border-t border-dashed border-indigo-300" />
+                      <span className="absolute right-[-25px] h-px w-6 border-t border-dashed border-blue-300" />
+                      <span className="text-sm text-indigo-600 font-bold">
+                        ↔
+                      </span>
+                    </div>
+                  </div>
                 </div>
+                {/* Protection Status — REDESIGNED WITH BETTER LAYOUT & ICON */}
+                <div className="mt-5 rounded-2xl border border-indigo-200 bg-white/80 p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
 
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 shadow-md shadow-indigo-200 text-white">
+                        <ShieldCheck size={20} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-slate-900">
+                          Always Protected
+                        </p>
+                        <p className="text-[10px] leading-4 text-slate-600">
+                          If primary fails, backup works instantly.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </ScrollReveal>
-
-
-
+          </div>
         </div>
       </section>
 

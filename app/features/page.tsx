@@ -246,7 +246,7 @@ export default function Features() {
             >
               Scan n Go brings together secure onboarding, instant scan tracking,
               contact sharing, vehicle identification, and quick access into one
-              intelligent experience.
+              Digital experience.
             </motion.p>
 
 
@@ -474,13 +474,12 @@ export default function Features() {
                   <span className="border-b-2 border-indigo-500 pb-1">
                     Benefits
                   </span>{" "}
-                  of Scan n Go
-                </h2>
+                  of Scan n Go                </h2>
 
                 <p
                   className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg"
                 >
-                  Scan N Go enhances security and convenience by providing
+                  Scan n Go enhances security and convenience by providing
                   seamless entry management through QR code scanning and live
                   face verification, ensuring only authorized access.
                 </p>
