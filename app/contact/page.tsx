@@ -29,7 +29,7 @@ const contactDetails = [
     icon: Mail,
     title: "Email",
     value: "support@scan-n-go.com",
-    href:"https://mail.google.com/mail/?view=cm&fs=1&to=support@scan-n-go.com",
+    href: "mailto:support@scan-n-go.com",
   },
   {
     icon: MapPin,

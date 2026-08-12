@@ -1231,8 +1231,7 @@ export default function Home() {
                 {/* Google Play */}
                 <a
                   href="https://play.google.com/store/apps/details?id=com.scc.global"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
@@ -1245,8 +1244,7 @@ export default function Home() {
                 {/* App Store */}
                 <a
                   href="https://apps.apple.com/us/app/Scan%20n%20Go%20-easy-entry/id6502510648"
-                  target="_blank"
-                  rel="noopener noreferrer"
+               
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img

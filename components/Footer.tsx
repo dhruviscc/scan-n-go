@@ -18,7 +18,7 @@ const contactDetails = [
     icon: Mail,
     title: "Email",
     value: "support@scan-n-go.com",
-    href:"https://mail.google.com/mail/?view=cm&fs=1&to=support@scan-n-go.com",
+    href: "mailto:support@scan-n-go.com",
   },
   {
     icon: MapPin,
@@ -224,8 +224,8 @@ export default function Footer() {
                   <div
                     key={index}
                     className={`flex ${isAddress
-                        ? "items-start gap-4"
-                        : "items-center gap-4"
+                      ? "items-start gap-4"
+                      : "items-center gap-4"
                       }`}
                   >
                     {/* Icon */}
@@ -289,8 +289,6 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-start gap-4">
               <a
                 href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:scale-105"
               >
                 <Image
@@ -305,8 +303,6 @@ export default function Footer() {
 
               <a
                 href="https://play.google.com/store/apps/details?id=com.scc.global"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:scale-105"
               >
                 <Image
