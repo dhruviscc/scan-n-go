@@ -71,6 +71,9 @@ export default function AdminBlogsPage() {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [blogToDelete, setBlogToDelete] = useState<string | null>(null);
     const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
+    const [isEditorImageModalOpen, setIsEditorImageModalOpen] = useState(false);
+    const [isEditorImageUploading, setIsEditorImageUploading] = useState(false);
+
     const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -238,19 +241,43 @@ export default function AdminBlogsPage() {
         }
     }, [editor, isModalOpen, editingBlog]);
 
+    const handleEditorImageUpload = async (file: File) => {
+        if (!file) return;
+        if (!editor) {
+            toast.error("Editor not available.");
+            return;
+        }
+
+        if (file.size > 4 * 1024 * 1024) {
+            toast.error("Image size must be less than 4MB");
+            return;
+        }
+
+        setIsEditorImageUploading(true);
+        const uploadData = new FormData();
+        uploadData.append('file', file);
+        uploadData.append('bucket', 'blogs');
+
+        try {
+            const res = await fetch('/admin/api/upload', { method: 'POST', body: uploadData });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data?.error || "Upload failed");
+
+            editor.chain().focus().setImage({ src: data.url }).run();
+            toast.success("Image inserted successfully");
+            setIsEditorImageModalOpen(false);
+        } catch (err: any) {
+            toast.error(err?.message || "Failed to upload and insert image");
+        } finally {
+            setIsEditorImageUploading(false);
+        }
+    };
+
     const addLink = () => {
         if (!editor) return;
         const url = window.prompt('Enter the URL');
         if (url) {
             editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
-        }
-    };
-
-    const addImageToEditor = () => {
-        if (!editor) return;
-        const url = window.prompt('Enter image URL');
-        if (url) {
-            editor.chain().focus().setImage({ src: url }).run();
         }
     };
 
@@ -318,24 +345,32 @@ export default function AdminBlogsPage() {
         }
     };
 
-    const togglePublish = async (id: string, currentStatus: string) => {
-        const newStatus = currentStatus === 'published' ? 'draft' : 'published';
+    const handleStatusChange = async (id: string, newStatus: string) => {
         const publishedAt = newStatus === 'published' ? new Date().toISOString() : null;
 
         try {
             const res = await fetch(`/admin/api/blog?id=${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status: newStatus, published_at: publishedAt })
+                body: JSON.stringify({ status: newStatus, published_at: publishedAt }),
             });
             const data = await res.json();
             if (!res.ok) {
                 throw new Error(data.details || data.error || 'Failed to update status');
             }
-            setBlogs(blogs.map(b => b.id === id ? { ...b, status: newStatus } : b));
-            toast.success(newStatus === 'published' ? 'Post published' : 'Post unpublished');
+            setBlogs(blogs.map(b => (b.id === id ? { ...b, status: newStatus, published_at: publishedAt } : b)));
+            toast.success(`Post status updated to ${newStatus}`);
         } catch (error) {
-            toast.error(error instanceof Error ? error.message : 'Error updating status');
+            toast.error(error instanceof Error ? error.message : "Error updating status");
+        }
+    };
+
+    const getStatusStyles = (status: string) => {
+        switch (status) {
+            case 'published': return 'bg-green-100 text-green-800 ';
+            case 'draft': return 'bg-yellow-100 text-yellow-800';
+            case 'archived': return 'bg-red-100 text-red-800';
+            default: return 'bg-slate-100 text-slate-800';
         }
     };
 
@@ -452,18 +487,16 @@ export default function AdminBlogsPage() {
                             {/* Actions */}
                             <div className="flex items-center justify-between pt-2">
                                 {/* Status + Date */}
-                                <div className="flex items-center justify-between mt-3">
-                                    <span
-                                        onClick={() => togglePublish(blog.id, blog.status)}
-                                        className={`px-3 py-1 rounded-lg text-[12px] font-medium cursor-pointer ${blog.status === "published"
-                                            ? "bg-green-100 text-green-800"
-                                            : "bg-yellow-100 text-yellow-800"
-                                            }`}
-                                    >
-                                        {blog.status.charAt(0).toUpperCase() + blog.status.slice(1)}
-                                    </span>
+                                <select
+                                    value={blog.status}
+                                    onChange={(e) => handleStatusChange(blog.id, e.target.value)}
+                                    className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer outline-none transition-all ${getStatusStyles(blog.status)}`}
+                                >
+                                    <option value="published">Published</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="archived">Archived</option>
+                                </select>
 
-                                </div>
                                 <div className="flex items-center gap-2">
 
                                     <button
@@ -545,15 +578,15 @@ export default function AdminBlogsPage() {
                                         </td>
 
                                         <td className="px-6 py-4">
-                                            <span
-                                                onClick={() => togglePublish(blog.id, blog.status)}
-                                                className={`px-3 py-[5px] rounded-lg text-[12px] font-medium cursor-pointer transition-all ${blog.status === "published"
-                                                    ? "bg-green-100 text-green-800"
-                                                    : "bg-yellow-100 text-yellow-800"
-                                                    }`}
+                                            <select
+                                                value={blog.status}
+                                                onChange={(e) => handleStatusChange(blog.id, e.target.value)}
+                                                className={`px-3 py-[5px] rounded-lg text-[12px] font-medium cursor-pointer transition-all ${getStatusStyles(blog.status)}`}
                                             >
-                                                {blog.status.charAt(0).toUpperCase() + blog.status.slice(1)}
-                                            </span>
+                                                <option value="published" className="bg-white text-slate-800">Published</option>
+                                                <option value="draft" className="bg-white text-slate-800">Draft</option>
+                                                <option value="archived" className="bg-white text-slate-800">Archived</option>
+                                            </select>
                                         </td>
 
                                         <td className="px-6 py-4 text-sm text-gray-500">
@@ -748,7 +781,7 @@ export default function AdminBlogsPage() {
                                             placeholder="Add category..."
                                             value={formData.category}
                                             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"                                        />
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10" />
                                     </div>
                                 </div>
 
@@ -797,9 +830,8 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
 
                                             <div className="flex gap-1 pl-1">
                                                 <button type="button" onClick={addLink}
-                                                    className={`p-2 rounded-lg transition ${editor?.isActive('link') ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`} title="Add Link"><Link size={18} /></button>
-                                                <button type="button" onClick={addImageToEditor}
-                                                    className="p-2 rounded-lg text-slate-600 hover:bg-slate-200 transition" title="Add Image"><ImageIcon size={18} />
+                                                    className={`p-2 rounded-lg transition ${editor?.isActive('link') ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`} title="Add Link"><Link size={18} /></button><button type="button" onClick={() => setIsEditorImageModalOpen(true)}
+                                                        className="p-2 rounded-lg text-slate-600 hover:bg-slate-200 transition" title="Add Image"><ImageIcon size={18} />
                                                 </button>
                                             </div>
                                         </div>
@@ -878,6 +910,64 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Editor Image Upload Modal */}
+            <AnimatePresence>
+                {isEditorImageModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black/40 backdrop-blur-[4px] flex items-center justify-center z-[1001]"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            className="bg-white p-6 rounded-2xl w-full max-w-md shadow-lg"
+                        >
+                            <div className="flex justify-between items-center mb-4">
+                                <h3 className="text-lg font-bold text-slate-800">Upload Image</h3>
+                                <button
+                                    onClick={() => setIsEditorImageModalOpen(false)}
+                                    className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+                            <div>
+                                <label
+                                    htmlFor="editor-image-upload"
+                                    className="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-violet-300 rounded-xl cursor-pointer bg-violet-50 hover:bg-violet-100 transition-colors"
+                                >
+                                    {isEditorImageUploading ? (
+                                        <Loader2 size={32} className="animate-spin text-violet-700" />
+                                    ) : (
+                                        <>
+                                            <Upload size={32} className="text-violet-700 mb-2" />
+                                            <span className="text-sm font-semibold text-violet-700">
+                                                Click to upload or drag & drop
+                                            </span>
+                                            <span className="text-xs text-slate-500 mt-1">
+                                                PNG, JPG, GIF up to 4MB
+                                            </span>
+                                        </>
+                                    )}
+                                </label>
+                                <input
+                                    id="editor-image-upload"
+                                    type="file"
+                                    className="hidden"
+                                    accept="image/*"
+                                    disabled={isEditorImageUploading}
+                                    onChange={(e) => e.target.files?.[0] && handleEditorImageUpload(e.target.files[0])}
+                                />
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
         </div >
     );
 }

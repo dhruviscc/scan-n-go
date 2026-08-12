@@ -33,11 +33,6 @@ const formatDate = (value?: string | null) => {
   });
 };
 
-const estimateReadTime = (content?: string | null) => {
-  const words = (content || "").trim().split(/\s+/).filter(Boolean).length;
-  const minutes = Math.max(2, Math.ceil(words / 180));
-  return `${minutes} min read`;
-};
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPostCard[]>([]);
@@ -109,7 +104,7 @@ export default function BlogPage() {
           <div className="absolute bottom-10 right-0 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Visitor Management & QR{" "}
@@ -222,9 +217,7 @@ export default function BlogPage() {
                       <p className="text-sm font-medium text-slate-700">
                         {formatDate(post.published_at || post.created_at)}
                       </p>
-                      <p className="text-xs text-slate-500">
-                        {estimateReadTime(post.content)}
-                      </p>
+                    
                     </div>
 
                     <Link

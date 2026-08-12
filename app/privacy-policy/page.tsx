@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
               ),
             },
 
-         
+
             {
               title: "2. How We Use Your Information",
               body: (
@@ -234,7 +234,7 @@ export default function PrivacyPolicyPage() {
                     contact us at:
                   </p>
                   <p>
-                    <strong>Email:</strong> info@sccinfotech.com 
+                    <strong>Email:</strong> support@scan-n-go.com
                   </p>
                   <p>
                     <strong>Address:</strong> 349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006

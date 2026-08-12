@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Heart, Star, UserRound } from "lucide-react"
+import { Heart, Star } from "lucide-react"
 
 const testimonials = [
     {
@@ -17,7 +17,7 @@ const testimonials = [
         id: 2,
         quote:
             "Our QR attendance solution makes daily entry simple, secure, and reliable. The reporting dashboard is a huge help for our team.",
-        author: "Marcus Webb",
+        author: "priya Jani",
         role: "Head of Design",
         stars: 4,
     },
@@ -25,7 +25,7 @@ const testimonials = [
         id: 3,
         quote:
             "The emergency notification system gives our family peace of mind. A quick scan can notify us immediately whenever help is needed.",
-        author: "Elena Voss",
+        author: "Elena Rathod",
         role: "Art Director",
         stars: 5,
     },
@@ -33,7 +33,7 @@ const testimonials = [
         id: 4,
         quote:
             "Scan n Go made vehicle and visitor alerts much easier for our community. It is a practical solution we use every day.",
-        author: "Sarah Jenkins",
+        author: "Sarah Sharma",
         role: "Community Manager",
         stars: 3,
     },

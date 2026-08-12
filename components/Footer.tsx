@@ -8,12 +8,27 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { usePathname } from 'next/navigation';
 
 const contactDetails = [
-  { icon: Phone, title: "Phone", value: "+91 79906 00155", href: "tel:+917990600155" },
-  { icon: Mail, title: "Email", value: "info@sccinfotech.com", href: "info@sccinfotech.com" },
-  { icon: MapPin, title: "Office Address", value: "349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006", href: "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu" },
+  {
+    icon: Phone,
+    title: "Phone",
+    value: "+91 79906 00155",
+    href: "tel:+917990600155",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    value: "support@scan-n-go.com",
+    href:"https://mail.google.com/mail/?view=cm&fs=1&to=support@scan-n-go.com",
+  },
+  {
+    icon: MapPin,
+    title: "Office Address",
+    value:
+      "349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006",
+    href:
+      "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu",
+  },
 ];
-
-
 
 
 export default function Footer() {
@@ -21,6 +36,7 @@ export default function Footer() {
 
   const footerNavItems = [
     { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { name: 'Use-cases', href: '/use-cases' },
     { name: 'Features', href: '/features' },
     { name: 'Our Partners', href: '/our-partners' },
@@ -198,30 +214,59 @@ export default function Footer() {
             <div className="inline-flex items-center gap-3 mb-6">
               <h3 className="text-xl text-white">Contact</h3>
             </div>
+
             <div className="space-y-5">
               {contactDetails.map((item, index) => {
                 const IconComponent = item.icon;
                 const isAddress = item.title === "Office Address";
 
-
                 return (
-                  <div key={index} className={`flex ${isAddress ? "gap-4" : "items-center gap-4"}`}>
+                  <div
+                    key={index}
+                    className={`flex ${isAddress
+                        ? "items-start gap-4"
+                        : "items-center gap-4"
+                      }`}
+                  >
+                    {/* Icon */}
                     <a
                       href={item.href}
                       target={isAddress ? "_blank" : undefined}
                       rel={isAddress ? "noopener noreferrer" : undefined}
-                      className={`flex-shrink-0 w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-colors duration-300 hover:border-indigo-400 hover:bg-white/10 ${isAddress ? "mt-1" : ""
-                        }`}
+                      aria-label={`Contact via ${item.title}`}
+                      className={`
+              flex-shrink-0
+              w-11 h-11
+              rounded-full
+              bg-white/5
+              border border-white/10
+              flex items-center justify-center
+              transition-all duration-300
+              hover:border-indigo-400
+              hover:bg-indigo-400/10
+              hover:scale-105
+              ${isAddress ? "mt-1" : ""}
+            `}
                     >
-                      <IconComponent size={18} className="text-indigo-400" />
+                      <IconComponent
+                        size={18}
+                        className="text-indigo-400"
+                      />
                     </a>
 
+                    {/* Details */}
                     <a
                       href={item.href}
                       target={isAddress ? "_blank" : undefined}
                       rel={isAddress ? "noopener noreferrer" : undefined}
-                      className={`text-gray-300 text-[15px] hover:text-white transition-colors duration-300 ${isAddress ? "leading-7" : ""
-                        }`}
+                      className={`
+              min-w-0
+              text-gray-300
+              text-[15px]
+              hover:text-white
+              transition-colors duration-300
+              ${isAddress ? "leading-7" : ""}
+            `}
                     >
                       {item.value}
                     </a>

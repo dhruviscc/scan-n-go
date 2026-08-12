@@ -5,15 +5,11 @@ import {
   BarChart3,
   Users,
   LogOut,
-  Package,
   Inbox,
   ChevronLeft,
-  List,
-  Droplet,
+
   BookOpen,
-  MessageCircle,
-  Star,
-  Menu,
+
 } from "lucide-react";
 import Image from "next/image";
 

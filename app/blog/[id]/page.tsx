@@ -24,11 +24,7 @@ const formatDate = (value?: string | null) => {
   });
 };
 
-const estimateReadTime = (content?: string | null) => {
-  const words = (content || "").trim().split(/\s+/).filter(Boolean).length;
-  const minutes = Math.max(2, Math.ceil(words / 180));
-  return `${minutes} min read`;
-};
+
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { id } = await params;
@@ -45,7 +41,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const excerpt = post.summary || "Read this article to learn more.";
   const contentHtml = post.content || "<p>No content available yet.</p>";
   const formattedDate = formatDate(post.published_at || post.created_at);
-  const readTime = estimateReadTime(post.content);
 
 
   return (
@@ -78,8 +73,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-600">
                 <span>{formattedDate}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-                <span>{readTime}</span>
               </div>
             </div>
 

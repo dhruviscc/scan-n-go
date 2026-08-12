@@ -410,12 +410,12 @@ export default function Home() {
             }}
           >
             {[
-              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode Siren"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan-1.png" },
+              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode with Siren Access" , "Invalid Parking Notification"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan-1.png" },
               { title: "Contact QR", desc: "Share your professional or personal contact details instantly with a single QR scan.", features: ["Instant Contact Sharing", "Quick Save", "Secure Sharing"], color: "border-indigo-100/70", iconColor: "text-indigo-600", img: "/images/contect-Qr.png" },
               { title: "Queue QR", desc: "Digitise queue management with QR-based token generation and real-time notifications.", features: ["Digital Token System", "Live Queue Status", "Turn Notifications", "Reduced Waiting Time"], color: "border-emerald-100/70", iconColor: "text-emerald-600", img: "/images/queue-1.png" },
               { title: "Gate QR", desc: "Secure visitor access with QR-based entry, exit, and attendance management.", features: ["QR Check-In & Check-Out", "Attendance Management", "Access Control", "Entry And Exit History"], color: "border-purple-100/70", iconColor: "text-violet-600", img: "/images/gate-qr.png" },
               { title: "Guest Entry Notification", desc: "Keep residents informed with instant notifications for every visitor arrival and departure.", features: ["Instant Visitor Alerts", "Real-Time Updates", "Greeting Notifications", "Visitor Activity Log"], color: "border-amber-100/70", iconColor: "text-amber-600", img: "/images/guest-notification-1.png" },
-              { title: "Meeting QR", desc: "Organise and manage meetings with QR-based check-in, attendance tracking, and scheduled access.", features: ["QR Meeting Check-In", "Time-Based Access", "Attendance Tracking", "Attendance Reports"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/meeting-2.png" },
+              { title: "Meeting QR", desc: "Organize and manage meetings with QR-based check-in, attendance tracking, and scheduled access.", features: ["QR Meeting Check-In", "Time-Based Access", "Attendance Tracking", "Attendance Reports"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/meeting-2.png" },
             ].map((sol, index) => (
               <motion.div
                 key={sol.title}
@@ -655,7 +655,7 @@ export default function Home() {
 
 
                   {/* Floating emergency notification */}
-                  <div className="absolute bottom-8 left-0 z-20 hidden w-[170px] rounded-2xl border border-red-200 bg-white/95 p-3 shadow-lg shadow-red-500/5 backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-1 sm:block lg:left-[-15px]">
+                  <div className="absolute bottom-8 left-0 z-20 hidden w-[180px] rounded-xl border border-red-200 bg-white/95 p-2 shadow-lg shadow-red-500/5 backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-1 sm:block lg:left-[-15px]">
 
 
                     <div className="flex items-center gap-2">
@@ -670,12 +670,12 @@ export default function Home() {
 
 
                       <div>
-                        <p className="text-[9px] font-semibold text-red-600">
+                        <p className="text-[12px] font-semibold text-red-600">
                           Emergency Alert
                         </p>
 
 
-                        <p className="mt-0.5 text-[8px] leading-4 text-slate-500">
+                        <p className="mt-0.5 text-[10px] leading-4 text-slate-500">
                           Contacts notified instantly
                         </p>
                       </div>
@@ -860,7 +860,7 @@ export default function Home() {
 
                   <span className="h-px flex-1 bg-gradient-to-r from-transparent to-indigo-300" />
 
-                  <span className="text-[9px] font-medium uppercase tracking-[0.18em] text-indigo-600/70">
+                  <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-indigo-600/70">
                     One Vehicle · Multiple Stickers
                   </span>
 
@@ -895,11 +895,11 @@ export default function Home() {
                       </div>
 
 
-                      <p className="mt-2 text-[10px] font-medium text-slate-900">
+                      <p className="mt-2 text-[12px] font-medium text-slate-900">
                         Vehicle QR
                       </p>
 
-                      <p className="mt-1 text-[9px] leading-4 text-slate-500">
+                      <p className="mt-1 text-[11px] leading-4 text-slate-500">
                         Primary Placement sticker
                       </p>
 
@@ -927,13 +927,13 @@ export default function Home() {
                       </div>
 
 
-                      <p className="mt-2 text-[10px] font-medium text-slate-900">
+                      <p className="mt-2 text-[12px] font-medium text-slate-900">
                         Backup QR
 
 
                       </p>
 
-                      <p className="mt-1 text-[9px] leading-4 text-slate-500">
+                      <p className="mt-1 text-[11px] leading-4 text-slate-500">
                         Backup vehicle QR sticker if Damaged
                       </p>
                     </div>
@@ -961,10 +961,10 @@ export default function Home() {
                         <ShieldCheck size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-slate-900">
+                        <p className="text-sm font-semibold text-slate-900">
                           Always Protected
                         </p>
-                        <p className="text-[10px] leading-4 text-slate-600">
+                        <p className="text-[12px] leading-4 text-slate-600">
                           If primary fails, backup works instantly.
                         </p>
                       </div>
