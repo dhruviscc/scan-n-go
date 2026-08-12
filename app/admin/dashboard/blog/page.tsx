@@ -11,8 +11,6 @@ import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align'
 import { motion, AnimatePresence } from "framer-motion";
 
-
-
 import {
     Plus,
     Search,
@@ -213,6 +211,7 @@ export default function AdminBlogsPage() {
             LinkExtension.configure({
                 openOnClick: false,
                 linkOnPaste: true,
+                autolink: true,
             }),
             TextAlign.configure({
                 types: ['heading', 'paragraph', 'listItem'], // Added 'listItem' for proper list alignment
@@ -275,9 +274,13 @@ export default function AdminBlogsPage() {
 
     const addLink = () => {
         if (!editor) return;
-        const url = window.prompt('Enter the URL');
+        let url = window.prompt('Enter the URL');
         if (url) {
-            editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+            // Prepend 'https://' if the URL doesn't start with a protocol
+            if (!/^(https?:\/\/|mailto:|tel:)/i.test(url)) {
+                url = `https://${url}`;
+            }
+            editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
         }
     };
 
@@ -402,6 +405,7 @@ export default function AdminBlogsPage() {
 
     return (
         <div className="space-y-4 sm:space-y-6 bg-slate-50">
+            {/* Header */}
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-4">
                 <div className="w-full lg:w-auto">
                     <div className="relative flex-1 sm:w-80">
@@ -686,9 +690,10 @@ export default function AdminBlogsPage() {
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                            className="bg-white p-[28px] rounded-[16px] w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg"
+                            className="bg-white rounded-[16px] w-full max-w-3xl max-h-[90vh] shadow-lg flex flex-col"
                         >
-                            <div className="flex justify-between items-center mb-6">
+                            {/* Modal Header */}
+                            <div className="flex justify-between items-center p-6 border-b border-slate-200 shrink-0">
                                 <h3 className="text-xl font-bold text-slate-700">
                                     {editingBlog ? "Edit Blog" : "Add Blog"}
                                 </h3>
@@ -700,9 +705,8 @@ export default function AdminBlogsPage() {
                                 </button>
                             </div>
 
-                            <div className="space-y-5">
-
-
+                            {/* Modal Body */}
+                            <div className="space-y-5 p-6 overflow-y-auto">
                                 <div className="flex flex-col gap-1.5">
                                     <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Title *</label>
                                     <input
@@ -849,16 +853,16 @@ export default function AdminBlogsPage() {
 
                                     </div>
                                 </div>
-
-                                <div className="flex gap-4 mt-8 pt-4 ">
-                                    <button onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]">Cancel</button>
-                                    <button onClick={handleSave} disabled={isSaving}
-                                        className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none disabled:opacity-60"
-                                    >
-                                        {isSaving ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
-                                        {editingBlog ? "Update Blog" : "Save Blog"}
-                                    </button>
-                                </div>
+                            </div>
+                            {/* Modal Footer */}
+                            <div className="flex gap-4 p-6 border-t border-slate-200 shrink-0">
+                                <button onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]">Cancel</button>
+                                <button onClick={handleSave} disabled={isSaving}
+                                    className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none disabled:opacity-60"
+                                >
+                                    {isSaving ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
+                                    {editingBlog ? "Update Blog" : "Save Blog"}
+                                </button>
                             </div>
                         </motion.div>
                     </motion.div>
