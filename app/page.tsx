@@ -302,13 +302,13 @@ export default function Home() {
                   delay="0.5s"
                   className="relative lg:absolute right-0 sm:right-2 top-auto lg:top-[50px]"
                 />
-                  <FeatureCard
-                    icon={<Building color="#8b5cf6" size={24} />}
-                    iconBg="bg-purple-50"
-                    title="Meeting QR"
-                    delay="0.7s"
-                    className="relative lg:absolute right-0 sm:right-2 bottom-auto lg:bottom-[50px]"
-                  />
+                <FeatureCard
+                  icon={<Building color="#8b5cf6" size={24} />}
+                  iconBg="bg-purple-50"
+                  title="Meeting QR"
+                  delay="0.7s"
+                  className="relative lg:absolute right-0 sm:right-2 bottom-auto lg:bottom-[50px]"
+                />
               </div>
             </div>
           </div>
@@ -388,12 +388,12 @@ export default function Home() {
         <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
               Smart QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Solutions
               </span>
-            </h3>
+            </h2>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               One  Digital platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
             </p>
@@ -448,18 +448,18 @@ export default function Home() {
 
                             {/* Content */}
                             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                              <h4 className="text-xl font-semibold">
+                              <h3 className="text-xl font-semibold">
                                 {sol.title}
-                              </h4>
+                              </h3>
                             </div>
                           </div>
                         </>
                       ) : (
                         <div className="flex h-full flex-col justify-end p-7">
 
-                          <h4 className="text-2xl font-bold text-slate-900">
+                          <h3 className="text-2xl font-bold text-slate-900">
                             {sol.title}
-                          </h4>
+                          </h3>
 
                           <p className="mt-3 text-sm leading-6 text-slate-600">
                             {sol.desc}
@@ -475,9 +475,9 @@ export default function Home() {
                     >
                       <div className="flex h-full flex-col">
 
-                        <h4 className="text-2xl font-bold text-slate-900">
+                        <h3 className="text-2xl font-bold text-slate-900">
                           {sol.title}
-                        </h4>
+                        </h3>
 
                         <p className="mt-3 text-md leading-6 text-slate-600">
                           {sol.desc}
@@ -540,12 +540,12 @@ export default function Home() {
 
           {/* ═════════════════════ SECTION HEADER ═════════════════════ */}
           <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
               Vehicle QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Features
               </span>
-            </h3>
+            </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
@@ -575,12 +575,12 @@ export default function Home() {
               {/* Top Content */}
               <div className="relative z-10 mx-auto max-w-xl text-center flex flex-col items-center">
 
-                <h4 className="max-w-xl text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                <h3 className="max-w-xl text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
                   One Platform for{" "}
                   <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-blue-600 bg-clip-text text-transparent">
                     Every QR Solution
                   </span>
-                </h4>
+                </h3>
 
                 <p className="mt-4 max-w-lg text-sm leading-6 text-slate-600">
                   From everyday communication to critical emergencies, Scan n Go                  makes it simple to send the right alert at the right time.
@@ -650,9 +650,9 @@ export default function Home() {
 
                       <div>
                         <div className="flex items-center gap-2">
-                          <h5 className="text-sm font-semibold text-indigo-600">
+                          <h4 className="text-sm font-semibold text-indigo-600">
                             Normal Alert
-                          </h5>
+                          </h4>
                         </div>
                         <p className="mt-1.5 text-xs leading-5 text-slate-600">
                           For general updates and everyday communication.
@@ -674,9 +674,9 @@ export default function Home() {
 
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-sm font-semibold text-red-600">
+                          <h4 className="text-sm font-semibold text-red-600">
                             Emergency Alert
-                          </h5>
+                          </h4>
                         </div>
 
                         <p className="mt-1.5 text-xs leading-5 text-slate-600">
@@ -730,12 +730,12 @@ export default function Home() {
 
               {/* Header */}
               <div className="relative z-10">
-                <h4 className="mt-5 text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl">
+                <h3 className="mt-5 text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl">
                   Smart QR for{" "}
                   <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                     Backup
                   </span>
-                </h4>
+                </h3>
                 <p className="mt-4 text-xs leading-6 text-slate-600 sm:text-sm">
                   Every Vehicle QR order comes with two identical QR stickers linked to the same vehicle. If one sticker gets damaged or becomes unreadable, the second sticker continues to work seamlessly, ensuring uninterrupted access to the vehicle’s information.
                 </p>
@@ -867,12 +867,12 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-12">
 
-            <h3 className="text-2xl sm:text-4xl font-bold pb-10 text-slate-800">
+            <h2 className="text-2xl sm:text-4xl font-bold pb-10 text-slate-800">
               Trusted By  IT{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Companies & Organizations
               </span>
-            </h3>
+            </h2>
           </ScrollReveal>
 
           <ScrollReveal>
@@ -941,12 +941,12 @@ export default function Home() {
 
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
               WHERE {" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 YOU CAN USE
               </span>
-            </h3>
+            </h2>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               From gated communities and corporate offices to schools, industries, and buildings, Scan n Go delivers secure, smart, and seamless QR-powered management for every location.
             </p>
@@ -999,12 +999,12 @@ export default function Home() {
 
           {/* Heading */}
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-14 lg:mb-16">
-            <h3 className="mt-2 text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
               All-in-One{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Smart QR Platform.
               </span>
-            </h3>
+            </h2>
 
             <p className="mt-4 text-sm leading-6 text-slate-500 sm:text-base sm:leading-relaxed">
               Keep check of historical visitors entries, manage emergency alerts,
@@ -1018,9 +1018,9 @@ export default function Home() {
 
             {/* LEFT CONTENT */}
             <div className="space-y-6 text-center lg:text-left">
-              <h4 className="text-2xl font-bold leading-tight text-slate-800 sm:text-3xl">
+              <h3 className="text-2xl font-bold leading-tight text-slate-800 sm:text-3xl">
                 Scan n Go App Features Dashboard
-              </h4>
+              </h3>
 
               {/* Feature Cards */}
               <motion.div
@@ -1172,11 +1172,11 @@ export default function Home() {
             <div className="max-w-4xl mx-auto px-4 text-center sm:px-6">
 
 
-              <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold   leading-tight text-slate-900">
+              <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold   leading-tight text-slate-900">
                 Loved By Daily  <br className="sm:hidden" />
                 <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                   Users  &amp; Team Admins</span>
-              </h3>
+              </h2>
 
               <p className="mt-4 text-sm sm:text-base lg:text-md leading-7 text-slate-500  mx-auto">
                 Discover how Scan n Go helps teams save time, improve security, and manage daily activities more efficiently.
@@ -1209,14 +1209,14 @@ export default function Home() {
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
 
               Frequently Asked {" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Questions
 
               </span>
-            </h3>
+            </h2>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Discover answers to common security compliance check logs and vehicle stickers setup workflows.
             </p>
