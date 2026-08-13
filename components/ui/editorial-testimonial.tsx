@@ -16,7 +16,7 @@ const testimonials = [
     {
         id: 2,
         quote:
-            "Our QR attendance solution makes daily entry simple, secure, and reliable. The reporting dashboard is a huge help for our team.",
+            "Scan n Go makes daily attendance quick and easy. The QR code is simple to use, and the attendance reports help our team keep track of everything.",
         author: "priya Jani",
         role: "Head of Design",
         stars: 4,
@@ -40,7 +40,7 @@ const testimonials = [
     {
         id: 5,
         quote:
-            "The platform is simple for users and powerful for admins. The instant notification flow has been especially valuable.",
+            "The Queue QR makes waiting simple and stress-free. You can see your turn in real time and get an instant notification when it’s your turn.",
         author: "Naomi Patel",
         role: "Operations Manager",
         stars: 5,
@@ -57,12 +57,6 @@ export default function TestimonialsEditorial() {
         setActive(newIndex)
     }
 
-    const handlePrev = () => {
-        const newIndex =
-            active === 0 ? testimonials.length - 1 : active - 1
-
-        handleChange(newIndex, "prev")
-    }
 
     const handleNext = () => {
         const newIndex =
@@ -105,7 +99,7 @@ export default function TestimonialsEditorial() {
 
     return (
         <section
-            className=" relative  w-full  overflow-hidden  px-4  py-16 sm:px-6 sm:py-20 md:px-10 lg:py-2  "
+            className=" relative  w-full  overflow-hidden  px-4  py-16 sm:px-6 sm:py-20 md:px-10 lg:py-2"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >

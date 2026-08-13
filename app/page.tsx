@@ -205,7 +205,7 @@ export default function Home() {
                     2500,
                     "Digital Identity",
                     2500,
-                    "Smart Business",
+                    "Smart Attendance",
                     2500,
                     "Visitor Management",
                     2500,
@@ -302,13 +302,13 @@ export default function Home() {
                   delay="0.5s"
                   className="relative lg:absolute right-0 sm:right-2 top-auto lg:top-[50px]"
                 />
-                <FeatureCard
-                  icon={<Building color="#8b5cf6" size={24} />}
-                  iconBg="bg-purple-50"
-                  title="Business Card"
-                  delay="0.7s"
-                  className="relative lg:absolute right-0 sm:right-2 bottom-auto lg:bottom-[50px]"
-                />
+                  <FeatureCard
+                    icon={<Building color="#8b5cf6" size={24} />}
+                    iconBg="bg-purple-50"
+                    title="Meeting QR"
+                    delay="0.7s"
+                    className="relative lg:absolute right-0 sm:right-2 bottom-auto lg:bottom-[50px]"
+                  />
               </div>
             </div>
           </div>
@@ -410,7 +410,7 @@ export default function Home() {
             }}
           >
             {[
-              { title: "Vehicle QR", desc: "Smart QR technology that enhances vehicle safety, access, and emergency response with instant notifications.", features: ["Emergency Alerts", "Silent Mode with Siren Access" , "Invalid Parking Notification"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan-1.png" },
+              { title: "Vehicle QR", desc: "Scan, select the reason, and notify — making it easier to reach vehicle owners during emergencies or parking-related situations.", features: ["Emergency Alerts", "Silent Mode with Siren Access", "Invalid Parking Notification"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/vehicle-scan-1.png" },
               { title: "Contact QR", desc: "Share your professional or personal contact details instantly with a single QR scan.", features: ["Instant Contact Sharing", "Quick Save", "Secure Sharing"], color: "border-indigo-100/70", iconColor: "text-indigo-600", img: "/images/contect-Qr.png" },
               { title: "Queue QR", desc: "Digitise queue management with QR-based token generation and real-time notifications.", features: ["Digital Token System", "Live Queue Status", "Turn Notifications", "Reduced Waiting Time"], color: "border-emerald-100/70", iconColor: "text-emerald-600", img: "/images/queue-1.png" },
               { title: "Gate QR", desc: "Secure visitor access with QR-based entry, exit, and attendance management.", features: ["QR Check-In & Check-Out", "Attendance Management", "Access Control", "Entry And Exit History"], color: "border-purple-100/70", iconColor: "text-violet-600", img: "/images/gate-qr.png" },
@@ -512,7 +512,7 @@ export default function Home() {
       </section>
 
       {/* ════════════════ SECTION 03 — WHY CHOOSE Scan n Go════════════════ */}
-      {/* ═════════════════════ SECTION 03 — WHY CHOOSE SCAN N GO ═════════════════════ */}
+
       <section
         id="features"
         className="relative overflow-hidden border-t border-slate-200 bg-gradient-to-br from-slate-50 via-purple-50/40 to-indigo-50/60 py-16 sm:py-20 text-slate-900"
@@ -520,9 +520,7 @@ export default function Home() {
         {/* ───────────────── Background Glow ───────────────── */}
         <div className="pointer-events-none absolute -left-40 top-10 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-[130px]" />
 
-
         <div className="pointer-events-none absolute left-1/3 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-violet-600/10 blur-[130px]" />
-
 
         <div className="pointer-events-none absolute -right-40 bottom-0 h-[520px] w-[520px] rounded-full bg-blue-600/15 blur-[130px]" />
 
@@ -540,48 +538,29 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
 
-
           {/* ═════════════════════ SECTION HEADER ═════════════════════ */}
           <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
-
-
-
-
-
-
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
               Vehicle QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
-                Features              </span>
+                Features
+              </span>
             </h3>
-
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
             </p>
           </div>
 
-
-
-
           {/* ═════════════════════ MAIN FEATURE AREA ═════════════════════ */}
           <div className="grid items-stretch gap-6 lg:grid-cols-[1.25fr_0.75fr]">
 
-
-
-
-            {/* ═══════════════════════════════════════════════════════
-          LEFT — SMART ALERT EXPERIENCE
-      ═══════════════════════════════════════════════════════ */}
+            {/* LEFT — SMART ALERT EXPERIENCE */}
             <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-gradient-to-br from-indigo-50 via-indigo-100/60 to-slate-100 p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-10">
-
-
               {/* Decorative glow */}
               <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
 
-
               <div className="pointer-events-none absolute bottom-0 left-1/3 h-52 w-52 rounded-full bg-indigo-200/50 blur-[80px]" />
-
 
               {/* Decorative dots */}
               <div className="pointer-events-none absolute right-8 top-8 grid grid-cols-4 gap-2 opacity-40">
@@ -593,12 +572,8 @@ export default function Home() {
                 ))}
               </div>
 
-
-
-
               {/* Top Content */}
               <div className="relative z-10 mx-auto max-w-xl text-center flex flex-col items-center">
-
 
                 <h4 className="max-w-xl text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
                   One Platform for{" "}
@@ -607,28 +582,19 @@ export default function Home() {
                   </span>
                 </h4>
 
-
                 <p className="mt-4 max-w-lg text-sm leading-6 text-slate-600">
                   From everyday communication to critical emergencies, Scan n Go                  makes it simple to send the right alert at the right time.
                 </p>
               </div>
 
-
-
-
               {/* Phone + Features */}
               <div className="relative z-10 mt-8 grid items-center gap-8 sm:mt-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-4">
-
-
-
 
                 {/* ───────────────── PHONE ───────────────── */}
                 <div className="relative flex min-h-[360px] items-center justify-center">
 
-
                   {/* Phone glow */}
                   <div className="absolute h-64 w-64 rounded-full bg-indigo-200/50 blur-[80px]" />
-
 
                   {/* Decorative WiFi */}
                   <div className="absolute left-2 top-20 rotate-[-15deg] opacity-60 transition-transform duration-500 group-hover:rotate-0 sm:left-6">
@@ -639,11 +605,6 @@ export default function Home() {
                     />
                   </div>
 
-
-
-
-
-
                   {/* Phone */}
                   <Image
                     src="/images/normal-alert-2.png"
@@ -653,54 +614,33 @@ export default function Home() {
                     className="relative z-10 h-[350px] w-auto max-w-full object-contain drop-shadow-[0_25px_45px_rgba(99,102,241,0.15)] transition-transform duration-700 group-hover:scale-[1.04]"
                   />
 
-
                   {/* Floating emergency notification */}
                   <div className="absolute bottom-8 left-0 z-20 hidden w-[180px] rounded-xl border border-red-200 bg-white/95 p-2 shadow-lg shadow-red-500/5 backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-1 sm:block lg:left-[-15px]">
-
-
                     <div className="flex items-center gap-2">
-
-
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100">
                         <AlertTriangle
                           size={14}
                           className="text-red-600"
                         />
                       </div>
-
-
                       <div>
                         <p className="text-[12px] font-semibold text-red-600">
                           Emergency Alert
                         </p>
-
-
                         <p className="mt-0.5 text-[10px] leading-4 text-slate-500">
                           Contacts notified instantly
                         </p>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
 
-
-
-
                 {/* ───────────────── ALERT FEATURES ───────────────── */}
                 <div className="space-y-3">
 
-
-
-
                   {/* Normal Alert */}
                   <div className="group/item relative overflow-hidden rounded-2xl border border-indigo-200/80 bg-white/70 p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
-
-
                     <div className="flex items-start gap-4">
-
-
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 ring-1 ring-indigo-200 transition-transform duration-300 group-hover/item:scale-105">
                         <Bell
                           size={18}
@@ -708,39 +648,23 @@ export default function Home() {
                         />
                       </div>
 
-
                       <div>
                         <div className="flex items-center gap-2">
                           <h5 className="text-sm font-semibold text-indigo-600">
                             Normal Alert
                           </h5>
-
-
-                          <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-[8px] font-medium uppercase tracking-wider text-indigo-700">
-                            Everyday
-                          </span>
                         </div>
-
-
                         <p className="mt-1.5 text-xs leading-5 text-slate-600">
                           For general updates and everyday communication.
                         </p>
                       </div>
-
-
                     </div>
                   </div>
-
-
-
 
                   {/* Emergency Alert */}
                   <div className="group/item relative overflow-hidden rounded-2xl border border-red-200/80 bg-white/70 p-4 shadow-md shadow-red-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-300 hover:bg-white hover:shadow-lg hover:shadow-red-500/10">
 
-
                     <div className="flex items-start gap-4">
-
-
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-100 ring-1 ring-red-200 transition-transform duration-300 group-hover/item:scale-105">
                         <AlertTriangle
                           size={18}
@@ -748,43 +672,22 @@ export default function Home() {
                         />
                       </div>
 
-
                       <div className="flex-1">
-
-
                         <div className="flex items-center gap-2">
                           <h5 className="text-sm font-semibold text-red-600">
                             Emergency Alert
                           </h5>
-
-
-                          <span className="rounded-full bg-red-100 px-2 py-0.5 text-[8px] font-medium uppercase tracking-wider text-red-700">
-                            Critical
-                          </span>
                         </div>
-
 
                         <p className="mt-1.5 text-xs leading-5 text-slate-600">
                           Instantly notify the owner and emergency contacts in case of an emergency.
                         </p>
-
-
-
-
-
-
                       </div>
-
-
                     </div>
                   </div>
 
-
-
-
                   {/* Bottom mini stats — REDESIGNED WITH ICONS */}
                   <div className="grid grid-cols-2 gap-3 pt-1">
-
 
                     <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-white/60 p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
@@ -799,8 +702,6 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-
-
                     <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-white/60 p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
                         <Clock size={15} />
@@ -814,28 +715,15 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-
-
                   </div>
-
-
                 </div>
-
-
               </div>
-
-
             </div>
-
-
-
 
             {/* ═══════════════════════════════════════════════════════
           RIGHT — DUAL STICKER PROTECTION
-      ═══════════════════════════════════════════════════════ */}
+            ═══════════════════════════════════════════════════════ */}
             <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-gradient-to-br from-indigo-50/80 via-slate-100 to-indigo-100/50 p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-9">
-
-
               {/* Glow */}
               <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
               <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-blue-200/50 blur-[90px]" />
@@ -918,21 +806,14 @@ export default function Home() {
                       />
                     </div>
                     <div className="mt-4">
-
-
                       <div className="inline-flex items-center gap-1.5">
                         <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-blue-700">
                           Backup
                         </p>
                       </div>
-
-
                       <p className="mt-2 text-[12px] font-medium text-slate-900">
                         Backup QR
-
-
                       </p>
-
                       <p className="mt-1 text-[11px] leading-4 text-slate-500">
                         Backup vehicle QR sticker if Damaged
                       </p>
@@ -953,8 +834,6 @@ export default function Home() {
                 </div>
                 {/* Protection Status — REDESIGNED WITH BETTER LAYOUT & ICON */}
                 <div className="mt-5 rounded-2xl border border-indigo-200 bg-white/80 p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
-
-
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 shadow-md shadow-indigo-200 text-white">
@@ -1231,7 +1110,7 @@ export default function Home() {
                 {/* Google Play */}
                 <a
                   href="https://play.google.com/store/apps/details?id=com.scc.global"
-                
+
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
@@ -1244,7 +1123,7 @@ export default function Home() {
                 {/* App Store */}
                 <a
                   href="https://apps.apple.com/us/app/Scan%20n%20Go%20-easy-entry/id6502510648"
-               
+
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
@@ -1300,8 +1179,8 @@ export default function Home() {
               </h3>
 
               <p className="mt-4 text-sm sm:text-base lg:text-md leading-7 text-slate-500  mx-auto">
-                Discover how residential occupants, local retail store owners, and vehicle
-                drivers secure daily entries and emergency loops.
+                Discover how Scan n Go helps teams save time, improve security, and manage daily activities more efficiently.
+
               </p>
             </div>
           </ScrollReveal>
