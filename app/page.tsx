@@ -858,7 +858,7 @@ export default function Home() {
 
       {/* ════════════════ SECTION 04 — TRUSTED BY ════════════════ */}
       <section
-        className="relative overflow-hidden border-y border-slate-100 bg-cover bg-center pt-12 pb-20 shadow-lg lg:pt-10"
+        className="relative overflow-hidden border-y border-slate-100 bg-cover bg-center pt-12 pb-20 shadow-lg lg:py-20"
         style={{ backgroundImage: "url('/images/benefit_bg.png')", }}
       >
         {/* Inner top shadow */}
@@ -867,7 +867,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-12">
 
-            <h2 className="text-2xl sm:text-4xl font-bold pb-10 text-slate-800">
+            <h2 className="text-2xl sm:text-5xl font-bold pb-10 text-slate-800">
               Trusted By  IT{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Companies & Organizations
