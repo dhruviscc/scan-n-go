@@ -77,11 +77,11 @@ export default function Sidebar({
       <aside
         className={`fixed lg:sticky top-0 left-0 z-[110] rounded-r-4xl text-slate-800 flex h-screen flex-col border-r border-slate-200 shadow-xl transition-all duration-300 ease-in-out ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           } ${collapsed ? "w-20 overflow-visible" : "w-72 overflow-y-auto"}`}
-        style={{ background: "linear-gradient(150deg, #f8f7ff 0%, #f0ebff 30%, #e4dcff 65%, #c8b6ff 100%)" }}
+       
       >
         {/* ===== HEADER ===== */}
         <div
-          className={`h-16 border-b border-violet-100 flex items-center ${collapsed ? "justify-center px-2" : "justify-between px-4"
+          className={`h-18 border-b border-violet-100 flex items-center ${collapsed ? "justify-center px-2" : "justify-between px-4"
             }`}
         >
           {!collapsed && (
@@ -93,7 +93,7 @@ export default function Sidebar({
                   <Image
                     src="/images/logo/logo_with_text.png"
                     alt="Scan n Go Logo"
-                    width={140}
+                    width={170}
                     height={40}
                     className="cursor-pointer"
                   />
@@ -136,7 +136,7 @@ export default function Sidebar({
                   href={item.href}
                   className={`relative flex items-center gap-3 rounded-xl border-b-3 px-4 py-4 transition-all duration-200 ${isActive
                     ? "border-violet-500 bg-violet-500/10 text-violet-700"
-                    : "border-transparent text-slate-600 hover:border-violet-500 hover:bg-violet-500/10 hover:text-violet-700"
+                    : "border-transparent text-slate-700 hover:border-violet-500 hover:bg-violet-500/10 hover:text-violet-700"
                     }`}
                 >
                   <div className="relative z-10 flex items-center gap-3">
@@ -144,11 +144,11 @@ export default function Sidebar({
                       size={20}
                       className={`shrink-0 transition-colors duration-300 ${isActive
                         ? "text-violet-600"
-                        : "text-slate-400 group-hover:text-violet-600"
+                        : "text-slate-700 group-hover:text-violet-600"
                         }`}
                     />
                     {!collapsed && (
-                      <span className="truncate text-sm font-semibold tracking-wide">
+                      <span className="truncate text-md font-semibold tracking-wide">
                         {item.label}
                       </span>
                     )}
@@ -187,8 +187,15 @@ export default function Sidebar({
           {/* PROFILE */}
           <div
             onClick={() => setShowLogout(!showLogout)}
-            className={`group relative flex cursor-pointer items-center gap-3 rounded-xl border border-violet-100 bg-white/50 p-2 transition-all duration-300 hover:bg-violet-100 ${collapsed ? "justify-center" : ""
-              }`}
+            className={`group relative flex cursor-pointer items-center gap-3 rounded-xl
+  border border-violet-400/70
+  bg-gradient-to-r 
+  p-2
+  shadow-[0_4px_20px_rgba(76,29,149,0.3),inset_0_0_0_1px_rgba(255,255,255,0.06)]
+  transition-all duration-300
+  hover:border-violet-300
+  hover:shadow-[0_6px_24px_rgba(124,58,237,0.35)]
+  ${collapsed ? "justify-center" : ""}`}
           >
             {/* Avatar */}
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 text-sm font-bold text-white shadow-lg shadow-violet-500/40">
@@ -197,7 +204,7 @@ export default function Sidebar({
 
             {!collapsed && (
               <div className="min-w-0">
-                <h4 className="truncate text-sm font-bold text-slate-800">
+                <h4 className="truncate text-sm font-bold text-black">
                   {userProfile?.name || "Loading..."}
                 </h4>
                 <p className="truncate text-xs font-medium text-slate-500">

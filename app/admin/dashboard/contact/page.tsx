@@ -321,8 +321,8 @@ export default function EnquiryPage() {
                         <tr>
                             <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 #</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
-                                Type</th>
+                            {/* <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+                                Type</th> */}
                             <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Customer</th>
                             <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
@@ -359,7 +359,7 @@ export default function EnquiryPage() {
                                             {(currentPage - 1) * pageSize + index + 1}
                                         </div>
                                     </td>
-                                    <td>
+                                    {/* <td>
                                         <div>
                                             <span className={`text-[13px] px-1.5 py-0.5 rounded font-semibold  uppercase tracking-wider ${(enquiry as any).source === 'Product Enquiry'
                                                 ? 'text-purple-600'
@@ -368,20 +368,20 @@ export default function EnquiryPage() {
                                                 {(enquiry as any).source || 'Lead'}
                                             </span>
                                         </div>
-                                    </td>
+                                    </td> */}
                                     <td className="px-6 py-4">
                                         <div className="flex flex-col">
 
                                             <div className="flex items-center gap-2">
-                                                <span className=" text-slate-800 text-sm ">{enquiry.full_name}</span>
+                                                <span className=" text-slate-800 text-md ">{enquiry.full_name}</span>
 
                                             </div>
                                             <div className="flex items-center gap-3 mt-1">
-                                                <span className="text-[10px] text-slate-500 flex items-center gap-1">
+                                                <span className="text-[12px] text-slate-500 flex items-center gap-1">
                                                     <Phone size={10} /> {enquiry.mobile_number}
                                                 </span>
                                                 {enquiry.email_address && (
-                                                    <span className="text-[10px] text-slate-500 flex items-center gap-1">
+                                                    <span className="text-[12px] text-slate-500 flex items-center gap-1">
                                                         <Mail size={10} /> {enquiry.email_address}
                                                     </span>
                                                 )}
@@ -390,12 +390,12 @@ export default function EnquiryPage() {
                                     </td>
 
                                     <td className="px-6 py-4">
-                                        <span className="px-2 py-1 rounded-md  text-violet-700 text-[11px] font-semibold  uppercase tracking-wider ">
+                                        <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-sm font-semibold text-purple-700">
                                             {enquiry.service_interest}
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                                        <div className="flex items-center gap-1.5 text-sm text-slate-500">
                                             <Calendar size={12} />
                                             {new Date(enquiry.created_at).toLocaleDateString()}
                                         </div>
@@ -577,10 +577,9 @@ export default function EnquiryPage() {
                                             <div className="flex items-center gap-3">
                                                 <Briefcase className="text-violet-700 " size={18} />
                                                 <div>
-                                                    <p className="text-xs text-slate-500">Service Interest</p>
-                                                    <p className="font-bold text-slate-800">
+                                                    <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700">
                                                         {selectedEnquiry.service_interest}
-                                                    </p>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

@@ -116,7 +116,7 @@ export default function Header() {
                     <span
                       className={`transition-colors duration-300 ${pathname === item.href
                         ? "font-semibold text-[#5B21B6]"
-                        : "font-medium text-slate-800 hover:text-[#6D28D9]"
+                        : "font-bold text-slate-800 hover:text-[#6D28D9]"
                         }`}
                     >
                       {item.label}

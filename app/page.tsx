@@ -201,14 +201,19 @@ export default function Home() {
                 <br />
                 <TypeAnimation
                   sequence={[
-                    "Connect Emergency Contacts",
+                    " Attendance Tracking",
                     2500,
-                    "Digital Identity",
+                    "Vehicle QR & Emergency Contact",
                     2500,
-                    "Smart Attendance",
+                    "Residential Visitor Entry",
                     2500,
-                    "Visitor Management",
+                    " Queue & Token Management",
                     2500,
+                    "Private Meeting & Conference Entry",
+                    2500,
+                    "Digital Identity & Contact Sharing",
+                    2500
+
                   ]}
                   wrapper="span"
                   cursor
@@ -264,7 +269,7 @@ export default function Home() {
 
               {/* Phone Container */}
               <motion.div
-                className="relative z-10 w-[230px] sm:w-[290px] lg:w-[320px]"
+                className="relative z-10 w-[230px] sm:w-[290px] lg:w-[500px]"
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{
@@ -273,10 +278,10 @@ export default function Home() {
                   ease: [0.25, 1, 0.5, 1],
                 }}
               >
-                <div className="relative h-[470px] sm:h-[550px] ">
+                <div className="relative h-[470px] sm:h-[590px] ">
 
                   <Image
-                    src="/images/hero.png"
+                    src="/images/hero-right.png"
                     alt="Scan n Go App"
                     fill
                     priority
@@ -336,9 +341,9 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: <ScanLine size={22} />, label: "Instant QR Scan", sub: "Speedy entry & identity logs" },
-                { icon: <Bell size={22} />, label: "Live Notifications", sub: "All Your Notifications, Instantly" },
-                { icon: <ParkingCircle size={22} />, label: "Vehicle QR", sub: "Scan the vehicle QR to instantly notify the vehicle owner" },
+                { icon: <ScanLine size={22} />, label: "Quick QR Scanning ", sub: "Fast entry & identity verification" },
+                { icon: <Bell size={22} />, label: "Instant Notifications", sub: "Receive important alerts in real time" },
+                { icon: <ParkingCircle size={22} />, label: "Vehicle QR", sub: "Scan, select, and notify the vehicle owner" },
               ].map((f) => (
                 <motion.div
                   key={f.label}
@@ -388,12 +393,12 @@ export default function Home() {
         <div className="absolute right-[10px] top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-fuchsia-100/30 blur-sm animate-blob-3" />
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-xl mx-auto text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Smart QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Solutions
               </span>
-            </h2>
+            </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               One  Digital platform to manage visitors, appointments, meetings, dining, and digital contacts with a simple QR scan.
             </p>
@@ -448,18 +453,18 @@ export default function Home() {
 
                             {/* Content */}
                             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                              <h3 className="text-xl font-semibold">
+                              <h4 className="text-xl font-semibold">
                                 {sol.title}
-                              </h3>
+                              </h4>
                             </div>
                           </div>
                         </>
                       ) : (
                         <div className="flex h-full flex-col justify-end p-7">
 
-                          <h3 className="text-2xl font-bold text-slate-900">
+                          <h4 className="text-2xl font-bold text-slate-900">
                             {sol.title}
-                          </h3>
+                          </h4>
 
                           <p className="mt-3 text-sm leading-6 text-slate-600">
                             {sol.desc}
@@ -475,9 +480,9 @@ export default function Home() {
                     >
                       <div className="flex h-full flex-col">
 
-                        <h3 className="text-2xl font-bold text-slate-900">
+                        <h4 className="text-2xl font-bold text-slate-900">
                           {sol.title}
-                        </h3>
+                        </h4>
 
                         <p className="mt-3 text-md leading-6 text-slate-600">
                           {sol.desc}
@@ -515,22 +520,36 @@ export default function Home() {
 
       <section
         id="features"
-        className="relative overflow-hidden border-t border-slate-200 bg-gradient-to-br from-slate-50 via-purple-50/40 to-indigo-50/60 py-16 sm:py-20 text-slate-900"
+        className="relative overflow-hidden border-t border-slate-200 bg-white py-16 sm:py-20 text-slate-900"
       >
-        {/* ───────────────── Background Glow ───────────────── */}
-        <div className="pointer-events-none absolute -left-40 top-10 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-[130px]" />
+        {/* ───────────────── Background Glowing & Moving Blobs / Floating Balls ───────────────── */}
 
-        <div className="pointer-events-none absolute left-1/3 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-violet-600/10 blur-[130px]" />
+        {/* Top-Left Indigo Blob (Animated) */}
+        <div className="pointer-events-none absolute -left-20 top-10 h-[380px] w-[380px] rounded-full bg-indigo-600/15 blur-[120px] animate-pulse duration-[4000ms]" />
 
-        <div className="pointer-events-none absolute -right-40 bottom-0 h-[520px] w-[520px] rounded-full bg-blue-600/15 blur-[130px]" />
+        {/* Right-Bottom Indigo Blob (Animated) */}
+        <div className="pointer-events-none absolute -right-20 bottom-0 h-[420px] w-[420px] rounded-full bg-indigo-600/15 blur-[120px] animate-pulse duration-[5000ms]" />
 
+        {/* Small Floating Balls with Keyframe Animations */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* Ball 1 */}
+          <div className="absolute left-[15%] top-[20%] h-4 w-4 rounded-full bg-indigo-500/40 blur-[1px] animate-[bounce_6s_infinite_ease-in-out]" />
+          {/* Ball 2 */}
+          <div className="absolute right-[25%] top-[15%] h-3 w-3 rounded-full bg-indigo-600/30 blur-[0.5px] animate-[bounce_8s_infinite_ease-in-out_1s]" />
+          {/* Ball 3 */}
+          <div className="absolute left-[30%] bottom-[20%] h-5 w-5 rounded-full bg-indigo-400/35 blur-[1px] animate-[pulse_5s_infinite_ease-in-out]" />
+          {/* Ball 4 */}
+          <div className="absolute right-[18%] bottom-[30%] h-3.5 w-3.5 rounded-full bg-indigo-500/30 blur-[0.5px] animate-[bounce_7s_infinite_ease-in-out_2s]" />
+          {/* Ball 5 */}
+          <div className="absolute left-[50%] top-[40%] h-2.5 w-2.5 rounded-full bg-indigo-600/25 blur-[0.5px] animate-[pulse_4s_infinite_ease-in-out]" />
+        </div>
 
         {/* Subtle Grid */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)",
+              "linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -540,14 +559,14 @@ export default function Home() {
 
           {/* ═════════════════════ SECTION HEADER ═════════════════════ */}
           <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Vehicle QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Features
               </span>
-            </h2>
+            </h3>
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
             </p>
           </div>
@@ -556,7 +575,7 @@ export default function Home() {
           <div className="grid items-stretch gap-6 lg:grid-cols-[1.25fr_0.75fr]">
 
             {/* LEFT — SMART ALERT EXPERIENCE */}
-            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-gradient-to-br from-indigo-50 via-indigo-100/60 to-slate-100 p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-10">
+            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-transparent p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-10">
               {/* Decorative glow */}
               <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
 
@@ -575,15 +594,15 @@ export default function Home() {
               {/* Top Content */}
               <div className="relative z-10 mx-auto max-w-xl text-center flex flex-col items-center">
 
-                <h3 className="max-w-xl text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                <h4 className="max-w-xl text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
                   One Platform for{" "}
                   <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-blue-600 bg-clip-text text-transparent">
                     Every QR Solution
                   </span>
-                </h3>
+                </h4>
 
-                <p className="mt-4 max-w-lg text-sm leading-6 text-slate-600">
-                  From everyday communication to critical emergencies, Scan n Go                  makes it simple to send the right alert at the right time.
+                <p className="mt-4 max-w-lg text-sm leading-6 text-slate-700">
+                  From everyday communication to critical emergencies, Scan n Go makes it simple to send the right alert at the right time.
                 </p>
               </div>
 
@@ -601,7 +620,7 @@ export default function Home() {
                     <Wifi
                       size={42}
                       strokeWidth={1.4}
-                      className="text-indigo-400"
+                      className="text-indigo-600"
                     />
                   </div>
 
@@ -639,9 +658,9 @@ export default function Home() {
                 <div className="space-y-3">
 
                   {/* Normal Alert */}
-                  <div className="group/item relative overflow-hidden rounded-2xl border border-indigo-200/80 bg-white/70 p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+                  <div className="group/item relative overflow-hidden rounded-2xl border border-indigo-200/80 bg-transparent p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/10">
                     <div className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 ring-1 ring-indigo-200 transition-transform duration-300 group-hover/item:scale-105">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100/80 ring-1 ring-indigo-200 transition-transform duration-300 group-hover/item:scale-105">
                         <Bell
                           size={18}
                           className="text-indigo-600"
@@ -650,11 +669,11 @@ export default function Home() {
 
                       <div>
                         <div className="flex items-center gap-2">
-                          <h4 className="text-sm font-semibold text-indigo-600">
+                          <h5 className="text-sm font-semibold text-indigo-700">
                             Normal Alert
-                          </h4>
+                          </h5>
                         </div>
-                        <p className="mt-1.5 text-xs leading-5 text-slate-600">
+                        <p className="mt-1.5 text-xs leading-5 text-slate-700">
                           For general updates and everyday communication.
                         </p>
                       </div>
@@ -662,10 +681,10 @@ export default function Home() {
                   </div>
 
                   {/* Emergency Alert */}
-                  <div className="group/item relative overflow-hidden rounded-2xl border border-red-200/80 bg-white/70 p-4 shadow-md shadow-red-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-300 hover:bg-white hover:shadow-lg hover:shadow-red-500/10">
+                  <div className="group/item relative overflow-hidden rounded-2xl border border-red-200/80 bg-transparent p-4 shadow-md shadow-red-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-300 hover:shadow-lg hover:shadow-red-500/10">
 
                     <div className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-100 ring-1 ring-red-200 transition-transform duration-300 group-hover/item:scale-105">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-100/80 ring-1 ring-red-200 transition-transform duration-300 group-hover/item:scale-105">
                         <AlertTriangle
                           size={18}
                           className="text-red-600"
@@ -674,12 +693,12 @@ export default function Home() {
 
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h4 className="text-sm font-semibold text-red-600">
+                          <h5 className="text-sm font-semibold text-red-600">
                             Emergency Alert
-                          </h4>
+                          </h5>
                         </div>
 
-                        <p className="mt-1.5 text-xs leading-5 text-slate-600">
+                        <p className="mt-1.5 text-xs leading-5 text-slate-700">
                           Instantly notify the owner and emergency contacts in case of an emergency.
                         </p>
                       </div>
@@ -689,12 +708,12 @@ export default function Home() {
                   {/* Bottom mini stats — REDESIGNED WITH ICONS */}
                   <div className="grid grid-cols-2 gap-3 pt-1">
 
-                    <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-white/60 p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
+                    <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-transparent p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/10">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-100/80 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
                         <Zap size={15} />
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-600/70">
+                        <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-700/80">
                           Response
                         </p>
                         <p className="text-xs font-semibold text-slate-900">
@@ -702,12 +721,12 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-                    <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-white/60 p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
+                    <div className="group/stat flex items-center gap-3 rounded-2xl border border-indigo-200/70 bg-transparent p-3 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/10">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-100/80 text-indigo-600 transition-transform duration-300 group-hover/stat:scale-110">
                         <Clock size={15} />
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-600/70">
+                        <p className="text-[10px] uppercase tracking-wider font-bold text-indigo-700/80">
                           Protection
                         </p>
                         <p className="text-xs font-semibold text-slate-900">
@@ -721,22 +740,22 @@ export default function Home() {
             </div>
 
             {/* ═══════════════════════════════════════════════════════
-          RIGHT — DUAL STICKER PROTECTION
+         RIGHT — DUAL STICKER PROTECTION
             ═══════════════════════════════════════════════════════ */}
-            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-gradient-to-br from-indigo-50/80 via-slate-100 to-indigo-100/50 p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-9">
+            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-transparent p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-9">
               {/* Glow */}
               <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
-              <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-blue-200/50 blur-[90px]" />
+              <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-indigo-300/40 blur-[90px]" />
 
               {/* Header */}
               <div className="relative z-10">
-                <h3 className="mt-5 text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl">
+                <h4 className="mt-5 text-2xl font-semibold leading-tight text-slate-900 sm:text-3xl">
                   Smart QR for{" "}
                   <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                     Backup
                   </span>
-                </h3>
-                <p className="mt-4 text-xs leading-6 text-slate-600 sm:text-sm">
+                </h4>
+                <p className="mt-4 text-xs leading-6 text-slate-700 sm:text-sm">
                   Every Vehicle QR order comes with two identical QR stickers linked to the same vehicle. If one sticker gets damaged or becomes unreadable, the second sticker continues to work seamlessly, ensuring uninterrupted access to the vehicle’s information.
                 </p>
               </div>
@@ -748,7 +767,7 @@ export default function Home() {
 
                   <span className="h-px flex-1 bg-gradient-to-r from-transparent to-indigo-300" />
 
-                  <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-indigo-600/70">
+                  <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-indigo-700/80">
                     One Vehicle · Multiple Stickers
                   </span>
 
@@ -761,10 +780,10 @@ export default function Home() {
 
 
                   {/* PRIMARY */}
-                  <div className="relative rounded-2xl border border-indigo-200 bg-white/80 p-4 text-center shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+                  <div className="relative rounded-2xl border border-indigo-200 bg-transparent p-4 text-center shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/10">
 
                     {/* QR */}
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-indigo-200 bg-indigo-50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-indigo-200 bg-indigo-100/60 shadow-sm transition-transform duration-300 group-hover:scale-105">
 
                       <QrCode
                         size={31}
@@ -787,7 +806,7 @@ export default function Home() {
                         Vehicle QR
                       </p>
 
-                      <p className="mt-1 text-[11px] leading-4 text-slate-500">
+                      <p className="mt-1 text-[11px] leading-4 text-slate-600">
                         Primary Placement sticker
                       </p>
 
@@ -796,9 +815,9 @@ export default function Home() {
                   </div>
 
                   {/* BACKUP */}
-                  <div className="relative rounded-2xl border border-blue-200 bg-white/80 p-4 text-center shadow-md shadow-blue-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:bg-white hover:shadow-lg hover:shadow-blue-500/10">
+                  <div className="relative rounded-2xl border border-blue-200 bg-transparent p-4 text-center shadow-md shadow-blue-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10">
                     {/* QR */}
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-200 bg-blue-50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-200 bg-blue-100/60 shadow-sm transition-transform duration-300 group-hover:scale-105">
                       <QrCode
                         size={31}
                         strokeWidth={1.5}
@@ -814,7 +833,7 @@ export default function Home() {
                       <p className="mt-2 text-[12px] font-medium text-slate-900">
                         Backup QR
                       </p>
-                      <p className="mt-1 text-[11px] leading-4 text-slate-500">
+                      <p className="mt-1 text-[11px] leading-4 text-slate-600">
                         Backup vehicle QR sticker if Damaged
                       </p>
                     </div>
@@ -823,7 +842,7 @@ export default function Home() {
                   {/* Connecting Link */}
                   <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                     <div className="absolute h-20 w-20 rounded-full bg-indigo-200/50 blur-xl" />
-                    <div className="relative flex h-9 w-9 items-center justify-center rounded-full border border-indigo-200 bg-white shadow-md">
+                    <div className="relative flex h-9 w-9 items-center justify-center rounded-full border border-indigo-200 bg-white/80 shadow-md">
                       <span className="absolute left-[-25px] h-px w-6 border-t border-dashed border-indigo-300" />
                       <span className="absolute right-[-25px] h-px w-6 border-t border-dashed border-blue-300" />
                       <span className="text-sm text-indigo-600 font-bold">
@@ -833,7 +852,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Protection Status — REDESIGNED WITH BETTER LAYOUT & ICON */}
-                <div className="mt-5 rounded-2xl border border-indigo-200 bg-white/80 p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10">
+                <div className="mt-5 rounded-2xl border border-indigo-200 bg-transparent p-4 shadow-md shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/10">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 shadow-md shadow-indigo-200 text-white">
@@ -843,7 +862,7 @@ export default function Home() {
                         <p className="text-sm font-semibold text-slate-900">
                           Always Protected
                         </p>
-                        <p className="text-[12px] leading-4 text-slate-600">
+                        <p className="text-[12px] leading-4 text-slate-700">
                           If primary fails, backup works instantly.
                         </p>
                       </div>
@@ -867,12 +886,12 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-12">
 
-            <h2 className="text-2xl sm:text-5xl font-bold pb-10 text-slate-800">
+            <h3 className="text-2xl sm:text-5xl font-bold pb-10 text-slate-800">
               Trusted By  IT{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Companies & Organizations
               </span>
-            </h2>
+            </h3>
           </ScrollReveal>
 
           <ScrollReveal>
@@ -941,12 +960,12 @@ export default function Home() {
 
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold  text-slate-900 mt-2">
               WHERE {" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 YOU CAN USE
               </span>
-            </h2>
+            </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               From gated communities and corporate offices to schools, industries, and buildings, Scan n Go delivers secure, smart, and seamless QR-powered management for every location.
             </p>
@@ -979,6 +998,7 @@ export default function Home() {
 
 
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
+
       <section
         className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
         style={{
@@ -990,21 +1010,26 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -right-[120px] -top-[80px] h-[320px] w-[320px] rounded-full bg-violet-400/20 blur-[90px] sm:-right-[10%] sm:-top-[10%] sm:h-[550px] sm:w-[550px]" />
 
+
           <div className="absolute -bottom-[80px] -left-[100px] h-[280px] w-[280px] rounded-full bg-purple-300/25 blur-[80px] sm:-bottom-[10%] sm:-left-[5%] sm:h-[400px] sm:w-[400px]" />
+
 
           <div className="absolute left-[35%] top-[40%] h-[220px] w-[220px] rounded-full bg-blue-300/15 blur-[70px] sm:left-[45%] sm:h-[300px] sm:w-[300px]" />
         </div>
 
+
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-12">
+
 
           {/* Heading */}
           <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center sm:mb-14 lg:mb-16">
-            <h2 className="mt-2 text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            <h3 className="mt-2 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
               All-in-One{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Smart QR Platform.
               </span>
-            </h2>
+            </h3>
+
 
             <p className="mt-4 text-sm leading-6 text-slate-500 sm:text-base sm:leading-relaxed">
               Keep check of historical visitors entries, manage emergency alerts,
@@ -1013,18 +1038,21 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
+
           {/* Main Content */}
           <ScrollReveal className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
 
+
             {/* LEFT CONTENT */}
             <div className="space-y-6 text-center lg:text-left">
-              <h3 className="text-2xl font-bold leading-tight text-slate-800 sm:text-3xl">
+              <h4 className="text-2xl font-bold leading-tight text-slate-800 sm:text-3xl">
                 Scan n Go App Features Dashboard
-              </h3>
+              </h4>
+
 
               {/* Feature Cards */}
               <motion.div
-                className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4"
+                className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
@@ -1071,7 +1099,7 @@ export default function Home() {
                 ].map((appFeat, i) => (
                   <motion.div
                     key={i}
-                    className=" group relative flex items-center gap-3  overflow-hidden rounded-2xl border border-white/30 bg-white/20 px-4 py-3.5 shadow-[0_8px_32px_rgba(31,38,135,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-violet-300/40 hover:bg-white/70 hover:shadow-[0_12px_40px_rgba(139,92,246,0.20)] sm:px-4 sm:py-4"
+                    className="group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-white/30 bg-white/20 px-4 py-3.5 shadow-[0_8px_32px_rgba(31,38,135,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-violet-300/40 hover:bg-white/70 hover:shadow-[0_12px_40px_rgba(139,92,246,0.20)] sm:px-4 sm:py-4"
                     variants={{
                       hidden: {
                         opacity: 0,
@@ -1090,12 +1118,12 @@ export default function Home() {
                     {/* Glass Shine */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-60" />
 
+
                     {/* Icon */}
-                    <span
-                      className=" relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/30  backdrop-blur-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
-                    >
+                    <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/30 backdrop-blur-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-110">
                       {appFeat.icon}
                     </span>
+
 
                     {/* Text */}
                     <span className="relative text-left text-sm font-medium text-slate-700 sm:text-[15px]">
@@ -1105,12 +1133,12 @@ export default function Home() {
                 ))}
               </motion.div>
 
+
               {/* Download Buttons */}
               <div className="flex flex-wrap justify-center gap-3 pt-2 sm:gap-4 lg:justify-start">
                 {/* Google Play */}
                 <a
                   href="https://play.google.com/store/apps/details?id=com.scc.global"
-
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
@@ -1120,10 +1148,10 @@ export default function Home() {
                   />
                 </a>
 
+
                 {/* App Store */}
                 <a
                   href="https://apps.apple.com/us/app/Scan%20n%20Go%20-easy-entry/id6502510648"
-
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
                   <img
@@ -1135,17 +1163,37 @@ export default function Home() {
               </div>
             </div>
 
+
             {/* RIGHT — MOBILE APP IMAGE */}
             <div
-              className=" relative flex w-full items-center justify-center overflow-visible pt-2 sm:pt-4 lg:min-h-[620px] lg:justify-end lg:pt-0"
+              className="
+    relative flex w-full items-center justify-center
+    overflow-visible
+    pt-2
+    sm:pt-4
+    lg:min-h-[300px]
+    lg:justify-center
+    lg:pt-0
+  "
             >
               <img
-                src="/images/get-app.png"
+                src="/images/hero.png"
                 alt="Scan n Go Mobile App Preview"
-                className=" relative z-10 h-auto w-[85%] max-w-[360px] object-contain drop-shadow-[0_25px_45px_rgba(67,56,202,0.25)]  animate-float sm:w-[70%] sm:max-w-[430px] lg:h-[620px] lg:w-auto lg:max-w-none  "
+                className="
+      relative z-10
+      w-[260px] h-[420px]
+      object-contain
+      drop-shadow-[0_25px_45px_rgba(67,56,202,0.25)]
+      animate-float
+
+      sm:w-[280px] sm:h-[450px]
+
+      lg:w-[280px] lg:h-auto
+    "
                 style={{ animationDelay: "0.5s" }}
               />
             </div>
+
 
           </ScrollReveal>
         </div>
@@ -1153,30 +1201,22 @@ export default function Home() {
 
 
 
+
       {/* ════════════════ SECTION 07 — TESTIMONIALS ════════════════ */}
 
       <section className="relative py-20 bg-white">
 
-        {/* Top Left Blob */}
-        <div className="absolute top-24 left-[30%] h-52 w-52 rounded-full bg-violet-200/30  blur-md" />
-
-        {/* Aurora Blob - Left */}
-        <div className="absolute left-[10%] bottom-10 h-50 w-50 rounded-full bg-gradient-to-br from-fuchsia-400/35 via-violet-400/20 to-transparent blur-2xl  animate-blob-left" />
-
-
-        {/* Cyan Blob */}
-        < div className="absolute right-[-120px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-cyan-400/20 via-sky-300/15 to-transparent blur-[80px] animate-blob-two" />
-
+    
         <div className="w-full max-w-[1440px] mx-auto">
           <ScrollReveal className="max-w-2xl mx-auto text-center">
             <div className="max-w-4xl mx-auto px-4 text-center sm:px-6">
 
 
-              <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold   leading-tight text-slate-900">
+              <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold   leading-tight text-slate-900">
                 Loved By Daily  <br className="sm:hidden" />
                 <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                   Users  &amp; Team Admins</span>
-              </h2>
+              </h3>
 
               <p className="mt-4 text-sm sm:text-base lg:text-md leading-7 text-slate-500  mx-auto">
                 Discover how Scan n Go helps teams save time, improve security, and manage daily activities more efficiently.
@@ -1209,14 +1249,14 @@ export default function Home() {
 
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold  text-slate-900 mt-2">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold  text-slate-900 mt-2">
 
               Frequently Asked {" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
                 Questions
 
               </span>
-            </h2>
+            </h3>
             <p className="text-slate-500 mt-3 text-md leading-relaxed">
               Discover answers to common security compliance check logs and vehicle stickers setup workflows.
             </p>
@@ -1421,3 +1461,5 @@ export default function Home() {
     </>
   );
 }
+
+

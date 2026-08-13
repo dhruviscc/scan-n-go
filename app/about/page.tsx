@@ -141,7 +141,7 @@ export default function AboutPage() {
                     <div className="max-w-4xl mt-10">
 
                         <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                            Transforming Everyday Access with {" "}
+                            Transforming Everyday Experiences with {" "}
                             <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                                 <TypeAnimation
                                     sequence={[
@@ -158,10 +158,8 @@ export default function AboutPage() {
                             </span>
                         </h1>
                         <p className="mt-6 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 max-w-3xl mx-auto">
-                            Scan n Go is an Digital QR platform that simplifies visitor
-                            management, secure access, digital networking, queue management,
-                            vehicle identification, and workplace operations through one
-                            seamless experience.
+                           Scan n Go is a smart QR platform designed to simplify everyday interactions across attendance, vehicle communication, residential access, queue management, private meetings, and digital identity – bringing multiple QR-powered solutions together in one secure and seamless experience.
+
                         </p>
                     </div>
                 </div>
