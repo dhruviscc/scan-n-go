@@ -269,7 +269,7 @@ export default function Home() {
 
               {/* Phone Container */}
               <motion.div
-                className="relative z-10 w-[230px] sm:w-[290px] lg:w-[500px]"
+                className="relative z-10 w-[230px] sm:w-[290px] lg:w-[690px]"
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{
@@ -281,7 +281,7 @@ export default function Home() {
                 <div className="relative h-[470px] sm:h-[590px] ">
 
                   <Image
-                    src="/images/hero-right.png"
+                    src="/images/hero-3.png"
                     alt="Scan n Go App"
                     fill
                     priority

@@ -146,9 +146,6 @@ export default function Footer() {
 
 
             <div className="mt-8">
-              <h3 className="mb-5 text-lg font-semibold text-white">
-                Social Links
-              </h3>
 
 
               <div className="flex items-center gap-4">

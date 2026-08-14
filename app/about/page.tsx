@@ -13,6 +13,7 @@ import {
     Target,
     Users,
     Bell,
+    QrCode,
 } from "lucide-react";
 
 import { motion, Variants } from "framer-motion";
@@ -20,35 +21,34 @@ import { motion, Variants } from "framer-motion";
 const carouselItems = [
     {
         id: "1",
-        title: "Innovation",
-        description: "Building smarter QR solutions that simplify everyday experiences through continuous innovation.",
-
+        title: "Security",
+        description:
+            "Keeping user information and digital interactions safe and protected.",
     },
     {
         id: "2",
-        title: "Security",
-        description: "Protecting people, data, and digital interactions with secure and reliable technology.",
-
+        title: "Simplicity",
+        description:
+            "Making QR-based identification, communication, and everyday tasks easy for everyone.",
     },
     {
         id: "3",
-        title: "Customer First",
-        description: "Putting our users at the center by designing solutions that meet their real-world needs.",
-
+        title: "Reliability",
+        description:
+            "Building solutions that people can depend on every day.",
     },
     {
         id: "4",
-        title: "Simplicity",
-        description: "Creating easy QR experiences that are fast, easy to use, and accessible to everyone.",
-
+        title: "Innovation",
+        description:
+            "Creating better and smarter ways to use QR technology in everyday life.",
     },
     {
         id: "5",
-        title: "Reliability",
-        description: "Delivering dependable performance and consistent experiences you can trust every day.",
-
+        title: "Customer First",
+        description:
+            "Listening to our users and building solutions that solve their real needs.",
     },
-
 ];
 
 const benefits = [
@@ -138,17 +138,22 @@ export default function AboutPage() {
                 <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
 
                     {/* Center Content */}
-                    <div className="max-w-4xl mt-10">
+                    <div className="max-w-5xl mt-10">
 
-                        <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                            Transforming Everyday Experiences with {" "}
-                            <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                        <h1
+                            className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-slate-900"
+                        >
+                            <span className="block">
+                                Transforming Everyday Experiences
+                            </span>
+
+                            <span
+                                className="mt-2 block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent"
+                            >
                                 <TypeAnimation
                                     sequence={[
-                                        "Smart QR Solutions",
+                                        "With Smart QR Solutions",
                                         2000,
-
-
                                     ]}
                                     wrapper="span"
                                     speed={50}
@@ -158,7 +163,7 @@ export default function AboutPage() {
                             </span>
                         </h1>
                         <p className="mt-6 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 max-w-3xl mx-auto">
-                           Scan n Go is a smart QR platform designed to simplify everyday interactions across attendance, vehicle communication, residential access, queue management, private meetings, and digital identity – bringing multiple QR-powered solutions together in one secure and seamless experience.
+                            Scan n Go is a smart QR platform designed to simplify everyday interactions across attendance, vehicle communication, residential access, queue management, private meetings, and digital identity – bringing multiple QR-powered solutions together in one secure and seamless experience.
 
                         </p>
                     </div>
@@ -190,114 +195,295 @@ export default function AboutPage() {
                         meaningful.
                     </p>
                 </ScrollReveal>
-                <div className="max-w-[1580px] mx-auto px-5 sm:px-6 lg:px-8">
 
-                    <div className="grid gap-8 md:grid-cols-3 items-center">
 
-                        {/* Left column: Our Story + Our Goal */}
-                        <div className="space-y-10">
-                            <ScrollReveal>
-                                <div
-                                    className="group relative w-full overflow-hidden rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-8 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)] "
-                                >
+                <div className="max-w-[1580px] mx-auto px-5 sm:px-6 lg:px-8 ">
 
-                                    {/* Glass Highlight */}
-                                    <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80" />
+                    {/* Our Story */}
+                    <ScrollReveal>
+                        <div
+                            className="group relative w-full overflow-hidden rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-10 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
+                        >
+                            {/* Glass Highlight */}
+                            <div
+                                className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80"
+                            />
 
-                                    {/* Top Glow */}
-                                    <div className="pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:bg-violet-400/25 group-hover:scale-125" />
+                            {/* Top Glow */}
+                            <div
+                                className="pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:bg-violet-400/25"
+                            />
 
-                                    {/* Bottom Glow */}
-                                    <div className="pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl" />
+                            {/* Bottom Glow */}
+                            <div
+                                className="pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl  "
+                            />
 
-                                    {/* Glass Border Shine */}
-                                    <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+                            {/* Glass Border Shine */}
+                            <div
+                                className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90"
+                            />
 
-                                    {/* Content */}
-                                    <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+                            {/* Main Two Column Layout */}
+                            <div
+                                className="relative z-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12"
+                            >
+
+                                {/* ================= LEFT CONTENT ================= */}
+                                <div className="min-w-0">
+
+                                    {/* Header */}
+                                    <div className="flex items-center gap-4 sm:gap-5">
 
                                         {/* Premium Icon */}
                                         <div className="relative shrink-0">
-
                                             <div
                                                 className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]"
                                             >
                                                 <Book
                                                     size={26}
                                                     strokeWidth={2.2}
-                                                    className="text-white sm:w-7 sm:h-7"
+                                                    className="text-white sm:h-7 sm:w-7"
                                                 />
 
-                                                {/* Icon Inner Shine */}
+                                                {/* Icon Shine */}
                                                 <div
                                                     className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent"
                                                 />
                                             </div>
-
-
                                         </div>
 
-                                        {/* Content */}
-                                        <div className="min-w-0 flex-1">
-
+                                        {/* Title */}
+                                        <div className="min-w-0">
                                             <h4
-                                                className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-slate-900"
+                                                className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl lg:text-[26px]"
                                             >
                                                 Our Story
                                             </h4>
 
-                                            {/* Accent Line */}
                                             <div
-                                                className="mt-3 h-1 w-12 sm:w-14 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20"
+                                                className="mt-2.5 h-1 w-12 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20"
                                             />
-
-                                            <p
-                                                className="mt-4 sm:mt-5 text-sm sm:text-[15px] leading-6 sm:leading-7 text-slate-600"
-                                            >
-                                                Everyday access management is often slow, manual, and
-                                                inefficient. We created Scan n Go to replace traditional
-                                                processes with secure QR-powered technology that makes
-                                                check-ins, visitor management, and digital interactions
-                                                simple, fast, and reliable.
-                                            </p>
-
                                         </div>
 
                                     </div>
 
-                                    {/* Bottom Glass Reflection */}
+                                    {/* Description */}
+                                    <div className="mt-6 sm:mt-7">
+
+                                        <p
+                                            className="text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7"
+                                        >
+                                            Scan n Go was created to make identification,
+                                            communication, and everyday interactions simpler
+                                            through QR technology. Different QR codes can be
+                                            created for different needs, such as attendance,
+                                            visitor entry, vehicle communication, meetings,
+                                            contact sharing, and queue management.
+                                        </p>
+
+                                        <p
+                                            className="mt-4 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-[15px] sm:leading-7"
+                                        >
+                                            Each QR code can be linked to the required user
+                                            information. When the QR is scanned, the relevant
+                                            verified details can be accessed based on its
+                                            purpose, helping people identify, connect,
+                                            communicate, or complete an action quickly and easily.
+                                        </p>
+
+                                        <p
+                                            className="mt-4 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-[15px] sm:leading-7"
+                                        >
+                                            From workplaces and residential communities to
+                                            vehicles, meetings, events, and personal use,
+                                            Scan n Go brings these experiences together through
+                                            one connected platform.
+                                        </p>
+
+                                    </div>
+
+                                    {/* Core Concept */}
                                     <div
-                                        className="pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"
-                                    />
+                                        className="mt-6 rounded-2xl border border-violet-100 bg-gradient-to-br from-violet-50/80 via-white/70 to-indigo-50/60 p-4 sm:mt-7 sm:p-5"
+                                    >
+
+                                        <p
+                                            className="text-sm font-semibold leading-6 text-slate-800 sm:text-[15px]"
+                                        >
+                                            And this gives us a stronger core concept:
+                                        </p>
+
+                                        <ul
+                                            className="mt-3 space-y-2 text-sm leading-6 text-slate-600 sm:text-[15px]"
+                                        >
+                                            <li className="flex items-start gap-2.5">
+                                                <span
+                                                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500"
+                                                />
+                                                <span>Different QR codes.</span>
+                                            </li>
+
+                                            <li className="flex items-start gap-2.5">
+                                                <span
+                                                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500"
+                                                />
+                                                <span>Different purposes.</span>
+                                            </li>
+
+                                            <li className="flex items-start gap-2.5">
+                                                <span
+                                                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500"
+                                                />
+                                                <span>
+                                                    <strong className="font-semibold text-slate-800">
+                                                        One connected identity platform.
+                                                    </strong>
+                                                </span>
+                                            </li>
+                                        </ul>
+
+                                    </div>
 
                                 </div>
-                            </ScrollReveal>
 
-                            <ScrollReveal>
+
+                                {/* ================= RIGHT VISUAL ================= */}
+                                <div className="relative flex min-h-[320px] items-center justify-center sm:min-h-[380px] lg:min-h-[460px]">
+
+                                    {/* Background Glow */}
+                                    <div
+                                        className="absolute h-52 w-52 rounded-full bg-violet-400/20 blur-3xl sm:h-72 sm:w-72"
+                                    />
+
+                                    {/* Decorative Ring */}
+                                    <div
+                                        className="absolute h-56 w-56 rounded-full border border-violet-200/50 sm:h-80 sm:w-80"
+                                    />
+
+                                    <div
+                                        className="absolute h-44 w-44 rounded-full border border-indigo-200/40 sm:h-64 sm:w-64"
+                                    />
+
+                                    {/* Main Image Card */}
+                                    {/* Center image card */}
+                                    <div className="flex items-center justify-center">
+                                        <ScrollReveal>
+                                            <div className="relative flex items-center justify-center">
+
+
+                                                {/* Card */}
+                                                <div
+                                                    className="relative overflow-hidden rounded-2xl border border-white/100 bg-white/80 p-5 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.03] hover:shadow-[0_50px_120px_rgba(124,58,237,0.30)]"
+                                                >
+                                                    <div className="relative w-full max-w-[340px] h-auto aspect-[34/52] flex items-center justify-center">
+
+                                                        <Image
+                                                            src="/images/about.png"
+                                                            alt="Scan n Go "
+                                                            width={340}
+                                                            height={520}
+                                                            priority
+                                                            className=" object-cover drop-shadow-[0_35px_70px_rgba(124,58,237,0.35)] transition-all rounded-xl duration-500 hover:scale-105"
+                                                        />
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </ScrollReveal>
+                                    </div>
+
+
+                                    {/* Floating QR Badge */}
+                                    <div
+                                        className="absolute bottom-8 left-2 z-20 flex items-center gap-2 rounded-2xl border border-white/80 bg-white/85 px-3 py-2.5 shadow-[0_15px_35px_rgba(15,23,42,0.12)] backdrop-blur-xl sm:bottom-10 sm:left-0"
+                                    >
+                                        <div
+                                            className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600"
+                                        >
+                                            <QrCode size={18} />
+                                        </div>
+
+                                        <div>
+                                            <p className="text-[10px] font-medium text-slate-500">
+                                                Powered by
+                                            </p>
+                                            <p className="text-xs font-bold text-slate-800">
+                                                Smart QR
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Floating Connected Badge */}
+                                    <div
+                                        className="absolute right-0 top-8 z-20 rounded-2xl border border-white/80 bg-white/85 px-3 py-2.5 shadow-[0_15px_35px_rgba(15,23,42,0.12)] backdrop-blur-xl sm:right-2 sm:top-12"
+                                    >
+                                        <div className="flex items-center gap-2">
+
+                                            <span
+                                                className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"
+                                            />
+
+                                            <span
+                                                className="text-xs font-semibold text-slate-700"
+                                            >
+                                                Connected Platform
+                                            </span>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            {/* Bottom Reflection */}
+                            <div
+                                className="pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"
+                            />
+
+                        </div>
+                    </ScrollReveal>
+
+                    <div className="grid gap-8 md:grid-cols-3 items-start mt-8">
+                        {/* goal */}
+                        <ScrollReveal>
+                            <div
+                                className="group relative w-full overflow-hidden rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-8 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
+                            >
+
+                                {/* Glass Highlight */}
                                 <div
-                                    className="group relative w-full overflow-hidden rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-8 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
-                                >
+                                    className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80"
+                                />
 
-                                    {/* Glass Highlight */}
-                                    <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80" />
+                                {/* Top Glow */}
+                                <div
+                                    className="pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:bg-violet-400/25 group-hover:scale-125"
+                                />
 
-                                    {/* Top Glow */}
-                                    <div className="pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:bg-violet-400/25 group-hover:scale-125" />
+                                {/* Bottom Glow */}
+                                <div
+                                    className="pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl"
+                                />
 
-                                    {/* Bottom Glow */}
-                                    <div className="pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl" />
+                                {/* Glass Border Shine */}
+                                <div
+                                    className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90"
+                                />
 
-                                    {/* Glass Border Shine */}
-                                    <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+                                {/* Main Content */}
+                                <div className="relative z-10 w-full">
 
-                                    {/* Main Content */}
-                                    <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+                                    {/* Top: Icon + Heading */}
+                                    <div className="flex w-full items-center gap-4 sm:gap-5">
 
                                         {/* Premium Icon */}
                                         <div className="relative shrink-0">
-
-                                            <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]">
-
+                                            <div
+                                                className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]"
+                                            >
                                                 <Check
                                                     size={26}
                                                     strokeWidth={2.2}
@@ -309,105 +495,89 @@ export default function AboutPage() {
                                                     className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent"
                                                 />
                                             </div>
-
-
                                         </div>
 
-                                        {/* Content */}
-                                        <div className="min-w-0 flex-1">
-
+                                        {/* Heading */}
+                                        <div className="min-w-0">
                                             <h4
-                                                className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-slate-900"
+                                                className="text-lg font-bold tracking-tight text-slate-900 sm:text-xl lg:text-2xl"
                                             >
                                                 Our Goal
                                             </h4>
 
                                             {/* Accent Line */}
                                             <div
-                                                className="mt-3 h-1 w-12 sm:w-14 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20"
+                                                className="mt-2.5 h-1 w-12 sm:w-14 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20 "
                                             />
-
-                                            <p
-                                                className="mt-4 sm:mt-5 text-sm sm:text-[15px] leading-6 sm:leading-7 text-slate-600"
-                                            >
-                                                To simplify secure access and digital interactions through
-                                                Digital QR technology, enabling faster, safer, and
-                                                smarter experiences for individuals, businesses, and
-                                                communities.
-                                            </p>
-
                                         </div>
 
                                     </div>
 
-                                    {/* Bottom Glass Reflection */}
-                                    <div
-                                        className="pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"
-                                    />
-
-                                </div>
-                            </ScrollReveal>
-                        </div>
-
-                        {/* Center image card */}
-                        <div className="flex items-center justify-center">
-                            <ScrollReveal>
-                                <div className="relative flex items-center justify-center">
-
-
-                                    {/* Card */}
-                                    <div
-                                        className="relative overflow-hidden rounded-2xl border border-white/100 bg-white/80 p-5 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.03] hover:shadow-[0_50px_120px_rgba(124,58,237,0.30)]"
-                                    >
-                                        <div className="relative w-full max-w-[340px] h-auto aspect-[34/52] flex items-center justify-center">
-
-                                            <Image
-                                                src="/images/about.png"
-                                                alt="Scan n Go "
-                                                width={340}
-                                                height={520}
-                                                priority
-                                                className=" object-cover drop-shadow-[0_35px_70px_rgba(124,58,237,0.35)] transition-all rounded-xl duration-500 hover:scale-105"
-                                            />
-
-                                        </div>
+                                    {/* Bottom: Full Width Content */}
+                                    <div className="mt-5 w-full sm:mt-6">
+                                        <p
+                                            className="w-full text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7"
+                                        >
+                                            To make Scan n Go a trusted digital identity platform where
+                                            people can use QR-based solutions to identify themselves,
+                                            share verified information, and connect with people, places,
+                                            and services more easily.
+                                        </p>
                                     </div>
 
                                 </div>
-                            </ScrollReveal>
-                        </div>
 
-                        {/* Right column: Vision + Mission */}
-                        <div className="space-y-10">
-                            <ScrollReveal>
+                                {/* Bottom Glass Reflection */}
                                 <div
-                                    className=" group relative w-full overflow-hidden  rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-8 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)]  transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
-                                >
+                                    className="
+                pointer-events-none absolute bottom-0
+                left-1/4 right-1/4 h-px
+                bg-gradient-to-r
+                from-transparent via-violet-300/40 to-transparent
+            "
+                                />
 
-                                    {/* Glass Highlight */}
-                                    <div
-                                        className=" pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80"
-                                    />
+                            </div>
+                        </ScrollReveal>
 
-                                    {/* Top Glow */}
-                                    <div className=" pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:bg-violet-400/25" />
+                        {/* Vision */}
 
-                                    {/* Bottom Glow */}
-                                    <div className=" pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl" />
+                        <ScrollReveal>
+                            <div
+                                className="  group relative w-full overflow-hidden rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-8 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
+                            >
 
-                                    {/* Glass Border Shine */}
-                                    <div className=" pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+                                {/* Glass Highlight */}
+                                <div
+                                    className=" pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80"
+                                />
 
-                                    {/* Main Content */}
-                                    <div className=" relative z-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6"   >
+                                {/* Top Glow */}
+                                <div
+                                    className="  pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:bg-violet-400/25"
+                                />
+
+                                {/* Bottom Glow */}
+                                <div
+                                    className=" pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl"
+                                />
+
+                                {/* Glass Border Shine */}
+                                <div
+                                    className=" pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90"
+                                />
+
+                                {/* Main Content */}
+                                <div className="relative z-10 w-full">
+
+                                    {/* Top: Icon + Heading */}
+                                    <div className="flex w-full items-center gap-4 sm:gap-5">
 
                                         {/* Premium Icon */}
                                         <div className="relative shrink-0">
-
                                             <div
-                                                className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]"
+                                                className=" relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]"
                                             >
-
                                                 <Eye
                                                     size={26}
                                                     strokeWidth={2.2}
@@ -416,72 +586,85 @@ export default function AboutPage() {
 
                                                 {/* Icon Inner Shine */}
                                                 <div
-                                                    className="  pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent"
+                                                    className=" pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent"
                                                 />
                                             </div>
-
                                         </div>
 
-                                        {/* Content */}
-                                        <div className="min-w-0 flex-1">
-
+                                        {/* Heading */}
+                                        <div className="min-w-0">
                                             <h4
-                                                className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-slate-900"
+                                                className="  text-lg font-bold tracking-tight text-slate-900 sm:text-xl lg:text-2xl"
                                             >
                                                 Our Vision
                                             </h4>
 
                                             {/* Accent Line */}
                                             <div
-                                                className="mt-3 h-1 w-12 sm:w-14 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20"
+                                                className=" mt-2.5 h-1 w-12 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20"
                                             />
-
-                                            <p
-                                                className="mt-4 sm:mt-5 text-sm sm:text-[15px] leading-6 sm:leading-7 text-slate-600"
-                                            >
-                                                To become the trusted global platform for QR-powered access
-                                                management, connecting people, vehicles, visitors, and
-                                                organisations through seamless, secure, and innovative
-                                                digital solutions.
-                                            </p>
-
                                         </div>
-
                                     </div>
 
-                                    {/* Bottom Glass Reflection */}
-                                    <div
-                                        className="pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"
-                                    />
+                                    {/* Bottom: Full Width Content */}
+                                    <div className="mt-5 w-full sm:mt-6">
+                                        <p
+                                            className="   w-full text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7"
+                                        >
+                                            To build a connected digital identity system that can be used
+                                            across different places and everyday situations — making
+                                            identification, communication, and access simpler, safer,
+                                            and more reliable.
+                                        </p>
+                                    </div>
 
                                 </div>
-                            </ScrollReveal>
 
-                            <ScrollReveal>
+                                {/* Bottom Glass Reflection */}
                                 <div
-                                    className="group relative w-full overflow-hidden rounded-3xl border border-white/70 bg-white/55 p-5 sm:p-7 lg:p-8 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
-                                >
+                                    className="  pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"
+                                />
+                            </div>
+                        </ScrollReveal>
 
-                                    {/* Glass Highlight */}
-                                    <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80" />
+                        {/* Mission */}
+                        <ScrollReveal>
+                            <div
+                                className="  group relative w-full overflow-hidden rounded-3xl    border border-white/70 bg-white/55     p-5 sm:p-7 lg:p-8     backdrop-blur-2xl  shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-violet-200/80 hover:bg-white/65 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
+                            >
 
-                                    {/* Background Glow */}
-                                    <div className="pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:bg-violet-400/25" />
+                                {/* Glass Highlight */}
+                                <div
+                                    className="   pointer-events-none absolute inset-0 rounded-3xl  bg-gradient-to-br from-white/70 via-white/20 to-violet-100/10 opacity-80"
+                                />
 
-                                    {/* Bottom Glow */}
-                                    <div className="pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl" />
+                                {/* Background Glow */}
+                                <div
+                                    className=" pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-violet-400/15 blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:bg-violet-400/25"
+                                />
 
-                                    {/* Glass Border Shine */}
-                                    <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+                                {/* Bottom Glow */}
+                                <div
+                                    className=" pointer-events-none absolute -bottom-24 -left-20 h-40 w-40 rounded-full bg-indigo-400/10 blur-3xl"
+                                />
 
-                                    {/* Main Content */}
-                                    <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+                                {/* Glass Border Shine */}
+                                <div
+                                    className="  pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90"
+                                />
+
+                                {/* Main Content */}
+                                <div className="relative z-10 w-full">
+
+                                    {/* Top: Icon + Title */}
+                                    <div className="flex w-full items-center gap-4 sm:gap-5">
 
                                         {/* Premium Icon */}
                                         <div className="relative shrink-0">
-
-                                            <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]">
-
+                                            <div
+                                                className=" relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-white/40 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 shadow-[0_15px_35px_rgba(124,58,237,0.30)] transition-all duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_20px_45px_rgba(124,58,237,0.40)]
+                        "
+                                            >
                                                 <Rocket
                                                     size={26}
                                                     strokeWidth={2.2}
@@ -490,50 +673,49 @@ export default function AboutPage() {
 
                                                 {/* Icon Inner Shine */}
                                                 <div
-                                                    className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent"
+                                                    className=" pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent"
                                                 />
                                             </div>
-
-
                                         </div>
 
-                                        {/* Content */}
-                                        <div className="min-w-0 flex-1">
-
+                                        {/* Title */}
+                                        <div className="min-w-0">
                                             <h4
-                                                className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-slate-900 mb-3"
+                                                className=" mb-0 text-lg font-bold tracking-tight text-slate-900 sm:text-xl lg:text-2xl"
                                             >
                                                 Our Mission
                                             </h4>
 
                                             {/* Accent Line */}
                                             <div
-                                                className="mt-3 h-1 w-12 sm:w-14 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20"
-                                            />
-
-                                            <p
-                                                className="mt-4 sm:mt-5 text-sm sm:text-[15px] leading-6 sm:leading-7 text-slate-600"
-                                            >
-                                                To deliver reliable QR-based solutions that enhance security,
-                                                automate visitor management, streamline operations, and
-                                                provide real-time notifications for modern workplaces and
-                                                residential communities.
-                                            </p>
-
+                                                className=" mt-2.5 h-1 w-12 sm:w-14 rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 transition-all duration-500 group-hover:w-20" />
                                         </div>
-
                                     </div>
 
-                                    {/* Bottom Glass Reflection */}
-                                    <div
-                                        className="pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"
-                                    />
+                                    {/* Bottom: Full Width Content */}
+                                    <div className="mt-5 w-full sm:mt-6">
+                                        <p
+                                            className=" w-full text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7"
+                                        >
+                                            To build a connected digital identity system that can be used
+                                            across different places and everyday situations — making
+                                            identification, communication, and access simpler, safer,
+                                            and more reliable.
+                                        </p>
+                                    </div>
 
                                 </div>
-                            </ScrollReveal>
-                        </div>
+
+                                {/* Bottom Glass Reflection */}
+                                <div
+                                    className=" pointer-events-none absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent" />
+
+                            </div>
+                        </ScrollReveal>
+
                     </div>
                 </div>
+
             </section>
 
             {/* Core Values */}
@@ -656,7 +838,8 @@ export default function AboutPage() {
                                     <span className="border-b-2 border-indigo-500 pb-1">
                                         Benefits
                                     </span>{" "}
-                                    of Scan n Go                                </h2>
+                                    of Scan n Go
+                                </h2>
 
                                 <p
                                     className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg"

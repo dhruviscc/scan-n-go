@@ -27,7 +27,7 @@ const featureSections = [
     description:
       "Create a secure digital identity with guided onboarding that keeps every profile organized and protected.",
     icon: ShieldCheck,
-    imageSrc: "/images/profile-2.png",
+    imageSrc: "/images/profile.png",
     points: [
       "Secure Account Access: Log in to access all Scan n Go features and manage your profile securely.",
       "Complete Your Profile: Verify your identity with live face detection, then add your name, email, mobile number",
@@ -38,7 +38,7 @@ const featureSections = [
     description:
       "Every scan becomes part of a transparent activity trail that helps users review entries quickly.",
     icon: History,
-    imageSrc: "/images/history-1.png",
+    imageSrc: "/images/history-2.png",
 
     points: [
       "Complete Activity Log:  Every QR scan automatically records the user's photo, name, mobile number, date, time, and entry/exit status for accurate tracking.",
@@ -50,7 +50,7 @@ const featureSections = [
     description:
       "Share your identity and contact details through a personalized digital QR with complete control over visibility.",
     icon: QrCode,
-    imageSrc: "/images/contect-1.png",
+    imageSrc: "/images/contact-2.png",
 
     points: [
       "Unique Digital QR: Every user receives a personalized QR code to share their identity securely.",
@@ -62,7 +62,7 @@ const featureSections = [
     description:
       "Assign every vehicle a smart QR for secure identification, quick access.",
     icon: Car,
-    imageSrc: "/images/vehicle-2.png",
+    imageSrc: "/images/vehicle-Qr.png",
 
     points: [
       "Dual QR Access: Each vehicle includes two QR codes—one for daily use and one as a backup. If anyone has scans the QR code they can choose Emergency option for send instant alert  for emergency and Second is  Normal notification for Complain invalid parking and other complain.",
@@ -74,7 +74,7 @@ const featureSections = [
     description:
       "Enable Quick Entry for faster, secure QR-based check-ins with fewer steps.",
     icon: Zap,
-    imageSrc: "/images/quick-1.png",
+    imageSrc: "/images/quick-entry-3.png",
 
     points: [
       "Quick Entry Mode: Turn on Quick Entry to let visitors scan the QR and enter instantly without manually entering their details.",
@@ -291,33 +291,7 @@ export default function Features() {
             ({ title, description, icon: Icon, points, imageSrc }, idx) => (
               <motion.article
                 key={title}
-                className="
-              grid
-              w-full
-              grid-cols-1
-              items-center
-              gap-7
-              overflow-hidden
-              rounded-[24px]
-              border
-              border-slate-200
-              bg-white
-              p-4
-              shadow-sm
-              transition
-              duration-300
-              hover:-translate-y-1
-              hover:shadow-xl
-
-              sm:gap-8
-              sm:rounded-[28px]
-              sm:p-6
-
-              md:p-8
-
-              lg:grid-cols-[minmax(0,1fr)_380px]
-              lg:gap-10
-            "
+                className="grid w-full grid-cols-1 items-center gap-7 overflow-hidden rounded-[24px] border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:gap-8 sm:rounded-[28px] sm:p-6 md:p-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-10"
                 variants={itemVariants}
               >
 
@@ -474,7 +448,8 @@ export default function Features() {
                   <span className="border-b-2 border-indigo-500 pb-1">
                     Benefits
                   </span>{" "}
-                  of Scan n Go                </h2>
+                  of Scan n Go              
+                    </h2>
 
                 <p
                   className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg"
