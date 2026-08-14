@@ -1177,7 +1177,7 @@ export default function Home() {
   "
             >
               <img
-                src="/images/hero.png"
+                src="/images/all-in-one-1.png"
                 alt="Scan n Go Mobile App Preview"
                 className="
       relative z-10
@@ -1188,7 +1188,7 @@ export default function Home() {
 
       sm:w-[280px] sm:h-[450px]
 
-      lg:w-[280px] lg:h-auto
+      lg:w-[600px] lg:h-auto
     "
                 style={{ animationDelay: "0.5s" }}
               />
