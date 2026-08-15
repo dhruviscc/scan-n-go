@@ -119,7 +119,7 @@ const itemVariants: Variants = {
     visible: {
         opacity: 1,
         y: 0,
-        scale: 1,
+        scale: 1,   
         transition: { duration: 0.5, ease: "easeOut" },
     },
 };
@@ -137,10 +137,12 @@ export default function AboutPage() {
                 />
 
 
-                <div className="pointer-events-none absolute inset-0 opacity-40">
-                    <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
-                    <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
+               <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute top-[-10%] right-[-10%] w-[550px] h-[550px] rounded-full bg-violet-400/25 blur-[120px] animate-pulse-slow" />
+                    <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-purple-300/35 blur-[100px] animate-pulse-slow" style={{ animationDelay: "1s" }} />
+                    <div className="absolute top-[35%] left-[45%] w-[300px] h-[300px] rounded-full bg-blue-300/20 blur-[80px]" />
                 </div>
+
                 <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
 
 

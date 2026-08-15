@@ -621,7 +621,7 @@ export default function BlogsDetailsPage() {
                                                         />
                                                     </div>
                                                 )}
-                                                <div className="font-sm text-sm text-gray-900 max-w-xs hover:underline">
+                                                <div className="font-sm text-sm text-gray-900 max-w-xs ">
                                                     <div>
                                                         {blog.title}
                                                     </div>
