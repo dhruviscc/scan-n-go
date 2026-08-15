@@ -129,7 +129,13 @@ export default function AboutPage() {
     return (
         <div className="bg-slate-50 text-slate-900 min-h-screen">
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-20 sm:py-28">
+            <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-20 sm:py-28">  
+                {/* Background Image with Subtle Opacity Overlay */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
+                    style={{ backgroundImage: `url('/images/about-1.png')` }}
+                />
+
 
                 <div className="pointer-events-none absolute inset-0 opacity-40">
                     <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-300 blur-3xl" />
@@ -137,22 +143,17 @@ export default function AboutPage() {
                 </div>
                 <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-6 lg:px-8">
 
+
                     {/* Center Content */}
-                    <div className="max-w-5xl mt-10">
+                    <div className="max-w-4xl mt-10">
 
-                        <h1
-                            className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-slate-900"
-                        >
-                            <span className="block">
-                                Transforming Everyday Experiences
-                            </span>
 
-                            <span
-                                className="mt-2 block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent"
-                            >
+                        <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                            Transforming Everyday Access with {" "}
+                            <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                                 <TypeAnimation
                                     sequence={[
-                                        "With Smart QR Solutions",
+                                        "Smart QR Solutions",
                                         2000,
                                     ]}
                                     wrapper="span"
@@ -163,12 +164,18 @@ export default function AboutPage() {
                             </span>
                         </h1>
                         <p className="mt-6 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 max-w-3xl mx-auto">
-                            Scan n Go is a smart QR platform designed to simplify everyday interactions across attendance, vehicle communication, residential access, queue management, private meetings, and digital identity – bringing multiple QR-powered solutions together in one secure and seamless experience.
-
+                            Scan n Go is an Digital QR platform that simplifies visitor
+                            management, secure access, digital networking, queue management,
+                            vehicle identification, and workplace operations through one
+                            seamless experience.
                         </p>
                     </div>
                 </div>
             </section>
+
+
+
+
 
             {/* Story + Purpose layout: left/right cards with center image */}
 

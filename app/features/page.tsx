@@ -50,23 +50,23 @@ const featureSections = [
   {
     title: "Contact QR",
     description:
-      "Share your identity and contact details through a personalized digital QR with complete control over visibility.",
+      "Share your contact details and digital identity instantly through your personalized QR code.",
     icon: QrCode,
     imageSrc: "/images/contact-2.png",
     points: [
-      "Unique Digital QR: Every user receives a personalized QR code to share their identity securely.",
-      "Share What You Choose: Share details such as your name, phone number, and preferred information.",
+      "Automatic QR Generation: A unique Contact QR is automatically generated when you register on Scan n Go.",
+      "Instant Contact Sharing: Let others scan your QR to quickly access and save your available contact details..",
     ],
   },
   {
     title: "Vehicle QR Code",
     description:
-      "Assign every vehicle a smart QR for secure identification, quick access.",
+      "Give every vehicle a dedicated QR code that makes it easy to notify the owner when attention is needed.",
     icon: Car,
     imageSrc: "/images/vehicle-Qr.png",
     points: [
-      "Dual QR Access: Each vehicle includes two QR codes—one for daily use and one as a backup. If anyone has scans the QR code they can choose Emergency option for send instant alert  for emergency and Second is  Normal notification for Complain invalid parking and other complain.",
-      "Manage Multiple Vehicle QR Codes: Own more than one vehicle? Easily gets multiple QR codes, with a Unique QR.",
+      "Emergency & Parking Notifications: Scan the vehicle QR, select the appropriate reason, and quickly notify the vehicle owner.",
+      "Manage Multiple Vehicles: Manage QR codes for multiple vehicles, with a unique QR assigned to each vehicle.",
     ],
   },
   {
@@ -81,6 +81,9 @@ const featureSections = [
     ],
   },
 ];
+
+
+
 
 
 
