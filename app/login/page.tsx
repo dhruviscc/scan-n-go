@@ -119,7 +119,7 @@ export default function LoginPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-violet-200 rounded-xl text-slate-900 placeholder-slate-400 transition-all duration-300 sm:text-sm focus:outline-none focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 hover:border-violet-300"
-                    placeholder="admin@sdenterprise.com"
+                    placeholder="admin@scanngo.com"
                     autoComplete="email"
                   />
                 </div>
