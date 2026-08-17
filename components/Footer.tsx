@@ -123,7 +123,7 @@ export default function Footer() {
 
 
       {/* ================= Main Footer Content ================= */}
-      <div className="relative z-10 max-w-[1600px] mx-auto  lg:px-4  pt-20 sm:pt-24 lg:pt-32">
+      <div className="relative max-w-[1600px] mx-auto  lg:px-4  pt-20 sm:pt-24 lg:pt-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 xl:gap-12">
           {/* Column 1 */}
           <div>

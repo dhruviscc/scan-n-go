@@ -176,9 +176,6 @@ export default function AboutPage() {
             </section>
 
 
-
-
-
             {/* Story + Purpose layout: left/right cards with center image */}
 
             <section className="py-20 sm:py-24 bg-slate-50">
