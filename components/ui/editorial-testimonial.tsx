@@ -1,195 +1,271 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ChevronLeft, ChevronRight, Star } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Heart, Star } from "lucide-react"
 
 const testimonials = [
     {
         id: 1,
-        quote: "The Vehicle QR feature gives my family extra peace of mind. If an emergency ever happens, the right people are notified immediately. It's a simple idea that adds real safety to every journey.",
-        author: " Rahul Mehta",
+        quote:
+            "The Vehicle QR feature gives my family extra peace of mind. If an emergency ever happens, the right people are notified immediately. It's a simple idea that adds real safety to every journey.",
+        author: "Rahul Mehta",
         role: "Business Owner",
         stars: 5,
     },
     {
         id: 2,
-        quote: "Our QR attendance solution makes daily entry simple, secure, and reliable. The reporting dashboard is a huge help for our team.",
-        author: "Marcus Webb",
+        quote:
+            "Scan n Go makes daily attendance quick and easy. The QR code is simple to use, and the attendance reports help our team keep track of everything.",
+        author: "priya Jani",
         role: "Head of Design",
         stars: 4,
     },
     {
         id: 3,
-        quote: "The emergency notification system gives our family peace of mind. A quick scan can notify us immediately whenever help is needed.",
-        author: "Elena Voss",
+        quote:
+            "The emergency notification system gives our family peace of mind. A quick scan can notify us immediately whenever help is needed.",
+        author: "Elena Rathod",
         role: "Art Director",
-
         stars: 5,
     },
     {
         id: 4,
-        quote: "Scan n Go made vehicle and visitor alerts much easier for our community. It is a practical solution we use every day.",
-        author: "Sarah Jenkins",
-        role: "Art Director",
-
+        quote:
+            "Scan n Go made vehicle and visitor alerts much easier for our community. It is a practical solution we use every day.",
+        author: "Sarah Sharma",
+        role: "Community Manager",
         stars: 3,
     },
     {
         id: 5,
-        quote: "The platform is simple for users and powerful for admins. The instant notification flow has been especially valuable.",
+        quote:
+            "The Queue QR makes waiting simple and stress-free. You can see your turn in real time and get an instant notification when it’s your turn.",
         author: "Naomi Patel",
-        role: "Art Director",
-
+        role: "Operations Manager",
         stars: 5,
     },
 ]
 
 export default function TestimonialsEditorial() {
     const [active, setActive] = useState(0)
-    const [isTransitioning, setIsTransitioning] = useState(false)
+    const [direction, setDirection] = useState<"next" | "prev" | "none">("none")
     const [isPaused, setIsPaused] = useState(false)
 
-    const handleChange = (index: number) => {
-        if (index === active || isTransitioning) return
-        setIsTransitioning(true)
-        setTimeout(() => {
-            setActive(index)
-            setTimeout(() => setIsTransitioning(false), 50)
-        }, 300)
+    const handleChange = (newIndex: number, dir: "next" | "prev") => {
+        setDirection(dir)
+        setActive(newIndex)
     }
 
-    const handlePrev = () => {
-        const newIndex = active === 0 ? testimonials.length - 1 : active - 1
-        handleChange(newIndex)
-    }
 
     const handleNext = () => {
-        const newIndex = active === testimonials.length - 1 ? 0 : active + 1
-        handleChange(newIndex)
+        const newIndex =
+            active === testimonials.length - 1 ? 0 : active + 1
+
+        handleChange(newIndex, "next")
     }
 
     const current = testimonials[active]
 
+    const variants = {
+        enter: (direction: "next" | "prev") => ({
+            x: direction === "next" ? 300 : -300,
+            opacity: 0,
+            scale: 0.8,
+        }),
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+            scale: 1,
+        },
+        exit: (direction: "next" | "prev") => ({
+            zIndex: 0,
+            x: direction === "prev" ? 300 : -300,
+            opacity: 0,
+            scale: 0.8,
+        }),
+    };
+
     useEffect(() => {
         if (isPaused) return
+
         const timer = window.setInterval(() => {
             handleNext()
         }, 5000)
 
-        return () => {
-            window.clearInterval(timer)
-        }
+        return () => window.clearInterval(timer)
     }, [active, isPaused])
 
     return (
-        <div
+        <section
+            className=" relative  w-full  overflow-hidden  px-4  py-16 sm:px-6 sm:py-20 md:px-10 lg:py-2"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-            className="relative w-full max-w-5xl mx-auto px-8 py-10 rounded-[32px] bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_25px_80px_rgba(15,23,42,0.18),0_10px_30px_rgba(99,102,241,0.15)]
-
-                before:absolute
-                before:inset-0
-                before:rounded-[32px]
-                before:bg-gradient-to-br
-                before:from-white/30
-                before:via-transparent
-                before:to-transparent
-                before:pointer-events-none
-
-                after:absolute
-                after:-bottom-6
-                after:left-1/2
-                after:-translate-x-1/2
-                after:w-[90%]
-                after:h-8
-                after:bg-indigo-500/20
-                after:blur-3xl
-                after:rounded-full
-                after:-z-10
-
-                hover:-translate-y-3
-                hover:scale-[1.015]
-                hover:shadow-[0_40px_100px_rgba(99,102,241,0.28),0_20px_50px_rgba(0,0,0,0.18)]
-
-                transition-all
-                duration-500
-                ease-out    
-            "
-        >            <div
-            className={` group cursor-default transition-all duration-300 delay-100 ${isTransitioning ? "opacity-0" : "opacity-100"
-                }`}
         >
-                <div className="flex items-center justify-end gap-4">
+            {/* ================= BACKGROUND ================= */}
 
-                    <div>
-                        <div className="flex items-center gap-1 mb-2">
-                            {Array.from({ length: current.stars }).map((_, index) => (
-                                <Star key={index} className="h-4 w-4 text-amber-400" />
-                            ))}
-                        </div>
-                        <p className="font-medium text-foreground">{current.author}</p>
-                        <p className="text-sm text-muted-foreground">
-                            {current.role}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="flex items-start gap-8">
-
-                <span
-                    className="text-[120px] font-light leading-none text-foreground/10 select-none transition-all duration-500"
-                    style={{ fontFeatureSettings: '"tnum"' }}
+            {/* Huge outlined text */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none">
+                <h2
+                    className=" flex
+            flex-col
+            items-center
+            justify-center
+            gap-1
+       
+            text-center
+            font-black
+            
+            leading-[2]
+            tracking-[-0.06em]
+            text-transparent
+            text-[100px]
+            sm:text-[165px]
+            md:text-[220px]
+            lg:text-[200px]
+        "
+                    style={{
+                        WebkitTextStroke: "2px rgba(124, 58, 237, 0.15)",
+                    }}
                 >
-                    {String(active + 1).padStart(2, "0")}
-                </span>
-
-
-                <div className="flex-1 pt-6">
-                    <blockquote
-                        className={`text-2xl md:text-2xl font-light leading-relaxed text-foreground tracking-tight transition-all duration-300 ${isTransitioning ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"
-                            }`}
-                    >
-                        {current.quote}
-                    </blockquote>
-
-
-                </div>
+                    <span>FEED</span>
+                    <span>BACK</span>
+                </h2>
             </div>
 
-            <div className="mt-16 flex items-center justify-between">
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-3">
-                        {testimonials.map((_, index) => (
-                            <button key={index} onClick={() => handleChange(index)} className="group relative py-4">
-                                <span
-                                    className={`block h-px transition-all duration-500 ease-out ${index === active
-                                        ? "w-12 bg-foreground"
-                                        : "w-6 bg-foreground/20 group-hover:w-8 group-hover:bg-foreground/40"
-                                        }`}
-                                />
-                            </button>
-                        ))}
+            {/* subtle background glow */}
+            <div className="pointer-events-none absolute left-[10%] top-[15%] h-40 w-40 rounded-full bg-white/30 blur-3xl" />
+            <div className="pointer-events-none absolute bottom-[10%] right-[10%] h-52 w-52 rounded-full bg-violet-300/20 blur-3xl" />
+
+            {/* ================= MAIN ================= */}
+            <div className="relative z-10 mx-auto flex min-h-[560px] max-w-6xl items-center justify-center px-4 sm:px-6 ">
+                <div className="relative w-full max-w-6xl transition-all duration-500 ">
+
+                    {/* ================= HEART BADGE ================= */}
+
+                    <div className=" absolute  -left-2 -top-7 z-30  flex  h-[70px]  w-[105px]  items-center  justify-center  rounded-[18px]  bg-violet-600  shadow-[0_18px_35px_rgba(124,58,237,0.28)]  sm:-right-5 sm:left-auto  sm:-top-8  sm:h-[72px] sm:w-[105px]  "
+                    >
+                        {/* Badge Pointer */}
+                        <div
+                            className="absolute -bottom-[14px] left-1/2 h-7 w-7 -translate-x-1/2 rotate-45 bg-violet-600"
+                        />
+                        <Heart
+                            fill="white"
+                            strokeWidth={0}
+                            className="relative z-10 h-9 w-9 text-white sm:h-10 sm:w-10"
+                        />
                     </div>
-                    <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                        {String(active + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
-                    </span>
-                </div>
 
-                <div className="flex items-center gap-1">
-                    <button
-                        onClick={handlePrev}
-                        className="p-2 rounded-full text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
+                    {/* ================= TESTIMONIAL CARD ================= */}
+
+                    <div
+                        className="
+        relative overflow-visible
+        rounded-[28px]
+        px-6 pb-7 
+        sm:rounded-[30px]
+        sm:px-10 sm:pb-9 sm:pt-10
+        md:px-16 md:pb-10 md:pt-5
+    "
+                        style={{ minHeight: "370px" }}
                     >
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                        onClick={handleNext}
-                        className="p-2 rounded-full text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
-                    >
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
+                        <div
+                            className="mx-auto max-w-4xl text-center"
+                        >
+                            <AnimatePresence initial={false} custom={direction}>
+                                <motion.div
+                                    key={active}
+                                    custom={direction}
+                                    variants={variants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{
+                                        x: { type: "spring", stiffness: 250, damping: 25 },
+                                        scale: { duration: 0.3 },
+                                        opacity: { duration: 0.2 },
+                                    }}
+                                    className=" absolute inset-x-0 top-0 rounded-[28px]  border border-violet-200/60 bg-gradient-to-br  from-white  via-violet-300/30 to-indigo-300/50 px-6 pb-7 pt-9 shadow-[0_20px_50px_rgba(99,102,241,0.14)] backdrop-blur-xl sm:px-10 sm:pb-9 sm:pt-10 md:px-16 md:pb-10 md:pt-5  "
+                                >
+                                    {/* ================= QUOTE ICON ================= */}
+                                    <div className="mb-5 flex items-center justify-center">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-50">
+                                            <span className="text-3xl font-black leading-none text-violet-600 mt-3">
+                                                “
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {/* ================= QUOTE ================= */}
+                                    <p className="mx-auto max-w-[780px] text-center text-[16px] font-medium leading-[1.65] tracking-[-0.01em] text-slate-700 sm:text-[18px] sm:leading-[1.65] md:text-[20px] md:leading-[1.6]">
+                                        {current.quote}
+                                    </p>
+
+                                    {/* ================= DIVIDER ================= */}
+                                    <div className="mx-auto my-7 h-px w-full max-w-[620px] bg-gradient-to-r from-transparent via-violet-100 to-transparent" />
+
+                                    {/* ================= USER ================= */}
+                                    <div className="flex flex-col items-center justify-center">
+                                        {/* Stars */}
+                                        <div className="mb-3 flex items-center justify-center gap-1.5">
+                                            {Array.from({
+                                                length: current.stars,
+                                            }).map((_, index) => (
+                                                <Star
+                                                    key={index}
+                                                    fill="#facc15"
+                                                    strokeWidth={0}
+                                                    className="h-[17px] w-[17px] text-yellow-400 sm:h-[19px] sm:w-[19px]"
+                                                />
+                                            ))}
+                                        </div>
+
+                                        {/* Name */}
+                                        <h3 className="text-[19px] font-bold leading-tight tracking-[-0.03em] text-slate-800 sm:text-[21px] md:text-[20px]">
+                                            {current.author}
+                                        </h3>
+
+                                        {/* Role */}
+                                        <p className="mt-1.5 text-[13px] font-medium text-slate-500 sm:text-sm">
+                                            {current.role}
+                                        </p>
+                                    </div>
+                                        <div className="flex items-center gap-2.5 sm:gap-3">
+                            {testimonials.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleChange(index, index > active ? "next" : "prev")}
+                                    aria-label={`Go to testimonial ${index + 1}`}
+                                    className="group flex h-6 items-center"
+                                >
+                                    <span
+                                        className={` block  h-[3px] rounded-full transition-all  duration-300
+
+                                ${index === active
+                                                ? "w-9 bg-violet-600 sm:w-10"
+                                                : "w-4 bg-violet-200 group-hover:w-6 group-hover:bg-violet-400 sm:w-5"
+                                            }
+                            `}
+                                    />
+                                </button>
+                            ))}
+
+                            <span
+                                className="  ml-1 text-[10px]  font-bold tracking-[0.16em]  text-violet-700 sm:ml-2 sm:text-xs sm:tracking-[0.18em]"
+                            >
+                                {String(active + 1).padStart(2, "0")} /{" "}
+                                {String(testimonials.length).padStart(2, "0")}
+                            </span>
+                        </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </div>
+
+                  
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

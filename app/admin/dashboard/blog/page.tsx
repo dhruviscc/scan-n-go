@@ -1,7 +1,10 @@
 'use client';
 
+
+import Link from 'next/link';
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
+
 
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -12,38 +15,11 @@ import TextAlign from '@tiptap/extension-text-align'
 import { motion, AnimatePresence } from "framer-motion";
 
 
-
-import {
-    Plus,
-    Search,
-    Edit,
-    Trash2,
-    Eye,
-    EyeOff,
-    Loader2,
-    Calendar,
-    AlertTriangle,
-    ChevronLeft,
-    ChevronRight,
-    X,
-    Save,
-    Upload,
-    Image as ImageIcon,
-    PlusCircle,
-    Bold,
-    Italic,
-    Underline as UnderlineIcon,
-    Link,
-    Quote,
-    List,
-    ListOrdered,
-    AlignLeft,
-    AlignCenter,
-    AlignRight,
-    AlignJustify,
-} from 'lucide-react';
+import { Plus, Search, Edit, Trash2, Eye, EyeOff, Loader2, Calendar, AlertTriangle, ChevronLeft, ChevronRight, X, Save, Upload, Image as ImageIcon, PlusCircle, Bold, Italic, Underline as UnderlineIcon, Quote, List, ListOrdered, AlignLeft, AlignCenter, AlignRight, AlignJustify, LinkIcon, } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/client';
+import { useRouter } from 'next/navigation';
+
 
 interface Blog {
     id: string;
@@ -59,7 +35,8 @@ interface Blog {
     author_id?: string | null;
 }
 
-export default function AdminBlogsPage() {
+
+export default function BlogsDetailsPage() {
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -71,8 +48,14 @@ export default function AdminBlogsPage() {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [blogToDelete, setBlogToDelete] = useState<string | null>(null);
     const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
+    const [isEditorImageModalOpen, setIsEditorImageModalOpen] = useState(false);
+    const [isEditorImageUploading, setIsEditorImageUploading] = useState(false);
+
+    const router = useRouter();
+
     const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
+
 
     const filteredBlogs = useMemo(() => {
         return blogs.filter((blog) => {
@@ -89,6 +72,7 @@ export default function AdminBlogsPage() {
         startIndex + itemsPerPage
     );
 
+
     const [formData, setFormData] = useState({
         title: '',
         slug: '',
@@ -98,15 +82,19 @@ export default function AdminBlogsPage() {
         image: '',
         status: 'draft',
 
+
     });
+
 
     useEffect(() => {
         fetchBlogs();
     }, []);
 
+
     useEffect(() => {
         setCurrentPage(1);
     }, [searchTerm, statusFilter]);
+
 
     const fetchBlogs = async () => {
         setLoading(true);
@@ -125,6 +113,7 @@ export default function AdminBlogsPage() {
         }
     };
 
+
     const openModal = (blog: Blog | null = null) => {
         if (blog) {
             setEditingBlog(blog);
@@ -136,6 +125,7 @@ export default function AdminBlogsPage() {
                 content: blog.content || '',
                 image: blog.image || '',
                 status: blog.status || 'draft',
+
 
             });
         } else {
@@ -149,10 +139,12 @@ export default function AdminBlogsPage() {
                 image: '', // Default to empty string
                 status: 'published', // Default to published
 
+
             });
         }
         setIsModalOpen(true);
     };
+
 
     const slugify = (value: string) =>
         value
@@ -160,6 +152,7 @@ export default function AdminBlogsPage() {
             .trim()
             .replace(/[^a-z0-9]+/g, "-")
             .replace(/^-+|-+$/g, "");
+
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const title = e.target.value;
@@ -170,24 +163,29 @@ export default function AdminBlogsPage() {
         }));
     };
 
+
     const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+
 
         if (file.size > 4 * 1024 * 1024) {
             toast.error("Image size must be less than 4MB");
             return;
         }
 
+
         setIsUploading(true);
         const uploadData = new FormData();
         uploadData.append('file', file);
         uploadData.append('bucket', 'blogs');
 
+
         try {
             const res = await fetch('/admin/api/upload', { method: 'POST', body: uploadData });
             const data = await res.json();
             if (!res.ok) throw new Error(data?.error || "Upload failed");
+
 
             setFormData(prev => ({ ...prev, image: data.url }));
             toast.success("Image uploaded successfully");
@@ -197,6 +195,7 @@ export default function AdminBlogsPage() {
             setIsUploading(false);
         }
     };
+
 
     const editor = useEditor({
         extensions: [
@@ -210,6 +209,7 @@ export default function AdminBlogsPage() {
             LinkExtension.configure({
                 openOnClick: false,
                 linkOnPaste: true,
+                autolink: true,
             }),
             TextAlign.configure({
                 types: ['heading', 'paragraph', 'listItem'], // Added 'listItem' for proper list alignment
@@ -230,29 +230,66 @@ export default function AdminBlogsPage() {
         },
     });
 
+
     useEffect(() => {
         if (!editor) return;
+
 
         if (isModalOpen && editor.getHTML() !== (formData.content || '')) {
             editor.commands.setContent(formData.content || '');
         }
     }, [editor, isModalOpen, editingBlog]);
 
-    const addLink = () => {
-        if (!editor) return;
-        const url = window.prompt('Enter the URL');
-        if (url) {
-            editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+
+    const handleEditorImageUpload = async (file: File) => {
+        if (!file) return;
+        if (!editor) {
+            toast.error("Editor not available.");
+            return;
+        }
+
+
+        if (file.size > 4 * 1024 * 1024) {
+            toast.error("Image size must be less than 4MB");
+            return;
+        }
+
+
+        setIsEditorImageUploading(true);
+        const uploadData = new FormData();
+        uploadData.append('file', file);
+        uploadData.append('bucket', 'blogs');
+
+
+        try {
+            const res = await fetch('/admin/api/upload', { method: 'POST', body: uploadData });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data?.error || "Upload failed");
+
+
+            editor.chain().focus().setImage({ src: data.url }).run();
+            toast.success("Image inserted successfully");
+            setIsEditorImageModalOpen(false);
+        } catch (err: any) {
+            toast.error(err?.message || "Failed to upload and insert image");
+        } finally {
+            setIsEditorImageUploading(false);
         }
     };
 
-    const addImageToEditor = () => {
+
+    const addLink = () => {
         if (!editor) return;
-        const url = window.prompt('Enter image URL');
+        let url = window.prompt('Enter the URL');
         if (url) {
-            editor.chain().focus().setImage({ src: url }).run();
+            // Prepend 'https://' if the URL doesn't start with a protocol
+            if (!/^(https?:\/\/|mailto:|tel:)/i.test(url)) {
+                url = `https://${url}`;
+            }
+            editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
         }
     };
+
 
     const handleSave = async () => {
         if (!formData.title || !formData.image) {
@@ -260,10 +297,12 @@ export default function AdminBlogsPage() {
             return;
         }
 
+
         setIsSaving(true);
         try {
             const { data: sessionData } = await supabase.auth.getUser();
             const user = sessionData?.user;
+
 
             let authorIdToSet: string | null = null;
             if (user?.id) {
@@ -274,18 +313,22 @@ export default function AdminBlogsPage() {
                     .eq('id', user.id)
                     .single();
 
+
                 if (profileError && profileError.code !== 'PGRST116') { // PGRST116: no rows found, which is fine.
                     throw new Error('Could not verify user profile.');
                 }
+
 
                 if (profile) {
                     authorIdToSet = profile.id;
                 }
             }
 
+
             const publishedAt = formData.status === 'published'
                 ? (editingBlog?.published_at || new Date().toISOString())
                 : null;
+
 
             const payload = {
                 ...formData,
@@ -294,8 +337,10 @@ export default function AdminBlogsPage() {
                 author_id: editingBlog ? editingBlog.author_id : authorIdToSet,
             };
 
+
             const method = editingBlog ? 'PUT' : 'POST';
             const url = editingBlog ? `/admin/api/blog?id=${editingBlog.id}` : '/admin/api/blog';
+
 
             const res = await fetch(url, {
                 method,
@@ -304,9 +349,11 @@ export default function AdminBlogsPage() {
             });
             const data = await res.json();
 
+
             if (!res.ok) {
                 throw new Error(data.details || data.error || 'Failed to save blog');
             }
+
 
             toast.success(`Blog ${editingBlog ? 'updated' : 'created'} successfully`);
             setIsModalOpen(false);
@@ -318,34 +365,48 @@ export default function AdminBlogsPage() {
         }
     };
 
-    const togglePublish = async (id: string, currentStatus: string) => {
-        const newStatus = currentStatus === 'published' ? 'draft' : 'published';
+
+    const handleStatusChange = async (id: string, newStatus: string) => {
         const publishedAt = newStatus === 'published' ? new Date().toISOString() : null;
+
 
         try {
             const res = await fetch(`/admin/api/blog?id=${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status: newStatus, published_at: publishedAt })
+                body: JSON.stringify({ status: newStatus, published_at: publishedAt }),
             });
             const data = await res.json();
             if (!res.ok) {
                 throw new Error(data.details || data.error || 'Failed to update status');
             }
-            setBlogs(blogs.map(b => b.id === id ? { ...b, status: newStatus } : b));
-            toast.success(newStatus === 'published' ? 'Post published' : 'Post unpublished');
+            setBlogs(blogs.map(b => (b.id === id ? { ...b, status: newStatus, published_at: publishedAt } : b)));
+            toast.success(`Post status updated to ${newStatus}`);
         } catch (error) {
-            toast.error(error instanceof Error ? error.message : 'Error updating status');
+            toast.error(error instanceof Error ? error.message : "Error updating status");
         }
     };
+
+
+    const getStatusStyles = (status: string) => {
+        switch (status) {
+            case 'published': return 'bg-green-100 text-green-800 ';
+            case 'draft': return 'bg-yellow-100 text-yellow-800';
+            case 'archived': return 'bg-red-100 text-red-800';
+            default: return 'bg-slate-100 text-slate-800';
+        }
+    };
+
 
     const deleteBlog = async (id: string) => {
         setBlogToDelete(id);
         setIsDeleteModalOpen(true);
     };
 
+
     const confirmDelete = async () => {
         if (!blogToDelete) return;
+
 
         setIsDeleting(true);
         try {
@@ -365,8 +426,10 @@ export default function AdminBlogsPage() {
         }
     };
 
+
     return (
         <div className="space-y-4 sm:space-y-6 bg-slate-50">
+            {/* Header */}
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-4">
                 <div className="w-full lg:w-auto">
                     <div className="relative flex-1 sm:w-80">
@@ -387,7 +450,9 @@ export default function AdminBlogsPage() {
                     </div>
                 </div>
 
+
                 <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
+
 
                     <button
                         onClick={() => openModal(null)}
@@ -402,6 +467,8 @@ export default function AdminBlogsPage() {
                     </button>
                 </div>
             </div>
+
+
 
 
             {/* Mobile Cards */}
@@ -425,6 +492,7 @@ export default function AdminBlogsPage() {
                             {/* Top row */}
                             <div className="flex items-start gap-3">
 
+
                                 {blog.image && (
                                     <div className="w-14 h-14 relative rounded overflow-hidden flex-shrink-0">
                                         <Image
@@ -436,35 +504,42 @@ export default function AdminBlogsPage() {
                                     </div>
                                 )}
 
+
                                 <div className="flex-1">
-                                    <h3 className="text-sm font-medium text-gray-900 line-clamp-2">
-                                        {blog.title}
-                                    </h3>
+                                    <Link href={`/admin/dashboard/blog/${blog.id}`} className="hover:underline">
+                                        <h3 className="text-sm font-medium text-gray-900 line-clamp-2">
+                                            {blog.title}
+                                        </h3>
+                                    </Link>
                                     <p className="text-xs text-gray-500 mt-1">
                                         {blog.category}
                                     </p>
+
+
 
 
                                 </div>
                             </div>
 
 
+
+
                             {/* Actions */}
                             <div className="flex items-center justify-between pt-2">
                                 {/* Status + Date */}
-                                <div className="flex items-center justify-between mt-3">
-                                    <span
-                                        onClick={() => togglePublish(blog.id, blog.status)}
-                                        className={`px-3 py-1 rounded-lg text-[12px] font-medium cursor-pointer ${blog.status === "published"
-                                            ? "bg-green-100 text-green-800"
-                                            : "bg-yellow-100 text-yellow-800"
-                                            }`}
-                                    >
-                                        {blog.status.charAt(0).toUpperCase() + blog.status.slice(1)}
-                                    </span>
+                                <select
+                                    value={blog.status}
+                                    onChange={(e) => handleStatusChange(blog.id, e.target.value)}
+                                    className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer outline-none transition-all ${getStatusStyles(blog.status)}`}
+                                >
+                                    <option value="published">Published</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="archived">Archived</option>
+                                </select>
 
-                                </div>
+
                                 <div className="flex items-center gap-2">
+
 
                                     <button
                                         onClick={() => openModal(blog)}
@@ -472,6 +547,7 @@ export default function AdminBlogsPage() {
                                     >
                                         <Edit size={16} />
                                     </button>
+
 
                                     <button
                                         onClick={() => deleteBlog(blog.id)}
@@ -485,6 +561,7 @@ export default function AdminBlogsPage() {
                     ))
                 )}
             </div>
+
 
             {/* Desktop Table */}
             <div className="hidden md:block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
@@ -501,6 +578,7 @@ export default function AdminBlogsPage() {
                             </tr>
                         </thead>
 
+
                         <tbody className="divide-y divide-slate-100">
                             {loading ? (
                                 <tr>
@@ -516,11 +594,20 @@ export default function AdminBlogsPage() {
                                 </tr>
                             ) : (
                                 paginatedBlogs.map((blog, index) => (
-                                    <tr key={blog.id} className="hover:bg-gray-50 transition-colors">
+                                    <tr
+                                        key={blog.id}
+                                        className="hover:bg-gray-50 transition-colors cursor-pointer"
+                                        onClick={(e) => {
+                                            if ((e.target as HTMLElement).closest('button, select, a')) return;
+                                            router.push(`/admin/dashboard/blog/${blog.id}`);
+                                        }}
+                                    >
+
 
                                         <td className="px-6 py-4  text-sm text-slate-400 font-mono">
                                             {startIndex + index + 1}
                                         </td>
+
 
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
@@ -534,27 +621,32 @@ export default function AdminBlogsPage() {
                                                         />
                                                     </div>
                                                 )}
-                                                <div className="font-sm text-sm text-gray-900 max-w-xs">
-                                                    {blog.title}
+                                                <div className="font-sm text-sm text-gray-900 max-w-xs ">
+                                                    <div>
+                                                        {blog.title}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>
+
 
                                         <td className="px-6 py-4 text-sm text-gray-600">
                                             {blog.category}
                                         </td>
 
+
                                         <td className="px-6 py-4">
-                                            <span
-                                                onClick={() => togglePublish(blog.id, blog.status)}
-                                                className={`px-3 py-[5px] rounded-lg text-[12px] font-medium cursor-pointer transition-all ${blog.status === "published"
-                                                    ? "bg-green-100 text-green-800"
-                                                    : "bg-yellow-100 text-yellow-800"
-                                                    }`}
+                                            <select
+                                                value={blog.status}
+                                                onChange={(e) => handleStatusChange(blog.id, e.target.value)}
+                                                className={`px-3 py-[5px] rounded-lg text-[12px] font-medium cursor-pointer transition-all ${getStatusStyles(blog.status)}`}
                                             >
-                                                {blog.status.charAt(0).toUpperCase() + blog.status.slice(1)}
-                                            </span>
+                                                <option value="published" className="bg-white text-slate-800">Published</option>
+                                                <option value="draft" className="bg-white text-slate-800">Draft</option>
+                                                <option value="archived" className="bg-white text-slate-800">Archived</option>
+                                            </select>
                                         </td>
+
 
                                         <td className="px-6 py-4 text-sm text-gray-500">
                                             <div className="flex items-center gap-1">
@@ -562,6 +654,7 @@ export default function AdminBlogsPage() {
                                                 {new Date(blog.created_at).toLocaleDateString()}
                                             </div>
                                         </td>
+
 
                                         <td className="px-6 py-4">
                                             <div className="flex gap-2">
@@ -571,6 +664,7 @@ export default function AdminBlogsPage() {
                                                 >
                                                     <Edit size={18} />
                                                 </button>
+
 
                                                 <button
                                                     onClick={() => deleteBlog(blog.id)}
@@ -588,8 +682,10 @@ export default function AdminBlogsPage() {
                 </div>
             </div>
 
+
             {/* PAGINATION CONTROLS */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between bg-slate-50 rounded-lg shrink-0">
+
 
                 {/* Info text */}
                 <span className="text-xs sm:text-sm text-slate-500 font-medium text-center sm:text-left">
@@ -608,8 +704,10 @@ export default function AdminBlogsPage() {
                     items
                 </span>
 
+
                 {/* Buttons */}
                 <div className="flex items-center justify-center sm:justify-end gap-2 flex-wrap">
+
 
                     {/* Prev */}
                     <button
@@ -621,10 +719,12 @@ export default function AdminBlogsPage() {
                         <span className="hidden xs:inline">Prev</span>
                     </button>
 
+
                     {/* Page indicator */}
                     <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-500 bg-violet-500/10 border border-violet-500/20 rounded-lg shadow-sm">
                         {currentPage} / {Math.max(1, totalPages)}
                     </div>
+
 
                     {/* Next */}
                     <button
@@ -637,10 +737,6 @@ export default function AdminBlogsPage() {
                     </button>
                 </div>
             </div>
-
-
-
-
             <AnimatePresence>
                 {isModalOpen && (
                     <motion.div
@@ -653,9 +749,10 @@ export default function AdminBlogsPage() {
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                            className="bg-white p-[28px] rounded-[16px] w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg"
+                            className="bg-white rounded-[16px] w-full max-w-3xl max-h-[90vh] shadow-lg flex flex-col"
                         >
-                            <div className="flex justify-between items-center mb-6">
+                            {/* Modal Header */}
+                            <div className="flex justify-between items-center p-6 border-b border-slate-200 shrink-0">
                                 <h3 className="text-xl font-bold text-slate-700">
                                     {editingBlog ? "Edit Blog" : "Add Blog"}
                                 </h3>
@@ -667,9 +764,9 @@ export default function AdminBlogsPage() {
                                 </button>
                             </div>
 
-                            <div className="space-y-5">
 
-
+                            {/* Modal Body */}
+                            <div className="space-y-5 p-6 overflow-y-auto">
                                 <div className="flex flex-col gap-1.5">
                                     <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Title *</label>
                                     <input
@@ -679,6 +776,9 @@ export default function AdminBlogsPage() {
                                         className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10" placeholder="Blog title..."
                                     />
                                 </div>
+
+
+
 
 
 
@@ -694,13 +794,17 @@ export default function AdminBlogsPage() {
                                 </div>
 
 
+
+
                                 <div className="grid gap-4 md:grid-cols-2">
                                     <div className="flex flex-col gap-1.5">
                                         <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">
                                             Featured Image *
                                         </label>
 
+
                                         <label className="relative w-85 h-50 border-2 border-dashed border-violet-300 rounded-xl overflow-hidden cursor-pointer  transition-all">
+
 
                                             {formData.image ? (
                                                 <>
@@ -710,6 +814,7 @@ export default function AdminBlogsPage() {
                                                         fill
                                                         className="object-cover"
                                                     />
+
 
                                                     <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
                                                         <span className="text-white text-xs font-bold">
@@ -732,6 +837,7 @@ export default function AdminBlogsPage() {
                                                 </div>
                                             )}
 
+
                                             <input
                                                 type="file"
                                                 className="hidden"
@@ -748,9 +854,10 @@ export default function AdminBlogsPage() {
                                             placeholder="Add category..."
                                             value={formData.category}
                                             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10"                                        />
+                                            className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-200 text-slate-800 placeholder:text-slate-400 transition-all duration-300 outline-none hover:border-violet-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 focus:shadow-lg focus:shadow-violet-500/10" />
                                     </div>
                                 </div>
+
 
                                 <div className="flex flex-col gap-1.5">
                                     <label className="text-xs font-bold text-violet-700  uppercase tracking-wider">Content</label>
@@ -766,6 +873,7 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                                                 <button type="button" onClick={() => editor?.chain().focus().toggleUnderline().run()}
                                                     className={`p-2 rounded-lg transition ${editor?.isActive('underline') ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`} title="Underline"><UnderlineIcon size={18} /></button>
                                             </div>
+
 
                                             {/* Heading Group */}
                                             <div className="flex gap-1 px-1 border-r border-slate-300">
@@ -783,7 +891,9 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                                                 ))}
                                             </div>
 
+
                                             <div className="flex gap-1 px-1 border-r border-slate-300">
+
 
                                                 <button type="button" onClick={() => editor?.chain().focus().setTextAlign('left').run()}
                                                     className={`p-2 rounded-lg transition ${editor?.isActive({ textAlign: 'left' }) ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`}><AlignLeft size={18} /></button>
@@ -795,14 +905,15 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                                                     className={`p-2 rounded-lg transition ${editor?.isActive({ textAlign: 'justify' }) ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`}><AlignJustify size={18} /></button>
                                             </div>
 
+
                                             <div className="flex gap-1 pl-1">
-                                                <button type="button" onClick={addLink}
-                                                    className={`p-2 rounded-lg transition ${editor?.isActive('link') ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`} title="Add Link"><Link size={18} /></button>
-                                                <button type="button" onClick={addImageToEditor}
-                                                    className="p-2 rounded-lg text-slate-600 hover:bg-slate-200 transition" title="Add Image"><ImageIcon size={18} />
+                                                <button type="button" onClick={addLink} className={`p-2 rounded-lg transition ${editor?.isActive('link') ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-200'}`} title="Add Link">
+                                                    <LinkIcon size={18} /></button><button type="button" onClick={() => setIsEditorImageModalOpen(true)}
+                                                        className="p-2 rounded-lg text-slate-600 hover:bg-slate-200 transition" title="Add Image"><ImageIcon size={18} />
                                                 </button>
                                             </div>
                                         </div>
+
 
                                         {/* Editor Area */}
                                         <div className="bg-white">
@@ -815,23 +926,25 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                                             )}
                                         </div>
 
+
                                     </div>
                                 </div>
-
-                                <div className="flex gap-4 mt-8 pt-4 ">
-                                    <button onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]">Cancel</button>
-                                    <button onClick={handleSave} disabled={isSaving}
-                                        className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none disabled:opacity-60"
-                                    >
-                                        {isSaving ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
-                                        {editingBlog ? "Update Blog" : "Save Blog"}
-                                    </button>
-                                </div>
+                            </div>
+                            {/* Modal Footer */}
+                            <div className="flex gap-4 p-6 border-t border-slate-200 shrink-0">
+                                <button onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]">Cancel</button>
+                                <button onClick={handleSave} disabled={isSaving}
+                                    className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none disabled:opacity-60"
+                                >
+                                    {isSaving ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
+                                    {editingBlog ? "Update Blog" : "Save Blog"}
+                                </button>
                             </div>
                         </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
+
 
             {/* Delete Confirmation Modal */}
             <AnimatePresence>
@@ -857,6 +970,7 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                                     Are you sure you want to delete this blog post? This action cannot be undone.
                                 </p>
 
+
                                 <div className="flex gap-3 mt-6">
                                     <button
                                         onClick={() => { setIsDeleteModalOpen(false); setBlogToDelete(null); }}
@@ -878,6 +992,66 @@ className="w-full px-4 py-2.5 text-sm rounded-xl bg-white border border-violet-2
                     </motion.div>
                 )}
             </AnimatePresence>
+
+
+            {/* Editor Image Upload Modal */}
+            <AnimatePresence>
+                {isEditorImageModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black/40 backdrop-blur-[4px] flex items-center justify-center z-[1001]"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            className="bg-white p-6 rounded-2xl w-full max-w-md shadow-lg"
+                        >
+                            <div className="flex justify-between items-center mb-4">
+                                <h3 className="text-lg font-bold text-slate-800">Upload Image</h3>
+                                <button
+                                    onClick={() => setIsEditorImageModalOpen(false)}
+                                    className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+                            <div>
+                                <label
+                                    htmlFor="editor-image-upload"
+                                    className="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-violet-300 rounded-xl cursor-pointer bg-violet-50 hover:bg-violet-100 transition-colors"
+                                >
+                                    {isEditorImageUploading ? (
+                                        <Loader2 size={32} className="animate-spin text-violet-700" />
+                                    ) : (
+                                        <>
+                                            <Upload size={32} className="text-violet-700 mb-2" />
+                                            <span className="text-sm font-semibold text-violet-700">
+                                                Click to upload or drag & drop
+                                            </span>
+                                            <span className="text-xs text-slate-500 mt-1">
+                                                PNG, JPG, GIF up to 4MB
+                                            </span>
+                                        </>
+                                    )}
+                                </label>
+                                <input
+                                    id="editor-image-upload"
+                                    type="file"
+                                    className="hidden"
+                                    accept="image/*"
+                                    disabled={isEditorImageUploading}
+                                    onChange={(e) => e.target.files?.[0] && handleEditorImageUpload(e.target.files[0])}
+                                />
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+
         </div >
     );
 }

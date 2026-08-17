@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
 
-  allowedDevOrigins: ['192.168.1.18'],
+  allowedDevOrigins: ['192.168.1.14'],
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'plus.unsplash.com' },

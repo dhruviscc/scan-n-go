@@ -1,9 +1,13 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 import Sidebar from '@/components/admin/Sidebar';
-import { Menu, Droplet, LogOut } from 'lucide-react';
+import { Menu, LogOut, Loader2 } from 'lucide-react';
 import { logoutAction } from '@/app/login/actions';
+import { supabase } from '@/lib/client';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -14,6 +18,32 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const [logoutLoading, setLogoutLoading] = useState(false);
+  const [sessionLoading, setSessionLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        router.replace('/login');
+      } else {
+        setSessionLoading(false);
+      }
+    };
+
+    checkSession();
+  }, [router]);
+
+  if (sessionLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-slate-50">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="w-8 h-8 animate-spin text-violet-700" />
+          <p className="text-slate-500">Authenticating...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleLogout = async () => {
     setLogoutLoading(true);
@@ -37,12 +67,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <div className="flex flex-col flex-1 min-w-0">
         {/* Mobile Topbar */}
         <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-slate-200 bg-white/80 px-4 backdrop-blur-md lg:hidden">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-sky-600 to-cyan-600 shadow-md">
-              <Droplet size={18} className="text-white" />
-            </div>
-            <h1 className="text-sm font-black tracking-tight text-slate-800 uppercase">Scan n Go</h1>
-          </div>
+          <Link href="/admin/dashboard">
+            <Image
+              src="/images/logo/logo_with_text.png"
+              alt="Scan n Go Logo"
+              width={130}
+              height={35}
+              priority
+              className="h-auto object-contain"
+            />
+          </Link>
           <button
             onClick={() => setMobileOpen(true)}
             className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-600 hover:bg-slate-100"

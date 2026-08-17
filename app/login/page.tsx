@@ -13,11 +13,12 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Start with loading true for session check
   const router = useRouter();
 
   useEffect(() => {
     const checkSession = async () => {
+      setLoading(true);
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
         const { data: user, error } = await supabase.auth.getUser();
@@ -34,9 +35,11 @@ export default function LoginPage() {
           if (userRole === 'admin' || userRole === 'staff') {
             router.replace('/admin/dashboard');
           } else {
-            router.replace('/admin/dashboard');
+            router.replace('/admin/dashboard'); // Redirect non-admin/staff to homepage
           }
         }
+      } else {
+        setLoading(false); // Only stop loading if there's no session
       }
     };
 
@@ -66,6 +69,14 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#f8fafc]">
+        <Loader2 className="w-8 h-8 animate-spin text-violet-700" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center ">
@@ -107,7 +118,9 @@ export default function LoginPage() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-violet-200 rounded-xl text-slate-900 placeholder-slate-400 transition-all duration-300 sm:text-sm focus:outline-none focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 hover:border-violet-300" placeholder="admin@sdenterprise.com"
+                    className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-violet-200 rounded-xl text-slate-900 placeholder-slate-400 transition-all duration-300 sm:text-sm focus:outline-none focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 hover:border-violet-300"
+                    placeholder="admin@scanngo.com"
+                    autoComplete="email"
                   />
                 </div>
               </div>
@@ -129,6 +142,7 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="block w-full pl-12 pr-4 py-3 bg-slate-50 border border-violet-200 rounded-xl text-slate-900 placeholder-slate-400 transition-all duration-300 sm:text-sm focus:outline-none focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-500/15 hover:border-violet-300"
+                    autoComplete="current-password"
                     placeholder="••••••••"
                   />
                   <button

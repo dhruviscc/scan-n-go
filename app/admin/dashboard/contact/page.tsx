@@ -163,7 +163,7 @@ export default function EnquiryPage() {
 
     const getStatusStyles = (status: string) => {
         switch (status) {
-            case 'new': return 'bg-blue-50 text-blue-600 border-blue-100';
+            case 'new': return 'bg-indigo-50 text-indigo-600 border-indigo-100';
             case 'contacted': return 'bg-amber-50 text-amber-600 border-amber-100';
             case 'closed': return 'bg-red-50 text-red-600 border-red-100';
             default: return 'bg-slate-50 text-slate-600 border-slate-100';
@@ -177,7 +177,7 @@ export default function EnquiryPage() {
                 <div className="w-full lg:w-auto">
                     <div className="relative flex-1 sm:w-80">
                         <input
-                            className="w-full py-2.5 pr-[40px] pl-[10px] rounded-xl border border-slate-200 outline-none bg-white text-sm transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/10 shadow-sm"
+                            className="w-full py-2.5 pr-[40px] pl-[10px] rounded-xl border border-slate-200 outline-none bg-white text-sm transition-all focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 shadow-sm"
                             placeholder="Search Contact..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -198,7 +198,7 @@ export default function EnquiryPage() {
 
                     <div className="flex gap-2">
                         <select
-                            className="flex-1 sm:flex-none px-3 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/10 bg-white shadow-sm font-bold text-slate-600"
+                            className="flex-1 sm:flex-none px-3 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500/10 bg-white shadow-sm font-bold text-slate-600"
                             value={statusFilter}
                             onChange={(e: any) => setStatusFilter(e.target.value)}
                         >
@@ -237,9 +237,9 @@ export default function EnquiryPage() {
                             {/* HEADER */}
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-black uppercase tracking-wider ${(enquiry as any).source === 'Product Enquiry'
-                                        ? ' bg-purple-50 text-purple-600 '
-                                        : ' bg-sky-50 text-sky-800 '
+                                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold  uppercase tracking-wider ${(enquiry as any).source === 'Product Enquiry'
+                                        ? 'bg-purple-50 text-purple-600'
+                                        : 'bg-violet-50 text-violet-700'
                                         }`}>
                                         {(enquiry as any).source || 'Lead'}
                                     </span>
@@ -255,7 +255,7 @@ export default function EnquiryPage() {
                                 <h3 className="text-sm font-bold text-slate-800">
                                     {enquiry.full_name}
                                 </h3>
-                                <div className="flex   gap-3 mt-2">
+                                <div className="flex gap-3 mt-2">
                                     <a href={`tel:${enquiry.mobile_number}`} className="flex items-center gap-2 text-xs text-slate-600">
                                         <Phone size={12} className="text-slate-400" /> {enquiry.mobile_number}
                                     </a>
@@ -269,8 +269,8 @@ export default function EnquiryPage() {
 
                             {/* INTEREST */}
                             <div className="pt-2 border-t border-slate-50">
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Interest</p>
-                                <span className="text-xs font-bold text-sky-700">
+                                <p className="text-[10px] font-semibold  text-slate-400 uppercase tracking-widest mb-1">Interest</p>
+                                <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700">
                                     {enquiry.service_interest}
                                 </span>
                             </div>
@@ -321,8 +321,8 @@ export default function EnquiryPage() {
                         <tr>
                             <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 #</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
-                                Type</th>
+                            {/* <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+                                Type</th> */}
                             <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Customer</th>
                             <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
@@ -359,29 +359,29 @@ export default function EnquiryPage() {
                                             {(currentPage - 1) * pageSize + index + 1}
                                         </div>
                                     </td>
-                                    <td>
+                                    {/* <td>
                                         <div>
-                                            <span className={`text-[13px] px-1.5 py-0.5 rounded font-black uppercase tracking-wider ${(enquiry as any).source === 'Product Enquiry'
-                                                ? ' text-purple-600 '
-                                                : ' text-sky-800 '
+                                            <span className={`text-[13px] px-1.5 py-0.5 rounded font-semibold  uppercase tracking-wider ${(enquiry as any).source === 'Product Enquiry'
+                                                ? 'text-purple-600'
+                                                : 'text-violet-700'
                                                 }`}>
                                                 {(enquiry as any).source || 'Lead'}
                                             </span>
                                         </div>
-                                    </td>
+                                    </td> */}
                                     <td className="px-6 py-4">
                                         <div className="flex flex-col">
 
                                             <div className="flex items-center gap-2">
-                                                <span className=" text-slate-800 text-sm ">{enquiry.full_name}</span>
+                                                <span className=" text-slate-800 text-md ">{enquiry.full_name}</span>
 
                                             </div>
                                             <div className="flex items-center gap-3 mt-1">
-                                                <span className="text-[10px] text-slate-500 flex items-center gap-1">
+                                                <span className="text-[12px] text-slate-500 flex items-center gap-1">
                                                     <Phone size={10} /> {enquiry.mobile_number}
                                                 </span>
                                                 {enquiry.email_address && (
-                                                    <span className="text-[10px] text-slate-500 flex items-center gap-1">
+                                                    <span className="text-[12px] text-slate-500 flex items-center gap-1">
                                                         <Mail size={10} /> {enquiry.email_address}
                                                     </span>
                                                 )}
@@ -390,12 +390,12 @@ export default function EnquiryPage() {
                                     </td>
 
                                     <td className="px-6 py-4">
-                                        <span className="px-2 py-1 rounded-md  text-sky-700 text-[11px] font-bold uppercase tracking-wider ">
+                                        <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-sm font-semibold text-purple-700">
                                             {enquiry.service_interest}
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                                        <div className="flex items-center gap-1.5 text-sm text-slate-500">
                                             <Calendar size={12} />
                                             {new Date(enquiry.created_at).toLocaleDateString()}
                                         </div>
@@ -476,7 +476,7 @@ export default function EnquiryPage() {
                         </button>
 
                         {/* Page indicator */}
-                    <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-500 bg-violet-500/10 border border-violet-500/20 rounded-lg shadow-sm">
+                        <div className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-violet-500 bg-violet-500/10 border border-violet-500/20 rounded-lg shadow-sm">
                             {currentPage} / {Math.max(1, totalPages)}
                         </div>
 
@@ -510,7 +510,7 @@ export default function EnquiryPage() {
                             className="bg-white rounded-[16px] w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg"
                         >
                             {/* Header */}
-                            <div className="relative bg-gradient-to-r from-sky-90 via-cyan-100 to-blue-100 p-6 text-white">
+                            <div className="relative bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300 p-6 text-white">
                                 <button
                                     onClick={() => setIsDetailsModalOpen(false)}
                                     className="absolute right-5 top-7 rounded-xl  p-2 hover:bg-black/10"
@@ -519,12 +519,12 @@ export default function EnquiryPage() {
                                 </button>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="h-14 w-14 rounded-2xl bg-sky-100  flex items-center justify-center">
-                                        <User size={25} className='text-violet-700 ' />
+                                    <div className="h-14 w-14 rounded-2xl bg-violet-200  flex items-center justify-center">
+                                        <User size={25} className='text-violet-800 ' />
                                     </div>
 
                                     <div>
-                                        <h2 className="text-xl font-black uppercase text-slate-800">
+                                        <h2 className="text-xl font-semibold  uppercase text-slate-800">
                                             {selectedEnquiry.full_name}
                                         </h2>
 
@@ -540,7 +540,7 @@ export default function EnquiryPage() {
 
                                 {/* Customer Details */}
                                 <div>
-                                    <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-violet-700 ">
+                                    <h3 className="mb-4 text-sm font-semibold  uppercase tracking-wider text-violet-700 ">
                                         Customer Information
                                     </h3>
 
@@ -577,10 +577,9 @@ export default function EnquiryPage() {
                                             <div className="flex items-center gap-3">
                                                 <Briefcase className="text-violet-700 " size={18} />
                                                 <div>
-                                                    <p className="text-xs text-slate-500">Service Interest</p>
-                                                    <p className="font-bold text-slate-800">
+                                                    <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700">
                                                         {selectedEnquiry.service_interest}
-                                                    </p>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -590,11 +589,11 @@ export default function EnquiryPage() {
 
                                 {/* Message */}
                                 <div>
-                                    <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-slate-500">
+                                    <h3 className="mb-4 text-sm font-semibold  uppercase tracking-wider text-slate-500">
                                         Customer Message
                                     </h3>
 
-                                    <div className="rounded-3xl border border-sky-100 bg-sky-50 p-6">
+                                    <div className="rounded-3xl border border-violet-100 bg-violet-50 p-6">
                                         <p className="leading-relaxed text-slate-700">
                                             {selectedEnquiry.message ||
                                                 "No message provided by customer."}
@@ -604,7 +603,7 @@ export default function EnquiryPage() {
 
                                 {/* Timeline */}
                                 <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200">
-                                    <h3 className="mb-2 text-sm font-black uppercase tracking-wider text-slate-500">
+                                    <h3 className="mb-2 text-sm font-semibold  uppercase tracking-wider text-slate-500">
                                         Submission Details
                                     </h3>
 
@@ -644,7 +643,7 @@ export default function EnquiryPage() {
                                 <Trash2 size={30} />
                             </div>
 
-                            <h3 className="text-xl font-black text-slate-900 tracking-tight">Delete Enquiry?</h3>
+                            <h3 className="text-xl font-semibold  text-slate-900 tracking-tight">Delete Enquiry?</h3>
                             <p className="text-slate-500 text-sm mb-6">
                                 This action cannot be undone. This enquiry will be permanently removed from your history.
                             </p>

@@ -11,7 +11,8 @@ import {
     Eye,
     EyeOff,
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    ShieldAlert
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { addUser, deleteUser, getUsers, updateUser } from "@/modules/auth/userService";
@@ -222,6 +223,17 @@ export default function UsersPage() {
         currentPage * pageSize
     );
 
+    if (isStaff) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[60vh] text-center bg-slate-50 p-6">
+                <ShieldAlert className="w-16 h-16 text-red-500 mb-4" />
+                <h1 className="text-2xl font-bold text-slate-800">Access Denied</h1>
+                <p className="text-slate-600 mt-2">
+                    You do not have permission to view this page.
+                </p>
+            </div>
+        );
+    }
     return (
         <div className="space-y-4 sm:space-y-6 bg-slate-50 ">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-4">

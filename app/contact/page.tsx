@@ -19,9 +19,26 @@ import { AnimatedBackground } from "@/components/ui/animated-background";
 import { FaWhatsapp } from "react-icons/fa";
 
 const contactDetails = [
-  { icon: Phone, title: "Phone", value: "+91 79906 00155", href: "tel:+917990600155" },
-  { icon: Mail, title: "Email", value: "info@scan-n-go.com", href: "mailto:info@scan-n-go.com" },
-  { icon: MapPin, title: "Office Address", value: "349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006", href: "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu" },
+  {
+    icon: Phone,
+    title: "Phone",
+    value: "+91 79906 00155",
+    href: "tel:+917990600155",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    value: "support@scan-n-go.com",
+    href: "mailto:support@scan-n-go.com",
+  },
+  {
+    icon: MapPin,
+    title: "Office Address",
+    value:
+      "349-350, Vikas Shoppers, B/H Filter House Bhagvan Nagar Circle, near Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395006",
+    href:
+      "https://www.google.com/maps/place/Vikas+Shoppers,+149-150,+Vraj+Chowk+Rd,+nr.+Bhagavan+Nagar+Road,+Sarthana+Jakat+Naka,+Zeal+Park,+Nana+Varachha,+Surat,+Gujarat+395013/@21.226313,72.9000808,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0458bb9aebeb1:0xf108b91bde351df3!8m2!3d21.226313!4d72.9026557!16s%2Fg%2F11gjd_062r?entry=ttu",
+  },
 ];
 
 
@@ -77,16 +94,16 @@ export default function Contact() {
           particleColorDark="168, 85, 247" // Purple-500
         />
       </div>
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] pb-20 pt-20 sm:pb-24 sm:pt-20">
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] pb-16 pt-30 sm:pb-24 sm:pt-35">
 
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-32 h-[410px] w-[410px] rounded-full bg-violet-400/25 blur-[95px]" />
           <div className="absolute -bottom-44 -left-20 h-[360px] w-[360px] rounded-full bg-indigo-300/35 blur-[90px]" />
           <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#a78bfa_1px,transparent_1px)] [background-size:22px_22px]" />
         </div>
-        <div className="relative mx-auto max-w-5xl px-5 mt-20 text-center sm:px-6">
+        <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-6">
 
-          <h1 className="mx-auto mt-6 max-w-3xl text-center text-4xl font-bold  leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+          <h1 className="mx-auto max-w-4xl text-center text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             We'd Love To
             <span className="mt-2 block">
               <TypeAnimation
@@ -104,13 +121,13 @@ export default function Contact() {
               />
             </span>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+          <p className="mx-auto m-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Whether you need a product demo, support, or help bringing smarter QR access to your organisation, our team is here for you.
           </p>
         </div>
       </section>
 
-      <section className="relative mx-auto mt-20 max-w-7xl px-4 pb-20 sm:px-6 lg:px-10">
+      <section className="relative mx-auto -mt-12 max-w-7xl px-4 pb-20 sm:px-6 lg:px-10">
         <div className="grid overflow-hidden rounded-[28px] border border-violet-100 bg-white shadow-[0_24px_65px_rgba(76,39,155,0.12)] lg:grid-cols-[1.08fr_.92fr]">
           {sent ? (
             <div className="p-6 sm:p-9 lg:p-10 flex items-center justify-center min-h-[600px]">
@@ -122,12 +139,12 @@ export default function Contact() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="mt-8 text-4xl font-bold text-emerald-500">
+                <h2 className="mt-8 text-3xl sm:text-4xl font-bold text-emerald-500">
                   Form Submitted Successfully!
                 </h2>
 
                 {/* Description */}
-                <p className="mt-6 text-xl leading-9 text-slate-500">
+                <p className="mt-6 text-lg sm:text-xl leading-9 text-slate-500">
                   Thank you! Your form has been submitted successfully.
                   <br />
                   We will reply to you soon.
@@ -150,7 +167,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="p-6 sm:p-9 lg:p-10">
 
               <div className="mb-8">
-                <h2 className="mt-2 text-3xl font-bold  text-slate-900">Tell us how we can help</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Tell us how we can help</h2>
                 <p className="mt-2 text-slate-500">Fill in the details below and we&apos;ll get back to you shortly.</p>
               </div>
 
@@ -195,7 +212,7 @@ export default function Contact() {
             <div className="absolute -right-24 -top-20 h-72 w-72 rounded-full bg-violet-500/40 blur-3xl" />
             <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-indigo-500/30 blur-3xl" />
             <div className="relative">
-              <h2 className="mt-2 text-3xl font-bold ">Let&apos;s start a conversation.</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold">Let&apos;s start a conversation.</h2>
               <p className="mt-3 max-w-md leading-7 text-indigo-100/75">Reach out through any channel that is most convenient for you.</p>
               <div className="mt-9 space-y-4">
                 {contactDetails.map(({ icon: Icon, title, value, href }) => (
@@ -211,7 +228,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-slate-50 py-16 sm:py-20">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
 
           <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
@@ -220,7 +237,7 @@ export default function Contact() {
                 Office Location
               </p>
 
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
                 Find Our Office
               </h2>
             </div>

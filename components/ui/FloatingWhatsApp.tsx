@@ -1,8 +1,15 @@
 "use client";
 
 import { FaWhatsapp } from "react-icons/fa";
+import { usePathname } from 'next/navigation';
 
 export default function FloatingWhatsApp() {
+    const pathname = usePathname();
+
+    if (pathname === '/login' || pathname.startsWith('/admin')) {
+        return null;
+    }
+
     return (
         <a
             href="https://wa.me/917990600155"

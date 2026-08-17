@@ -33,11 +33,6 @@ const formatDate = (value?: string | null) => {
   });
 };
 
-const estimateReadTime = (content?: string | null) => {
-  const words = (content || "").trim().split(/\s+/).filter(Boolean).length;
-  const minutes = Math.max(2, Math.ceil(words / 180));
-  return `${minutes} min read`;
-};
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPostCard[]>([]);
@@ -109,7 +104,7 @@ export default function BlogPage() {
           <div className="absolute bottom-10 right-0 h-72 w-72 rounded-full bg-indigo-300 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Visitor Management & QR{" "}
@@ -136,7 +131,7 @@ export default function BlogPage() {
           <div className="absolute top-20 left-1/3 w-56 h-56 rounded-full bg-indigo-300/15 blur-[80px] animate-blob animation-delay-10000" />
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="relative w-full lg:max-w-xl">
               <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
 
@@ -149,7 +144,7 @@ export default function BlogPage() {
               />
             </div>
 
-            <div className="w-full lg:w-64">
+            <div className="w-full sm:w-auto sm:min-w-[200px] lg:w-64">
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
@@ -177,7 +172,7 @@ export default function BlogPage() {
           </div>
         ) : (
           <motion.div
-            className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3"
+            className="grid gap-6 md:gap-8 sm:grid-cols-2 xl:grid-cols-3"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -222,9 +217,7 @@ export default function BlogPage() {
                       <p className="text-sm font-medium text-slate-700">
                         {formatDate(post.published_at || post.created_at)}
                       </p>
-                      <p className="text-xs text-slate-500">
-                        {estimateReadTime(post.content)}
-                      </p>
+                    
                     </div>
 
                     <Link
