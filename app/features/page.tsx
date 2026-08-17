@@ -420,7 +420,7 @@ export default function Features() {
 
 
             <div className="relative z-10">
-              <motion.div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-12">
+              <motion.div className="mx-auto mb-8 max-w-3xl px-4 text-center sm:mb-10 sm:px-6 lg:mb-12 lg:px-8">
                 <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
                   <span className="border-b-2 border-indigo-500 pb-1">
                     Benefits
@@ -435,11 +435,13 @@ export default function Features() {
               </motion.div>
 
 
+              {/* First 3 items: On mobile, the 3rd item stretches to fill the row so there's no empty space. On desktop (lg), it reverts to 3 columns. */}
               <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
-                {benefits.slice(0, 3).map((benefit) => (
+                {benefits.slice(0, 3).map((benefit, index) => (
                   <motion.div
                     key={benefit.label}
-                    className="group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)]"
+                    className={`group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)] ${index === 2 ? "col-span-2 sm:col-span-1" : ""
+                      }`}
                     variants={itemVariants}
                   >
                     <div className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
@@ -457,7 +459,8 @@ export default function Features() {
               </div>
 
 
-              <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+              {/* Remaining items grid */}
+              <div className="mt-3 sm:mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
                 {benefits.slice(3).map((benefit) => (
                   <motion.div
                     key={benefit.label}
@@ -481,6 +484,11 @@ export default function Features() {
           </motion.div>
         </div>
       </section>
+
+
+
+
+
     </div>
   );
 }
