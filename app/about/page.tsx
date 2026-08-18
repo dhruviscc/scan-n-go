@@ -336,17 +336,14 @@ export default function AboutPage() {
                                                 />
                                                 <span>Different purposes.</span>
                                             </li>
-
                                             <li className="flex items-start gap-2.5">
                                                 <span
                                                     className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500"
                                                 />
-                                                <span>
-                                                    <strong className="font-semibold text-slate-800">
-                                                        One connected identity platform.
-                                                    </strong>
-                                                </span>
+                                                <span>One connected identity platform.</span>
                                             </li>
+
+                                           
                                         </ul>
 
                                     </div>
@@ -703,10 +700,8 @@ export default function AboutPage() {
                                         <p
                                             className=" w-full text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7"
                                         >
-                                            To build a connected digital identity system that can be used
-                                            across different places and everyday situations — making
-                                            identification, communication, and access simpler, safer,
-                                            and more reliable.
+                                         To create simple and secure QR solutions that connect the right information to the right purpose, helping people and organisations verify details, communicate quickly, and manage everyday activities with ease.
+
                                         </p>
                                     </div>
 
