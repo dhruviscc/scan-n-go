@@ -2,39 +2,6 @@ import { supabase } from "@/lib/client";
 import { supabaseAdmin } from "@/lib/server";
 
 
-/**
- * Register a new user and create their profile via DB trigger.
- */
-export async function registerUser(form: any) {
-  const email = form.email?.trim().toLowerCase();
-  const password = form.password;
-  const name = form.name?.trim();
-  const mobile = form.mobile?.trim();
-  const role = form.role;
-
-  const { data: authData, error: authError } = await supabaseAdmin.auth.admin.createUser({
-    email,
-    password,
-    email_confirm: true, 
-    user_metadata: { name, mobile, role } 
-  });
-
-  if (authError) {
-    if (authError.message.includes("already registered") || authError.status === 422) {
-      const error = new Error("This email is already registered. Please login instead.");
-      (error as any).status = 400;
-      throw error;
-    }
-    if (authError.message.toLowerCase().includes("rate limit")) {
-      const error = new Error("Email signups are temporarily limited. Please try again in a minute.");
-      (error as any).status = 429;
-      throw error;
-    }
-    throw authError;
-  }
-
-  return authData;
-}
 
 /**
  * Admin-led user creation (via Dashboard).
