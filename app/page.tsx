@@ -269,7 +269,7 @@ export default function Home() {
 
               {/* Phone Container */}
               <motion.div
-                className="relative z-10 w-full max-w-[730px] sm:max-w-[290px] md:max-w-[360px] lg:max-w-[520px] xl:max-w-[690px]"
+                className="relative z-10 w-full max-w-[730px] sm:max-w-[390px] md:max-w-[460px] lg:max-w-[420px] xl:max-w-[520px]"
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{
@@ -279,16 +279,7 @@ export default function Home() {
                 }}
               >
                 <div
-                  className="
-      relative
-      h-[250px]
-      xs:h-[230px]
-      sm:h-[520px]
-      md:h-[580px]
-      lg:h-[650px]
-      xl:h-[700px]
-      w-full
-    "
+                  className="relative h-[250px] xs:h-[230px] sm:h-[520px] md:h-[580px] lg:h-[550px]  xl:h-[600px] w-full"
                 >
                   <Image
                     src="/images/hero-3.png"

@@ -106,9 +106,9 @@ export default function TestimonialsEditorial() {
             {/* ================= BACKGROUND ================= */}
 
             {/* Huge outlined text */}
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none">
+            <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden select-none">
                 <h2
-                    className=" flex flex-col  items-center  justify-center   gap-1 text-center   font-black leading-[2] tracking-[-0.06em]   text-transparenttext-[100px] sm:text-[165px] md:text-[220px] lg:text-[200px]"
+                    className="  flex flex-col items-center justify-center  gap-0 text-center font-black leading-[1.6em] tracking-[-0.06em] text-transparent   text-[90px] sm:text-[130px]md:text-[170px] lg:text-[210px] xl:text-[250px] whitespace-nowrap "
                     style={{
                         WebkitTextStroke: "2px rgba(124, 58, 237, 0.15)",
                     }}
@@ -117,7 +117,6 @@ export default function TestimonialsEditorial() {
                     <span>BACK</span>
                 </h2>
             </div>
-
             {/* subtle background glow */}
             <div className="pointer-events-none absolute left-[10%] top-[15%] h-40 w-40 rounded-full bg-white/30 blur-3xl" />
             <div className="pointer-events-none absolute bottom-[10%] right-[10%] h-52 w-52 rounded-full bg-violet-300/20 blur-3xl" />
