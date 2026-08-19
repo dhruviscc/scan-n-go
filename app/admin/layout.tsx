@@ -1,6 +1,5 @@
 
 import type { Metadata } from "next";
-import './dashboard/dashboard.css'
 
 export const metadata: Metadata = {
     title: "Admin Dashboard | Scan n Go",

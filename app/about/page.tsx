@@ -176,9 +176,6 @@ export default function AboutPage() {
             </section>
 
 
-
-
-
             {/* Story + Purpose layout: left/right cards with center image */}
 
             <section className="py-20 sm:py-24 bg-slate-50">
@@ -339,17 +336,14 @@ export default function AboutPage() {
                                                 />
                                                 <span>Different purposes.</span>
                                             </li>
-
                                             <li className="flex items-start gap-2.5">
                                                 <span
                                                     className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500"
                                                 />
-                                                <span>
-                                                    <strong className="font-semibold text-slate-800">
-                                                        One connected identity platform.
-                                                    </strong>
-                                                </span>
+                                                <span>One connected identity platform.</span>
                                             </li>
+
+                                           
                                         </ul>
 
                                     </div>
@@ -706,10 +700,8 @@ export default function AboutPage() {
                                         <p
                                             className=" w-full text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7"
                                         >
-                                            To build a connected digital identity system that can be used
-                                            across different places and everyday situations — making
-                                            identification, communication, and access simpler, safer,
-                                            and more reliable.
+                                         To create simple and secure QR solutions that connect the right information to the right purpose, helping people and organisations verify details, communicate quickly, and manage everyday activities with ease.
+
                                         </p>
                                     </div>
 
@@ -788,139 +780,104 @@ export default function AboutPage() {
 
 
             {/* ════════════════ BENEFITS OF SCAN N GO ════════════════ */}
-            <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
-                {/* Immersive Background */}
-                <div className="pointer-events-none absolute inset-0 z-0">
-                    <div className="absolute inset-0 opacity-10" />
-
-                    <AnimatedBackground
-                        interactive={true}
-                        density={80}
-                        particleColorLight="99, 102, 241"
-                        particleColorDark="168, 85, 247"
-                    />
-                </div>
-
-                {/* Main Container */}
-                <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-
-                    <motion.div
-                        className="relative overflow-hidden rounded-2xl sm:rounded-[28px] border border-white/70 p-5 sm:p-8 lg:p-12 xl:p-14 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur-xl"
-                        style={{
-                            backgroundImage: "url('/images/benefit_bg.png')",
-                            backgroundSize: "cover",
-                            backgroundPosition: "top center",
-                            backgroundRepeat: "no-repeat",
-                            backgroundColor: "#e7e2f7",
-                        }}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
-                        variants={containerVariants}
-                    >
-
-                        {/* Glass Overlay */}
-                        <div
-                            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/55 via-white/25 to-violet-100/30"
-                        />
-
-                        {/* Top Glow */}
-                        <div
-                            className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full bg-violet-400/20 blur-3xl"
-                        />
-
-                        {/* Bottom Glow */}
-                        <div
-                            className="pointer-events-none absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-indigo-400/15 blur-3xl"
-                        />
-
-                        {/* Content */}
-                        <div className="relative z-10">
-
-                            {/* Section Heading */}
-                            <motion.div
-                                className="mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-12"
-                            >
-                                <h2
-                                    className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl"
-                                >
-                                    <span className="border-b-2 border-indigo-500 pb-1">
-                                        Benefits
-                                    </span>{" "}
-                                    of Scan n Go
-                                </h2>
-
-                                <p
-                                    className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg"
-                                >
-                                    Scan n Go enhances security and convenience by providing
-                                    seamless entry management through QR code scanning and live
-                                    face verification, ensuring only authorized access.
-                                </p>
-                            </motion.div>
-
-                            {/* Benefits Grid */}
-                            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
-                                {benefits.slice(0, 3).map((benefit) => (
-                                    <motion.div
-                                        key={benefit.label}
-                                        className="group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)]"
-                                        variants={itemVariants}
-                                    >
-                                        {/* Icon */}
-                                        <div
-                                            className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}
-                                        >
-                                            <benefit.icon
-                                                size={22}
-                                                className={benefit.iconColor}
-                                                strokeWidth={1.7}
-                                            />
-                                        </div>
-
-                                        {/* Label */}
-                                        <span
-                                            className="max-w-full text-xs font-semibold leading-4 text-slate-800 sm:text-[15px] sm:leading-5"
-                                        >
-                                            {benefit.label}
-                                        </span>
-                                    </motion.div>
-                                ))}
-                            </div>
-
-                            {/* Bottom Benefits */}
-                            <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-                                {benefits.slice(3).map((benefit) => (
-                                    <motion.div
-                                        key={benefit.label}
-                                        className="group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)]"
-                                        variants={itemVariants}
-                                    >
-                                        {/* Icon */}
-                                        <div
-                                            className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}
-                                        >
-                                            <benefit.icon
-                                                size={22}
-                                                className={benefit.iconColor}
-                                                strokeWidth={1.7}
-                                            />
-                                        </div>
-
-                                        {/* Label */}
-                                        <span
-                                            className="max-w-full text-xs font-semibold leading-4 text-slate-800 sm:text-[15px] sm:leading-5"
-                                        >
-                                            {benefit.label}
-                                        </span>
-                                    </motion.div>
-                                ))}
-                            </div>
-
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+               <section className="relative bg-white overflow-hidden py-14 sm:py-20 lg:py-24">
+                 <div className="pointer-events-none absolute inset-0 z-0">
+                   <div className="absolute inset-0 opacity-10" />
+                   <AnimatedBackground
+                     interactive={true}
+                     density={80}
+                     particleColorLight="99, 102, 241"
+                     particleColorDark="168, 85, 247"
+                   />
+                 </div>
+         
+         
+                 <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                   <motion.div
+                     className="relative overflow-hidden rounded-2xl sm:rounded-[28px] border border-white/70 p-5 sm:p-8 lg:p-12 xl:p-14 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur-xl"
+                     style={{
+                       backgroundImage: "url('/images/benefit_bg.png')",
+                       backgroundSize: "cover",
+                       backgroundPosition: "top center",
+                       backgroundRepeat: "no-repeat",
+                       backgroundColor: "#e7e2f7",
+                     }}
+                     initial="hidden"
+                     whileInView="visible"
+                     viewport={{ once: true, amount: 0.2 }}
+                     variants={containerVariants}
+                   >
+                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/55 via-white/25 to-violet-100/30" />
+                     <div className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full bg-violet-400/20 blur-3xl" />
+                     <div className="pointer-events-none absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-indigo-400/15 blur-3xl" />
+         
+         
+                     <div className="relative z-10">
+                       <motion.div className="mx-auto mb-8 max-w-3xl px-4 text-center sm:mb-10 sm:px-6 lg:mb-12 lg:px-8">
+                         <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                           <span className="border-b-2 border-indigo-500 pb-1">
+                             Benefits
+                           </span>{" "}
+                           of Scan n Go
+                         </h2>
+                         <p className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg">
+                           Scan n Go enhances security and convenience by providing
+                           seamless entry management through QR code scanning and live
+                           face verification, ensuring only authorized access.
+                         </p>
+                       </motion.div>
+         
+         
+                       {/* First 3 items: On mobile, the 3rd item stretches to fill the row so there's no empty space. On desktop (lg), it reverts to 3 columns. */}
+                       <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+                         {benefits.slice(0, 3).map((benefit, index) => (
+                           <motion.div
+                             key={benefit.label}
+                             className={`group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)] ${index === 2 ? "col-span-2 sm:col-span-1" : ""
+                               }`}
+                             variants={itemVariants}
+                           >
+                             <div className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                               <benefit.icon
+                                 size={22}
+                                 className={benefit.iconColor}
+                                 strokeWidth={1.7}
+                               />
+                             </div>
+                             <span className="max-w-full text-xs font-semibold leading-4 text-slate-800 sm:text-[15px] sm:leading-5">
+                               {benefit.label}
+                             </span>
+                           </motion.div>
+                         ))}
+                       </div>
+         
+         
+                       {/* Remaining items grid */}
+                       <div className="mt-3 sm:mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
+                         {benefits.slice(3).map((benefit) => (
+                           <motion.div
+                             key={benefit.label}
+                             className="group flex min-h-[125px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md transition-all duration-300 sm:min-h-[140px] sm:gap-3 sm:p-5 hover:-translate-y-1.5 hover:border-violet-200 hover:bg-white/85 hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)]"
+                             variants={itemVariants}
+                           >
+                             <div className={`flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl ${benefit.bgColor} shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                               <benefit.icon
+                                 size={22}
+                                 className={benefit.iconColor}
+                                 strokeWidth={1.7}
+                               />
+                             </div>
+                             <span className="max-w-full text-xs font-semibold leading-4 text-slate-800 sm:text-[15px] sm:leading-5">
+                               {benefit.label}
+                             </span>
+                           </motion.div>
+                         ))}
+                       </div>
+                     </div>
+                   </motion.div>
+                 </div>
+               </section>
+         
 
         </div>
     );

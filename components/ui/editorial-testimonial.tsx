@@ -106,25 +106,9 @@ export default function TestimonialsEditorial() {
             {/* ================= BACKGROUND ================= */}
 
             {/* Huge outlined text */}
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none">
+            <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden select-none">
                 <h2
-                    className=" flex
-            flex-col
-            items-center
-            justify-center
-            gap-1
-       
-            text-center
-            font-black
-            
-            leading-[2]
-            tracking-[-0.06em]
-            text-transparent
-            text-[100px]
-            sm:text-[165px]
-            md:text-[220px]
-            lg:text-[200px]
-        "
+                    className="  flex flex-col items-center justify-center  gap-0 text-center font-black leading-[1.6em] tracking-[-0.06em] text-transparent   text-[90px] sm:text-[130px]md:text-[170px] lg:text-[210px] xl:text-[250px] whitespace-nowrap "
                     style={{
                         WebkitTextStroke: "2px rgba(124, 58, 237, 0.15)",
                     }}
@@ -133,13 +117,14 @@ export default function TestimonialsEditorial() {
                     <span>BACK</span>
                 </h2>
             </div>
-
             {/* subtle background glow */}
             <div className="pointer-events-none absolute left-[10%] top-[15%] h-40 w-40 rounded-full bg-white/30 blur-3xl" />
             <div className="pointer-events-none absolute bottom-[10%] right-[10%] h-52 w-52 rounded-full bg-violet-300/20 blur-3xl" />
 
             {/* ================= MAIN ================= */}
-            <div className="relative z-10 mx-auto flex min-h-[560px] max-w-6xl items-center justify-center px-4 sm:px-6 ">
+            <div
+                className="relative z-10 mx-auto flex min-h-[330px] sm:min-h-[500px] md:min-h-[560px]  lg:min-h-[620px] max-w-6xl  items-center justify-center  px-2 sm:px-6"
+            >
                 <div className="relative w-full max-w-6xl transition-all duration-500 ">
 
                     {/* ================= HEART BADGE ================= */}
@@ -231,39 +216,39 @@ export default function TestimonialsEditorial() {
                                             {current.role}
                                         </p>
                                     </div>
-                                        <div className="flex items-center gap-2.5 sm:gap-3">
-                            {testimonials.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleChange(index, index > active ? "next" : "prev")}
-                                    aria-label={`Go to testimonial ${index + 1}`}
-                                    className="group flex h-6 items-center"
-                                >
-                                    <span
-                                        className={` block  h-[3px] rounded-full transition-all  duration-300
+                                    <div className="flex items-center gap-2.5 sm:gap-3">
+                                        {testimonials.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => handleChange(index, index > active ? "next" : "prev")}
+                                                aria-label={`Go to testimonial ${index + 1}`}
+                                                className="group flex h-6 items-center"
+                                            >
+                                                <span
+                                                    className={` block  h-[3px] rounded-full transition-all  duration-300
 
                                 ${index === active
-                                                ? "w-9 bg-violet-600 sm:w-10"
-                                                : "w-4 bg-violet-200 group-hover:w-6 group-hover:bg-violet-400 sm:w-5"
-                                            }
+                                                            ? "w-9 bg-violet-600 sm:w-10"
+                                                            : "w-4 bg-violet-200 group-hover:w-6 group-hover:bg-violet-400 sm:w-5"
+                                                        }
                             `}
-                                    />
-                                </button>
-                            ))}
+                                                />
+                                            </button>
+                                        ))}
 
-                            <span
-                                className="  ml-1 text-[10px]  font-bold tracking-[0.16em]  text-violet-700 sm:ml-2 sm:text-xs sm:tracking-[0.18em]"
-                            >
-                                {String(active + 1).padStart(2, "0")} /{" "}
-                                {String(testimonials.length).padStart(2, "0")}
-                            </span>
-                        </div>
+                                        <span
+                                            className="  ml-1 text-[10px]  font-bold tracking-[0.16em]  text-violet-700 sm:ml-2 sm:text-xs sm:tracking-[0.18em]"
+                                        >
+                                            {String(active + 1).padStart(2, "0")} /{" "}
+                                            {String(testimonials.length).padStart(2, "0")}
+                                        </span>
+                                    </div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
                     </div>
 
-                  
+
                 </div>
             </div>
         </section>

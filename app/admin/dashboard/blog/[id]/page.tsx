@@ -49,20 +49,22 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
     return (
         <div className="w-full min-h-screen p-4 sm:p-6 lg:p-8 bg-slate-50">
             <div className="w-full max-w-full mx-auto">
-                <Link
-                    href="/admin/dashboard/blog"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-800 transition mb-6"
-                >
-                    <ChevronLeft size={18} />
-                    Back to All Blogs
-                </Link>
+                <div className="sticky top-0 lg:top-2 bg-slate-50/80 backdrop-blur-sm py-3 z-10 -mx-2 px-2">
+                    <Link
+                        href="/admin/dashboard/blog"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-800 transition"
+                    >
+                        <ChevronLeft size={18} />
+                        Back to All Blogs
+                    </Link>
+                </div>
 
 
                 <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden w-full">
-                   
+
                     {/* Header Banner Section: Image on Left, Title / Details on Right */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 w-full bg-slate-900 border-b border-slate-200">
-                       
+
                         {/* Left Side: Image */}
                         <div className="lg:col-span-6 relative w-full h-72 sm:h-96 lg:h-[420px] flex items-center justify-center overflow-hidden bg-slate-950">
                             {blog.image ? (
@@ -127,4 +129,3 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
         </div>
     );
 }
-

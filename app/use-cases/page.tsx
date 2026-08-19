@@ -2,6 +2,7 @@
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
   Briefcase,
   Calendar,
   Car,
@@ -11,6 +12,7 @@ import {
   UserCheck,
   Wifi,
 } from "lucide-react";
+import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 
 const useCases = [
@@ -238,7 +240,13 @@ export default function UseCasesPage() {
       <section className="overflow-hidden bg-white py-10 sm:py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)] sm:rounded-[34px]">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)] sm:rounded-[34px]"
+          >
 
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
 
@@ -262,8 +270,14 @@ export default function UseCasesPage() {
                 </p>
 
                 {/* CTA button/content */}
-                <div className="-mt-15 flex flex-wrap gap-3 sm:mt-8">
-                  {/* existing CTA */}
+                <div className="mt-7 flex flex-wrap gap-3 sm:mt-10">
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:gap-4 sm:px-8 sm:text-base"
+                  >
+                    Contact Us
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
 
@@ -326,7 +340,7 @@ export default function UseCasesPage() {
 
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

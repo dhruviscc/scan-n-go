@@ -269,7 +269,7 @@ export default function Home() {
 
               {/* Phone Container */}
               <motion.div
-                className="relative z-10 w-[230px] sm:w-[290px] lg:w-[690px]"
+                className="relative z-10 w-full max-w-[730px] sm:max-w-[390px] md:max-w-[460px] lg:max-w-[420px] xl:max-w-[520px]"
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{
@@ -278,17 +278,17 @@ export default function Home() {
                   ease: [0.25, 1, 0.5, 1],
                 }}
               >
-                <div className="relative h-[470px] sm:h-[590px] ">
-
+                <div
+                  className="relative h-[250px] xs:h-[230px] sm:h-[520px] md:h-[580px] lg:h-[550px]  xl:h-[600px] w-full"
+                >
                   <Image
                     src="/images/hero-3.png"
                     alt="Scan n Go App"
                     fill
                     priority
-                    className="object-contain object-center p-1"
+                    sizes="(max-width: 640px) 330px, (max-width: 1024px) 360px, 690px"
+                    className="object-contain object-center"
                   />
-
-
                 </div>
               </motion.div>
               {/* 4 Floating Feature Cards around Phone - Now responsive */}
@@ -421,7 +421,7 @@ export default function Home() {
               { title: "Gate QR", desc: "Secure visitor access with QR-based entry, exit, and attendance management.", features: ["QR Check-In & Check-Out", "Attendance Management", "Access Control", "Entry And Exit History"], color: "border-purple-100/70", iconColor: "text-violet-600", img: "/images/gate-qr.png" },
               { title: "Guest Entry Notification", desc: "Keep residents informed with instant notifications for every visitor arrival and departure.", features: ["Instant Visitor Alerts", "Real-Time Updates", "Greeting Notifications", "Visitor Activity Log"], color: "border-amber-100/70", iconColor: "text-amber-600", img: "/images/guest-notification-1.png" },
               { title: "Meeting QR", desc: "Organize and manage meetings with QR-based check-in, attendance tracking, and scheduled access.", features: ["QR Meeting Check-In", "Time-Based Access", "Attendance Tracking", "Attendance Reports"], color: "border-blue-100/70", iconColor: "text-blue-600", img: "/images/meeting-2.png" },
-            ].map((sol, index) => (
+            ].map((sol) => (
               <motion.div
                 key={sol.title}
                 variants={{
@@ -558,7 +558,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
 
           {/* ═════════════════════ SECTION HEADER ═════════════════════ */}
-          <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
+          <ScrollReveal className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Vehicle QR{" "}
               <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-500 bg-clip-text text-transparent">
@@ -569,13 +569,24 @@ export default function Home() {
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
               We design specialized QR tools for everyday security. From smart vehicle stickers to identity protection hubs, Scan n Go simplifies connection workflows.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* ═════════════════════ MAIN FEATURE AREA ═════════════════════ */}
-          <div className="grid items-stretch gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+          <motion.div
+            className="grid items-stretch gap-6 lg:grid-cols-[1.25fr_0.75fr]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.2 } },
+              hidden: {},
+            }}
+          >
 
             {/* LEFT — SMART ALERT EXPERIENCE */}
-            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-transparent p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-10">
+            <motion.div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-transparent p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-10"
+              variants={{ hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
+            >
               {/* Decorative glow */}
               <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
 
@@ -736,13 +747,17 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
               </div>
-            </div>
+            </motion.div>
 
             {/* ═══════════════════════════════════════════════════════
          RIGHT — DUAL STICKER PROTECTION
             ═══════════════════════════════════════════════════════ */}
-            <div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-transparent p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-9">
+            <motion.div className="group relative overflow-hidden rounded-[32px] border border-indigo-200/80 bg-transparent p-6 shadow-lg shadow-indigo-500/5 transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 sm:p-8 lg:p-9"
+              variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
+
+            >
               {/* Glow */}
               <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-300/40 blur-[90px] transition-all duration-500 group-hover:bg-indigo-300/60" />
               <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-indigo-300/40 blur-[90px]" />
@@ -870,8 +885,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -1181,7 +1196,7 @@ export default function Home() {
                 alt="Scan n Go Mobile App Preview"
                 className="
       relative z-10
-      w-[260px] h-[420px]
+      w-[360px] h-[420px]
       object-contain
       drop-shadow-[0_25px_45px_rgba(67,56,202,0.25)]
       animate-float
@@ -1206,7 +1221,7 @@ export default function Home() {
 
       <section className="relative py-20 bg-white">
 
-    
+
         <div className="w-full max-w-[1440px] mx-auto">
           <ScrollReveal className="max-w-2xl mx-auto text-center">
             <div className="max-w-4xl mx-auto px-4 text-center sm:px-6">
@@ -1322,144 +1337,175 @@ export default function Home() {
 
       {/* ════════════════ SECTION 09 — CALL TO ACTION ════════════════ */}
 
+      <section className="bg-white py-10 sm:py-14 lg:py-20 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-      < section className="py-14 lg:py-20 bg-white overflow-hidden" >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="relative overflow-hidden rounded-[24px] sm:rounded-[30px] lg:rounded-[34px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)]">
 
-          <div className="relative overflow-hidden rounded-[34px] bg-gradient-to-r from-[#24115F] via-[#3E1E9E] to-[#6C3DF5] shadow-[0_25px_70px_rgba(36,17,95,.25)]">
+              {/* Background */}
+              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
 
-            {/* Background */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
+              {/* White Curved Shape */}
+              <div className="hidden lg:block absolute right-[-220px] top-[-120px] w-[760px] h-[760px] rounded-full bg-white/95" />
 
-            {/* White Curved Shape */}
-            <div className="hidden lg:block absolute right-[-220px] top-[-120px] w-[760px] h-[760px] rounded-full bg-white/95"></div>
-
-            <div className="hidden lg:block absolute inset-0 overflow-hidden">
-              <div className=" wave-1 absolute left-[40%] bottom-[-100px] w-[650px] h-[650px] rounded-full border border-white/10" />
-
-              <div className="wave-2 absolute left-[45%] bottom-[-100px] w-[720px] h-[720px] rounded-full border border-white/10" />
-
-              <div className="wave-3 absolute left-[50%] bottom-[-120px] w-[790px] h-[790px] rounded-full border border-white/10" />
-
-            </div>
-
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center">
-
-              {/* LEFT */}
-
-              <div className="w-full lg:w-[46%] px-8 py-14 lg:px-16">
-
-                <h2 className="hero-heading text-2xl sm:text-3xl md:text-4xl w-2xl text-start text-white leading-tight transition-transform duration-500 hover:scale-105">
-                  <span className="block hero-heading-gradient">
-                    LET’S CREATE BETTER, SECURE AND QUICK FUTURE WITH US
-                  </span>
-                </h2>
-
-                <p className="mt-7 max-w-md text-white/75 text-md leading-8">
-
-                  Partner with Scan n Go and build a safer,
-                  smarter and contactless future together.
-
-                </p>
-
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center text-md gap-4 mt-10 rounded-xl bg-white px-8 py-3 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-                >
-                  Contact Us
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M8 5l8 7-8 7z" />
-                  </svg>
-
-                </Link>
-
+              {/* Waves */}
+              <div className="hidden lg:block absolute inset-0 overflow-hidden">
+                <div className="wave-1 absolute left-[40%] bottom-[-100px] w-[650px] h-[650px] rounded-full border border-white/10" />
+                <div className="wave-2 absolute left-[45%] bottom-[-100px] w-[720px] h-[720px] rounded-full border border-white/10" />
+                <div className="wave-3 absolute left-[50%] bottom-[-120px] w-[790px] h-[790px] rounded-full border border-white/10" />
               </div>
 
-              {/* RIGHT */}
+              <div className="relative z-10 flex flex-col lg:flex-row items-center">
 
-              <div className="relative w-full lg:w-[54%] h-[420px] flex items-center justify-center">
+                {/* ================= LEFT ================= */}
+                <div className="w-full lg:w-[46%] px-6 py-10 sm:px-8 sm:py-12 lg:px-16 lg:py-14 text-center lg:text-left">
 
-                {/* Shadow */}
+                  <h2 className="hero-heading text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl max-w-xl mx-auto lg:mx-0 text-white leading-tight transition-transform duration-500 hover:scale-[1.02]">
+                    <span className="block hero-heading-gradient">
+                      LET’S CREATE BETTER, SECURE AND QUICK FUTURE WITH US
+                    </span>
+                  </h2>
 
-                <div className="absolute bottom-12 w-72 h-16 rounded-full bg-indigo-900/25 blur-xl"></div>
+                  <p className="mt-5 sm:mt-7 max-w-md mx-auto lg:mx-0 text-sm sm:text-base text-white/75 leading-7 sm:leading-8">
+                    Partner with Scan n Go and build a safer,
+                    smarter and contactless future together.
+                  </p>
 
-                {/* Platform */}
-
-                <div className="absolute bottom-16 w-64 h-16 rounded-full bg-gradient-to-b from-white to-indigo-200 shadow-2xl"></div>
-
-                <div className="absolute bottom-[92px] w-52 h-9 rounded-full bg-white"></div>
-
-                {/* Shield */}
-
-                <div className="absolute right-24 top-14 hidden md:flex items-center justify-center w-40 h-44 rounded-[36px] bg-gradient-to-b from-[#7054ff] to-[#4f2fd3] rotate-12 shadow-[0_30px_50px_rgba(76,50,220,.45)]">
-
-                  <svg
-                    className="w-16 h-16 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.8"
-                    viewBox="0 0 24 24"
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center justify-center text-sm sm:text-base gap-3 sm:gap-4 mt-7 sm:mt-10 rounded-xl bg-white px-6 sm:px-8 py-3 font-semibold text-indigo-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+                    Contact Us
+
+                    <svg
+                      className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5l8 7-8 7z" />
+                    </svg>
+                  </Link>
 
                 </div>
 
-                {/* QR Card */}
+                {/* ================= RIGHT ================= */}
+                <div
+                  className="
+              relative
+              w-full
+              lg:w-[54%]
+              h-[200px]
+              sm:h-[360px]
+              md:h-[400px]
+              lg:h-[420px]
+              flex
+              items-center
+              justify-center
+            "
+                >
 
-                <div className="relative z-20 rounded-[30px] bg-white p-6 shadow-[0_35px_80px_rgba(30,20,80,.25)]">
+                  {/* Shadow */}
+                  <div className="absolute bottom-8 sm:bottom-12 w-48 sm:w-64 md:w-72 h-12 sm:h-16 rounded-full bg-indigo-900/25 blur-xl" />
 
-                  <div className="relative w-40 h-40">
+                  {/* Platform */}
+                  <div className="absolute bottom-12 sm:bottom-16 w-48 sm:w-56 md:w-64 h-12 sm:h-16 rounded-full bg-gradient-to-b from-white to-indigo-200 shadow-2xl" />
 
-                    {/* Scanner Corners */}
+                  <div className="absolute bottom-[68px] sm:bottom-[92px] w-40 sm:w-48 md:w-52 h-7 sm:h-9 rounded-full bg-white" />
 
-                    <div className="absolute top-0 left-0 w-8 h-8 border-l-4 border-t-4 border-indigo-500 rounded-tl-xl"></div>
-
-                    <div className="absolute top-0 right-0 w-8 h-8 border-r-4 border-t-4 border-indigo-500 rounded-tr-xl"></div>
-
-                    <div className="absolute bottom-0 left-0 w-8 h-8 border-l-4 border-b-4 border-indigo-500 rounded-bl-xl"></div>
-
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-r-4 border-b-4 border-indigo-500 rounded-br-xl"></div>
-
-                    {/* QR IMAGE */}
-
-                    <img
-                      src="/images/scan-QR.png"
-                      alt="QR Code"
-                      className="absolute inset-5 w-[120px] h-[120px] object-contain"
-                    />
-
+                  {/* Shield */}
+                  <div
+                    className="
+                absolute
+                right-[8%]
+                sm:right-[12%]
+                md:right-[15%]
+                lg:right-24
+                top-8
+                sm:top-10
+                md:top-14
+                hidden md:flex
+                items-center
+                justify-center
+                w-28
+                h-32
+                sm:w-32
+                sm:h-36
+                lg:w-40
+                lg:h-44
+                rounded-[28px]
+                lg:rounded-[36px]
+                bg-gradient-to-b
+                from-[#7054ff]
+                to-[#4f2fd3]
+                rotate-12
+                shadow-[0_30px_50px_rgba(76,50,220,.45)]
+              "
+                  >
+                    <svg
+                      className="w-12 h-12 lg:w-16 lg:h-16 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.8"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
                   </div>
 
+                  {/* QR Card */}
+                  <div className="relative z-20 rounded-[22px] sm:rounded-[26px] lg:rounded-[30px] bg-white p-4 sm:p-5 lg:p-6 shadow-[0_35px_80px_rgba(30,20,80,.25)]">
+
+                    <div className="relative w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40">
+
+                      {/* Scanner Corners */}
+                      <div className="absolute top-0 left-0 w-7 h-7 sm:w-8 sm:h-8 border-l-4 border-t-4 border-indigo-500 rounded-tl-xl" />
+
+                      <div className="absolute top-0 right-0 w-7 h-7 sm:w-8 sm:h-8 border-r-4 border-t-4 border-indigo-500 rounded-tr-xl" />
+
+                      <div className="absolute bottom-0 left-0 w-7 h-7 sm:w-8 sm:h-8 border-l-4 border-b-4 border-indigo-500 rounded-bl-xl" />
+
+                      <div className="absolute bottom-0 right-0 w-7 h-7 sm:w-8 sm:h-8 border-r-4 border-b-4 border-indigo-500 rounded-br-xl" />
+
+                      {/* QR IMAGE */}
+                      <img
+                        src="/images/scan-QR.png"
+                        alt="QR Code"
+                        className="
+                    absolute
+                    inset-4
+                    sm:inset-5
+                    w-[96px]
+                    h-[96px]
+                    sm:w-[108px]
+                    sm:h-[108px]
+                    lg:w-[120px]
+                    lg:h-[120px]
+                    object-contain
+                  "
+                      />
+
+                    </div>
+                  </div>
+
+                  {/* Floating Dots */}
+                  <div className="absolute right-[8%] sm:right-[10%] md:right-10 top-16 sm:top-20 md:top-24 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-indigo-300" />
+
+                  <div className="absolute right-[5%] sm:right-6 bottom-12 sm:bottom-16 md:bottom-20 w-2 h-2 rounded-full bg-purple-400" />
+
+                  <div className="absolute right-[15%] sm:right-20 md:right-24 bottom-20 sm:bottom-28 md:bottom-32 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-indigo-200" />
+
                 </div>
 
-                {/* Floating Dots */}
-
-                <div className="absolute right-10 top-24 w-3 h-3 rounded-full bg-indigo-300"></div>
-
-                <div className="absolute right-6 bottom-20 w-2 h-2 rounded-full bg-purple-400"></div>
-
-                <div className="absolute right-24 bottom-32 w-4 h-4 rounded-full bg-indigo-200"></div>
-
               </div>
-
             </div>
-
-          </div>
-
+          </ScrollReveal>
         </div>
-      </section >
+      </section>
     </>
-  );
+  )
 }
-
-

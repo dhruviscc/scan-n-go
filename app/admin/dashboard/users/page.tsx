@@ -260,7 +260,14 @@ export default function UsersPage() {
                 <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
                     <button
                         onClick={() => setIsAddModalOpen(true)}
-                        className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
+                        className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl
+               bg-violet-500
+               text-white font-bold text-sm
+               shadow-lg shadow-violet-500/30
+               transition-all duration-300
+               hover:bg-violet-600 hover:-translate-y-0.5
+               active:scale-95"
+                    
                     >
                         <Plus size={18} /> <span>Add User</span>
                     </button>
@@ -536,7 +543,8 @@ export default function UsersPage() {
                         >
                             <div className="flex justify-between items-center mb-6">
                                 <h3 className="text-xl font-bold text-slate-800">Add User</h3>
-                                <button onClick={() => setIsAddModalOpen(false)} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 transition-colors">
+                                <button onClick={() => setIsAddModalOpen(false)}
+                                 className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 transition-colors">
                                     <X size={20} />
                                 </button>
                             </div>
@@ -602,7 +610,12 @@ export default function UsersPage() {
                                     <button type="button" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b] " onClick={() => setIsAddModalOpen(false)}>
                                         Cancel
                                     </button>
-                                    <button type="submit" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm  bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none " disabled={loading}>
+                                    <button type="submit" className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer bg-violet-500
+               text-white font-bold text-sm
+               shadow-lg shadow-violet-500/30
+               transition-all duration-300
+               hover:bg-violet-600 hover:-translate-y-0.5
+               active:scale-95"disabled={loading}>
                                         {loading ? "Adding..." : "Add User"}
                                     </button>
                                 </div>
