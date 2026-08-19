@@ -457,10 +457,12 @@ export default function BlogsDetailsPage() {
                     <button
                         onClick={() => openModal(null)}
                         className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl
-                       bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300
-                       text-white font-bold text-sm
-                       shadow-lg shadow-violet-300/30
-                       transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
+               bg-violet-500
+               text-white font-bold text-sm
+               shadow-lg shadow-violet-500/30
+               transition-all duration-300
+               hover:bg-violet-600 hover:-translate-y-0.5
+               active:scale-95"
                     >
                         <Plus size={18} />
                         <span>Add Blog</span>
@@ -934,7 +936,12 @@ export default function BlogsDetailsPage() {
                             <div className="flex gap-4 p-6 border-t border-slate-200 shrink-0">
                                 <button onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-white border border-[#e2e8f0] text-[#1e293b]">Cancel</button>
                                 <button onClick={handleSave} disabled={isSaving}
-                                    className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer text-sm bg-gradient-to-b from-violet-500 via-violet-500 to-violet-300 text-white border-none disabled:opacity-60"
+                                    className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold cursor-pointer  bg-violet-500
+               text-white font-bold text-sm
+               shadow-lg shadow-violet-500/30
+               transition-all duration-300
+               hover:bg-violet-600 hover:-translate-y-0.5
+               active:scale-95"
                                 >
                                     {isSaving ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
                                     {editingBlog ? "Update Blog" : "Save Blog"}

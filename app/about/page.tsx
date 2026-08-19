@@ -780,7 +780,7 @@ export default function AboutPage() {
 
 
             {/* ════════════════ BENEFITS OF SCAN N GO ════════════════ */}
-               <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
+               <section className="relative bg-white overflow-hidden py-14 sm:py-20 lg:py-24">
                  <div className="pointer-events-none absolute inset-0 z-0">
                    <div className="absolute inset-0 opacity-10" />
                    <AnimatedBackground

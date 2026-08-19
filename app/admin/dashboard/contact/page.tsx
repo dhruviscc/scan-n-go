@@ -319,19 +319,19 @@ export default function EnquiryPage() {
                 <table className="w-full border-collapse">
                     <thead className="bg-[#f8fafc] border-b border-[#e2e8f0]">
                         <tr>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-4 py-[14px] text-left text-[13px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 #</th>
-                            {/* <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
-                                Type</th> */}
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+
+                            <th scope="col" className="px-6 py-[14px] text-left text-[13px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Customer</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+                            <th scope="col" className="px-6 py-[14px] text-left text-[13px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Interest</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
-                                Date</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+
+                            <th scope="col" className="px-6 py-[14px] text-left text-[13px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
                                 Status</th>
-                            <th scope="col" className="px-4 py-[14px] text-left text-[12px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap ">
+                            <th scope="col" className="px-6 py-[14px] text-left text-[13px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap">
+                                Date</th>
+                            <th scope="col" className="px-6 py-[14px] text-left text-[13px] font-semibold text-violet-700   uppercase tracking-wider whitespace-nowrap ">
                                 Actions</th>
                         </tr>
                     </thead>
@@ -355,20 +355,11 @@ export default function EnquiryPage() {
                             paginatedEnquiries.map((enquiry, index) => (
                                 <tr key={enquiry.id} className="hover:bg-slate-50/50 transition-colors group">
                                     <td className=" py-4">
-                                        <div className="flex items-center justify-center text-slate-400 font-mono text-xs">
+                                        <div className="flex items-center px-4 text-slate-400 font-mono text-sm">
                                             {(currentPage - 1) * pageSize + index + 1}
                                         </div>
                                     </td>
-                                    {/* <td>
-                                        <div>
-                                            <span className={`text-[13px] px-1.5 py-0.5 rounded font-semibold  uppercase tracking-wider ${(enquiry as any).source === 'Product Enquiry'
-                                                ? 'text-purple-600'
-                                                : 'text-violet-700'
-                                                }`}>
-                                                {(enquiry as any).source || 'Lead'}
-                                            </span>
-                                        </div>
-                                    </td> */}
+
                                     <td className="px-6 py-4">
                                         <div className="flex flex-col">
 
@@ -390,16 +381,11 @@ export default function EnquiryPage() {
                                     </td>
 
                                     <td className="px-6 py-4">
-                                        <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-sm font-semibold text-purple-700">
+                                        <span className="inline-flex items-center rounded-md bg-purple-50 px-3 py-1 text-sm  text-purple-700">
                                             {enquiry.service_interest}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4">
-                                        <div className="flex items-center gap-1.5 text-sm text-slate-500">
-                                            <Calendar size={12} />
-                                            {new Date(enquiry.created_at).toLocaleDateString()}
-                                        </div>
-                                    </td>
+
                                     <td className="px-6 py-4">
                                         <div className="flex">
                                             <select
@@ -412,6 +398,12 @@ export default function EnquiryPage() {
                                                 <option value="contacted" className="bg-white text-slate-800">Contacted</option>
                                                 <option value="closed" className="bg-white text-slate-800">Closed</option>
                                             </select>
+                                        </div>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <div className="flex items-center gap-1.5 text-sm text-slate-500">
+                                            <Calendar size={12} />
+                                            {new Date(enquiry.created_at).toLocaleDateString()}
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
