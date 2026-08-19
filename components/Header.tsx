@@ -78,9 +78,7 @@ export default function Header() {
                         border border-indigo-400/30
                         bg-[linear-gradient(90deg,rgba(124,58,237,0.28)_0%,rgba(139,92,246,0.18)_30%,rgba(196,181,253,0.12)_55%,rgba(255,255,255,0.65)_82%,rgba(255,255,255,0.85)_100%)]
                         shadow-[0_0_20px_rgba(99,102,241,0.10),inset_0_7px_30px_rgba(255,255,255,0.8)]
-                        backdrop-blur-md
-  "
-            />
+                        backdrop-blur-md "/>
           </div>
 
           {/* Logo with Indigo filter styling */}

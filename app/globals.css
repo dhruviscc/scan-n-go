@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-
-
-
 @font-face {
   font-family: "Circular Std";
   src: url("/fonts/CircularStd-Book.woff2") format("woff2");
@@ -27,7 +24,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 :root {
   --background: 0 0% 100%;
@@ -150,9 +146,6 @@ body {
   }
 }
 
-
-
-
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -198,29 +191,11 @@ body {
   animation-delay: 1.5s;
 }
 
-/* Hero phone entrance */
-.hero-phone {
-  animation: float 6s ease-in-out infinite;
-}
+
 
 /* Feature pill hover lift */
 .feature-pill {
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Glassmorphism utilities */
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px 0 rgba(124, 58, 237, 0.05);
-}
-
-.glass-card-dark {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* CTA button gradient */
@@ -232,20 +207,6 @@ body {
 .cta-primary:hover {
   background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%);
   box-shadow: 0 20px 40px -8px rgba(124, 58, 237, 0.35);
-}
-
-/* Mask gradient for scrolling ticker */
-.mask-gradient {
-  -webkit-mask-image: linear-gradient(to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%);
-  mask-image: linear-gradient(to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%);
 }
 
 /* Scrollbar customization */
@@ -277,53 +238,6 @@ section {
   color: #1e1b4b;
 }
 
-@keyframes floatSlow {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(-12deg);
-  }
-
-  50% {
-    transform: translateY(-12px) rotate(-8deg);
-  }
-}
-
-@keyframes floatMedium {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(12deg);
-  }
-
-  50% {
-    transform: translateY(16px) rotate(8deg);
-  }
-}
-
-@keyframes floatFast {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float-slow {
-  animation: floatSlow 6s ease-in-out infinite;
-}
-
-.animate-float-medium {
-  animation: floatMedium 5s ease-in-out infinite;
-}
-
-.animate-float-fast {
-  animation: floatFast 4s ease-in-out infinite;
-}
 
 @keyframes blobOne {
   0% {
@@ -442,43 +356,6 @@ section {
 .wave-3 {
   animation: waveFloat3 13s ease-in-out infinite;
 }
-@keyframes gridFloat {
-  0%,100%{
-    transform:translateY(0) translateX(0);
-  }
-
-  25%{
-    transform:translateY(-8px) translateX(4px);
-  }
-
-  50%{
-    transform:translateY(-16px) translateX(0);
-  }
-
-  75%{
-    transform:translateY(-8px) translateX(-4px);
-  }
-}
-
-@keyframes dotGlow {
-  0%,100%{
-    opacity:.15;
-    transform:scale(1);
-  }
-
-  50%{
-    opacity:.85;
-    transform:scale(1.35);
-  }
-}
-
-.dot-grid{
-    animation:gridFloat 10s ease-in-out infinite;
-}
-
-.dot-grid span{
-    animation:dotGlow 2.5s ease-in-out infinite;
-}
 
 /* Continuous Image Zoom Animation */
 
@@ -578,41 +455,8 @@ section {
   will-change: transform;
 }
 
-.sparkle-indicator {
-  animation: sparkleFloat 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
-}
 
-@keyframes sparkleFloat {
-  0% {
-    transform: translateX(-50%) translateY(0) scale(0.9) rotate(0deg);
-    opacity: 0.7;
-  }
 
-  50% {
-    transform: translateX(-50%) translateY(-3px) scale(1.2) rotate(20deg);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(-50%) translateY(0) scale(0.9) rotate(0deg);
-    opacity: 0.7;
-  }
-}
-
-@keyframes borderLight {
-  0% {
-    transform: translateX(-120%);
-  }
-
-  100% {
-    transform: translateX(420%);
-  }
-}
-
-.animate-border-light {
-  animation: borderLight 4s linear infinite;
-}
 
 /* Tiptap / blog rich-text content rendered on public pages */
 .blog-content :where(p) {
