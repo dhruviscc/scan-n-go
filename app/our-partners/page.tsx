@@ -314,8 +314,7 @@ export default function OurPartners() {
               </div>
 
             </div>
-          </div>
-        </section>
+          </div></section>
       </ScrollReveal>
     </div>
   );

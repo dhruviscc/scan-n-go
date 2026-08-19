@@ -9,7 +9,7 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div
-      className="relative z-10 max-w-full mx-auto rounded-[32px] bg-white/65 backdrop-blur-3xl border border-slate-200/30 shadow-[0_30px_80px_rgba(15,23,42,0.06)] p-10 md:p-16"
+      className=" relative w-full max-w-full  mx-auto rounded-[20px] sm:rounded-[26px] lg:rounded-[32px] bg-white/65  backdrop-blur-3xl border border-slate-200/30 shadow-[0_20px_60px_rgba(15,23,42,0.06)] p-2 mt-10 sm:p-6 md:p-10 lg:p-16 overflow-hidden "
     >
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
