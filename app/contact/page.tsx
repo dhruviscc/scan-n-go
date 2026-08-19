@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { AnimatedBackground } from "@/components/ui/animated-background";
+import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
 const contactDetails = [
@@ -101,7 +102,12 @@ export default function Contact() {
           <div className="absolute -bottom-44 -left-20 h-[360px] w-[360px] rounded-full bg-indigo-300/35 blur-[90px]" />
           <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#a78bfa_1px,transparent_1px)] [background-size:22px_22px]" />
         </div>
-        <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="relative mx-auto max-w-5xl px-5 text-center sm:px-6"
+        >
 
           <h1 className="mx-auto max-w-4xl text-center text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             We'd Love To
@@ -124,11 +130,17 @@ export default function Contact() {
           <p className="mx-auto m-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Whether you need a product demo, support, or help bringing smarter QR access to your organisation, our team is here for you.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       <section className="relative mx-auto -mt-12 max-w-7xl px-4 pb-20 sm:px-6 lg:px-10">
-        <div className="grid overflow-hidden rounded-[28px] border border-violet-100 bg-white shadow-[0_24px_65px_rgba(76,39,155,0.12)] lg:grid-cols-[1.08fr_.92fr]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid overflow-hidden rounded-[28px] border border-violet-100 bg-white shadow-[0_24px_65px_rgba(76,39,155,0.12)] lg:grid-cols-[1.08fr_.92fr]"
+        >
           {sent ? (
             <div className="p-6 sm:p-9 lg:p-10 flex items-center justify-center min-h-[600px]">
               <div className="text-center max-w-lg">
@@ -225,11 +237,17 @@ export default function Contact() {
 
             </div>
           </aside>
-        </div>
+        </motion.div>
       </section>
 
       <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10"
+        >
 
           <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
@@ -268,7 +286,7 @@ export default function Contact() {
             />
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
 

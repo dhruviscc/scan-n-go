@@ -13,6 +13,7 @@ import {
   Users,
   Video,
 } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 import { TypeAnimation } from "react-type-animation";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 
@@ -69,7 +70,7 @@ const whyChooseUsPoints = [
 export default function OurPartners() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 relative">
-    
+
 
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f8f6ff] via-[#f2efff] to-[#e6e0ff] py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-0">
@@ -225,95 +226,97 @@ export default function OurPartners() {
       </section>
 
       {/* why choose */}
-      <section className="w-full bg-white px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <ScrollReveal>
+        <section className="w-full bg-white px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           {/* Immersive Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10"></div>
 
-        {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
-        <AnimatedBackground
-          interactive={true}
-          density={90}
-          particleColorLight="99, 102, 241"
-          particleColorDark="168, 85, 247"
-        />
-      </div>
-        <div className="mx-auto flex w-full max-w-[1200px] items-center justify-center">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-[480px_1fr] lg:gap-20">
-
-            {/* Left Image */}
-            <div className="flex w-full items-center justify-center">
-              <Image
-                src="/images/why-choose-1.png"
-                alt="Why Choose Scan n Go"
-                width={520}
-                height={520}
-                priority
-                className="h-auto w-full max-w-[440px] object-contain"
-              />
-            </div>
-
-            {/* Right Content */}
-            <div className="w-full text-center lg:text-left">
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-                Smart Access for{" "}
-                <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                  <TypeAnimation
-                    sequence={[
-                      "Visitors",
-                      2000,
-                      "Attendance",
-                      2000,
-                      "Secure Entry",
-                      2000,
-                      "Organizations",
-                      2000,
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    repeat={Infinity}
-                  />
-                </span>
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-600 sm:text-[15px] sm:leading-8 lg:mx-0">
-                Scan n Go delivers a complete QR-powered ecosystem that simplifies
-                visitor management, secure access, and attendance monitoring.
-                Integrated with{" "}
-                <span className="font-semibold">
-                  Society Entry Manager (SEM)
-                </span>{" "}
-                and{" "}
-                <span className="font-semibold">
-                  Attendance Monitor System (AMS)
-                </span>
-                , our platform combines digital automation, real-time monitoring,
-                and enterprise-grade security.
-              </p>
-
-              {/* Features */}
-              <div className="mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-2 lg:mx-0">
-                {whyChooseUsPoints.map((point) => (
-                  <div
-                    key={point}
-                    className="flex items-center gap-3 rounded-xl border border-transparent px-4 py-3 text-left transition-all duration-300 hover:border-violet-200 hover:bg-violet-50"
-                  >
-                    <ShieldCheck
-                      size={20}
-                      className="shrink-0 text-violet-600"
-                    />
-
-                    <span className="text-[14px] font-medium text-slate-700">
-                      {point}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+            {/* Dynamic Interactive Canvas Particles & Glow Orbs */}
+            <AnimatedBackground
+              interactive={true}
+              density={90}
+              particleColorLight="99, 102, 241"
+              particleColorDark="168, 85, 247"
+            />
           </div>
-        </div>
-      </section>
+          <div className="mx-auto flex w-full max-w-[1200px] items-center justify-center">
+            <div className="grid w-full items-center gap-12 lg:grid-cols-[480px_1fr] lg:gap-20">
+
+              {/* Left Image */}
+              <div className="flex w-full items-center justify-center">
+                <Image
+                  src="/images/why-choose-1.png"
+                  alt="Why Choose Scan n Go"
+                  width={520}
+                  height={520}
+                  priority
+                  className="h-auto w-full max-w-[440px] object-contain"
+                />
+              </div>
+
+              {/* Right Content */}
+              <div className="w-full text-center lg:text-left">
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                  Smart Access for{" "}
+                  <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    <TypeAnimation
+                      sequence={[
+                        "Visitors",
+                        2000,
+                        "Attendance",
+                        2000,
+                        "Secure Entry",
+                        2000,
+                        "Organizations",
+                        2000,
+                      ]}
+                      wrapper="span"
+                      speed={50}
+                      repeat={Infinity}
+                    />
+                  </span>
+                </h2>
+
+                <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-600 sm:text-[15px] sm:leading-8 lg:mx-0">
+                  Scan n Go delivers a complete QR-powered ecosystem that simplifies
+                  visitor management, secure access, and attendance monitoring.
+                  Integrated with{" "}
+                  <span className="font-semibold">
+                    Society Entry Manager (SEM)
+                  </span>{" "}
+                  and{" "}
+                  <span className="font-semibold">
+                    Attendance Monitor System (AMS)
+                  </span>
+                  , our platform combines digital automation, real-time monitoring,
+                  and enterprise-grade security.
+                </p>
+
+                {/* Features */}
+                <div className="mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-2 lg:mx-0">
+                  {whyChooseUsPoints.map((point) => (
+                    <div
+                      key={point}
+                      className="flex items-center gap-3 rounded-xl border border-transparent px-4 py-3 text-left transition-all duration-300 hover:border-violet-200 hover:bg-violet-50"
+                    >
+                      <ShieldCheck
+                        size={20}
+                        className="shrink-0 text-violet-600"
+                      />
+
+                      <span className="text-[14px] font-medium text-slate-700">
+                        {point}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }

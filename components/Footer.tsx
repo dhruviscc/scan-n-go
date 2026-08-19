@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { usePathname } from 'next/navigation';
+import ScrollReveal from "./ScrollReveal";
 
 const contactDetails = [
   {
@@ -119,94 +120,95 @@ export default function Footer() {
       </div>
 
       {/* ================= Main Footer Content ================= */}
-      <div className="relative z-10 max-w-[1600px] mx-auto lg:px-4 pt-20 sm:pt-28 lg:pt-36">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 xl:gap-12">
-          {/* Column 1 */}
-          <div>
-            <Link href="/">
-              <Image
-                src="/images/logo/logo_with_text.png"
-                alt="Scan N Go"
-                width={185}
-                height={58}
-                className="object-contain"
-              />
-            </Link>
+      <ScrollReveal>
+        <div className="relative z-10 max-w-[1600px] mx-auto lg:px-4 pt-20 sm:pt-28 lg:pt-36">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 xl:gap-12">
+            {/* Column 1 */}
+            <div>
+              <Link href="/">
+                <Image
+                  src="/images/logo/logo_with_text.png"
+                  alt="Scan N Go"
+                  width={185}
+                  height={58}
+                  className="object-contain"
+                />
+              </Link>
 
-            <p className="mt-7 max-w-md text-[15px] leading-8 text-gray-400">
-              We provide smart QR solutions for secure access, contactless
-              experiences and real-time visitor management. Simple to use,
-              powerful to trust.
-            </p>
+              <p className="mt-7 max-w-md text-[15px] leading-8 text-gray-400">
+                We provide smart QR solutions for secure access, contactless
+                experiences and real-time visitor management. Simple to use,
+                powerful to trust.
+              </p>
 
-            <div className="mt-8">
-              <div className="flex items-center gap-4">
-                <Link
-                  href="https://www.facebook.com/app.scanngo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1877F2] hover:bg-[#1877F2]"
-                >
-                  <FaFacebookF className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
-                </Link>
+              <div className="mt-8">
+                <div className="flex items-center gap-4">
+                  <Link
+                    href="https://www.facebook.com/app.scanngo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#1877F2] hover:bg-[#1877F2]"
+                  >
+                    <FaFacebookF className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+                  </Link>
 
-                <Link
-                  href="https://www.instagram.com/scan_n_go_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E4405F] hover:bg-[#E4405F]"
-                >
-                  <FaInstagram className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
-                </Link>
+                  <Link
+                    href="https://www.instagram.com/scan_n_go_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E4405F] hover:bg-[#E4405F]"
+                  >
+                    <FaInstagram className="text-[18px] text-gray-300 transition-colors group-hover:text-white" />
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Column 2 - Quick Links */}
-          <div className="lg:pl-10 xl:pl-20">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <h3 className="text-xl text-white">Quick Links</h3>
-            </div>
+            {/* Column 2 - Quick Links */}
+            <div className="lg:pl-10 xl:pl-20">
+              <div className="inline-flex items-center gap-3 mb-6">
+                <h3 className="text-xl text-white">Quick Links</h3>
+              </div>
 
-            <ul className="space-y-5">
-              {footerNavItems.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
-                  >
-                    <span className="group-hover:translate-x-1 text-[15px] transition-transform duration-300">
-                      {item.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3 - Contact */}
-          <div>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <h3 className="text-xl text-white">Contact</h3>
-            </div>
-
-            <div className="space-y-5">
-              {contactDetails.map((item, index) => {
-                const IconComponent = item.icon;
-                const isAddress = item.title === "Office Address";
-
-                return (
-                  <div
-                    key={index}
-                    className={`flex ${isAddress ? "items-start gap-4" : "items-center gap-4"
-                      }`}
-                  >
-                    <a
+              <ul className="space-y-5">
+                {footerNavItems.map((item) => (
+                  <li key={item.name}>
+                    <Link
                       href={item.href}
-                      target={isAddress ? "_blank" : undefined}
-                      rel={isAddress ? "noopener noreferrer" : undefined}
-                      aria-label={`Contact via ${item.title}`}
-                      className={`
+                      className="group inline-flex items-center text-gray-400 hover:text-white transition-all duration-300"
+                    >
+                      <span className="group-hover:translate-x-1 text-[15px] transition-transform duration-300">
+                        {item.name}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3 - Contact */}
+            <div>
+              <div className="inline-flex items-center gap-3 mb-6">
+                <h3 className="text-xl text-white">Contact</h3>
+              </div>
+
+              <div className="space-y-5">
+                {contactDetails.map((item, index) => {
+                  const IconComponent = item.icon;
+                  const isAddress = item.title === "Office Address";
+
+                  return (
+                    <div
+                      key={index}
+                      className={`flex ${isAddress ? "items-start gap-4" : "items-center gap-4"
+                        }`}
+                    >
+                      <a
+                        href={item.href}
+                        target={isAddress ? "_blank" : undefined}
+                        rel={isAddress ? "noopener noreferrer" : undefined}
+                        aria-label={`Contact via ${item.title}`}
+                        className={`
                     flex-shrink-0
                     w-11 h-11
                     rounded-full
@@ -219,15 +221,15 @@ export default function Footer() {
                     hover:scale-105
                     ${isAddress ? "mt-1" : ""}
                   `}
-                    >
-                      <IconComponent size={18} className="text-indigo-400" />
-                    </a>
+                      >
+                        <IconComponent size={18} className="text-indigo-400" />
+                      </a>
 
-                    <a
-                      href={item.href}
-                      target={isAddress ? "_blank" : undefined}
-                      rel={isAddress ? "noopener noreferrer" : undefined}
-                      className={`
+                      <a
+                        href={item.href}
+                        target={isAddress ? "_blank" : undefined}
+                        rel={isAddress ? "noopener noreferrer" : undefined}
+                        className={`
                     min-w-0
                     text-gray-300
                     text-[15px]
@@ -235,74 +237,75 @@ export default function Footer() {
                     transition-colors duration-300
                     ${isAddress ? "leading-7" : ""}
                   `}
-                    >
-                      {item.value}
-                    </a>
-                  </div>
-                );
-              })}
+                      >
+                        {item.value}
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Column 4 - Download App */}
+            <div>
+              <div className="inline-flex items-center gap-3 mb-6">
+                <h3 className="text-xl text-white">Download App</h3>
+              </div>
+              <p className="text-gray-400 leading-8 max-w-sm text-[15px] mb-8">
+                Experience Scan n Go on your mobile. Download the app for secure QR
+                access, instant notifications and seamless management.
+              </p>
+              <div className="flex flex-wrap items-center justify-start gap-4">
+                <a
+                  href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
+                  className="transition-transform duration-300 hover:scale-105"
+                >
+                  <Image
+                    src="/images/appstore.png"
+                    alt="Download on the App Store"
+                    width={150}
+                    height={45}
+                    className="h-[45px] w-auto object-contain"
+                  />
+                </a>
+
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.scc.global"
+                  className="transition-transform duration-300 hover:scale-105"
+                >
+                  <Image
+                    src="/images/googleplay.png"
+                    alt="Get it on Google Play"
+                    width={150}
+                    height={45}
+                    className="h-[45px] w-auto object-contain"
+                  />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Column 4 - Download App */}
-          <div>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <h3 className="text-xl text-white">Download App</h3>
-            </div>
-            <p className="text-gray-400 leading-8 max-w-sm text-[15px] mb-8">
-              Experience Scan n Go on your mobile. Download the app for secure QR
-              access, instant notifications and seamless management.
-            </p>
-            <div className="flex flex-wrap items-center justify-start gap-4">
-              <a
-                href="https://apps.apple.com/us/app/scan-n-go-easy-entry/id6502510648"
-                className="transition-transform duration-300 hover:scale-105"
-              >
-                <Image
-                  src="/images/appstore.png"
-                  alt="Download on the App Store"
-                  width={150}
-                  height={45}
-                  className="h-[45px] w-auto object-contain"
-                />
-              </a>
+          {/* Bottom Bar */}
+          <div className="mt-16 pt-6 border-t border-white/10">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-6">
+              <p className="text-sm text-gray-400 text-center lg:text-left">
+                © {new Date().getFullYear()}{" "}
+                <span className="font-semibold text-white">Scan n Go</span>. All Rights
+                Reserved.
+              </p>
 
-              <a
-                href="https://play.google.com/store/apps/details?id=com.scc.global"
-                className="transition-transform duration-300 hover:scale-105"
-              >
-                <Image
-                  src="/images/googleplay.png"
-                  alt="Get it on Google Play"
-                  width={150}
-                  height={45}
-                  className="h-[45px] w-auto object-contain"
-                />
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-8">
+                <Link
+                  href="/privacy-policy"
+                  className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Privacy Policy
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-6 border-t border-white/10">
-          <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-6">
-            <p className="text-sm text-gray-400 text-center lg:text-left">
-              © {new Date().getFullYear()}{" "}
-              <span className="font-semibold text-white">Scan n Go</span>. All Rights
-              Reserved.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-8">
-              <Link
-                href="/privacy-policy"
-                className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      </ScrollReveal>
     </footer>
   );
 }
