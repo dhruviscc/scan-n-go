@@ -45,6 +45,7 @@ import {
 import Image from "next/image";
 import { AnimatedBackground } from '@/components/ui/animated-background';
 import TestimonialsEditorial from '@/components/ui/editorial-testimonial';
+import { NumberTicker } from '@/components/ui/counter';
 interface FeatureCardProps {
   icon: React.ReactNode;
   iconBg: string;
@@ -1013,14 +1014,12 @@ export default function Home() {
 
 
       {/* ════════════════ SECTION 06 — MOBILE APP PREVIEW ════════════════ */}
-
-      <section
-        className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
+      <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
         style={{
-          background:
-            "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)",
-        }}
-      >
+          background: "linear-gradient(150deg,#f8f7ff 0%,#f0ebff 30%,#e4dcff 65%,#c8b6ff 100%)",
+        }}>
+
+
         {/* Dynamic Background Lights */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -right-[120px] -top-[80px] h-[320px] w-[320px] rounded-full bg-violet-400/20 blur-[90px] sm:-right-[10%] sm:-top-[10%] sm:h-[550px] sm:w-[550px]" />
@@ -1033,7 +1032,7 @@ export default function Home() {
         </div>
 
 
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-12">
+        <ScrollReveal className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-12">
 
 
           {/* Heading */}
@@ -1046,7 +1045,7 @@ export default function Home() {
             </h3>
 
 
-            <p className="mt-4 text-sm leading-6 text-slate-500 sm:text-base sm:leading-relaxed">
+            <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base sm:leading-relaxed">
               Keep check of historical visitors entries, manage emergency alerts,
               edit profiles details, or save your vehicle QR dashboard straight from
               our dashboard interface.
@@ -1055,17 +1054,27 @@ export default function Home() {
 
 
           {/* Main Content */}
-          <ScrollReveal className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="mx-auto grid max-w-8xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
 
 
-            {/* LEFT CONTENT */}
-            <div className="space-y-6 text-center lg:text-left">
-              <h4 className="text-2xl font-bold leading-tight text-slate-800 sm:text-3xl">
+            {/* ═══════════════ LEFT CONTENT ═══════════════ */}
+            <motion.div
+              className="flex flex-col items-center space-y-8 text-center lg:items-start lg:text-left"
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              {/* Title */}
+              <h4 className="text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
                 Scan n Go App Features Dashboard
               </h4>
 
 
-              {/* Feature Cards */}
+              {/* ═══════════════ FEATURE CARDS ═══════════════ */}
               <motion.div
                 className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8"
                 initial="hidden"
@@ -1114,7 +1123,7 @@ export default function Home() {
                 ].map((appFeat, i) => (
                   <motion.div
                     key={i}
-                    className="group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-white/30 bg-white/20 px-4 py-3.5 shadow-[0_8px_32px_rgba(31,38,135,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-violet-300/40 hover:bg-white/70 hover:shadow-[0_12px_40px_rgba(139,92,246,0.20)] sm:px-4 sm:py-4"
+                    className="group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-white/30 bg-white/20 px-4 py-3.5 shadow-[0_8px_32px_rgba(31,38,135,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-violet-300/40 hover:bg-white/70 hover:shadow-[0_12px_40px_rgba(139,92,246,0.20)] sm:px-3 sm:py-3"
                     variants={{
                       hidden: {
                         opacity: 0,
@@ -1149,37 +1158,117 @@ export default function Home() {
               </motion.div>
 
 
-              {/* Download Buttons */}
-              <div className="flex flex-wrap justify-center gap-3 pt-2 sm:gap-4 lg:justify-start">
-                {/* Google Play */}
+
+              {/* ═══════════════ DOWNLOAD BUTTONS ═══════════════ */}
+              <div className="flex flex-wrap justify-center gap-3 pt-2 sm:gap-10 lg:justify-start">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.scc.global"
-                  className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-95"
                 >
                   <img
                     src="/images/googleplay.png"
                     alt="Get it on Google Play"
-                    className="h-12 w-auto object-contain sm:h-14"
+                    className="h-11 w-auto object-contain sm:h-13"
                   />
                 </a>
 
 
-                {/* App Store */}
                 <a
                   href="https://apps.apple.com/us/app/Scan%20n%20Go%20-easy-entry/id6502510648"
-                  className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-95"
                 >
                   <img
                     src="/images/appstore.png"
                     alt="Download on the App Store"
-                    className="h-12 w-auto object-contain sm:h-14"
+                    className="h-11 w-auto object-contain sm:h-13"
                   />
                 </a>
               </div>
-            </div>
 
 
-            {/* RIGHT — MOBILE APP IMAGE */}
+              {/* ══════════ STATS COUNTER ROW (Unified + sign inside ticker) ═════════ */}
+              <motion.div
+                className="flex w-full items-center justify-around sm:justify-start sm:gap-8 border-t border-purple-200/60 pt-6"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2,
+                }}
+              >
+                {/* Downloads */}
+                <div className="text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start">
+                    <NumberTicker
+                      value={100}
+                      duration={1.5}
+
+                      startOnView
+                      suffix="+"
+                      className="text-3xl font-extrabold tracking-tight text-violet-600 sm:text-4xl"
+                    />
+                  </div>
+                  <p className="mt-1 text-sm font-semibold text-violet-500 sm:text-base">
+                    Downloads
+                  </p>
+                </div>
+
+
+                {/* Vertical Divider 1 */}
+                <div className="h-10 w-[2px] bg-purple-300/60 sm:mx-4" />
+
+
+                {/* Active Users */}
+                <div className="text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start">
+                    <NumberTicker
+                      value={75}
+                      duration={1.5}
+
+                      startOnView
+                      suffix="+"
+                      className="text-3xl font-extrabold tracking-tight text-violet-600 sm:text-4xl"
+                    />
+                  </div>
+                  <p className="mt-1 text-sm font-semibold text-violet-500 sm:text-base">
+                    Active Users
+                  </p>
+                </div>
+
+
+                {/* Vertical Divider 2 */}
+                <div className="h-10 w-[2px] bg-purple-300/60 sm:mx-4" />
+
+
+                {/* Partners */}
+                <div className="text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start">
+                    <NumberTicker
+                      value={20}
+                      duration={1.5}
+
+                      startOnView
+                      suffix="+"
+                      className="text-3xl font-extrabold tracking-tight text-violet-600 sm:text-4xl"
+                    />
+                  </div>
+                  <p className="mt-1 text-sm font-semibold text-violet-500 sm:text-base">
+                    Partners
+                  </p>
+                </div>
+
+
+              </motion.div>
+
+            </motion.div>
+
+
+            {/* ═══════════════ RIGHT — MOBILE APP IMAGE ═══════════════ */}
             <div
               className="
     relative flex w-full items-center justify-center
@@ -1209,10 +1298,15 @@ export default function Home() {
               />
             </div>
 
-
-          </ScrollReveal>
-        </div>
+          </div>
+        </ScrollReveal>
       </section>
+
+
+
+
+
+
 
 
 
