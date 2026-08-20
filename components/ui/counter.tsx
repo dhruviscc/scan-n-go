@@ -34,21 +34,17 @@ export function NumberTicker({
     amount: 0.5,
   });
 
-
   const [count, setCount] = useState(from);
-
 
   useEffect(() => {
     if (startOnView && !isInView) {
       return;
     }
 
-
     if (from >= value) {
       setCount(value);
       return;
     }
-
 
     let startTime: number | null = null;
     let animationFrame: number;
@@ -68,16 +64,11 @@ export function NumberTicker({
         1
       );
 
-
-
-
       const currentValue = Math.floor(
         from + (value - from) * progress
       );
 
-
       setCount(currentValue);
-
 
       if (progress < 1) {
         animationFrame =
@@ -87,11 +78,8 @@ export function NumberTicker({
       }
     };
 
-
     animationFrame =
       requestAnimationFrame(animateCount);
-
-
     return () => {
       cancelAnimationFrame(animationFrame);
     };
@@ -102,7 +90,6 @@ export function NumberTicker({
     startOnView,
     isInView,
   ]);
-
 
   return (
     <span
