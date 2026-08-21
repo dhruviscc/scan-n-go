@@ -21,15 +21,15 @@ const partnerSections = [
   {
     title: "Attendance Monitor System",
     description:
-      "Attendance Monitor System (AMS) is an Digital attendance management platform designed for businesses, healthcare organisations, and enterprises. It automates attendance tracking, monitors employee activities, and provides real-time insights across one or multiple branches from a centralized dashboard.",
+      "Attendance Monitor System (AMS) is a digital attendance platform for businesses, healthcare organisations, and enterprises. It helps manage employee attendance and view attendance information in real time from one or multiple branches.",
     body:
-      "Integrated with Scan n Go , AMS combines QR-based check-in with live scan verification to ensure every attendance record is authentic, secure, and accurately recorded.",
+      "Integrated with Scan n Go, AMS uses QR-based check-in to verify attendance and keep records accurate and secure. For employees working outside the workplace, GPS-based attendance helps verify their attendance based on their location.",
     features: [
       "QR-Based Attendance",
-      "Real-Time Attendance Tracking",
       "Employee Attendance History",
+      "GPS Attendance for Off-Site Employees",
+      "Real-Time Attendance Tracking",
       "Attendance Reports",
-      "Employee Communication",
       "Company & Branch Dashboard",
     ],
     icon: BarChart3,

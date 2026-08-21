@@ -1205,7 +1205,7 @@ export default function Home() {
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start">
                     <NumberTicker
-                      value={100}
+                      value={1016}
                       duration={1.5}
 
                       startOnView
@@ -1219,28 +1219,7 @@ export default function Home() {
                 </div>
 
 
-                {/* Vertical Divider 1 */}
-                <div className="h-10 w-[2px] bg-purple-300/60 sm:mx-4" />
-
-
-                {/* Active Users */}
-                <div className="text-center lg:text-left">
-                  <div className="flex items-center justify-center lg:justify-start">
-                    <NumberTicker
-                      value={75}
-                      duration={1.5}
-
-                      startOnView
-                      suffix="+"
-                      className="text-3xl font-extrabold tracking-tight text-violet-600 sm:text-4xl"
-                    />
-                  </div>
-                  <p className="mt-1 text-sm font-semibold text-violet-500 sm:text-base">
-                    Active Users
-                  </p>
-                </div>
-
-
+             
                 {/* Vertical Divider 2 */}
                 <div className="h-10 w-[2px] bg-purple-300/60 sm:mx-4" />
 
@@ -1249,7 +1228,7 @@ export default function Home() {
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start">
                     <NumberTicker
-                      value={20}
+                      value={21}
                       duration={1.5}
 
                       startOnView
@@ -1301,14 +1280,6 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
-
-
-
-
-
-
-
-
 
 
       {/* ════════════════ SECTION 07 — TESTIMONIALS ════════════════ */}

@@ -230,7 +230,14 @@ export default function Contact() {
                 {contactDetails.map(({ icon: Icon, title, value, href }) => (
                   <a key={title} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4 transition hover:-translate-y-0.5 hover:bg-white/[0.12]">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-400/20 text-violet-200"><Icon size={20} /></span>
-                    <span><span className="block text-xs font-semibold uppercase tracking-wider text-indigo-200/65">{title}</span><span className="mt-1 block text-sm font-semibold text-white sm:text-base">{value}</span></span>
+                    <span>
+                      <span className="block text-xs font-semibold uppercase tracking-wider text-indigo-200/65">
+                        {title}
+                      </span>
+                      <span className="mt-1 block text-sm font-semibold text-white sm:text-base">
+                        {value}
+                      </span>
+                    </span>
                   </a>
                 ))}
               </div>
@@ -295,5 +302,7 @@ export default function Contact() {
 }
 
 function Field({ label, name, type = "text", placeholder, required = false }: { label: string; name: string; type?: string; placeholder: string; required?: boolean }) {
-  return <label className="block text-sm font-bold text-slate-700">{label}<input name={name} type={type} placeholder={placeholder} required={required} className="mt-2 h-12 w-full rounded-xl border border-slate-200 px-4 text-sm font-normal text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-4 focus:ring-violet-100" /></label>;
+  return <label className="block text-sm font-bold text-slate-700">{label}
+    <input name={name} type={type} placeholder={placeholder} required={required} className="mt-2 h-12 w-full rounded-xl border border-slate-200 px-4 text-sm font-normal text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-4 focus:ring-violet-100" />
+  </label>;
 }
