@@ -19,10 +19,10 @@ const useCases = [
   {
     title: "Office & Staff Entry Management",
     description:
-      "Say goodbye to manual attendance. Scan n Go makes office entry and employee check-in/check-out. It is fast, secure, and completely digital with a simple QR scan.",
+      "Say goodbye to manual attendance. Scan n Go makes check-in/check-out fast, secure, and fully digital using a simple QR scan. It also supports GPS attendance for employees working outside the office.",
     icon: Briefcase,
     badge: "Office Video",
-    videoSrc: "/video/office.mp4",
+    videoSrc: "/video/office-1.mp4",
   },
   {
     title: "Vehicle Scanner System",
@@ -30,7 +30,7 @@ const useCases = [
       "Don't worry if a vehicle is parked incorrectly, blocked, or involved in an emergency. Just Scan n Go and instantly notify the vehicle owner with either a Normal or Emergency alert as you select an option.",
     icon: Car,
     badge: "Vehicle Video",
-    videoSrc: "/video/parking-1.mp4",
+    videoSrc: "/video/parking-2.mp4",
   },
   {
     title: "Residential / Apartment Entry",
@@ -38,7 +38,7 @@ const useCases = [
       "No more manual visitor registers or repeated security checks. With Scan n Go, simply scan the QR for fast, secure entry while residents receive instant notifications and every visit is recorded digitally.",
     icon: Home,
     badge: "Residential Video",
-    videoSrc: "/video/residental.mp4",
+    videoSrc: "/video/residental-1.mp4",
   },
 
   {
@@ -47,7 +47,7 @@ const useCases = [
       "No more waiting in long queues or remembering your token number. Just Scan n Go to join the digital queue instantly and receive live updates until it's your turn.",
     icon: Clock3,
     badge: "Queue Video",
-    videoSrc: "/video/queue.mp4",
+    videoSrc: "/video/queue-1.mp4",
   },
 
   {
@@ -56,7 +56,7 @@ const useCases = [
       "Make every event run smoothly with Scan n Go. Verify attendees instantly, speed up check-ins, and maintain accurate digital attendance records.",
     icon: Calendar,
     badge: "Event Video",
-    videoSrc: "/video/meeting.mp4",
+    videoSrc: "/video/meeting-1.mp4",
   },
   {
     title: "School & College Entry",
@@ -64,7 +64,7 @@ const useCases = [
       "Replace manual attendance with Scan n Go. Enable quick QR-based attendance, secure campus access, and seamless verification for students, staff, and visitors.",
     icon: UserCheck,
     badge: "Campus Video",
-    videoSrc: "/video/school.mp4",
+    videoSrc: "/video/school-1.mp4",
   },
   {
     title: "Networking System",
@@ -72,7 +72,7 @@ const useCases = [
       "Connect smarter with Scan n Go. Share your digital business card, contact details, and professional profile instantly with a single QR scan.",
     icon: Wifi,
     badge: "Networking Video",
-    videoSrc: "/video/contect.mp4",
+    videoSrc: "/video/contect-1.mp4",
   },
 ];
 

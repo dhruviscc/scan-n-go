@@ -38,10 +38,21 @@ const featureSections = [
     description:
       "Keep track of QR-based interactions with clear and accessible activity records.",
     icon: History,
-    imageSrc: "/images/instant-2.png",
+    imageSrc: "/images/instant-6.png",
     points: [
       "Scan Activity: Easily review your recent QR-based activities and interactions.",
       "Quick Reference: Access relevant activity details whenever you need to review previous scans.",
+    ],
+  },
+  {
+    title: "Vehicle QR Code",
+    description:
+      "Give every vehicle a dedicated QR code that makes it easy to notify the owner when attention is needed.",
+    icon: Car,
+    imageSrc: "/images/vehicle-qr-3.png",
+    points: [
+      "Emergency & Parking Notifications: Scan the vehicle QR, select the appropriate reason, and quickly notify the vehicle owner.",
+      "Manage Multiple Vehicles: Manage QR codes for multiple vehicles, with a unique QR assigned to each vehicle.",
     ],
   },
   {
@@ -55,28 +66,31 @@ const featureSections = [
       "Instant Contact Sharing: Let others scan your QR to quickly access and save your available contact details..",
     ],
   },
-  {
-    title: "Vehicle QR Code",
-    description:
-      "Give every vehicle a dedicated QR code that makes it easy to notify the owner when attention is needed.",
-    icon: Car,
-    imageSrc: "/images/vehicle-qr.png",
-    points: [
-      "Emergency & Parking Notifications: Scan the vehicle QR, select the appropriate reason, and quickly notify the vehicle owner.",
-      "Manage Multiple Vehicles: Manage QR codes for multiple vehicles, with a unique QR assigned to each vehicle.",
-    ],
-  },
+
   {
     title: "Quick Entry",
     description:
       "Enable Quick Entry for faster, secure QR-based check-ins with fewer steps.",
     icon: Zap,
-    imageSrc: "/images/quick-4.png",
+    imageSrc: "/images/quick-5.png",
     points: [
       "Quick Entry Mode: Turn on Quick Entry to let visitors scan the QR and enter instantly without manually entering their details.",
       "Flexible Entry Control: When Quick Entry is turned off, visitors must enter their name and mobile number before check-in, giving organizations greater control over visitor information.",
     ],
   },
+  {
+    title: "Queue QR",
+
+    description:
+      "Skip the physical wait by scanning a QR code to join digitally and track your turn in real-time.",
+    icon: Zap,
+    imageSrc: "/images/queue-2.png",
+    points: [
+      "Live Queue Tracking: Monitor the active queue from your phone without standing in line. View the currently serving number instantly and track your progress so you never miss your turn.",
+
+      "Instant Notification Alerts: Get notified on your device the moment your turn is up. Simply display your notification at the counter for a seamless, hassle-free notification.",
+    ],
+  }
 ];
 
 
