@@ -52,7 +52,7 @@ export async function POST(request: Request) {
 
     // Force Logout After 7 Days
     response.cookies.set(
-      "sdenterprise_session_expires",
+      "scanngo_session_expires",
       (
         Date.now() +
         SESSION_DAYS * 24 * 60 * 60 * 1000

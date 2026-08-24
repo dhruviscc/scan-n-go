@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-export const AUTH_COOKIE_NAME = "sdenterprise_access_token";
-export const REFRESH_COOKIE_NAME = "sdenterprise_refresh_token";
-export const SESSION_EXPIRES_COOKIE = "sdenterprise_session_expires";
+export const AUTH_COOKIE_NAME = "scanngo_access_token";
+export const REFRESH_COOKIE_NAME = "scanngo_refresh_token";
+export const SESSION_EXPIRES_COOKIE = "scanngo_session_expires";
 
 const SESSION_DAYS = 7;
 const SESSION_MAX_AGE = 60 * 60 * 24 * SESSION_DAYS;
