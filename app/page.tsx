@@ -64,6 +64,7 @@ const FeatureCard = ({ icon, iconBg, title, delay = "0s", className = "" }: Feat
   </div>
 );
 
+
 const usageItems: CardStackItem[] = [
   {
     id: "residential",
