@@ -80,6 +80,84 @@ body {
   font-family: var(--font-sans);
   scroll-behavior: smooth;
 }
+
+/* Cursor follow effect — native arrow stays visible */
+.custom-cursor-dot,
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  will-change: transform;
+}
+
+.custom-cursor-dot-inner,
+.custom-cursor-ring-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.18s ease,
+    width 0.22s ease,
+    height 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.custom-cursor-dot-inner {
+  width: 8px;
+  height: 8px;
+  background: #7c3aed;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.55);
+}
+
+.custom-cursor-ring-inner {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(124, 58, 237, 0.55);
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.custom-cursor-dot.is-visible,
+.custom-cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor-dot.is-hidden,
+.custom-cursor-ring.is-hidden {
+  opacity: 0;
+}
+
+.custom-cursor-dot.is-hover .custom-cursor-dot-inner {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.35);
+}
+
+.custom-cursor-ring.is-hover .custom-cursor-ring-inner {
+  width: 52px;
+  height: 52px;
+  background: rgba(124, 58, 237, 0.16);
+  border-color: rgba(109, 40, 217, 0.85);
+}
+
+.custom-cursor-dot.is-click .custom-cursor-dot-inner,
+.custom-cursor-ring.is-click .custom-cursor-ring-inner {
+  transform: translate(-50%, -50%) scale(0.82);
+}
+
+.custom-cursor-ring.is-click .custom-cursor-ring-inner {
+  background: rgba(124, 58, 237, 0.28);
+}
 @media (max-width: 1023px) {
   html,
   body {

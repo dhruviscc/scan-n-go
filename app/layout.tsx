@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 
 const geistSans = GeistSans({
@@ -32,7 +33,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased font-sans`}
     >
       <body className="min-h-full bg-white flex flex-col overflow-x-hidden font-sans">
-
+        <CustomCursor />
         <Header />
         <FloatingWhatsApp />
         <main className="flex-grow">
